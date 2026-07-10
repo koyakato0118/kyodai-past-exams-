@@ -1,6 +1,329 @@
 window.__PAST_EXAM_CONTENT__ = {
-  "generatedAt": "2026-07-10T04:44:09.400Z",
+  "generatedAt": "2026-07-10T05:20:20.981Z",
   "subjects": [
+    {
+      "name": "応用電磁気学",
+      "slug": "applied-electromagnetics",
+      "years": [
+        {
+          "year": 2024,
+          "teachers": [
+            "四竈泰一"
+          ],
+          "status": "completed",
+          "sourceFile": "応用電磁気学(四竃)2024.pdf",
+          "sourcePages": [
+            1,
+            2
+          ],
+          "problemAssets": [
+            "/exams/applied-electromagnetics/2024/page-1.webp",
+            "/exams/applied-electromagnetics/2024/page-2.webp"
+          ],
+          "localPdfUrl": "/pdfs/applied-electromagnetics/2024.pdf",
+          "sourceUrl": "https://drive.google.com/file/d/10LQ2H957-cAqFR5iaB9lHxRAU4Qcch06/edit",
+          "pdfSourceFile": "応用電磁気学(四竃)2024.pdf",
+          "introMarkdown": "> [!NOTE]\n> Webサイトでは問題文を元PDFどおりに表示し、解説とは別の領域に配置する。各ページに「PDFをブラウザで開く」と「元サイトで開く」のリンクを設置する。\n\n\n## 1. マクスウェル方程式\n\n一様な導体中で、自由電荷密度を0とした場合、\n\n\\[\n\\nabla\\cdot\\boldsymbol E=0,\n\\qquad\n\\nabla\\cdot\\boldsymbol B=0\n\\]\n\n\\[\n\\nabla\\times\\boldsymbol E\n=\n-\\frac{\\partial\\boldsymbol B}{\\partial t}\n\\]\n\n\\[\n\\nabla\\times\\boldsymbol B\n=\n\\mu\\sigma\\boldsymbol E\n+\n\\mu\\epsilon\n\\frac{\\partial\\boldsymbol E}{\\partial t}\n\\]\n\nを用いる。\n\nここで、\n\n- \\(\\epsilon\\)：導体の誘電率\n- \\(\\mu\\)：導体の透磁率\n- \\(\\sigma\\)：電気伝導率\n\nである。\n\n## 2. ベクトル恒等式\n\n任意のベクトル場 \\(\\boldsymbol A\\) に対して、\n\n\\[\n\\boxed{\n\\nabla\\times(\\nabla\\times\\boldsymbol A)\n=\n\\nabla(\\nabla\\cdot\\boldsymbol A)\n-\\nabla^2\\boldsymbol A\n}\n\\]\n\nが成り立つ。\n\n## 3. 複素表示\n\n実際の電場を複素数で表し、最後に実部を取る。\n\n\\[\n\\boldsymbol E(\\boldsymbol x,t)\n=\n\\operatorname{Re}\n\\left[\n\\widetilde{\\boldsymbol E}(\\boldsymbol x,t)\n\\right].\n\\]\n\n例えば、\n\n\\[\n\\widetilde{\\boldsymbol E}\n=\n\\boldsymbol E_0 e^{i(kz-\\omega t)}\n\\]\n\nと置けば、微分を掛け算へ変えられる。\n\n\\[\n\\frac{\\partial}{\\partial z}\\longleftrightarrow ik,\n\\qquad\n\\frac{\\partial}{\\partial t}\\longleftrightarrow-i\\omega.\n\\]\n\n## 4. 位相速度と群速度\n\n位相速度は、\n\n\\[\n\\boxed{v_{\\mathrm p}=\\frac{\\omega}{k}}\n\\]\n\n群速度は、\n\n\\[\n\\boxed{v_{\\mathrm g}=\\frac{d\\omega}{dk}}\n\\]\n\nである。\n\n- 位相速度：同じ位相の点が進む速度\n- 群速度：波束やエネルギーが伝わる速度\n\n## 5. 屈折率と誘電率\n\n非磁性体で \\(\\mu_r\\simeq1\\) の場合、\n\n\\[\n\\boxed{n^2\\simeq\\epsilon_r}\n\\]\n\nである。\n\n吸収がある場合は \\(\\epsilon_r\\) と \\(n\\) は複素数となるが、透明領域では実部を中心に考えられる。\n\n---\n\n\n## 問題文（原文）\n\n:::problem-original\n以下の式で表される、導体中の \\(xyz\\) 座標系のマクスウェル方程式を考える。\n\n\\[\n\\nabla\\cdot\\boldsymbol E(\\boldsymbol x,t)=0\n\\tag{1}\n\\]\n\n\\[\n\\nabla\\cdot\\boldsymbol B(\\boldsymbol x,t)=0\n\\tag{2}\n\\]\n\n\\[\n\\nabla\\times\\boldsymbol E(\\boldsymbol x,t)\n=\n-\\frac{\\partial\\boldsymbol B(\\boldsymbol x,t)}{\\partial t}\n\\tag{3}\n\\]\n\n\\[\n\\nabla\\times\\boldsymbol B(\\boldsymbol x,t)\n=\n\\mu\\sigma\\boldsymbol E(\\boldsymbol x,t)\n+\n\\mu\\epsilon\n\\frac{\\partial\\boldsymbol E(\\boldsymbol x,t)}{\\partial t}\n\\tag{4}\n\\]\n\nここで、\n\n\\[\n\\boldsymbol x=(x,y,z)^T\n\\]\n\nであり、\\(\\boldsymbol E,\\boldsymbol B\\) は、それぞれ、電場、磁場ベクトルを表す。また、\\(\\epsilon,\\mu,\\sigma\\) は、それぞれ導体の誘電率、透磁率、電気伝導率で全て実数とする。\n\nこのマクスウェル方程式の解のうち、電場が次の式で表される電磁波を考える。\n\n\\[\n\\boldsymbol E(\\boldsymbol x,t)\n=\n\\boldsymbol E_0e^{-\\beta z}\n\\cos(\\alpha z-\\omega t),\n\\qquad\n\\boldsymbol E_0\n=\n\\frac1{\\sqrt2}\n\\begin{pmatrix}\n1\\\\\n-1\\\\\n0\n\\end{pmatrix}\n\\tag{5}\n\\]\n\nここで、\\(\\alpha,\\beta\\) は正の実数とする。以下の問いに答えよ。\n\n1-1. 電場が式 (5) で表される電磁波がどのような偏光かを説明せよ。\n\n1-2. \\(k=\\alpha+i\\beta\\) とするとき、式 (5) を \\(k\\) を用いた複素表示で表せ。\n\n1-3. マクスウェル方程式を変形し、\\(\\boldsymbol E(\\boldsymbol x,t)\\) の波動方程式を導け。\n\n1-4. 分散関係式（\\(\\alpha,\\beta\\) と \\(\\omega\\) の関係式）は2つの式で表せる。これらの式を求めよ。\n\n1-5. 磁場 \\(\\boldsymbol B(\\boldsymbol x,t)\\) の式を \\(\\alpha,\\beta\\) を用いて表せ。\n:::\n\n:::problem-asset\nsrc: /exams/applied-electromagnetics/2024/page-1.webp\nalt: 応用電磁気学 2024年度 問題1の原本\n:::\n\n---",
+          "questions": [
+            {
+              "id": "q1-1",
+              "label": "Q1-1",
+              "title": "電磁波の偏光",
+              "markdown": "### 波の進行方向\n\n位相が一定の点を考える。\n\n\\[\n\\alpha z-\\omega t=\\text{一定}.\n\\]\n\nこれを \\(z\\) について解くと、\n\n\\[\nz=\\frac{\\omega}{\\alpha}t+\\text{一定}.\n\\]\n\n時間が増えると \\(z\\) が増えるため、この波は\n\n\\[\n\\boxed{+z\\text{ 方向へ進む}}\n\\]\n\nことが分かる。\n\n### 電場の向き\n\n電場は常に、\n\n\\[\n\\boldsymbol E_0\n=\n\\frac1{\\sqrt2}\n\\begin{pmatrix}\n1\\\\\n-1\\\\\n0\n\\end{pmatrix}\n\\]\n\nと同じ向きを向く。\n\nしたがって、\n\n\\[\nE_y=-E_x,\n\\qquad\nE_z=0.\n\\]\n\n電場ベクトルの先端は、時間が経過しても回転せず、\\(xy\\) 平面内の1本の直線上を往復する。\n\n### 最終解答\n\n\\[\n\\boxed{\\text{直線偏光}}\n\\]\n\nであり、偏光方向は\n\n\\[\n\\boxed{\n\\frac1{\\sqrt2}\n(\\boldsymbol e_x-\\boldsymbol e_y)\n}\n\\]\n\nである。\n\nすなわち、\\(xy\\) 平面内で \\(+x\\) 軸から \\(-y\\) 方向へ45度傾いた方向の直線偏光である。\n\nまた、振幅は\n\n\\[\ne^{-\\beta z}\n\\]\n\nに従って \\(+z\\) 方向へ進むにつれて減衰する。\n\n:::why title=\"円偏光や楕円偏光ではないの？\"\n円偏光や楕円偏光では、x成分とy成分の間に位相差があり、電場ベクトルの向きが時間とともに回転する。この問題では両成分が同じ \\(\\cos(\\alpha z-\\omega t)\\) を持つため、向きが固定されている。\n:::\n\n### 試験答案\n\n\\[\nE_y=-E_x,\\qquad E_z=0\n\\]\n\nであり、x成分とy成分の位相差は0である。したがって、電場ベクトルは\n\n\\[\n\\frac1{\\sqrt2}(1,-1,0)^T\n\\]\n\nの方向を往復する。\n\nよって、これは \\(xy\\) 平面内の直線偏光である。\n\n---",
+              "major": "1",
+              "why": [
+                {
+                  "title": "円偏光や楕円偏光ではないの？",
+                  "markdown": "円偏光や楕円偏光では、x成分とy成分の間に位相差があり、電場ベクトルの向きが時間とともに回転する。この問題では両成分が同じ \\(\\cos(\\alpha z-\\omega t)\\) を持つため、向きが固定されている。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": true,
+              "hasExamAnswer": true
+            },
+            {
+              "id": "q1-2",
+              "label": "Q1-2",
+              "title": "減衰波の複素表示",
+              "markdown": "### 解法方針\n\n\\[\nk=\\alpha+i\\beta\n\\]\n\nとすると、\n\n\\[\nikz=i\\alpha z-\\beta z.\n\\]\n\nしたがって、\n\n\\[\ne^{i(kz-\\omega t)}\n=\ne^{-\\beta z}\ne^{i(\\alpha z-\\omega t)}.\n\\]\n\nこの実部を取れば、\n\n\\[\ne^{-\\beta z}\\cos(\\alpha z-\\omega t)\n\\]\n\nが得られる。\n\n### 最終解答\n\n複素電場を、\n\n\\[\n\\boxed{\n\\widetilde{\\boldsymbol E}(\\boldsymbol x,t)\n=\n\\boldsymbol E_0\ne^{i(kz-\\omega t)}\n}\n\\]\n\nと置けば、\n\n\\[\n\\boxed{\n\\boldsymbol E(\\boldsymbol x,t)\n=\n\\operatorname{Re}\n\\left[\n\\boldsymbol E_0\ne^{i(kz-\\omega t)}\n\\right]\n}\n\\]\n\nである。\n\n:::why title=\"なぜ k=α+iβ で減衰を表せるの？\"\n指数の中で \\(ikz=i\\alpha z-\\beta z\\) となるため、実部 \\(\\alpha\\) は位相の進行を、虚部 \\(\\beta\\) は振幅の指数減衰を表す。\n:::\n\n### 重要ポイント\n\n- この符号規約では \\(e^{i(kz-\\omega t)}\\) を用いる。\n- \\(k=\\alpha+i\\beta\\) なので、\\(\\beta>0\\) なら \\(+z\\) 方向へ減衰する。\n\n---",
+              "major": "1",
+              "why": [
+                {
+                  "title": "なぜ k=α+iβ で減衰を表せるの？",
+                  "markdown": "指数の中で \\(ikz=i\\alpha z-\\beta z\\) となるため、実部 \\(\\alpha\\) は位相の進行を、虚部 \\(\\beta\\) は振幅の指数減衰を表す。"
+                }
+              ],
+              "importantPoints": [
+                "この符号規約では \\(e^{i(kz-\\omega t)}\\) を用いる。",
+                "\\(k=\\alpha+i\\beta\\) なので、\\(\\beta>0\\) なら \\(+z\\) 方向へ減衰する。"
+              ],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": true,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q1-3",
+              "label": "Q1-3",
+              "title": "導体中の電場の波動方程式",
+              "markdown": "### Step 1：Faradayの法則の両辺に curl を取る\n\n\\[\n\\nabla\\times\\boldsymbol E\n=\n-\\frac{\\partial\\boldsymbol B}{\\partial t}.\n\\]\n\n両辺に \\(\\nabla\\times\\) を作用させる。\n\n\\[\n\\nabla\\times\n(\\nabla\\times\\boldsymbol E)\n=\n-\\frac{\\partial}{\\partial t}\n(\\nabla\\times\\boldsymbol B).\n\\]\n\n### Step 2：左辺をベクトル恒等式で変形する\n\n\\[\n\\nabla\\times\n(\\nabla\\times\\boldsymbol E)\n=\n\\nabla(\\nabla\\cdot\\boldsymbol E)\n-\\nabla^2\\boldsymbol E.\n\\]\n\n\\[\n\\nabla\\cdot\\boldsymbol E=0\n\\]\n\nなので、\n\n\\[\n\\nabla\\times\n(\\nabla\\times\\boldsymbol E)\n=\n-\\nabla^2\\boldsymbol E.\n\\]\n\n### Step 3：右辺へAmpère-Maxwellの法則を代入する\n\n\\[\n\\nabla\\times\\boldsymbol B\n=\n\\mu\\sigma\\boldsymbol E\n+\n\\mu\\epsilon\n\\frac{\\partial\\boldsymbol E}{\\partial t}.\n\\]\n\nしたがって、\n\n\\[\n-\\frac{\\partial}{\\partial t}\n(\\nabla\\times\\boldsymbol B)\n=\n-\\mu\\sigma\n\\frac{\\partial\\boldsymbol E}{\\partial t}\n-\\mu\\epsilon\n\\frac{\\partial^2\\boldsymbol E}{\\partial t^2}.\n\\]\n\n### Step 4：両辺を整理する\n\n\\[\n-\\nabla^2\\boldsymbol E\n=\n-\\mu\\sigma\n\\frac{\\partial\\boldsymbol E}{\\partial t}\n-\\mu\\epsilon\n\\frac{\\partial^2\\boldsymbol E}{\\partial t^2}.\n\\]\n\n両辺へ \\(-1\\) を掛けると、\n\n### 最終解答\n\n\\[\n\\boxed{\n\\nabla^2\\boldsymbol E\n=\n\\mu\\sigma\n\\frac{\\partial\\boldsymbol E}{\\partial t}\n+\n\\mu\\epsilon\n\\frac{\\partial^2\\boldsymbol E}{\\partial t^2}\n}\n\\]\n\nまたは、\n\n\\[\n\\boxed{\n\\nabla^2\\boldsymbol E\n-\\mu\\epsilon\n\\frac{\\partial^2\\boldsymbol E}{\\partial t^2}\n-\\mu\\sigma\n\\frac{\\partial\\boldsymbol E}{\\partial t}\n=0\n}\n\\]\n\nである。\n\n:::why title=\"真空中の波動方程式と何が違うの？\"\n導体では電流密度 \\(\\boldsymbol J=\\sigma\\boldsymbol E\\) が生じる。そのため、波動方程式に1階時間微分の項 \\(\\mu\\sigma\\partial_t\\boldsymbol E\\) が加わり、電磁波のエネルギーがジュール熱として失われて減衰する。\n:::\n\n### 試験答案\n\n\\[\n\\nabla\\times(\\nabla\\times\\boldsymbol E)\n=\n-\\frac{\\partial}{\\partial t}\n(\\nabla\\times\\boldsymbol B).\n\\]\n\n\\[\n\\nabla\\times(\\nabla\\times\\boldsymbol E)\n=\n\\nabla(\\nabla\\cdot\\boldsymbol E)-\\nabla^2\\boldsymbol E\n=\n-\\nabla^2\\boldsymbol E.\n\\]\n\n一方、\n\n\\[\n-\\partial_t(\\nabla\\times\\boldsymbol B)\n=\n-\\mu\\sigma\\partial_t\\boldsymbol E\n-\\mu\\epsilon\\partial_t^2\\boldsymbol E.\n\\]\n\nよって、\n\n\\[\n\\boxed{\n\\nabla^2\\boldsymbol E\n=\n\\mu\\sigma\\partial_t\\boldsymbol E\n+\\mu\\epsilon\\partial_t^2\\boldsymbol E\n}.\n\\]\n\n---",
+              "major": "1",
+              "why": [
+                {
+                  "title": "真空中の波動方程式と何が違うの？",
+                  "markdown": "導体では電流密度 \\(\\boldsymbol J=\\sigma\\boldsymbol E\\) が生じる。そのため、波動方程式に1階時間微分の項 \\(\\mu\\sigma\\partial_t\\boldsymbol E\\) が加わり、電磁波のエネルギーがジュール熱として失われて減衰する。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": true,
+              "hasExamAnswer": true
+            },
+            {
+              "id": "q1-4",
+              "label": "Q1-4",
+              "title": "導体中の分散関係",
+              "markdown": "### 複素電場を波動方程式へ代入する\n\n\\[\n\\widetilde{\\boldsymbol E}\n=\n\\boldsymbol E_0\ne^{i(kz-\\omega t)}.\n\\]\n\nz方向だけに依存するため、\n\n\\[\n\\nabla^2\\widetilde{\\boldsymbol E}\n=\n\\frac{\\partial^2\\widetilde{\\boldsymbol E}}{\\partial z^2}\n=\n-k^2\\widetilde{\\boldsymbol E}.\n\\]\n\nまた、\n\n\\[\n\\frac{\\partial\\widetilde{\\boldsymbol E}}{\\partial t}\n=\n-i\\omega\\widetilde{\\boldsymbol E}\n\\]\n\n\\[\n\\frac{\\partial^2\\widetilde{\\boldsymbol E}}{\\partial t^2}\n=\n-\\omega^2\\widetilde{\\boldsymbol E}.\n\\]\n\n波動方程式へ代入すると、\n\n\\[\n-k^2\\widetilde{\\boldsymbol E}\n=\n-i\\mu\\sigma\\omega\\widetilde{\\boldsymbol E}\n-\\mu\\epsilon\\omega^2\\widetilde{\\boldsymbol E}.\n\\]\n\nしたがって、\n\n\\[\n\\boxed{\nk^2\n=\n\\mu\\epsilon\\omega^2+i\\mu\\sigma\\omega\n}\n\\]\n\nである。\n\n### \\(k=\\alpha+i\\beta\\) を代入する\n\n\\[\nk^2\n=\n(\\alpha+i\\beta)^2\n=\n\\alpha^2-\\beta^2+2i\\alpha\\beta.\n\\]\n\n一方、\n\n\\[\n\\mu\\epsilon\\omega^2+i\\mu\\sigma\\omega\n\\]\n\nの実部と虚部を比較する。\n\n### 最終解答\n\n\\[\n\\boxed{\n\\alpha^2-\\beta^2\n=\n\\mu\\epsilon\\omega^2\n}\n\\]\n\n\\[\n\\boxed{\n2\\alpha\\beta\n=\n\\mu\\sigma\\omega\n}\n\\]\n\nである。\n\n:::why title=\"なぜ実部と虚部を別々に比較できるの？\"\n複素数 \\(a+ib=c+id\\) が等しいためには、実部 \\(a=c\\) と虚部 \\(b=d\\) がそれぞれ等しくなければならないからである。\n:::\n\n### 参考：\\(\\alpha,\\beta\\) を解いた形\n\n2式から、\n\n\\[\n\\alpha^2+\\beta^2\n=\n\\mu\\omega\n\\sqrt{\\epsilon^2\\omega^2+\\sigma^2}.\n\\]\n\nしたがって、\n\n\\[\n\\boxed{\n\\alpha\n=\n\\omega\n\\sqrt{\n\\frac{\\mu\\epsilon}{2}\n\\left[\n\\sqrt{\n1+\n\\left(\n\\frac{\\sigma}{\\epsilon\\omega}\n\\right)^2\n}\n+1\n\\right]\n}\n}\n\\]\n\n\\[\n\\boxed{\n\\beta\n=\n\\omega\n\\sqrt{\n\\frac{\\mu\\epsilon}{2}\n\\left[\n\\sqrt{\n1+\n\\left(\n\\frac{\\sigma}{\\epsilon\\omega}\n\\right)^2\n}\n-1\n\\right]\n}\n}\n\\]\n\nである。\n\n---",
+              "major": "1",
+              "why": [
+                {
+                  "title": "なぜ実部と虚部を別々に比較できるの？",
+                  "markdown": "複素数 \\(a+ib=c+id\\) が等しいためには、実部 \\(a=c\\) と虚部 \\(b=d\\) がそれぞれ等しくなければならないからである。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": true,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q1-5",
+              "label": "Q1-5",
+              "title": "磁場の導出",
+              "markdown": "### 複素表示で求める\n\nFaradayの法則は、\n\n\\[\n\\nabla\\times\\widetilde{\\boldsymbol E}\n=\n-\\frac{\\partial\\widetilde{\\boldsymbol B}}{\\partial t}.\n\\]\n\n平面波では、\n\n\\[\n\\nabla\\times\\widetilde{\\boldsymbol E}\n=\nik\\boldsymbol e_z\n\\times\n\\widetilde{\\boldsymbol E}.\n\\]\n\nまた、\n\n\\[\n-\\frac{\\partial\\widetilde{\\boldsymbol B}}{\\partial t}\n=\ni\\omega\\widetilde{\\boldsymbol B}.\n\\]\n\nしたがって、\n\n\\[\nik\\boldsymbol e_z\n\\times\n\\widetilde{\\boldsymbol E}\n=\ni\\omega\\widetilde{\\boldsymbol B}.\n\\]\n\nよって、\n\n\\[\n\\boxed{\n\\widetilde{\\boldsymbol B}\n=\n\\frac{k}{\\omega}\n\\boldsymbol e_z\n\\times\n\\widetilde{\\boldsymbol E}\n}\n\\]\n\nである。\n\n### 偏光方向を計算する\n\n\\[\n\\boldsymbol e_z\n\\times\n\\boldsymbol E_0\n=\n\\frac1{\\sqrt2}\n\\begin{pmatrix}\n1\\\\\n1\\\\\n0\n\\end{pmatrix}.\n\\]\n\nしたがって、\n\n\\[\n\\widetilde{\\boldsymbol B}\n=\n\\frac{\\alpha+i\\beta}{\\omega}\n\\frac1{\\sqrt2}\n\\begin{pmatrix}\n1\\\\\n1\\\\\n0\n\\end{pmatrix}\ne^{-\\beta z}\ne^{i(\\alpha z-\\omega t)}.\n\\]\n\n実部を取る。\n\n\\[\n\\operatorname{Re}\n\\left[\n(\\alpha+i\\beta)\ne^{i\\phi}\n\\right]\n=\n\\alpha\\cos\\phi-\\beta\\sin\\phi\n\\]\n\nただし、\n\n\\[\n\\phi=\\alpha z-\\omega t.\n\\]\n\n### 最終解答\n\n\\[\n\\boxed{\n\\boldsymbol B(\\boldsymbol x,t)\n=\n\\frac{e^{-\\beta z}}{\\sqrt2\\,\\omega}\n\\begin{pmatrix}\n1\\\\\n1\\\\\n0\n\\end{pmatrix}\n\\left[\n\\alpha\\cos(\\alpha z-\\omega t)\n-\n\\beta\\sin(\\alpha z-\\omega t)\n\\right]\n}\n\\]\n\nである。\n\n別の表現として、\n\n\\[\n\\delta=\\tan^{-1}\\left(\\frac{\\beta}{\\alpha}\\right)\n\\]\n\nと置けば、\n\n\\[\n\\boxed{\n\\boldsymbol B\n=\n\\frac{\\sqrt{\\alpha^2+\\beta^2}}{\\sqrt2\\,\\omega}\ne^{-\\beta z}\n\\begin{pmatrix}\n1\\\\\n1\\\\\n0\n\\end{pmatrix}\n\\cos(\\alpha z-\\omega t+\\delta)\n}\n\\]\n\nとも書ける。\n\n### 向きの確認\n\n\\[\n\\boldsymbol E_0\n\\cdot\n\\begin{pmatrix}\n1\\\\\n1\\\\\n0\n\\end{pmatrix}\n=0.\n\\]\n\nしたがって、電場と磁場は互いに直交する。\n\nまた、\n\n\\[\n\\boldsymbol E_0\n\\times\n\\left[\n\\frac1{\\sqrt2}\n\\begin{pmatrix}\n1\\\\\n1\\\\\n0\n\\end{pmatrix}\n\\right]\n=\n\\boldsymbol e_z.\n\\]\n\nよって、エネルギーの流れる向きは \\(+z\\) 方向である。\n\n:::why title=\"導体中では E と B に位相差があるの？\"\n複素波数 \\(k=\\alpha+i\\beta\\) が磁場の係数に掛かるため、磁場には余弦項だけでなく正弦項も現れる。これは導体中で電場と磁場の位相が完全には一致しないことを表す。\n:::\n\n---\n\n# 問題2 ベクトル解析・導波管・正常分散\n\n## 問題文（原文）\n\n:::problem-original\n以下の問いに答えよ。\n\n2-1. \\(\\boldsymbol x,\\boldsymbol x'\\;(\\boldsymbol x\\ne\\boldsymbol x')\\) を \\(xyz\\) 座標系の位置ベクトルとするとき、以下の式が成り立つことを示せ。ただし、\\(\\nabla'\\) は \\(\\boldsymbol x'\\) についての微分を表す。\n\n\\[\n\\frac{\\boldsymbol x-\\boldsymbol x'}\n{|\\boldsymbol x-\\boldsymbol x'|^3}\n=\n\\nabla'\n\\left(\n\\frac1{|\\boldsymbol x-\\boldsymbol x'|}\n\\right)\n\\tag{6}\n\\]\n\n2-2. \\(z\\) 方向に無限に長く、内部が真空の矩形導波管について、TEモード電磁波の分散関係式は以下の式で表せる。\n\n\\[\nk^2\n=\n\\mu_0\\epsilon_0\n(\\omega^2-\\omega_c^2)\n\\tag{7}\n\\]\n\nここで、\\(k\\) は波数の \\(z\\) 成分、\\(\\omega_c\\) は遮断角周波数である。この電磁波の位相速度と群速度の式を書き、光速 \\(c\\) との大小関係を説明せよ。\n\n2-3. 以下のローレンツモデルの比誘電率の式を用いて、誘電体の屈折率が正常分散になる場合の、屈折率の (1) 電磁波の角周波数、(2) 誘電体の密度、に対する依存性を説明せよ。\n\n\\[\n\\frac{\\epsilon(\\omega)}{\\epsilon_0}\n=\n1+\n\\frac{Ne^2}{m_e\\epsilon_0}\n\\left(\n\\frac{f}\n{\\omega_0^2-\\omega^2-i\\gamma\\omega}\n\\right)\n\\tag{8}\n\\]\n\nここで、\\(N\\) は電子の数密度、\\(e\\) は素電荷、\\(m_e\\) は電子の質量、\\(\\omega_0\\) は電子の固有角周波数の1つ、\\(f\\) は \\(\\omega_0\\) を持つ電子の割合、\\(\\gamma\\) は摩擦係数で正の実数である。\n:::\n\n:::problem-asset\nsrc: /exams/applied-electromagnetics/2024/page-2.webp\nalt: 応用電磁気学 2024年度 問題2の原本\n:::\n\n---",
+              "major": "1",
+              "why": [
+                {
+                  "title": "導体中では E と B に位相差があるの？",
+                  "markdown": "複素波数 \\(k=\\alpha+i\\beta\\) が磁場の係数に掛かるため、磁場には余弦項だけでなく正弦項も現れる。これは導体中で電場と磁場の位相が完全には一致しないことを表す。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": true,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q2-1",
+              "label": "Q2-1",
+              "title": "クーロン核の勾配",
+              "markdown": "### 解法方針\n\n差のベクトルを、\n\n\\[\n\\boldsymbol r\n=\n\\boldsymbol x-\\boldsymbol x'\n\\]\n\nと置く。\n\n\\[\nr=|\\boldsymbol r|\n=\n|\\boldsymbol x-\\boldsymbol x'|.\n\\]\n\nただし、微分は \\(\\boldsymbol x'\\) について行う。\n\n### 成分表示\n\n\\[\nr\n=\n\\sqrt{\n(x-x')^2+\n(y-y')^2+\n(z-z')^2\n}.\n\\]\n\nまずx'成分を計算する。\n\n\\[\n\\frac{\\partial}{\\partial x'}\n\\left(\n\\frac1r\n\\right)\n=\n-\\frac1{r^2}\n\\frac{\\partial r}{\\partial x'}.\n\\]\n\n\\[\n\\frac{\\partial r}{\\partial x'}\n=\n\\frac{x'-x}{r}.\n\\]\n\nしたがって、\n\n\\[\n\\frac{\\partial}{\\partial x'}\n\\left(\n\\frac1r\n\\right)\n=\n-\\frac1{r^2}\n\\frac{x'-x}{r}\n=\n\\frac{x-x'}{r^3}.\n\\]\n\n同様に、\n\n\\[\n\\frac{\\partial}{\\partial y'}\n\\left(\n\\frac1r\n\\right)\n=\n\\frac{y-y'}{r^3}\n\\]\n\n\\[\n\\frac{\\partial}{\\partial z'}\n\\left(\n\\frac1r\n\\right)\n=\n\\frac{z-z'}{r^3}.\n\\]\n\nよって、\n\n### 最終解答\n\n\\[\n\\boxed{\n\\nabla'\n\\left(\n\\frac1{|\\boldsymbol x-\\boldsymbol x'|}\n\\right)\n=\n\\frac{\\boldsymbol x-\\boldsymbol x'}\n{|\\boldsymbol x-\\boldsymbol x'|^3}\n}\n\\]\n\nである。\n\n:::why title=\"x で微分するときと符号が逆になるの？\"\n\\(\\boldsymbol x-\\boldsymbol x'\\) は、\\(\\boldsymbol x'\\) で微分すると \\(-1\\) が出る。さらに \\(1/r\\) の微分でも \\(-1\\) が出るため、2つの負号が打ち消し合って正になる。\n:::\n\n### 比較\n\n\\(\\boldsymbol x\\) について微分する場合は、\n\n\\[\n\\nabla\n\\left(\n\\frac1{|\\boldsymbol x-\\boldsymbol x'|}\n\\right)\n=\n-\\frac{\\boldsymbol x-\\boldsymbol x'}\n{|\\boldsymbol x-\\boldsymbol x'|^3}.\n\\]\n\nしたがって、\n\n\\[\n\\nabla'=-\\nabla\n\\]\n\nの関係が見える。\n\n---",
+              "major": "2",
+              "why": [
+                {
+                  "title": "x で微分するときと符号が逆になるの？",
+                  "markdown": "\\(\\boldsymbol x-\\boldsymbol x'\\) は、\\(\\boldsymbol x'\\) で微分すると \\(-1\\) が出る。さらに \\(1/r\\) の微分でも \\(-1\\) が出るため、2つの負号が打ち消し合って正になる。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": true,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q2-2",
+              "label": "Q2-2",
+              "title": "矩形導波管の位相速度と群速度",
+              "markdown": "### 分散関係式を光速で書く\n\n真空中では、\n\n\\[\n\\mu_0\\epsilon_0=\\frac1{c^2}.\n\\]\n\nしたがって、\n\n\\[\nk^2\n=\n\\frac1{c^2}\n(\\omega^2-\\omega_c^2).\n\\]\n\n伝搬するためには、\n\n\\[\n\\omega>\\omega_c\n\\]\n\nが必要である。\n\n\\[\n\\boxed{\nk\n=\n\\frac1c\n\\sqrt{\\omega^2-\\omega_c^2}\n}\n\\]\n\nである。\n\n### 位相速度\n\n\\[\nv_{\\mathrm p}\n=\n\\frac{\\omega}{k}.\n\\]\n\nしたがって、\n\n\\[\nv_{\\mathrm p}\n=\n\\frac{c\\omega}\n{\\sqrt{\\omega^2-\\omega_c^2}}.\n\\]\n\n\\[\n\\boxed{\nv_{\\mathrm p}\n=\n\\frac{c}\n{\\sqrt{\n1-(\\omega_c/\\omega)^2\n}}\n}\n\\]\n\nである。\n\n\\[\n0<\n1-\\left(\\frac{\\omega_c}{\\omega}\\right)^2\n<1\n\\]\n\nなので、\n\n\\[\n\\boxed{v_{\\mathrm p}>c}.\n\\]\n\n:::why title=\"位相速度が光速を超えても相対論に反しないの？\"\n位相速度は波の山や谷の位置が進む速度であり、情報やエネルギーそのものの伝搬速度ではない。情報伝達に関係する群速度は光速未満になる。\n:::\n\n### 群速度\n\n分散関係を、\n\n\\[\n\\omega^2=c^2k^2+\\omega_c^2\n\\]\n\nと書く。\n\n両辺を \\(k\\) で微分する。\n\n\\[\n2\\omega\\frac{d\\omega}{dk}\n=\n2c^2k.\n\\]\n\nしたがって、\n\n\\[\nv_{\\mathrm g}\n=\n\\frac{d\\omega}{dk}\n=\n\\frac{c^2k}{\\omega}.\n\\]\n\n\\(k\\) を代入すると、\n\n\\[\n\\boxed{\nv_{\\mathrm g}\n=\nc\n\\sqrt{\n1-\\left(\n\\frac{\\omega_c}{\\omega}\n\\right)^2\n}\n}\n\\]\n\nである。\n\nしたがって、\n\n\\[\n\\boxed{v_{\\mathrm g}<c}.\n\\]\n\nまた、\n\n\\[\n\\boxed{\nv_{\\mathrm p}v_{\\mathrm g}=c^2\n}\n\\]\n\nである。\n\n### 遮断周波数付近\n\n\\[\n\\omega\\to\\omega_c+0\n\\]\n\nでは、\n\n\\[\nv_{\\mathrm p}\\to\\infty\n\\]\n\n\\[\nv_{\\mathrm g}\\to0.\n\\]\n\n### 高周波極限\n\n\\[\n\\omega\\gg\\omega_c\n\\]\n\nでは、\n\n\\[\nv_{\\mathrm p}\\to c,\n\\qquad\nv_{\\mathrm g}\\to c.\n\\]\n\n### 試験答案\n\n\\[\nk\n=\n\\frac1c\\sqrt{\\omega^2-\\omega_c^2}.\n\\]\n\nしたがって、\n\n\\[\n\\boxed{\nv_{\\mathrm p}\n=\n\\frac{\\omega}{k}\n=\n\\frac{c}\n{\\sqrt{1-(\\omega_c/\\omega)^2}}\n>c\n}\n\\]\n\nである。\n\nまた、\n\n\\[\n\\omega^2=c^2k^2+\\omega_c^2\n\\]\n\nを微分して、\n\n\\[\n\\boxed{\nv_{\\mathrm g}\n=\n\\frac{d\\omega}{dk}\n=\n\\frac{c^2k}{\\omega}\n=\nc\\sqrt{1-(\\omega_c/\\omega)^2}\n<c\n}.\n\\]\n\nさらに、\n\n\\[\nv_{\\mathrm p}v_{\\mathrm g}=c^2.\n\\]\n\n---",
+              "major": "2",
+              "why": [
+                {
+                  "title": "位相速度が光速を超えても相対論に反しないの？",
+                  "markdown": "位相速度は波の山や谷の位置が進む速度であり、情報やエネルギーそのものの伝搬速度ではない。情報伝達に関係する群速度は光速未満になる。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": true
+            },
+            {
+              "id": "q2-3",
+              "label": "Q2-3",
+              "title": "ローレンツモデルと正常分散",
+              "markdown": "### 比誘電率\n\n\\[\n\\epsilon_r(\\omega)\n=\n\\frac{\\epsilon(\\omega)}{\\epsilon_0}.\n\\]\n\n定数を、\n\n\\[\nA\n=\n\\frac{Ne^2f}{m_e\\epsilon_0}\n\\]\n\nと置くと、\n\n\\[\n\\epsilon_r(\\omega)\n=\n1+\n\\frac{A}\n{\\omega_0^2-\\omega^2-i\\gamma\\omega}.\n\\]\n\n### 実部と虚部\n\n\\[\n\\Delta=\\omega_0^2-\\omega^2\n\\]\n\nと置く。\n\n\\[\n\\frac1{\\Delta-i\\gamma\\omega}\n=\n\\frac{\\Delta+i\\gamma\\omega}\n{\\Delta^2+\\gamma^2\\omega^2}.\n\\]\n\nしたがって、\n\n\\[\n\\operatorname{Re}\\epsilon_r\n=\n1+\nA\n\\frac{\\Delta}\n{\\Delta^2+\\gamma^2\\omega^2}\n\\]\n\n\\[\n\\operatorname{Im}\\epsilon_r\n=\nA\n\\frac{\\gamma\\omega}\n{\\Delta^2+\\gamma^2\\omega^2}.\n\\]\n\n虚部は吸収を表す。\n\n正常分散を考える透明領域では、共鳴から十分離れており吸収が小さいので、\n\n\\[\n\\gamma\\omega\n\\ll\n|\\omega_0^2-\\omega^2|\n\\]\n\nと考えられる。\n\nこのとき、\n\n\\[\n\\epsilon_r\n\\simeq\n1+\n\\frac{A}{\\omega_0^2-\\omega^2}.\n\\]\n\n非磁性体なら、\n\n\\[\nn^2\\simeq\\epsilon_r.\n\\]\n\n---\n\n### (1) 角周波数への依存性\n\n共鳴より低い透明領域\n\n\\[\n\\omega<\\omega_0\n\\]\n\nを考える。\n\n\\[\nn^2\n\\simeq\n1+\n\\frac{A}{\\omega_0^2-\\omega^2}.\n\\]\n\n右辺を \\(\\omega\\) で微分すると、\n\n\\[\n\\frac{d(n^2)}{d\\omega}\n=\n\\frac{2A\\omega}\n{(\\omega_0^2-\\omega^2)^2}\n>0.\n\\]\n\n\\(n>0\\) なので、\n\n\\[\n2n\\frac{dn}{d\\omega}\n=\n\\frac{d(n^2)}{d\\omega}.\n\\]\n\nしたがって、\n\n\\[\n\\boxed{\n\\frac{dn}{d\\omega}>0\n}\n\\]\n\nである。\n\nつまり、正常分散では、\n\n\\[\n\\boxed{\n\\text{角周波数 }\\omega\\text{ が大きくなるほど、屈折率 }n\\text{ は大きくなる}\n}\n\\]\n\nと説明できる。\n\n波長 \\(\\lambda\\) は周波数と逆の関係にあるので、\n\n\\[\n\\boxed{\n\\text{波長が長くなるほど、屈折率は小さくなる}\n}\n\\]\n\nとも言える。\n\n:::why title=\"共鳴の近くを除く必要があるの？\"\n共鳴周波数付近では吸収が強くなり、屈折率の変化が正常分散とは逆になる異常分散領域が現れる場合がある。この問題では「正常分散になる場合」なので、吸収の小さい領域を考える。\n:::\n\n---\n\n### (2) 誘電体の密度への依存性\n\n電子の数密度 \\(N\\) は、誘電体の物質密度にほぼ比例する。\n\n\\[\nA=\n\\frac{Ne^2f}{m_e\\epsilon_0}\n\\]\n\nなので、\\(\\epsilon_r-1\\) は \\(N\\) に比例する。\n\n共鳴より低い透明領域では、\n\n\\[\n\\omega_0^2-\\omega^2>0.\n\\]\n\nしたがって、\n\n\\[\n\\frac{\\partial(n^2)}{\\partial N}\n=\n\\frac{e^2f}\n{m_e\\epsilon_0(\\omega_0^2-\\omega^2)}\n>0.\n\\]\n\nよって、\n\n\\[\n\\boxed{\n\\text{誘電体の密度が大きいほど、屈折率は大きくなる}\n}\n\\]\n\nと説明できる。\n\n低密度で\n\n\\[\n|n-1|\\ll1\n\\]\n\nなら、\n\n\\[\nn\n=\n\\sqrt{1+CN}\n\\simeq\n1+\\frac{CN}{2}\n\\]\n\nなので、\n\n\\[\n\\boxed{n-1\\propto N}\n\\]\n\nと近似できる。\n\n### より厳密な注意\n\n実部を厳密に使うと、\n\n\\[\n\\frac{\\partial\\operatorname{Re}\\epsilon_r}{\\partial N}\n=\n\\frac{e^2f}{m_e\\epsilon_0}\n\\frac{\\omega_0^2-\\omega^2}\n{(\\omega_0^2-\\omega^2)^2+\\gamma^2\\omega^2}.\n\\]\n\nしたがって、密度増加による屈折率の増減の符号は共鳴のどちら側かにも依存する。\n\nただし、通常の透明な正常分散領域として共鳴より低い側を考えれば、密度が増えるほど屈折率は増える。\n\n### 試験答案\n\n共鳴から十分離れた透明領域では、\n\n\\[\nn^2\\simeq\\epsilon_r\n\\simeq\n1+\n\\frac{Ne^2f}\n{m_e\\epsilon_0(\\omega_0^2-\\omega^2)}.\n\\]\n\n共鳴より低い正常分散領域 \\(\\omega<\\omega_0\\) では、\n\n\\[\n\\frac{d(n^2)}{d\\omega}\n=\n\\frac{2Ne^2f\\omega}\n{m_e\\epsilon_0(\\omega_0^2-\\omega^2)^2}\n>0.\n\\]\n\nしたがって、\n\n\\[\n\\boxed{\\frac{dn}{d\\omega}>0}\n\\]\n\nであり、周波数が増えると屈折率も増える。\n\nまた、\n\n\\[\nn^2-1\\propto N\n\\]\n\nなので、\n\n\\[\n\\boxed{\n\\text{電子数密度、したがって誘電体の密度が増えると屈折率は増える}\n}\n\\]\n\nと分かる。\n\n# 年度全体の重要ポイント\n\n- 複素波数の実部 \\(\\alpha\\) は位相定数、虚部 \\(\\beta\\) は減衰定数である。\n- 導体中の波動方程式には、電気伝導による1階時間微分項が現れる。\n- 分散関係では、複素数の実部と虚部を分けて比較する。\n- 導体中では、電場と磁場に位相差が生じる。\n- 導波管では位相速度が光速を超えるが、群速度は光速を超えない。\n- ローレンツモデルでは、共鳴付近の吸収と分散を同時に説明できる。",
+              "major": "2",
+              "why": [
+                {
+                  "title": "共鳴の近くを除く必要があるの？",
+                  "markdown": "共鳴周波数付近では吸収が強くなり、屈折率の変化が正常分散とは逆になる異常分散領域が現れる場合がある。この問題では「正常分散になる場合」なので、吸収の小さい領域を考える。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": true
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "teachers": [
+            "四竈泰一"
+          ],
+          "status": "completed",
+          "sourceFile": "物工・応用電磁気学(四竃)2023.pdf",
+          "sourcePages": [
+            1,
+            2
+          ],
+          "problemAssets": [
+            "/exams/applied-electromagnetics/2023/page-1.webp",
+            "/exams/applied-electromagnetics/2023/page-2.webp"
+          ],
+          "localPdfUrl": "/pdfs/applied-electromagnetics/2023.pdf",
+          "sourceUrl": "https://drive.google.com/file/d/1obW9TWGTKLiZGkQM-5Tz8IiL08On4j77/edit",
+          "pdfSourceFile": "物工・応用電磁気学(四竃)2023.pdf",
+          "introMarkdown": "> [!NOTE]\n> Webサイトでは問題文を元PDFどおりに表示し、解説とは別の領域に配置する。各年度ページに「PDFをブラウザで開く」と「元サイトで開く」のリンクを設置する。\n\n\n## 1. 真空中のマクスウェル方程式\n\n自由電荷と電流がない真空中では、\n\n\\[\n\\nabla\\cdot\\boldsymbol E=0,\n\\qquad\n\\nabla\\cdot\\boldsymbol B=0\n\\]\n\n\\[\n\\nabla\\times\\boldsymbol E\n=\n-\\frac{\\partial\\boldsymbol B}{\\partial t}\n\\]\n\n\\[\n\\nabla\\times\\boldsymbol B\n=\n\\mu_0\\epsilon_0\n\\frac{\\partial\\boldsymbol E}{\\partial t}\n\\]\n\nが成り立つ。\n\n真空中の光速は、\n\n\\[\n\\boxed{\nc=\\frac1{\\sqrt{\\mu_0\\epsilon_0}}\n}\n\\]\n\nである。\n\n## 2. 平面電磁波\n\n\\[\n\\boldsymbol E\n=\n\\boldsymbol E_0\\cos(\\boldsymbol k\\cdot\\boldsymbol x-\\omega t)\n\\]\n\nの形の波を考える。\n\n真空中の平面波では、\n\n\\[\n\\boxed{\n\\boldsymbol k\\perp\\boldsymbol E,\n\\qquad\n\\boldsymbol k\\perp\\boldsymbol B,\n\\qquad\n\\boldsymbol E\\perp\\boldsymbol B\n}\n\\]\n\nであり、\n\n\\[\n\\boxed{\n\\boldsymbol B\n=\n\\frac1\\omega\n\\boldsymbol k\\times\\boldsymbol E\n}\n\\]\n\nが成り立つ。\n\n## 3. ポインティングベクトル\n\n真空中での電磁エネルギーの流れを表すベクトルは、\n\n\\[\n\\boxed{\n\\boldsymbol S\n=\n\\frac1{\\mu_0}\n\\boldsymbol E\\times\\boldsymbol B\n}\n\\]\n\nである。\n\n正弦波について、\n\n\\[\n\\left\\langle\\cos^2(\\cdots)\\right\\rangle_t\n=\n\\frac12\n\\]\n\nなので、時間平均を求めるときに用いる。\n\n## 4. 動径の微分\n\n\\[\nr=|\\boldsymbol x|\n=\n\\sqrt{x^2+y^2+z^2}\n\\]\n\nとすると、\n\n\\[\n\\boxed{\n\\nabla r=\\frac{\\boldsymbol x}{r}\n}\n\\]\n\nである。\n\n## 5. 位相速度と群速度\n\n位相速度は、\n\n\\[\n\\boxed{\nv_{\\mathrm p}=\\frac{\\omega}{k}\n}\n\\]\n\n群速度は、\n\n\\[\n\\boxed{\nv_{\\mathrm g}=\\frac{d\\omega}{dk}\n}\n\\]\n\nである。\n\n## 6. 電力透過率\n\n媒質1から媒質2へ平面波が入射するとき、電場振幅透過係数を\n\n\\[\nt_E=\\frac{E_0''}{E_0}\n\\]\n\nとすると、電力透過率は、\n\n\\[\n\\boxed{\nT\n=\n\\frac{n_2\\cos\\theta_2}\n{n_1\\cos\\theta_1}\n|t_E|^2\n}\n\\]\n\nで与えられる。\n\n---\n\n\n## 問題文（原文）\n\n:::problem-original\n以下の式で表される、真空中の \\(xyz\\) 座標系のマクスウェル方程式を考える。\n\n\\[\n\\nabla\\cdot\\boldsymbol E(\\boldsymbol x,t)=0\n\\tag{1}\n\\]\n\n\\[\n\\nabla\\cdot\\boldsymbol B(\\boldsymbol x,t)=0\n\\tag{2}\n\\]\n\n\\[\n\\nabla\\times\\boldsymbol E(\\boldsymbol x,t)\n=\n-\\frac{\\partial\\boldsymbol B(\\boldsymbol x,t)}{\\partial t}\n\\tag{3}\n\\]\n\n\\[\n\\nabla\\times\\boldsymbol B(\\boldsymbol x,t)\n=\n\\mu_0\\epsilon_0\n\\frac{\\partial\\boldsymbol E(\\boldsymbol x,t)}{\\partial t}\n\\tag{4}\n\\]\n\nここで、\n\n\\[\n\\boldsymbol x=(x,y,z)^T\n\\]\n\nであり、\\(\\boldsymbol E,\\boldsymbol B\\) は、それぞれ、電場、磁場ベクトルを表す。\n\nこのマクスウェル方程式の解のうち、電場が次の式で表される平面電磁波について、以下の問いに答えよ。\n\n\\[\n\\boldsymbol E(\\boldsymbol x,t)\n=\nE_0\n\\begin{pmatrix}\n1/2\\\\\n\\sqrt3/2\\\\\n0\n\\end{pmatrix}\n\\cos(kz-\\omega t)\n\\tag{5}\n\\]\n\nここで、\\(E_0\\) は実定数であり、\\(k,\\omega\\) は正の実数とする。解答は答えのみでなく計算過程も記すこと。\n\n1-1. \\(z=0\\) の \\(xy\\) 平面上における電場の \\(x,y\\) 成分の大きさを、それぞれ \\(E_x,E_y\\) と表す。式 (5) の電場が \\(E_xE_y\\) 平面上でどのような軌跡を描くかを図示し、題意の平面電磁波がどのような偏光かを説明せよ。\n\n1-2. \\(k\\) を \\(\\omega\\) を用いた式で表せ。\n\n1-3. 磁場の式を求めよ。ただし、磁場の定数成分はゼロであるとする。\n\n1-4. 時間平均したポインティングベクトルの式を求めよ。ベクトルの大きさだけでなく向きも記すこと。\n:::\n\n:::problem-asset\nsrc: /exams/applied-electromagnetics/2023/page-1.webp\nalt: 応用電磁気学 2023年度 問題1の原本\n:::\n\n---",
+          "questions": [
+            {
+              "id": "q1-1",
+              "label": "Q1-1",
+              "title": "平面電磁波の偏光",
+              "markdown": "### \\(z=0\\) における電場成分\n\n\\[\n\\cos(kz-\\omega t)\n\\]\n\nへ \\(z=0\\) を代入する。\n\n\\[\n\\cos(-\\omega t)=\\cos\\omega t\n\\]\n\nなので、\n\n\\[\nE_x(t)\n=\n\\frac{E_0}{2}\\cos\\omega t\n\\]\n\n\\[\nE_y(t)\n=\n\\frac{\\sqrt3E_0}{2}\\cos\\omega t.\n\\]\n\nしたがって、\n\n\\[\n\\boxed{\nE_y=\\sqrt3E_x\n}\n\\]\n\nである。\n\n### \\(E_xE_y\\) 平面上の軌跡\n\n電場ベクトルの先端は、\n\n\\[\nE_y=\\sqrt3E_x\n\\]\n\nという原点を通る直線上を往復する。\n\n成分の最大値は、\n\n\\[\n|E_x|\\le\\frac{|E_0|}{2}\n\\]\n\n\\[\n|E_y|\\le\\frac{\\sqrt3|E_0|}{2}\n\\]\n\nである。\n\n電場の向きは、\n\n\\[\n\\boldsymbol e_{\\mathrm pol}\n=\n\\begin{pmatrix}\n1/2\\\\\n\\sqrt3/2\\\\\n0\n\\end{pmatrix}.\n\\]\n\nx軸との角度を \\(\\vartheta\\) とすると、\n\n\\[\n\\tan\\vartheta\n=\n\\frac{\\sqrt3/2}{1/2}\n=\n\\sqrt3.\n\\]\n\nよって、\n\n\\[\n\\vartheta=\\frac{\\pi}{3}=60^\\circ.\n\\]\n\n### 最終解答\n\n\\[\n\\boxed{\\text{直線偏光}}\n\\]\n\nであり、偏光方向は、\n\n\\[\n\\boxed{\n\\boldsymbol e_{\\mathrm pol}\n=\n\\frac12\\boldsymbol e_x\n+\n\\frac{\\sqrt3}{2}\\boldsymbol e_y\n}\n\\]\n\nすなわち、x軸から反時計回りに60度の方向である。\n\n:::why title=\"なぜ円偏光や楕円偏光ではないの？\"\nx成分とy成分が同じ \\(\\cos\\omega t\\) を持ち、両者の位相差が0だからである。成分比が常に一定なので、電場の向きは回転しない。\n:::\n\n### 試験答案\n\n\\[\nE_x=\\frac{E_0}{2}\\cos\\omega t,\n\\qquad\nE_y=\\frac{\\sqrt3E_0}{2}\\cos\\omega t.\n\\]\n\nしたがって、\n\n\\[\nE_y=\\sqrt3E_x.\n\\]\n\nよって、電場の先端は原点を通りx軸となす角が60度の直線上を往復するため、直線偏光である。\n\n---",
+              "major": "1",
+              "why": [
+                {
+                  "title": "なぜ円偏光や楕円偏光ではないの？",
+                  "markdown": "x成分とy成分が同じ \\(\\cos\\omega t\\) を持ち、両者の位相差が0だからである。成分比が常に一定なので、電場の向きは回転しない。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": true,
+              "hasExamAnswer": true
+            },
+            {
+              "id": "q1-2",
+              "label": "Q1-2",
+              "title": "真空中の分散関係",
+              "markdown": "### 電場の波動方程式\n\nFaradayの法則の両辺に curl を取る。\n\n\\[\n\\nabla\\times(\\nabla\\times\\boldsymbol E)\n=\n-\\frac{\\partial}{\\partial t}\n(\\nabla\\times\\boldsymbol B).\n\\]\n\nベクトル恒等式、\n\n\\[\n\\nabla\\times(\\nabla\\times\\boldsymbol E)\n=\n\\nabla(\\nabla\\cdot\\boldsymbol E)\n-\\nabla^2\\boldsymbol E\n\\]\n\nと、\n\n\\[\n\\nabla\\cdot\\boldsymbol E=0\n\\]\n\nを使うと、\n\n\\[\n-\\nabla^2\\boldsymbol E\n=\n-\\mu_0\\epsilon_0\n\\frac{\\partial^2\\boldsymbol E}{\\partial t^2}.\n\\]\n\nしたがって、\n\n\\[\n\\boxed{\n\\nabla^2\\boldsymbol E\n=\n\\mu_0\\epsilon_0\n\\frac{\\partial^2\\boldsymbol E}{\\partial t^2}\n}\n\\]\n\nである。\n\n### 平面波を代入する\n\n\\[\n\\frac{\\partial^2\\boldsymbol E}{\\partial z^2}\n=\n-k^2\\boldsymbol E\n\\]\n\n\\[\n\\frac{\\partial^2\\boldsymbol E}{\\partial t^2}\n=\n-\\omega^2\\boldsymbol E.\n\\]\n\n波動方程式へ代入すると、\n\n\\[\n-k^2\\boldsymbol E\n=\n-\\mu_0\\epsilon_0\\omega^2\\boldsymbol E.\n\\]\n\nよって、\n\n\\[\nk^2\n=\n\\mu_0\\epsilon_0\\omega^2.\n\\]\n\n\\(k,\\omega>0\\) なので、\n\n### 最終解答\n\n\\[\n\\boxed{\nk\n=\n\\sqrt{\\mu_0\\epsilon_0}\\,\\omega\n=\n\\frac{\\omega}{c}\n}\n\\]\n\nである。\n\n:::why title=\"なぜ正の平方根だけを選ぶの？\"\n問題文で \\(k,\\omega\\) が正の実数と指定されているからである。また、位相 \\(kz-\\omega t\\) は \\(+z\\) 方向へ進む波を表す。\n:::\n\n---",
+              "major": "1",
+              "why": [
+                {
+                  "title": "なぜ正の平方根だけを選ぶの？",
+                  "markdown": "問題文で \\(k,\\omega\\) が正の実数と指定されているからである。また、位相 \\(kz-\\omega t\\) は \\(+z\\) 方向へ進む波を表す。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": true,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q1-3",
+              "label": "Q1-3",
+              "title": "磁場の導出",
+              "markdown": "### Faradayの法則を使う\n\n電場を、\n\n\\[\n\\boldsymbol E\n=\nE_0\\boldsymbol e_{\\mathrm pol}\n\\cos\\phi\n\\]\n\nと置く。\n\n\\[\n\\phi=kz-\\omega t\n\\]\n\n\\[\n\\boldsymbol e_{\\mathrm pol}\n=\n\\begin{pmatrix}\n1/2\\\\\n\\sqrt3/2\\\\\n0\n\\end{pmatrix}.\n\\]\n\n真空中の平面波では、\n\n\\[\n\\boldsymbol B\n=\n\\frac1\\omega\n\\boldsymbol k\\times\\boldsymbol E\n\\]\n\nである。\n\n\\[\n\\boldsymbol k=k\\boldsymbol e_z.\n\\]\n\nしたがって、\n\n\\[\n\\boldsymbol B\n=\n\\frac{k}{\\omega}\n\\boldsymbol e_z\n\\times\n\\boldsymbol E.\n\\]\n\n### 外積を計算する\n\n\\[\n\\boldsymbol e_z\n\\times\n\\begin{pmatrix}\n1/2\\\\\n\\sqrt3/2\\\\\n0\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n-\\sqrt3/2\\\\\n1/2\\\\\n0\n\\end{pmatrix}.\n\\]\n\nまた、\n\n\\[\n\\frac{k}{\\omega}\n=\n\\frac1c.\n\\]\n\nしたがって、\n\n### 最終解答\n\n\\[\n\\boxed{\n\\boldsymbol B(\\boldsymbol x,t)\n=\n\\frac{E_0}{c}\n\\begin{pmatrix}\n-\\sqrt3/2\\\\\n1/2\\\\\n0\n\\end{pmatrix}\n\\cos(kz-\\omega t)\n}\n\\]\n\nである。\n\n\\[\nc=\\frac1{\\sqrt{\\mu_0\\epsilon_0}}\n\\]\n\nを用いれば、\n\n\\[\n\\boxed{\n\\boldsymbol B\n=\nE_0\\sqrt{\\mu_0\\epsilon_0}\n\\begin{pmatrix}\n-\\sqrt3/2\\\\\n1/2\\\\\n0\n\\end{pmatrix}\n\\cos(kz-\\omega t)\n}\n\\]\n\nとも書ける。\n\n:::why title=\"磁場の向きはどうやって確認するの？\"\n波の進行方向は \\(\\boldsymbol E\\times\\boldsymbol B\\) の向きである。上の磁場を使うと \\(\\boldsymbol E\\times\\boldsymbol B\\) は \\(+z\\) 方向となり、位相から分かる進行方向と一致する。\n:::\n\n### 計算による確認\n\n\\[\n\\boldsymbol e_{\\mathrm pol}\n\\cdot\n\\begin{pmatrix}\n-\\sqrt3/2\\\\\n1/2\\\\\n0\n\\end{pmatrix}\n=\n-\\frac{\\sqrt3}{4}\n+\n\\frac{\\sqrt3}{4}\n=0.\n\\]\n\nしたがって、\n\n\\[\n\\boldsymbol E\\perp\\boldsymbol B.\n\\]\n\n---",
+              "major": "1",
+              "why": [
+                {
+                  "title": "磁場の向きはどうやって確認するの？",
+                  "markdown": "波の進行方向は \\(\\boldsymbol E\\times\\boldsymbol B\\) の向きである。上の磁場を使うと \\(\\boldsymbol E\\times\\boldsymbol B\\) は \\(+z\\) 方向となり、位相から分かる進行方向と一致する。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": true,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q1-4",
+              "label": "Q1-4",
+              "title": "時間平均ポインティングベクトル",
+              "markdown": "### 瞬時のポインティングベクトル\n\n\\[\n\\boldsymbol S\n=\n\\frac1{\\mu_0}\n\\boldsymbol E\\times\\boldsymbol B.\n\\]\n\n電場と磁場の振幅方向は互いに直交し、両方の単位ベクトルの大きさは1である。\n\nまた、\n\n\\[\n\\boldsymbol e_{\\mathrm pol}\n\\times\n\\begin{pmatrix}\n-\\sqrt3/2\\\\\n1/2\\\\\n0\n\\end{pmatrix}\n=\n\\boldsymbol e_z.\n\\]\n\nしたがって、\n\n\\[\n\\boldsymbol S(\\boldsymbol x,t)\n=\n\\frac{E_0^2}{\\mu_0c}\n\\cos^2(kz-\\omega t)\n\\boldsymbol e_z.\n\\]\n\n### 時間平均\n\n\\[\n\\left\\langle\\cos^2(kz-\\omega t)\\right\\rangle_t\n=\n\\frac12.\n\\]\n\nよって、\n\n### 最終解答\n\n\\[\n\\boxed{\n\\left\\langle\\boldsymbol S\\right\\rangle\n=\n\\frac{E_0^2}{2\\mu_0c}\n\\boldsymbol e_z\n}\n\\]\n\nである。\n\n\\[\n\\frac1{\\mu_0c}\n=\n\\epsilon_0c\n\\]\n\nなので、\n\n\\[\n\\boxed{\n\\left\\langle\\boldsymbol S\\right\\rangle\n=\n\\frac12\\epsilon_0cE_0^2\n\\boldsymbol e_z\n}\n\\]\n\nとも書ける。\n\n### 大きさと向き\n\n大きさは、\n\n\\[\n\\boxed{\n\\left|\n\\left\\langle\\boldsymbol S\\right\\rangle\n\\right|\n=\n\\frac{E_0^2}{2\\mu_0c}\n=\n\\frac12\\epsilon_0cE_0^2\n}\n\\]\n\n向きは、\n\n\\[\n\\boxed{+z\\text{ 方向}}\n\\]\n\nである。\n\n:::why title=\"なぜ時間平均で 1/2 が現れるの？\"\n電磁エネルギー流は電場と磁場の積に比例するため、正弦波では \\(\\cos^2\\) が現れる。1周期平均は \\(1/2\\) である。\n:::\n\n### 試験答案\n\n\\[\n\\boldsymbol S\n=\n\\frac1{\\mu_0}\\boldsymbol E\\times\\boldsymbol B\n=\n\\frac{E_0^2}{\\mu_0c}\n\\cos^2(kz-\\omega t)\n\\boldsymbol e_z.\n\\]\n\nしたがって、\n\n\\[\n\\boxed{\n\\langle\\boldsymbol S\\rangle\n=\n\\frac{E_0^2}{2\\mu_0c}\n\\boldsymbol e_z\n=\n\\frac12\\epsilon_0cE_0^2\n\\boldsymbol e_z\n}.\n\\]\n\n---\n\n# 問題2 ベクトル解析・プラズマ分散・Fresnel透過率\n\n## 問題文（原文）\n\n:::problem-original\n以下の問いに答えよ。\n\n2-1. \\(xyz\\) 座標系で、\n\n\\[\n\\boldsymbol x=(x,y,z),\n\\qquad\nr=|\\boldsymbol x|\n\\]\n\n\\(n\\) を整数としたとき、\n\n\\[\n\\nabla r,\\qquad\n\\nabla\\left(\\frac1r\\right),\n\\qquad\n\\nabla r^n\n\\]\n\nを、\\(\\boldsymbol x,r,n\\) のうち必要なものを用いて表せ。ただし、原点を除くものとする。\n\n2-2. 角周波数 \\(\\omega\\) の平面電磁波に対する導体の屈折率 \\(n(\\omega)\\) は、\\(\\omega\\) が大きいときに次の式で近似できる。\n\n\\[\nn(\\omega)\n=\n\\frac{ck}{\\omega}\n=\n\\sqrt{\n1-\\frac{\\omega_p^2}{\\omega^2}\n}\n\\tag{6}\n\\]\n\nここで、\\(\\omega_p\\) はプラズマ角周波数を表す。この平面電磁波の位相速度および群速度の式を書き、それらと光速 \\(c\\) との大小関係を説明せよ。\n\n2-3. 図1のように、空気中に置かれた平行平板のガラス窓に垂直入射する平面電磁波を考える。電磁波の \\(\\omega\\) は単一の値を持ち、空気の屈折率を1、ガラスの屈折率を実数 \\(n\\) とするとき、窓の片面（図の左側の面）の透過率 \\(T\\) を \\(n\\) を用いて表せ。\n\nなお、透過率 \\(T\\) は、電磁波が屈折率 \\(n_1\\) の誘電体から \\(n_2\\) の誘電体に入射し、入射角、透過角が、それぞれ、\\(\\theta_1,\\theta_2\\) であった場合に、\n\n\\[\nT\n=\n\\frac{n_2\\cos\\theta_2}\n{n_1\\cos\\theta_1}\n\\left(\n\\frac{E_0''}{E_0}\n\\right)^2\n\\tag{7}\n\\]\n\nで与えられる。ここで、\\(E_0,E_0''\\) は、それぞれ、入射波、透過波の電場振幅を表し、p、s偏光の \\(E_0''/E_0\\) は、次のFresnelの式で表せる。\n\n\\[\n\\left(\n\\frac{E_0''}{E_0}\n\\right)_p\n=\n\\frac{\n2\\cos\\theta_1\\sin\\theta_2\n}{\n\\sin(\\theta_1+\\theta_2)\n\\cos(\\theta_1-\\theta_2)\n}\n\\tag{8}\n\\]\n\n\\[\n\\left(\n\\frac{E_0''}{E_0}\n\\right)_s\n=\n\\frac{\n2\\cos\\theta_1\\sin\\theta_2\n}{\n\\sin(\\theta_1+\\theta_2)\n}\n\\tag{9}\n\\]\n:::\n\n:::problem-asset\nsrc: /exams/applied-electromagnetics/2023/page-2.webp\nalt: 応用電磁気学 2023年度 問題2の原本とガラス窓の図\n:::\n\n---",
+              "major": "1",
+              "why": [
+                {
+                  "title": "なぜ時間平均で 1/2 が現れるの？",
+                  "markdown": "電磁エネルギー流は電場と磁場の積に比例するため、正弦波では \\(\\cos^2\\) が現れる。1周期平均は \\(1/2\\) である。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": true,
+              "hasExamAnswer": true
+            },
+            {
+              "id": "q2-1",
+              "label": "Q2-1",
+              "title": "動径の勾配",
+              "markdown": "### \\(\\nabla r\\)\n\n\\[\nr=\\sqrt{x^2+y^2+z^2}.\n\\]\n\nx成分は、\n\n\\[\n\\frac{\\partial r}{\\partial x}\n=\n\\frac{x}{r}.\n\\]\n\n同様に、\n\n\\[\n\\frac{\\partial r}{\\partial y}\n=\n\\frac{y}{r}\n\\]\n\n\\[\n\\frac{\\partial r}{\\partial z}\n=\n\\frac{z}{r}.\n\\]\n\nしたがって、\n\n\\[\n\\nabla r\n=\n\\begin{pmatrix}\nx/r\\\\\ny/r\\\\\nz/r\n\\end{pmatrix}.\n\\]\n\n### 最終解答1\n\n\\[\n\\boxed{\n\\nabla r\n=\n\\frac{\\boldsymbol x}{r}\n}\n\\]\n\nである。\n\n:::why title=\"∇r は何を表すの？\"\n\\(r\\) が最も急激に増える方向は原点から外向きの動径方向である。その単位ベクトルが \\(\\boldsymbol x/r\\) である。\n:::\n\n---\n\n### \\(\\nabla(1/r)\\)\n\n連鎖律より、\n\n\\[\n\\nabla\\left(\\frac1r\\right)\n=\n-\\frac1{r^2}\\nabla r.\n\\]\n\nしたがって、\n\n### 最終解答2\n\n\\[\n\\boxed{\n\\nabla\\left(\\frac1r\\right)\n=\n-\\frac{\\boldsymbol x}{r^3}\n}\n\\]\n\nである。\n\n---\n\n### \\(\\nabla r^n\\)\n\n連鎖律より、\n\n\\[\n\\nabla r^n\n=\nnr^{n-1}\\nabla r.\n\\]\n\n\\[\n\\nabla r=\\frac{\\boldsymbol x}{r}\n\\]\n\nを代入すると、\n\n### 最終解答3\n\n\\[\n\\boxed{\n\\nabla r^n\n=\nnr^{n-2}\\boldsymbol x\n}\n\\]\n\nである。\n\n### 試験答案\n\n\\[\nr=(x^2+y^2+z^2)^{1/2}\n\\]\n\nより、\n\n\\[\n\\boxed{\n\\nabla r=\\frac{\\boldsymbol x}{r}\n}\n\\]\n\n\\[\n\\boxed{\n\\nabla(1/r)=-\\frac{\\boldsymbol x}{r^3}\n}\n\\]\n\n\\[\n\\boxed{\n\\nabla r^n=nr^{n-2}\\boldsymbol x\n}.\n\\]\n\n### 注意\n\n原点では \\(r=0\\) となり、これらの式は特異になるため、問題文どおり原点を除く。\n\n---",
+              "major": "2",
+              "why": [
+                {
+                  "title": "∇r は何を表すの？",
+                  "markdown": "\\(r\\) が最も急激に増える方向は原点から外向きの動径方向である。その単位ベクトルが \\(\\boldsymbol x/r\\) である。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": true
+            },
+            {
+              "id": "q2-2",
+              "label": "Q2-2",
+              "title": "プラズマ中の位相速度と群速度",
+              "markdown": "### 分散関係\n\n\\[\nn(\\omega)\n=\n\\frac{ck}{\\omega}\n=\n\\sqrt{\n1-\\frac{\\omega_p^2}{\\omega^2}\n}.\n\\]\n\n両辺から、\n\n\\[\nk\n=\n\\frac{\\omega}{c}\n\\sqrt{\n1-\\frac{\\omega_p^2}{\\omega^2}\n}.\n\\]\n\n整理すると、\n\n\\[\n\\boxed{\nk\n=\n\\frac1c\n\\sqrt{\\omega^2-\\omega_p^2}\n}\n\\]\n\nである。\n\n実数の波数を持つ伝搬波となるには、\n\n\\[\n\\boxed{\\omega>\\omega_p}\n\\]\n\nが必要である。\n\n### 位相速度\n\n\\[\nv_{\\mathrm p}\n=\n\\frac{\\omega}{k}.\n\\]\n\nしたがって、\n\n\\[\n\\boxed{\nv_{\\mathrm p}\n=\n\\frac{c}\n{\\sqrt{\n1-\\omega_p^2/\\omega^2\n}}\n}\n\\]\n\nである。\n\n\\[\n0<\n\\sqrt{\n1-\\omega_p^2/\\omega^2\n}\n<1\n\\]\n\nなので、\n\n\\[\n\\boxed{v_{\\mathrm p}>c}.\n\\]\n\n:::why title=\"位相速度が光速より大きくてもよいの？\"\n位相速度は同じ位相の点が移動する速度であり、情報やエネルギーの伝搬速度ではない。相対論で光速を超えられないのは、情報を運ぶ速度である。\n:::\n\n### 群速度\n\n分散関係を、\n\n\\[\n\\omega^2=c^2k^2+\\omega_p^2\n\\]\n\nと書く。\n\n両辺を \\(k\\) で微分する。\n\n\\[\n2\\omega\n\\frac{d\\omega}{dk}\n=\n2c^2k.\n\\]\n\nしたがって、\n\n\\[\nv_{\\mathrm g}\n=\n\\frac{d\\omega}{dk}\n=\n\\frac{c^2k}{\\omega}.\n\\]\n\n\\(k\\) を代入すると、\n\n\\[\n\\boxed{\nv_{\\mathrm g}\n=\nc\n\\sqrt{\n1-\\frac{\\omega_p^2}{\\omega^2}\n}\n}\n\\]\n\nである。\n\nしたがって、\n\n\\[\n\\boxed{v_{\\mathrm g}<c}.\n\\]\n\nまた、\n\n\\[\n\\boxed{\nv_{\\mathrm p}v_{\\mathrm g}=c^2\n}\n\\]\n\nである。\n\n### 屈折率との関係\n\n\\[\nn(\\omega)\n=\n\\sqrt{\n1-\\frac{\\omega_p^2}{\\omega^2}\n}\n\\]\n\nなので、\n\n\\[\n\\boxed{\nv_{\\mathrm p}=\\frac{c}{n}\n}\n\\]\n\n\\[\n\\boxed{\nv_{\\mathrm g}=cn\n}\n\\]\n\nである。\n\n### 極限\n\n\\[\n\\omega\\to\\omega_p+0\n\\]\n\nでは、\n\n\\[\nv_{\\mathrm p}\\to\\infty,\n\\qquad\nv_{\\mathrm g}\\to0.\n\\]\n\n\\[\n\\omega\\gg\\omega_p\n\\]\n\nでは、\n\n\\[\nv_{\\mathrm p}\\to c,\n\\qquad\nv_{\\mathrm g}\\to c.\n\\]\n\n### 試験答案\n\n\\[\nk=\\frac1c\\sqrt{\\omega^2-\\omega_p^2}.\n\\]\n\nよって、\n\n\\[\n\\boxed{\nv_{\\mathrm p}\n=\n\\frac{\\omega}{k}\n=\n\\frac{c}\n{\\sqrt{1-\\omega_p^2/\\omega^2}}\n>c\n}\n\\]\n\nである。\n\nまた、\n\n\\[\n\\omega^2=c^2k^2+\\omega_p^2\n\\]\n\nを微分して、\n\n\\[\n\\boxed{\nv_{\\mathrm g}\n=\n\\frac{d\\omega}{dk}\n=\n\\frac{c^2k}{\\omega}\n=\nc\\sqrt{1-\\omega_p^2/\\omega^2}\n<c\n}.\n\\]\n\n---",
+              "major": "2",
+              "why": [
+                {
+                  "title": "位相速度が光速より大きくてもよいの？",
+                  "markdown": "位相速度は同じ位相の点が移動する速度であり、情報やエネルギーの伝搬速度ではない。相対論で光速を超えられないのは、情報を運ぶ速度である。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": true
+            },
+            {
+              "id": "q2-3",
+              "label": "Q2-3",
+              "title": "ガラス界面の透過率",
+              "markdown": "### 条件\n\n空気からガラスへ垂直入射する。\n\n\\[\nn_1=1,\n\\qquad\nn_2=n\n\\]\n\n\\[\n\\theta_1=0,\n\\qquad\n\\theta_2=0.\n\\]\n\n垂直入射では、p偏光とs偏光の区別はなく、同じ透過率になる。\n\n### 電場振幅透過係数\n\n垂直入射におけるFresnelの電場振幅透過係数は、\n\n\\[\n\\boxed{\n\\frac{E_0''}{E_0}\n=\n\\frac{2n_1}{n_1+n_2}\n}\n\\]\n\nである。\n\n\\(n_1=1,n_2=n\\) を代入すると、\n\n\\[\n\\boxed{\n\\frac{E_0''}{E_0}\n=\n\\frac{2}{1+n}\n}\n\\]\n\nとなる。\n\n:::why title=\"問題文の式へ θ=0 を直接代入すると 0/0 にならない？\"\n式 (8)、(9) は角度を使った形なので、垂直入射を直接代入すると見かけ上 \\(0/0\\) になる。Snellの法則を用いて \\(\\theta_1,\\theta_2\\to0\\) の極限を取ると、標準的な振幅透過係数 \\(2n_1/(n_1+n_2)\\) が得られる。\n:::\n\n### 電力透過率\n\n\\[\nT\n=\n\\frac{n_2\\cos\\theta_2}\n{n_1\\cos\\theta_1}\n\\left(\n\\frac{E_0''}{E_0}\n\\right)^2.\n\\]\n\n垂直入射では、\n\n\\[\n\\cos\\theta_1\n=\n\\cos\\theta_2\n=\n1.\n\\]\n\nしたがって、\n\n\\[\nT\n=\nn\n\\left(\n\\frac{2}{1+n}\n\\right)^2.\n\\]\n\n### 最終解答\n\n\\[\n\\boxed{\nT\n=\n\\frac{4n}{(1+n)^2}\n}\n\\]\n\nである。\n\n### 反射率による確認\n\n垂直入射の反射率は、\n\n\\[\nR\n=\n\\left(\n\\frac{n-1}{n+1}\n\\right)^2.\n\\]\n\n吸収がないため、\n\n\\[\nT=1-R.\n\\]\n\n\\[\n1-\n\\left(\n\\frac{n-1}{n+1}\n\\right)^2\n=\n\\frac{(n+1)^2-(n-1)^2}{(n+1)^2}\n=\n\\frac{4n}{(n+1)^2}.\n\\]\n\n先ほどの答えと一致する。\n\n### 注意\n\nこの問題で求めるのは、\n\n\\[\n\\boxed{\\text{ガラス窓の左側の1つの界面}}\n\\]\n\nにおける透過率である。\n\nガラス板全体の透過率を求める場合は、右側界面での反射や、板内部での多重反射を別途考慮する必要がある。\n\n### 試験答案\n\n垂直入射なので、\n\n\\[\nn_1=1,\\quad n_2=n,\\quad\n\\theta_1=\\theta_2=0.\n\\]\n\n振幅透過係数は、\n\n\\[\n\\frac{E_0''}{E_0}\n=\n\\frac{2}{1+n}.\n\\]\n\nよって、\n\n\\[\nT\n=\nn\n\\left(\n\\frac{2}{1+n}\n\\right)^2\n\\]\n\nであるから、\n\n\\[\n\\boxed{\nT=\\frac{4n}{(1+n)^2}\n}.\n\\]\n\n# 年度全体の重要ポイント\n\n- 電場成分の位相が同じなら直線偏光になる。\n- 真空中では \\(k=\\omega/c\\)、\\(|\\boldsymbol B|=|\\boldsymbol E|/c\\)。\n- 平均ポインティングベクトルでは \\(\\langle\\cos^2\\rangle=1/2\\) を使う。\n- \\(r\\) の関数の勾配は連鎖律で求められる。\n- プラズマ中では位相速度は \\(c\\) より大きく、群速度は \\(c\\) より小さい。\n- Fresnel式で垂直入射を扱うときは、角度式の極限または標準振幅係数を用いる。",
+              "major": "2",
+              "why": [
+                {
+                  "title": "問題文の式へ θ=0 を直接代入すると 0/0 にならない？",
+                  "markdown": "式 (8)、(9) は角度を使った形なので、垂直入射を直接代入すると見かけ上 \\(0/0\\) になる。Snellの法則を用いて \\(\\theta_1,\\theta_2\\to0\\) の極限を取ると、標準的な振幅透過係数 \\(2n_1/(n_1+n_2)\\) が得られる。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": true,
+              "hasExamAnswer": true
+            }
+          ]
+        }
+      ]
+    },
     {
       "name": "制御工学1",
       "slug": "control-engineering-1",
@@ -399,6 +722,242 @@ window.__PAST_EXAM_CONTENT__ = {
               "tags": [],
               "hasFinalAnswer": false,
               "hasExamAnswer": true
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "teachers": [
+            "西原",
+            "花崎"
+          ],
+          "status": "completed",
+          "sourceFile": "物工・工業力学A(西原・花崎)2023.pdf",
+          "sourcePages": [
+            1,
+            2,
+            3
+          ],
+          "problemAssets": [
+            "/exams/engineering-mechanics-a/2023/page-1.webp",
+            "/exams/engineering-mechanics-a/2023/page-2.webp",
+            "/exams/engineering-mechanics-a/2023/page-3.webp"
+          ],
+          "localPdfUrl": "/pdfs/engineering-mechanics-a/2023.pdf",
+          "sourceUrl": "https://drive.google.com/file/d/1oA86l2Iz_9zyNuBeRPqy_YMthSeC65rp/edit",
+          "pdfSourceFile": "物工・工業力学A(西原・花崎)2023.pdf",
+          "introMarkdown": "> [!NOTE]\n> Webサイトでは各問題の原文をそのまま表示し、元PDFをブラウザで開けるリンクも設置する。図を含む問題では、元PDFの該当ページ画像を併記する。\n\n\n## 1. ラグランジュ方程式\n\n一般化座標を \\(q\\)、運動エネルギーを \\(T\\)、ポテンシャルエネルギーを \\(U\\) とすると、\n\n\\[\nL=T-U\n\\]\n\nをラグランジアンという。\n\n運動方程式は、\n\n\\[\n\\boxed{\n\\frac{d}{dt}\n\\left(\n\\frac{\\partial L}{\\partial \\dot q}\n\\right)\n-\n\\frac{\\partial L}{\\partial q}\n=0\n}\n\\]\n\nで与えられる。\n\n## 2. 重心座標と相対座標\n\n質量が等しい2物体では、\n\n\\[\nX=\\frac{x_1+x_2}{2}\n\\]\n\nを重心座標、\n\n\\[\n\\xi=x_2-x_1\n\\]\n\nを相対座標として使うと、運動を分けて考えやすい。\n\n## 3. 剛体リンクの運動エネルギー\n\n質量 \\(m\\) の剛体について、重心速度を \\(v_G\\)、重心まわりの慣性モーメントを \\(I_G\\)、角速度を \\(\\omega\\) とすると、\n\n\\[\n\\boxed{\nT=\\frac12mv_G^2+\\frac12I_G\\omega^2\n}\n\\]\n\nである。\n\n一様な細い棒の重心まわりの慣性モーメントは、\n\n\\[\n\\boxed{\nI_G=\\frac1{12}m\\ell^2\n}\n\\]\n\nである。\n\n## 4. ハミルトニアン\n\n共役運動量を\n\n\\[\np=\\frac{\\partial L}{\\partial\\dot q}\n\\]\n\nと定義する。\n\nハミルトニアンは、\n\n\\[\n\\boxed{\nH(q,p)=p\\dot q-L\n}\n\\]\n\nである。\n\n## 5. ポアソン括弧\n\n\\[\n\\boxed{\n[A,B]\n=\n\\frac{\\partial A}{\\partial q}\n\\frac{\\partial B}{\\partial p}\n-\n\\frac{\\partial A}{\\partial p}\n\\frac{\\partial B}{\\partial q}\n}\n\\]\n\nと定義する。\n\n時間に陽に依存しない物理量 \\(A(q,p)\\) について、\n\n\\[\n\\frac{dA}{dt}=[A,H]\n\\]\n\nなので、\n\n\\[\n[A,H]=0\n\\]\n\nならば \\(A\\) は保存量である。\n\n---",
+          "questions": [
+            {
+              "id": "q1-a",
+              "label": "Q1-(a)",
+              "title": "左側台車が壁を離れるまでの時間",
+              "markdown": "## 問題文（原文）\n\n:::problem-original\n図1に示すように、二つの力学台車がばね定数 \\(k\\) のばねで連結されている。いずれも質量は \\(m\\) で水平面上にある。\n\n最初は右側の台車に外力が作用して、左側の台車が剛体壁に押し付けられている状態にある。その後、右側の台車が静かに解放されて外力が作用しなくなると、右側の台車が右方向へ移動していき、続いて左側の台車が壁から離れる。\n\n図のようにばねの自然長を基準として台車の重心位置を \\(x_1,x_2\\) とおく。すなわち、初期状態ではばねが圧縮されて\n\n\\[\nx_1=0,\\qquad x_2=-d\n\\]\n\nとなっている。\n\n解答においてはラグランジュの運動方程式を用いること。台車の運動には摩擦などの抵抗力は作用しないとする。\n\n(a) 右側の台車が解放されてから左の台車が壁から離れるまでに経過する時間を求めよ。\n\n(b) 左側の台車が壁を離れた後は一定値となる力学変数を示せ。\n\n(c) 左側の台車が壁を離れた瞬間を時刻 \\(t=0\\) とする。その後の台車の動きを調べて、座標 \\(x_1,x_2\\) を \\(t\\) の関数として与えよ。\n:::\n\n:::problem-asset\nsrc: /exams/engineering-mechanics-a/2023/page-1.webp\nalt: 工業力学A 2023年度 問題1の原本と2台の台車の図\n:::\n\n---\n\n---\n\n### まず状況を整理する\n\n左側台車が壁に押し付けられている間は、\n\n\\[\nx_1=0\n\\]\n\nのままで動かない。\n\nしたがって、壁を離れるまでは右側台車だけを考えればよい。\n\nばねの伸びは、\n\n\\[\nx_2-x_1=x_2\n\\]\n\nである。\n\n初期状態では、\n\n\\[\nx_2(0)=-d,\\qquad \\dot x_2(0)=0.\n\\]\n\n### ラグランジアン\n\n右側台車だけの運動エネルギーは、\n\n\\[\nT=\\frac12m\\dot x_2^2.\n\\]\n\nばねのポテンシャルエネルギーは、\n\n\\[\nU=\\frac12kx_2^2.\n\\]\n\nしたがって、\n\n\\[\nL=\\frac12m\\dot x_2^2-\\frac12kx_2^2.\n\\]\n\nラグランジュ方程式より、\n\n\\[\nm\\ddot x_2+kx_2=0.\n\\]\n\n固有角振動数を、\n\n\\[\n\\omega_0=\\sqrt{\\frac{k}{m}}\n\\]\n\nと置く。\n\n初期条件を満たす解は、\n\n\\[\n\\boxed{\nx_2(t)=-d\\cos\\omega_0t\n}\n\\]\n\nである。\n\n### 壁を離れる条件\n\nばねの左側台車に作用する力は、\n\n\\[\nF_1=k(x_2-x_1)=kx_2\n\\]\n\nである。\n\n\\(x_2<0\\) の間は、ばねが左側台車を左向きに押すため、台車は壁から離れない。\n\n初めて\n\n\\[\nx_2=0\n\\]\n\nとなる瞬間に、壁からの垂直抗力が0になる。\n\n\\[\n-d\\cos\\omega_0t=0.\n\\]\n\n最初の正の解は、\n\n\\[\n\\omega_0t=\\frac{\\pi}{2}.\n\\]\n\n### 最終解答\n\n\\[\n\\boxed{\nt_{\\mathrm{detach}}\n=\n\\frac{\\pi}{2\\omega_0}\n=\n\\frac{\\pi}{2}\\sqrt{\\frac{m}{k}}\n}\n\\]\n\nである。\n\n:::why title=\"なぜばねが自然長になった瞬間に離れるの？\"\nばねが圧縮されている間は、左側台車を壁へ押す向きに力が働く。自然長になるとその力が0になり、その直後は右向きの力へ変わるため、台車が壁から離れる。\n:::\n\n### 離れる瞬間の速度\n\n後の小問で使うため、右側台車の速度も求める。\n\n\\[\n\\dot x_2(t)\n=\nd\\omega_0\\sin\\omega_0t.\n\\]\n\n壁を離れる瞬間では、\n\n\\[\n\\omega_0t=\\frac{\\pi}{2}\n\\]\n\nなので、\n\n\\[\n\\boxed{\n\\dot x_2=d\\omega_0\n=d\\sqrt{\\frac{k}{m}}\n}\n\\]\n\nである。\n\n左側台車はそれまで静止していたため、\n\n\\[\n\\dot x_1=0.\n\\]\n\n---",
+              "major": "1",
+              "why": [
+                {
+                  "title": "なぜばねが自然長になった瞬間に離れるの？",
+                  "markdown": "ばねが圧縮されている間は、左側台車を壁へ押す向きに力が働く。自然長になるとその力が0になり、その直後は右向きの力へ変わるため、台車が壁から離れる。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": true,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q1-b",
+              "label": "Q1-(b)",
+              "title": "壁を離れた後の保存量",
+              "markdown": "## 問題文（原文）\n\n:::problem-original\n図1に示すように、二つの力学台車がばね定数 \\(k\\) のばねで連結されている。いずれも質量は \\(m\\) で水平面上にある。\n\n最初は右側の台車に外力が作用して、左側の台車が剛体壁に押し付けられている状態にある。その後、右側の台車が静かに解放されて外力が作用しなくなると、右側の台車が右方向へ移動していき、続いて左側の台車が壁から離れる。\n\n図のようにばねの自然長を基準として台車の重心位置を \\(x_1,x_2\\) とおく。すなわち、初期状態ではばねが圧縮されて\n\n\\[\nx_1=0,\\qquad x_2=-d\n\\]\n\nとなっている。\n\n解答においてはラグランジュの運動方程式を用いること。台車の運動には摩擦などの抵抗力は作用しないとする。\n\n(a) 右側の台車が解放されてから左の台車が壁から離れるまでに経過する時間を求めよ。\n\n(b) 左側の台車が壁を離れた後は一定値となる力学変数を示せ。\n\n(c) 左側の台車が壁を離れた瞬間を時刻 \\(t=0\\) とする。その後の台車の動きを調べて、座標 \\(x_1,x_2\\) を \\(t\\) の関数として与えよ。\n:::\n\n:::problem-asset\nsrc: /exams/engineering-mechanics-a/2023/page-1.webp\nalt: 工業力学A 2023年度 問題1の原本と2台の台車の図\n:::\n\n---\n\n---\n\n壁を離れた後は、2台の台車とばねだけからなる系を考える。\n\n外部から水平方向の力は作用しない。\n\n### 運動方程式\n\nばねのポテンシャルエネルギーは、\n\n\\[\nU=\\frac12k(x_2-x_1)^2.\n\\]\n\n左側台車について、\n\n\\[\nm\\ddot x_1=k(x_2-x_1).\n\\]\n\n右側台車について、\n\n\\[\nm\\ddot x_2=-k(x_2-x_1).\n\\]\n\n2式を加えると、\n\n\\[\nm\\ddot x_1+m\\ddot x_2=0.\n\\]\n\nしたがって、\n\n\\[\n\\frac{d}{dt}\n\\left(\nm\\dot x_1+m\\dot x_2\n\\right)=0.\n\\]\n\n### 最終解答\n\n全運動量\n\n\\[\n\\boxed{\nP=m\\dot x_1+m\\dot x_2\n}\n\\]\n\nが保存される。\n\n壁を離れた瞬間の値を使えば、\n\n\\[\n\\boxed{\nP=md\\sqrt{\\frac{k}{m}}\n=d\\sqrt{mk}\n}\n\\]\n\nである。\n\n:::why title=\"なぜ壁を離れる前は運動量が保存されないの？\"\n壁に接触している間は、壁から左側台車へ外力が作用している。壁を離れた後は水平方向の外力がなくなり、ばねの力は系の内部力なので、全運動量が保存される。\n:::\n\n---",
+              "major": "1",
+              "why": [
+                {
+                  "title": "なぜ壁を離れる前は運動量が保存されないの？",
+                  "markdown": "壁に接触している間は、壁から左側台車へ外力が作用している。壁を離れた後は水平方向の外力がなくなり、ばねの力は系の内部力なので、全運動量が保存される。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": true,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q1-c",
+              "label": "Q1-(c)",
+              "title": "壁を離れた後の台車の運動",
+              "markdown": "## 問題文（原文）\n\n:::problem-original\n図1に示すように、二つの力学台車がばね定数 \\(k\\) のばねで連結されている。いずれも質量は \\(m\\) で水平面上にある。\n\n最初は右側の台車に外力が作用して、左側の台車が剛体壁に押し付けられている状態にある。その後、右側の台車が静かに解放されて外力が作用しなくなると、右側の台車が右方向へ移動していき、続いて左側の台車が壁から離れる。\n\n図のようにばねの自然長を基準として台車の重心位置を \\(x_1,x_2\\) とおく。すなわち、初期状態ではばねが圧縮されて\n\n\\[\nx_1=0,\\qquad x_2=-d\n\\]\n\nとなっている。\n\n解答においてはラグランジュの運動方程式を用いること。台車の運動には摩擦などの抵抗力は作用しないとする。\n\n(a) 右側の台車が解放されてから左の台車が壁から離れるまでに経過する時間を求めよ。\n\n(b) 左側の台車が壁を離れた後は一定値となる力学変数を示せ。\n\n(c) 左側の台車が壁を離れた瞬間を時刻 \\(t=0\\) とする。その後の台車の動きを調べて、座標 \\(x_1,x_2\\) を \\(t\\) の関数として与えよ。\n:::\n\n:::problem-asset\nsrc: /exams/engineering-mechanics-a/2023/page-1.webp\nalt: 工業力学A 2023年度 問題1の原本と2台の台車の図\n:::\n\n---\n\n---\n\n壁を離れた瞬間を新しく\n\n\\[\nt=0\n\\]\n\nとする。\n\nその瞬間、\n\n\\[\nx_1(0)=0,\\qquad x_2(0)=0\n\\]\n\n\\[\n\\dot x_1(0)=0,\\qquad\n\\dot x_2(0)=v_0\n\\]\n\nであり、\n\n\\[\nv_0=d\\sqrt{\\frac{k}{m}}\n\\]\n\nである。\n\n### 重心座標\n\n\\[\nX=\\frac{x_1+x_2}{2}\n\\]\n\nと置く。\n\n2台の全運動量が保存されるので、\n\n\\[\n\\ddot X=0.\n\\]\n\n初期条件は、\n\n\\[\nX(0)=0\n\\]\n\n\\[\n\\dot X(0)=\\frac{v_0}{2}.\n\\]\n\nしたがって、\n\n\\[\n\\boxed{\nX(t)=\\frac{v_0}{2}t\n}\n\\]\n\nである。\n\n### 相対座標\n\n\\[\n\\xi=x_2-x_1\n\\]\n\nと置く。\n\n2台の運動方程式の差を取ると、\n\n\\[\n\\ddot\\xi+\\frac{2k}{m}\\xi=0.\n\\]\n\n相対運動の角振動数を、\n\n\\[\n\\Omega=\\sqrt{\\frac{2k}{m}}\n\\]\n\nと置く。\n\n初期条件は、\n\n\\[\n\\xi(0)=0\n\\]\n\n\\[\n\\dot\\xi(0)=v_0.\n\\]\n\nしたがって、\n\n\\[\n\\xi(t)=\\frac{v_0}{\\Omega}\\sin\\Omega t.\n\\]\n\n\\[\n\\frac{v_0}{\\Omega}\n=\n\\frac{d\\sqrt{k/m}}{\\sqrt{2k/m}}\n=\n\\frac{d}{\\sqrt2}\n\\]\n\nなので、\n\n\\[\n\\boxed{\n\\xi(t)=\\frac{d}{\\sqrt2}\n\\sin\\left(\\sqrt{\\frac{2k}{m}}t\\right)\n}\n\\]\n\nである。\n\n### 元の座標へ戻す\n\n\\[\nx_1=X-\\frac{\\xi}{2}\n\\]\n\n\\[\nx_2=X+\\frac{\\xi}{2}.\n\\]\n\nよって、\n\n\\[\n\\boxed{\nx_1(t)\n=\n\\frac{d}{2}\\sqrt{\\frac{k}{m}}\\,t\n-\n\\frac{d}{2\\sqrt2}\n\\sin\\left(\\sqrt{\\frac{2k}{m}}t\\right)\n}\n\\]\n\n\\[\n\\boxed{\nx_2(t)\n=\n\\frac{d}{2}\\sqrt{\\frac{k}{m}}\\,t\n+\n\\frac{d}{2\\sqrt2}\n\\sin\\left(\\sqrt{\\frac{2k}{m}}t\\right)\n}\n\\]\n\nである。\n\n### 運動の意味\n\n- 系全体の重心は一定速度で右へ移動する。\n- 2台の間隔は角振動数\n\n\\[\n\\sqrt{\\frac{2k}{m}}\n\\]\n\nで振動する。\n- したがって、全体として右へ進みながら2台が互いに近づいたり離れたりする。\n\n### 試験答案\n\n壁を離れる瞬間を \\(t=0\\) とすると、\n\n\\[\nx_1=x_2=0,\\qquad\n\\dot x_1=0,\\qquad\n\\dot x_2=d\\sqrt{\\frac{k}{m}}.\n\\]\n\n重心座標 \\(X=(x_1+x_2)/2\\) と相対座標 \\(\\xi=x_2-x_1\\) を用いると、\n\n\\[\n\\ddot X=0,\\qquad\n\\ddot\\xi+\\frac{2k}{m}\\xi=0.\n\\]\n\nしたがって、\n\n\\[\nX=\\frac{d}{2}\\sqrt{\\frac{k}{m}}t\n\\]\n\n\\[\n\\xi=\\frac{d}{\\sqrt2}\n\\sin\\left(\\sqrt{\\frac{2k}{m}}t\\right).\n\\]\n\nよって、\n\n\\[\n\\boxed{\nx_{1,2}\n=\n\\frac{d}{2}\\sqrt{\\frac{k}{m}}t\n\\mp\n\\frac{d}{2\\sqrt2}\n\\sin\\left(\\sqrt{\\frac{2k}{m}}t\\right)\n}\n\\]\n\nとなる。\n\n---",
+              "major": "1",
+              "why": [],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": true
+            },
+            {
+              "id": "q2-a",
+              "label": "Q2-(a)",
+              "title": "リンク機構の運動エネルギー",
+              "markdown": "## 問題文（原文）\n\n:::problem-original\n図2に示すように二つのリンクと力学台車、剛体、ばねがジョイントで接続され、鉛直面内に配置された一自由度振動系を仮定する。\n\nばね定数 \\(k\\) のばね上端は天井に固定されている。長さが \\(a\\) のリンクは両端にジョイントがあり、長さが \\(2a\\) のリンクは両端と中央にジョイントがある。\n\nリンクの質量はそれぞれ \\(m,2m\\) であり、質量が均等に分布する剛体と仮定する。\n\n力学台車は質量が \\(M\\) であり、水平面上を走行する。長さが \\(2a\\) のリンクの左端は鉛直方向に運動し、ばねはこの鉛直軸上にあることに注意する。質量 \\(M\\) の剛体の重心もこの軸上にある。\n\n重力加速度は \\(g\\) とする。ばねが自然長のとき、リンクの傾斜角は \\(\\pi/6\\) とする。ジョイントの回転などでエネルギーは散逸しないと仮定する。\n\n(a) 図のように長さが \\(a\\) のリンクの傾斜角を \\(\\pi/6+\\theta\\) とおくとき、系全体の運動エネルギー \\(T\\) を求めよ。\n\n(b) 系全体のポテンシャルエネルギー \\(U\\) を求めよ。\n\n(c) 角 \\(\\theta\\) の絶対値が小さいとして系の固有角振動数を求めよ。\n:::\n\n:::problem-asset\nsrc: /exams/engineering-mechanics-a/2023/page-2.webp\nalt: 工業力学A 2023年度 問題2の原本とリンク機構の図\n:::\n\n---\n\n## 幾何学的な関係\n\n短いリンクの角度を、\n\n\\[\n\\alpha=\\frac{\\pi}{6}+\\theta\n\\]\n\nと置く。\n\n左下の固定支点を原点とする。\n\n短いリンクの先端、すなわち長いリンクの中央ジョイントの座標は、\n\n\\[\nC=(a\\cos\\alpha,\\ a\\sin\\alpha)\n\\]\n\nである。\n\n長いリンクは長さ \\(2a\\) で、中央ジョイントから左右端までの長さはそれぞれ \\(a\\)。\n\n右端は水平面上にあるので、\n\n\\[\nR=(2a\\cos\\alpha,\\ 0)\n\\]\n\nとなる。\n\n左端は鉛直軸上にあるので、\n\n\\[\nL=(0,\\ 2a\\sin\\alpha)\n\\]\n\nとなる。\n\nしたがって、\n\n- 台車の水平変位は \\(2a\\cos\\alpha\\)\n- 上側剛体の鉛直変位は \\(2a\\sin\\alpha\\)\n\nで表される。\n\n:::why title=\"なぜ左右端の座標がこの形になるの？\"\n中央ジョイントから右端へのベクトルは、長さが \\(a\\) で水平成分 \\(a\\cos\\alpha\\)、鉛直成分 \\(-a\\sin\\alpha\\)。中央座標へ足すと右端は \\((2a\\cos\\alpha,0)\\) になる。左端は反対向きなので \\((0,2a\\sin\\alpha)\\) になる。\n:::\n\n---\n\n---\n\n### 短いリンク\n\n長さ \\(a\\)、質量 \\(m\\) の一様な棒が、左端の固定支点まわりに回転する。\n\n支点まわりの慣性モーメントは、\n\n\\[\nI_O=\\frac13ma^2.\n\\]\n\nしたがって、\n\n\\[\nT_{\\mathrm{short}}\n=\n\\frac12I_O\\dot\\theta^2\n=\n\\frac16ma^2\\dot\\theta^2.\n\\]\n\n### 長いリンク\n\n長さ \\(2a\\)、質量 \\(2m\\) であり、重心は中央ジョイント \\(C\\) にある。\n\n重心速度の大きさは、\n\n\\[\nv_C=a\\dot\\theta.\n\\]\n\n並進運動エネルギーは、\n\n\\[\n\\frac12(2m)v_C^2\n=\nma^2\\dot\\theta^2.\n\\]\n\n重心まわりの慣性モーメントは、\n\n\\[\nI_C\n=\n\\frac1{12}(2m)(2a)^2\n=\n\\frac23ma^2.\n\\]\n\n回転運動エネルギーは、\n\n\\[\n\\frac12I_C\\dot\\theta^2\n=\n\\frac13ma^2\\dot\\theta^2.\n\\]\n\nよって、\n\n\\[\nT_{\\mathrm{long}}\n=\n\\frac43ma^2\\dot\\theta^2.\n\\]\n\n### 上側の剛体 \\(M\\)\n\n鉛直座標は、\n\n\\[\ny_L=2a\\sin\\alpha.\n\\]\n\nしたがって、\n\n\\[\n\\dot y_L\n=\n2a\\cos\\alpha\\,\\dot\\theta.\n\\]\n\n運動エネルギーは、\n\n\\[\nT_{\\mathrm{upper}}\n=\n\\frac12M(2a\\cos\\alpha)^2\\dot\\theta^2\n=\n2Ma^2\\cos^2\\alpha\\,\\dot\\theta^2.\n\\]\n\n### 台車 \\(M\\)\n\n水平座標は、\n\n\\[\nx_R=2a\\cos\\alpha.\n\\]\n\nしたがって、\n\n\\[\n\\dot x_R\n=\n-2a\\sin\\alpha\\,\\dot\\theta.\n\\]\n\n運動エネルギーは、\n\n\\[\nT_{\\mathrm{cart}}\n=\n2Ma^2\\sin^2\\alpha\\,\\dot\\theta^2.\n\\]\n\n### 合計\n\n\\[\nT_{\\mathrm{upper}}+T_{\\mathrm{cart}}\n=\n2Ma^2(\\cos^2\\alpha+\\sin^2\\alpha)\\dot\\theta^2\n=\n2Ma^2\\dot\\theta^2.\n\\]\n\nリンクの項を含めると、\n\n\\[\nT\n=\n\\left(\n\\frac16m+\\frac43m+2M\n\\right)\na^2\\dot\\theta^2.\n\\]\n\nしたがって、\n\n\\[\n\\boxed{\nT\n=\n\\frac12(3m+4M)a^2\\dot\\theta^2\n}\n\\]\n\nである。\n\n### 重要ポイント\n\n- 長いリンクは「重心の並進」と「重心まわりの回転」の両方を持つ。\n- 上側剛体と台車の項を足すと、三角関数が消えて一定の等価慣性になる。\n\n---",
+              "major": "2",
+              "why": [
+                {
+                  "title": "なぜ左右端の座標がこの形になるの？",
+                  "markdown": "中央ジョイントから右端へのベクトルは、長さが \\(a\\) で水平成分 \\(a\\cos\\alpha\\)、鉛直成分 \\(-a\\sin\\alpha\\)。中央座標へ足すと右端は \\((2a\\cos\\alpha,0)\\) になる。左端は反対向きなので \\((0,2a\\sin\\alpha)\\) になる。"
+                }
+              ],
+              "importantPoints": [
+                "長いリンクは「重心の並進」と「重心まわりの回転」の両方を持つ。",
+                "上側剛体と台車の項を足すと、三角関数が消えて一定の等価慣性になる。"
+              ],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q2-b",
+              "label": "Q2-(b)",
+              "title": "リンク機構のポテンシャルエネルギー",
+              "markdown": "## 問題文（原文）\n\n:::problem-original\n図2に示すように二つのリンクと力学台車、剛体、ばねがジョイントで接続され、鉛直面内に配置された一自由度振動系を仮定する。\n\nばね定数 \\(k\\) のばね上端は天井に固定されている。長さが \\(a\\) のリンクは両端にジョイントがあり、長さが \\(2a\\) のリンクは両端と中央にジョイントがある。\n\nリンクの質量はそれぞれ \\(m,2m\\) であり、質量が均等に分布する剛体と仮定する。\n\n力学台車は質量が \\(M\\) であり、水平面上を走行する。長さが \\(2a\\) のリンクの左端は鉛直方向に運動し、ばねはこの鉛直軸上にあることに注意する。質量 \\(M\\) の剛体の重心もこの軸上にある。\n\n重力加速度は \\(g\\) とする。ばねが自然長のとき、リンクの傾斜角は \\(\\pi/6\\) とする。ジョイントの回転などでエネルギーは散逸しないと仮定する。\n\n(a) 図のように長さが \\(a\\) のリンクの傾斜角を \\(\\pi/6+\\theta\\) とおくとき、系全体の運動エネルギー \\(T\\) を求めよ。\n\n(b) 系全体のポテンシャルエネルギー \\(U\\) を求めよ。\n\n(c) 角 \\(\\theta\\) の絶対値が小さいとして系の固有角振動数を求めよ。\n:::\n\n:::problem-asset\nsrc: /exams/engineering-mechanics-a/2023/page-2.webp\nalt: 工業力学A 2023年度 問題2の原本とリンク機構の図\n:::\n\n---\n\n## 幾何学的な関係\n\n短いリンクの角度を、\n\n\\[\n\\alpha=\\frac{\\pi}{6}+\\theta\n\\]\n\nと置く。\n\n左下の固定支点を原点とする。\n\n短いリンクの先端、すなわち長いリンクの中央ジョイントの座標は、\n\n\\[\nC=(a\\cos\\alpha,\\ a\\sin\\alpha)\n\\]\n\nである。\n\n長いリンクは長さ \\(2a\\) で、中央ジョイントから左右端までの長さはそれぞれ \\(a\\)。\n\n右端は水平面上にあるので、\n\n\\[\nR=(2a\\cos\\alpha,\\ 0)\n\\]\n\nとなる。\n\n左端は鉛直軸上にあるので、\n\n\\[\nL=(0,\\ 2a\\sin\\alpha)\n\\]\n\nとなる。\n\nしたがって、\n\n- 台車の水平変位は \\(2a\\cos\\alpha\\)\n- 上側剛体の鉛直変位は \\(2a\\sin\\alpha\\)\n\nで表される。\n\n:::why title=\"なぜ左右端の座標がこの形になるの？\"\n中央ジョイントから右端へのベクトルは、長さが \\(a\\) で水平成分 \\(a\\cos\\alpha\\)、鉛直成分 \\(-a\\sin\\alpha\\)。中央座標へ足すと右端は \\((2a\\cos\\alpha,0)\\) になる。左端は反対向きなので \\((0,2a\\sin\\alpha)\\) になる。\n:::\n\n---\n\n---\n\n## ばねのポテンシャルエネルギー\n\nばねが自然長のとき、\n\n\\[\n\\alpha_0=\\frac{\\pi}{6}\n\\]\n\nであり、\n\n\\[\n2a\\sin\\alpha_0=a.\n\\]\n\n角度 \\(\\alpha\\) のとき、上側剛体の鉛直位置の変化は、\n\n\\[\n\\Delta \\ell\n=\n2a\n\\left(\n\\sin\\alpha-\\frac12\n\\right).\n\\]\n\n符号はばねの伸び・縮みによって変わるが、エネルギーでは二乗するため、\n\n\\[\nU_{\\mathrm{spring}}\n=\n\\frac12k(\\Delta\\ell)^2.\n\\]\n\nしたがって、\n\n\\[\n\\boxed{\nU_{\\mathrm{spring}}\n=\n2ka^2\n\\left(\n\\sin\\alpha-\\frac12\n\\right)^2\n}\n\\]\n\nである。\n\n## 重力ポテンシャルエネルギー\n\n高さの基準による定数項は省略する。\n\n### 短いリンク\n\n重心の高さは、\n\n\\[\n\\frac{a}{2}\\sin\\alpha.\n\\]\n\nしたがって、\n\n\\[\nU_{\\mathrm{short}}\n=\n\\frac12mga\\sin\\alpha.\n\\]\n\n### 長いリンク\n\n質量は \\(2m\\)、重心の高さは \\(a\\sin\\alpha\\)。\n\n\\[\nU_{\\mathrm{long}}\n=\n2mga\\sin\\alpha.\n\\]\n\n### 上側剛体\n\n高さの変化は \\(2a\\sin\\alpha\\) なので、\n\n\\[\nU_{\\mathrm{upper}}\n=\n2Mga\\sin\\alpha.\n\\]\n\n台車の高さは一定なので、重力ポテンシャルは定数であり省略できる。\n\n### 合計\n\n\\[\nU_g\n=\n\\left(\n\\frac12m+2m+2M\n\\right)\nga\\sin\\alpha.\n\\]\n\n\\[\n\\boxed{\nU_g\n=\n\\frac{ga}{2}(5m+4M)\\sin\\alpha\n}\n\\]\n\nである。\n\nしたがって、系全体のポテンシャルエネルギーは、\n\n\\[\n\\boxed{\nU\n=\n2ka^2\n\\left(\n\\sin\\alpha-\\frac12\n\\right)^2\n+\n\\frac{ga}{2}(5m+4M)\\sin\\alpha\n}\n\\]\n\nである。\n\nここで、\n\n\\[\n\\alpha=\\frac{\\pi}{6}+\\theta.\n\\]\n\n---",
+              "major": "2",
+              "why": [
+                {
+                  "title": "なぜ左右端の座標がこの形になるの？",
+                  "markdown": "中央ジョイントから右端へのベクトルは、長さが \\(a\\) で水平成分 \\(a\\cos\\alpha\\)、鉛直成分 \\(-a\\sin\\alpha\\)。中央座標へ足すと右端は \\((2a\\cos\\alpha,0)\\) になる。左端は反対向きなので \\((0,2a\\sin\\alpha)\\) になる。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q2-c",
+              "label": "Q2-(c)",
+              "title": "小振動の固有角振動数",
+              "markdown": "## 問題文（原文）\n\n:::problem-original\n図2に示すように二つのリンクと力学台車、剛体、ばねがジョイントで接続され、鉛直面内に配置された一自由度振動系を仮定する。\n\nばね定数 \\(k\\) のばね上端は天井に固定されている。長さが \\(a\\) のリンクは両端にジョイントがあり、長さが \\(2a\\) のリンクは両端と中央にジョイントがある。\n\nリンクの質量はそれぞれ \\(m,2m\\) であり、質量が均等に分布する剛体と仮定する。\n\n力学台車は質量が \\(M\\) であり、水平面上を走行する。長さが \\(2a\\) のリンクの左端は鉛直方向に運動し、ばねはこの鉛直軸上にあることに注意する。質量 \\(M\\) の剛体の重心もこの軸上にある。\n\n重力加速度は \\(g\\) とする。ばねが自然長のとき、リンクの傾斜角は \\(\\pi/6\\) とする。ジョイントの回転などでエネルギーは散逸しないと仮定する。\n\n(a) 図のように長さが \\(a\\) のリンクの傾斜角を \\(\\pi/6+\\theta\\) とおくとき、系全体の運動エネルギー \\(T\\) を求めよ。\n\n(b) 系全体のポテンシャルエネルギー \\(U\\) を求めよ。\n\n(c) 角 \\(\\theta\\) の絶対値が小さいとして系の固有角振動数を求めよ。\n:::\n\n:::problem-asset\nsrc: /exams/engineering-mechanics-a/2023/page-2.webp\nalt: 工業力学A 2023年度 問題2の原本とリンク機構の図\n:::\n\n---\n\n## 幾何学的な関係\n\n短いリンクの角度を、\n\n\\[\n\\alpha=\\frac{\\pi}{6}+\\theta\n\\]\n\nと置く。\n\n左下の固定支点を原点とする。\n\n短いリンクの先端、すなわち長いリンクの中央ジョイントの座標は、\n\n\\[\nC=(a\\cos\\alpha,\\ a\\sin\\alpha)\n\\]\n\nである。\n\n長いリンクは長さ \\(2a\\) で、中央ジョイントから左右端までの長さはそれぞれ \\(a\\)。\n\n右端は水平面上にあるので、\n\n\\[\nR=(2a\\cos\\alpha,\\ 0)\n\\]\n\nとなる。\n\n左端は鉛直軸上にあるので、\n\n\\[\nL=(0,\\ 2a\\sin\\alpha)\n\\]\n\nとなる。\n\nしたがって、\n\n- 台車の水平変位は \\(2a\\cos\\alpha\\)\n- 上側剛体の鉛直変位は \\(2a\\sin\\alpha\\)\n\nで表される。\n\n:::why title=\"なぜ左右端の座標がこの形になるの？\"\n中央ジョイントから右端へのベクトルは、長さが \\(a\\) で水平成分 \\(a\\cos\\alpha\\)、鉛直成分 \\(-a\\sin\\alpha\\)。中央座標へ足すと右端は \\((2a\\cos\\alpha,0)\\) になる。左端は反対向きなので \\((0,2a\\sin\\alpha)\\) になる。\n:::\n\n---\n\n---\n\n\\[\n|\\theta|\\ll1\n\\]\n\nとして、\\(\\theta=0\\) の近くで2次まで展開する。\n\n### 三角関数の展開\n\n\\[\n\\sin\\left(\\frac{\\pi}{6}+\\theta\\right)\n\\approx\n\\frac12+\\frac{\\sqrt3}{2}\\theta-\\frac14\\theta^2.\n\\]\n\n### ばねエネルギー\n\n\\[\n\\sin\\alpha-\\frac12\n\\approx\n\\frac{\\sqrt3}{2}\\theta.\n\\]\n\nしたがって、\n\n\\[\nU_{\\mathrm{spring}}\n\\approx\n2ka^2\n\\left(\n\\frac{\\sqrt3}{2}\\theta\n\\right)^2\n=\n\\frac32ka^2\\theta^2.\n\\]\n\n### 重力エネルギー\n\n\\[\nU_g\n\\approx\n\\frac{ga}{2}(5m+4M)\n\\left(\n\\frac12\n+\n\\frac{\\sqrt3}{2}\\theta\n-\n\\frac14\\theta^2\n\\right).\n\\]\n\n定数項を無視すると、\n\n\\[\nU\n\\approx\n\\frac{\\sqrt3ga}{4}(5m+4M)\\theta\n+\n\\frac12K_{\\mathrm{eff}}\\theta^2\n\\]\n\nと書ける。\n\nここで、\n\n\\[\n\\boxed{\nK_{\\mathrm{eff}}\n=\n3ka^2\n-\n\\frac{ga}{4}(5m+4M)\n}\n\\]\n\nである。\n\n運動エネルギーは、\n\n\\[\nT\n=\n\\frac12I_{\\mathrm{eff}}\\dot\\theta^2\n\\]\n\n\\[\n\\boxed{\nI_{\\mathrm{eff}}\n=\n(3m+4M)a^2\n}\n\\]\n\nである。\n\n### 線形化した運動方程式\n\n\\[\nI_{\\mathrm{eff}}\\ddot\\theta\n+\nK_{\\mathrm{eff}}\\theta\n+\n\\frac{\\sqrt3ga}{4}(5m+4M)\n=0.\n\\]\n\n定数項は平衡位置をずらすだけである。\n\n線形近似での平衡角を \\(\\theta_{\\mathrm e}\\) とし、\n\n\\[\n\\eta=\\theta-\\theta_{\\mathrm e}\n\\]\n\nと置くと、\n\n\\[\nI_{\\mathrm{eff}}\\ddot\\eta\n+\nK_{\\mathrm{eff}}\\eta=0.\n\\]\n\nしたがって、固有角振動数は、\n\n\\[\n\\boxed{\n\\omega_n\n=\n\\sqrt{\n\\frac{\n3ka^2-\\dfrac{ga}{4}(5m+4M)\n}{\n(3m+4M)a^2\n}\n}\n}\n\\]\n\nである。\n\n分子・分母から \\(a\\) を整理すると、\n\n\\[\n\\boxed{\n\\omega_n\n=\n\\sqrt{\n\\frac{\n3ka-\\dfrac{g}{4}(5m+4M)\n}{\n(3m+4M)a\n}\n}\n}\n\\]\n\nとも書ける。\n\n### 安定条件\n\n実数の固有角振動数を持つためには、\n\n\\[\nK_{\\mathrm{eff}}>0\n\\]\n\nが必要である。\n\n\\[\n\\boxed{\n3ka^2>\n\\frac{ga}{4}(5m+4M)\n}\n\\]\n\nすなわち、\n\n\\[\n\\boxed{\n12ka>g(5m+4M)\n}\n\\]\n\nである。\n\n:::why title=\"なぜ重力の定数項は振動数に影響しないの？\"\n定数項は平衡位置をどこへ移すかを決める。一方、平衡位置の近くでどれだけ強く元へ戻そうとするかは二次項の係数で決まり、これが固有角振動数を決める。\n:::\n\n### 試験答案\n\n\\[\nT=\\frac12(3m+4M)a^2\\dot\\theta^2.\n\\]\n\n\\[\nU=\n2ka^2\n\\left[\n\\sin\\left(\\frac{\\pi}{6}+\\theta\\right)-\\frac12\n\\right]^2\n+\n\\frac{ga}{2}(5m+4M)\n\\sin\\left(\\frac{\\pi}{6}+\\theta\\right).\n\\]\n\n\\(|\\theta|\\ll1\\) として2次まで展開すると、\n\n\\[\nU\n=\n\\text{const.}\n+\n\\frac{\\sqrt3ga}{4}(5m+4M)\\theta\n+\n\\frac12\n\\left[\n3ka^2-\\frac{ga}{4}(5m+4M)\n\\right]\\theta^2.\n\\]\n\n平衡位置からの変位について、\n\n\\[\n(3m+4M)a^2\\ddot\\eta\n+\n\\left[\n3ka^2-\\frac{ga}{4}(5m+4M)\n\\right]\\eta=0.\n\\]\n\nよって、\n\n\\[\n\\boxed{\n\\omega_n\n=\n\\sqrt{\n\\frac{\n3ka^2-\\dfrac{ga}{4}(5m+4M)\n}{\n(3m+4M)a^2\n}\n}\n}.\n\\]\n\n---",
+              "major": "2",
+              "why": [
+                {
+                  "title": "なぜ左右端の座標がこの形になるの？",
+                  "markdown": "中央ジョイントから右端へのベクトルは、長さが \\(a\\) で水平成分 \\(a\\cos\\alpha\\)、鉛直成分 \\(-a\\sin\\alpha\\)。中央座標へ足すと右端は \\((2a\\cos\\alpha,0)\\) になる。左端は反対向きなので \\((0,2a\\sin\\alpha)\\) になる。"
+                },
+                {
+                  "title": "なぜ重力の定数項は振動数に影響しないの？",
+                  "markdown": "定数項は平衡位置をどこへ移すかを決める。一方、平衡位置の近くでどれだけ強く元へ戻そうとするかは二次項の係数で決まり、これが固有角振動数を決める。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": true
+            },
+            {
+              "id": "q3-1",
+              "label": "Q3-(1)",
+              "title": "ハミルトニアン",
+              "markdown": "## 問題文（原文）\n\n:::problem-original\n1次元運動のラグランジアンが\n\n\\[\nL(q,\\dot q)=\\dot q^2-q^2\n\\]\n\nで与えられるとき、以下の問いに答えよ。\n\n(1) \\(q\\) と \\(p\\) の関数であるハミルトニアン\n\n\\[\nH(q,p)=p\\dot q-L\n\\]\n\nを求めよ。ただし、\n\n\\[\np=\\frac{\\partial L}{\\partial\\dot q}\n\\]\n\nとする。\n\n(2) ポアソン括弧式\n\n\\[\n[A,B]\n=\n\\frac{\\partial A}{\\partial q}\n\\frac{\\partial B}{\\partial p}\n-\n\\frac{\\partial A}{\\partial p}\n\\frac{\\partial B}{\\partial q}\n\\]\n\nを考えることにより、この運動の保存量（\\(H\\) の定数倍を除く）を1つ求めよ。\n\n\\(q,p\\) を正準変数とする正準方程式は、\n\n\\[\n\\frac{dq}{dt}=\\frac{\\partial H}{\\partial p},\n\\qquad\n\\frac{dp}{dt}=-\\frac{\\partial H}{\\partial q}\n\\tag{A}\n\\]\n\nである。\n\n(3) (1) の \\(H=E\\)（正の定数）のとき、位相空間（\\(q-p\\) 面）内での軌道を図示せよ。その際、軌道上の運動の向きも矢印で記入すること。\n\n(4) 軌道上の2点 \\(A\\) と \\(B\\) が、初期 \\(t=0\\) にそれぞれ\n\n\\[\nA(0,p_0),\\qquad B(q_0,0)\n\\]\n\nにあったとき、任意の時刻 \\(t\\) におけるそれぞれの座標 \\((q,p)\\) を求めよ。\n\n(5) 位相空間の原点 \\(O(0,0)\\) は位相空間内での不動点である。(4) の結果を用いて、\\(\\triangle OAB\\) の面積が運動によって不変であることを示せ（Liouvilleの定理の例）。\n\n(1) のハミルトニアン \\(H(q,p)\\) において、\n\n\\[\nQ=\\log\\left(\\frac1q\\sin p\\right),\n\\qquad\nP=q\\cot p\n\\tag{B}\n\\]\n\nで定義される \\((q,p)\\to(Q,P)\\) の独立変数変換を行う。\n\n(6)\n\n\\[\n\\frac{\\partial H}{\\partial p},\n\\qquad\n\\frac{\\partial H}{\\partial q}\n\\]\n\nをそれぞれ、\n\n\\[\n\\frac{\\partial H}{\\partial P},\n\\qquad\n\\frac{\\partial H}{\\partial Q}\n\\]\n\nを用いて表せ。\n\n(7) 正準方程式 (A) と (6) の結果を用いて、\n\n\\[\n\\frac{dQ}{dt},\n\\qquad\n\\frac{dP}{dt}\n\\]\n\nを計算し、変換 (B) が正準変換であることを示せ。\n:::\n\n:::problem-asset\nsrc: /exams/engineering-mechanics-a/2023/page-3.webp\nalt: 工業力学A 2023年度 問題3の原本\n:::\n\n---\n\n---\n\nラグランジアンは、\n\n\\[\nL=\\dot q^2-q^2.\n\\]\n\n共役運動量は、\n\n\\[\np=\\frac{\\partial L}{\\partial\\dot q}\n=2\\dot q.\n\\]\n\nしたがって、\n\n\\[\n\\dot q=\\frac p2.\n\\]\n\nハミルトニアンは、\n\n\\[\nH=p\\dot q-L.\n\\]\n\n\\[\n=p\\frac p2\n-\n\\left[\n\\left(\\frac p2\\right)^2-q^2\n\\right].\n\\]\n\n\\[\n=\\frac{p^2}{2}-\\frac{p^2}{4}+q^2.\n\\]\n\n### 最終解答\n\n\\[\n\\boxed{\nH(q,p)=\\frac{p^2}{4}+q^2\n}\n\\]\n\nである。\n\n:::why title=\"通常の調和振動子と係数が違うのはなぜ？\"\n問題のラグランジアンには通常の \\(1/2\\) が付いていない。そのため、共役運動量が \\(p=2\\dot q\\) となり、ハミルトニアンの運動量項が \\(p^2/4\\) になる。\n:::\n\n---",
+              "major": "3",
+              "why": [
+                {
+                  "title": "通常の調和振動子と係数が違うのはなぜ？",
+                  "markdown": "問題のラグランジアンには通常の \\(1/2\\) が付いていない。そのため、共役運動量が \\(p=2\\dot q\\) となり、ハミルトニアンの運動量項が \\(p^2/4\\) になる。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": true,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q3-2",
+              "label": "Q3-(2)",
+              "title": "ポアソン括弧と保存量",
+              "markdown": "## 問題文（原文）\n\n:::problem-original\n1次元運動のラグランジアンが\n\n\\[\nL(q,\\dot q)=\\dot q^2-q^2\n\\]\n\nで与えられるとき、以下の問いに答えよ。\n\n(1) \\(q\\) と \\(p\\) の関数であるハミルトニアン\n\n\\[\nH(q,p)=p\\dot q-L\n\\]\n\nを求めよ。ただし、\n\n\\[\np=\\frac{\\partial L}{\\partial\\dot q}\n\\]\n\nとする。\n\n(2) ポアソン括弧式\n\n\\[\n[A,B]\n=\n\\frac{\\partial A}{\\partial q}\n\\frac{\\partial B}{\\partial p}\n-\n\\frac{\\partial A}{\\partial p}\n\\frac{\\partial B}{\\partial q}\n\\]\n\nを考えることにより、この運動の保存量（\\(H\\) の定数倍を除く）を1つ求めよ。\n\n\\(q,p\\) を正準変数とする正準方程式は、\n\n\\[\n\\frac{dq}{dt}=\\frac{\\partial H}{\\partial p},\n\\qquad\n\\frac{dp}{dt}=-\\frac{\\partial H}{\\partial q}\n\\tag{A}\n\\]\n\nである。\n\n(3) (1) の \\(H=E\\)（正の定数）のとき、位相空間（\\(q-p\\) 面）内での軌道を図示せよ。その際、軌道上の運動の向きも矢印で記入すること。\n\n(4) 軌道上の2点 \\(A\\) と \\(B\\) が、初期 \\(t=0\\) にそれぞれ\n\n\\[\nA(0,p_0),\\qquad B(q_0,0)\n\\]\n\nにあったとき、任意の時刻 \\(t\\) におけるそれぞれの座標 \\((q,p)\\) を求めよ。\n\n(5) 位相空間の原点 \\(O(0,0)\\) は位相空間内での不動点である。(4) の結果を用いて、\\(\\triangle OAB\\) の面積が運動によって不変であることを示せ（Liouvilleの定理の例）。\n\n(1) のハミルトニアン \\(H(q,p)\\) において、\n\n\\[\nQ=\\log\\left(\\frac1q\\sin p\\right),\n\\qquad\nP=q\\cot p\n\\tag{B}\n\\]\n\nで定義される \\((q,p)\\to(Q,P)\\) の独立変数変換を行う。\n\n(6)\n\n\\[\n\\frac{\\partial H}{\\partial p},\n\\qquad\n\\frac{\\partial H}{\\partial q}\n\\]\n\nをそれぞれ、\n\n\\[\n\\frac{\\partial H}{\\partial P},\n\\qquad\n\\frac{\\partial H}{\\partial Q}\n\\]\n\nを用いて表せ。\n\n(7) 正準方程式 (A) と (6) の結果を用いて、\n\n\\[\n\\frac{dQ}{dt},\n\\qquad\n\\frac{dP}{dt}\n\\]\n\nを計算し、変換 (B) が正準変換であることを示せ。\n:::\n\n:::problem-asset\nsrc: /exams/engineering-mechanics-a/2023/page-3.webp\nalt: 工業力学A 2023年度 問題3の原本\n:::\n\n---\n\n---\n\n任意の微分可能な関数 \\(F(H)\\) を考える。\n\n\\[\n[F(H),H]\n=\nF'(H)[H,H].\n\\]\n\nポアソン括弧の反対称性より、\n\n\\[\n[H,H]=0.\n\\]\n\nしたがって、\n\n\\[\n[F(H),H]=0.\n\\]\n\nよって、\\(F(H)\\) は保存量である。\n\n\\(H\\) の単なる定数倍ではない例として、\n\n\\[\nA=H^2\n\\]\n\nを選ぶ。\n\n\\[\n[A,H]=[H^2,H]\n=2H[H,H]=0.\n\\]\n\n### 最終解答\n\n\\[\n\\boxed{\nA(q,p)=H^2\n=\n\\left(\n\\frac{p^2}{4}+q^2\n\\right)^2\n}\n\\]\n\nは保存量である。\n\n### 補足\n\n1自由度の自律系では、時間に依存しない独立な保存量は通常エネルギー1つである。そのため、ここで得た \\(H^2\\) は \\(H\\) とは独立ではないが、「\\(H\\) の定数倍ではない保存量」という問題の条件を満たす。\n\n---",
+              "major": "3",
+              "why": [],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": true,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q3-3",
+              "label": "Q3-(3)",
+              "title": "位相空間の軌道",
+              "markdown": "## 問題文（原文）\n\n:::problem-original\n1次元運動のラグランジアンが\n\n\\[\nL(q,\\dot q)=\\dot q^2-q^2\n\\]\n\nで与えられるとき、以下の問いに答えよ。\n\n(1) \\(q\\) と \\(p\\) の関数であるハミルトニアン\n\n\\[\nH(q,p)=p\\dot q-L\n\\]\n\nを求めよ。ただし、\n\n\\[\np=\\frac{\\partial L}{\\partial\\dot q}\n\\]\n\nとする。\n\n(2) ポアソン括弧式\n\n\\[\n[A,B]\n=\n\\frac{\\partial A}{\\partial q}\n\\frac{\\partial B}{\\partial p}\n-\n\\frac{\\partial A}{\\partial p}\n\\frac{\\partial B}{\\partial q}\n\\]\n\nを考えることにより、この運動の保存量（\\(H\\) の定数倍を除く）を1つ求めよ。\n\n\\(q,p\\) を正準変数とする正準方程式は、\n\n\\[\n\\frac{dq}{dt}=\\frac{\\partial H}{\\partial p},\n\\qquad\n\\frac{dp}{dt}=-\\frac{\\partial H}{\\partial q}\n\\tag{A}\n\\]\n\nである。\n\n(3) (1) の \\(H=E\\)（正の定数）のとき、位相空間（\\(q-p\\) 面）内での軌道を図示せよ。その際、軌道上の運動の向きも矢印で記入すること。\n\n(4) 軌道上の2点 \\(A\\) と \\(B\\) が、初期 \\(t=0\\) にそれぞれ\n\n\\[\nA(0,p_0),\\qquad B(q_0,0)\n\\]\n\nにあったとき、任意の時刻 \\(t\\) におけるそれぞれの座標 \\((q,p)\\) を求めよ。\n\n(5) 位相空間の原点 \\(O(0,0)\\) は位相空間内での不動点である。(4) の結果を用いて、\\(\\triangle OAB\\) の面積が運動によって不変であることを示せ（Liouvilleの定理の例）。\n\n(1) のハミルトニアン \\(H(q,p)\\) において、\n\n\\[\nQ=\\log\\left(\\frac1q\\sin p\\right),\n\\qquad\nP=q\\cot p\n\\tag{B}\n\\]\n\nで定義される \\((q,p)\\to(Q,P)\\) の独立変数変換を行う。\n\n(6)\n\n\\[\n\\frac{\\partial H}{\\partial p},\n\\qquad\n\\frac{\\partial H}{\\partial q}\n\\]\n\nをそれぞれ、\n\n\\[\n\\frac{\\partial H}{\\partial P},\n\\qquad\n\\frac{\\partial H}{\\partial Q}\n\\]\n\nを用いて表せ。\n\n(7) 正準方程式 (A) と (6) の結果を用いて、\n\n\\[\n\\frac{dQ}{dt},\n\\qquad\n\\frac{dP}{dt}\n\\]\n\nを計算し、変換 (B) が正準変換であることを示せ。\n:::\n\n:::problem-asset\nsrc: /exams/engineering-mechanics-a/2023/page-3.webp\nalt: 工業力学A 2023年度 問題3の原本\n:::\n\n---\n\n---\n\n\\[\nH=E\n\\]\n\nより、\n\n\\[\n\\frac{p^2}{4}+q^2=E.\n\\]\n\n標準形にすると、\n\n\\[\n\\boxed{\n\\frac{q^2}{E}\n+\n\\frac{p^2}{4E}\n=1\n}\n\\]\n\nである。\n\nしたがって、\\(q-p\\) 平面上の軌道は、\n\n- \\(q\\) 方向の半径：\\(\\sqrt E\\)\n- \\(p\\) 方向の半径：\\(2\\sqrt E\\)\n\nの楕円である。\n\n### 運動の向き\n\n正準方程式は、\n\n\\[\n\\dot q=\\frac{\\partial H}{\\partial p}=\\frac p2\n\\]\n\n\\[\n\\dot p=-\\frac{\\partial H}{\\partial q}=-2q.\n\\]\n\n例えば右端\n\n\\[\n(q,p)=(\\sqrt E,0)\n\\]\n\nでは、\n\n\\[\n\\dot q=0,\\qquad\n\\dot p=-2\\sqrt E<0.\n\\]\n\nしたがって、右端から下向きへ進む。\n\nよって軌道上の運動方向は、\n\n\\[\n\\boxed{\\text{時計回り}}\n\\]\n\nである。\n\n---",
+              "major": "3",
+              "why": [],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q3-4",
+              "label": "Q3-(4)",
+              "title": "位相空間上の2点の運動",
+              "markdown": "## 問題文（原文）\n\n:::problem-original\n1次元運動のラグランジアンが\n\n\\[\nL(q,\\dot q)=\\dot q^2-q^2\n\\]\n\nで与えられるとき、以下の問いに答えよ。\n\n(1) \\(q\\) と \\(p\\) の関数であるハミルトニアン\n\n\\[\nH(q,p)=p\\dot q-L\n\\]\n\nを求めよ。ただし、\n\n\\[\np=\\frac{\\partial L}{\\partial\\dot q}\n\\]\n\nとする。\n\n(2) ポアソン括弧式\n\n\\[\n[A,B]\n=\n\\frac{\\partial A}{\\partial q}\n\\frac{\\partial B}{\\partial p}\n-\n\\frac{\\partial A}{\\partial p}\n\\frac{\\partial B}{\\partial q}\n\\]\n\nを考えることにより、この運動の保存量（\\(H\\) の定数倍を除く）を1つ求めよ。\n\n\\(q,p\\) を正準変数とする正準方程式は、\n\n\\[\n\\frac{dq}{dt}=\\frac{\\partial H}{\\partial p},\n\\qquad\n\\frac{dp}{dt}=-\\frac{\\partial H}{\\partial q}\n\\tag{A}\n\\]\n\nである。\n\n(3) (1) の \\(H=E\\)（正の定数）のとき、位相空間（\\(q-p\\) 面）内での軌道を図示せよ。その際、軌道上の運動の向きも矢印で記入すること。\n\n(4) 軌道上の2点 \\(A\\) と \\(B\\) が、初期 \\(t=0\\) にそれぞれ\n\n\\[\nA(0,p_0),\\qquad B(q_0,0)\n\\]\n\nにあったとき、任意の時刻 \\(t\\) におけるそれぞれの座標 \\((q,p)\\) を求めよ。\n\n(5) 位相空間の原点 \\(O(0,0)\\) は位相空間内での不動点である。(4) の結果を用いて、\\(\\triangle OAB\\) の面積が運動によって不変であることを示せ（Liouvilleの定理の例）。\n\n(1) のハミルトニアン \\(H(q,p)\\) において、\n\n\\[\nQ=\\log\\left(\\frac1q\\sin p\\right),\n\\qquad\nP=q\\cot p\n\\tag{B}\n\\]\n\nで定義される \\((q,p)\\to(Q,P)\\) の独立変数変換を行う。\n\n(6)\n\n\\[\n\\frac{\\partial H}{\\partial p},\n\\qquad\n\\frac{\\partial H}{\\partial q}\n\\]\n\nをそれぞれ、\n\n\\[\n\\frac{\\partial H}{\\partial P},\n\\qquad\n\\frac{\\partial H}{\\partial Q}\n\\]\n\nを用いて表せ。\n\n(7) 正準方程式 (A) と (6) の結果を用いて、\n\n\\[\n\\frac{dQ}{dt},\n\\qquad\n\\frac{dP}{dt}\n\\]\n\nを計算し、変換 (B) が正準変換であることを示せ。\n:::\n\n:::problem-asset\nsrc: /exams/engineering-mechanics-a/2023/page-3.webp\nalt: 工業力学A 2023年度 問題3の原本\n:::\n\n---\n\n---\n\n正準方程式は、\n\n\\[\n\\dot q=\\frac p2\n\\]\n\n\\[\n\\dot p=-2q.\n\\]\n\n第1式を時間微分すると、\n\n\\[\n\\ddot q=\\frac{\\dot p}{2}=-q.\n\\]\n\nしたがって、\n\n\\[\n\\boxed{\\ddot q+q=0}\n\\]\n\nである。\n\n角振動数は1。\n\n---\n\n### 点 \\(A\\)\n\n初期条件は、\n\n\\[\nq_A(0)=0,\\qquad\np_A(0)=p_0.\n\\]\n\n\\[\n\\dot q_A(0)=\\frac{p_0}{2}.\n\\]\n\nしたがって、\n\n\\[\n\\boxed{\nq_A(t)=\\frac{p_0}{2}\\sin t\n}\n\\]\n\nである。\n\n\\[\np_A=2\\dot q_A\n\\]\n\nより、\n\n\\[\n\\boxed{\np_A(t)=p_0\\cos t\n}\n\\]\n\nである。\n\n---\n\n### 点 \\(B\\)\n\n初期条件は、\n\n\\[\nq_B(0)=q_0,\\qquad\np_B(0)=0.\n\\]\n\n\\[\n\\dot q_B(0)=0.\n\\]\n\nしたがって、\n\n\\[\n\\boxed{\nq_B(t)=q_0\\cos t\n}\n\\]\n\nである。\n\n\\[\np_B=2\\dot q_B\n\\]\n\nより、\n\n\\[\n\\boxed{\np_B(t)=-2q_0\\sin t\n}\n\\]\n\nである。\n\n### 最終解答\n\n\\[\n\\boxed{\nA(t):\n\\left(\n\\frac{p_0}{2}\\sin t,\\ \np_0\\cos t\n\\right)\n}\n\\]\n\n\\[\n\\boxed{\nB(t):\n\\left(\nq_0\\cos t,\\ \n-2q_0\\sin t\n\\right)\n}\n\\]\n\n---",
+              "major": "3",
+              "why": [],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": true,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q3-5",
+              "label": "Q3-(5)",
+              "title": "Liouvilleの定理",
+              "markdown": "## 問題文（原文）\n\n:::problem-original\n1次元運動のラグランジアンが\n\n\\[\nL(q,\\dot q)=\\dot q^2-q^2\n\\]\n\nで与えられるとき、以下の問いに答えよ。\n\n(1) \\(q\\) と \\(p\\) の関数であるハミルトニアン\n\n\\[\nH(q,p)=p\\dot q-L\n\\]\n\nを求めよ。ただし、\n\n\\[\np=\\frac{\\partial L}{\\partial\\dot q}\n\\]\n\nとする。\n\n(2) ポアソン括弧式\n\n\\[\n[A,B]\n=\n\\frac{\\partial A}{\\partial q}\n\\frac{\\partial B}{\\partial p}\n-\n\\frac{\\partial A}{\\partial p}\n\\frac{\\partial B}{\\partial q}\n\\]\n\nを考えることにより、この運動の保存量（\\(H\\) の定数倍を除く）を1つ求めよ。\n\n\\(q,p\\) を正準変数とする正準方程式は、\n\n\\[\n\\frac{dq}{dt}=\\frac{\\partial H}{\\partial p},\n\\qquad\n\\frac{dp}{dt}=-\\frac{\\partial H}{\\partial q}\n\\tag{A}\n\\]\n\nである。\n\n(3) (1) の \\(H=E\\)（正の定数）のとき、位相空間（\\(q-p\\) 面）内での軌道を図示せよ。その際、軌道上の運動の向きも矢印で記入すること。\n\n(4) 軌道上の2点 \\(A\\) と \\(B\\) が、初期 \\(t=0\\) にそれぞれ\n\n\\[\nA(0,p_0),\\qquad B(q_0,0)\n\\]\n\nにあったとき、任意の時刻 \\(t\\) におけるそれぞれの座標 \\((q,p)\\) を求めよ。\n\n(5) 位相空間の原点 \\(O(0,0)\\) は位相空間内での不動点である。(4) の結果を用いて、\\(\\triangle OAB\\) の面積が運動によって不変であることを示せ（Liouvilleの定理の例）。\n\n(1) のハミルトニアン \\(H(q,p)\\) において、\n\n\\[\nQ=\\log\\left(\\frac1q\\sin p\\right),\n\\qquad\nP=q\\cot p\n\\tag{B}\n\\]\n\nで定義される \\((q,p)\\to(Q,P)\\) の独立変数変換を行う。\n\n(6)\n\n\\[\n\\frac{\\partial H}{\\partial p},\n\\qquad\n\\frac{\\partial H}{\\partial q}\n\\]\n\nをそれぞれ、\n\n\\[\n\\frac{\\partial H}{\\partial P},\n\\qquad\n\\frac{\\partial H}{\\partial Q}\n\\]\n\nを用いて表せ。\n\n(7) 正準方程式 (A) と (6) の結果を用いて、\n\n\\[\n\\frac{dQ}{dt},\n\\qquad\n\\frac{dP}{dt}\n\\]\n\nを計算し、変換 (B) が正準変換であることを示せ。\n:::\n\n:::problem-asset\nsrc: /exams/engineering-mechanics-a/2023/page-3.webp\nalt: 工業力学A 2023年度 問題3の原本\n:::\n\n---\n\n---\n\n原点を \\(O=(0,0)\\) とする。\n\n2つのベクトル\n\n\\[\n\\overrightarrow{OA}\n=\n\\begin{pmatrix}\nq_A\\\\\np_A\n\\end{pmatrix}\n\\]\n\n\\[\n\\overrightarrow{OB}\n=\n\\begin{pmatrix}\nq_B\\\\\np_B\n\\end{pmatrix}\n\\]\n\nが作る三角形の面積は、\n\n\\[\nS\n=\n\\frac12\n\\left|\nq_Ap_B-p_Aq_B\n\\right|.\n\\]\n\n前問の結果を代入する。\n\n\\[\nq_Ap_B\n=\n\\left(\n\\frac{p_0}{2}\\sin t\n\\right)\n\\left(\n-2q_0\\sin t\n\\right)\n=\n-p_0q_0\\sin^2t.\n\\]\n\n\\[\np_Aq_B\n=\n(p_0\\cos t)(q_0\\cos t)\n=\np_0q_0\\cos^2t.\n\\]\n\nしたがって、\n\n\\[\nq_Ap_B-p_Aq_B\n=\n-p_0q_0\n(\\sin^2t+\\cos^2t).\n\\]\n\n\\[\n=-p_0q_0.\n\\]\n\nよって、\n\n\\[\n\\boxed{\nS=\\frac12|p_0q_0|\n}\n\\]\n\nとなり、時間 \\(t\\) に依存しない。\n\nしたがって、\n\n\\[\n\\boxed{\n\\triangle OAB\\text{ の面積は運動によって不変}\n}\n\\]\n\nである。\n\n:::why title=\"これがLiouvilleの定理の例になる理由\"\nハミルトン力学の時間発展では、位相空間内の領域は引き伸ばされたり変形したりしても、その面積や体積を保つ。この問題では三角形の面積を直接計算することで確認している。\n:::\n\n---",
+              "major": "3",
+              "why": [
+                {
+                  "title": "これがLiouvilleの定理の例になる理由",
+                  "markdown": "ハミルトン力学の時間発展では、位相空間内の領域は引き伸ばされたり変形したりしても、その面積や体積を保つ。この問題では三角形の面積を直接計算することで確認している。"
+                }
+              ],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q3-6",
+              "label": "Q3-(6)",
+              "title": "独立変数変換と偏微分",
+              "markdown": "## 問題文（原文）\n\n:::problem-original\n1次元運動のラグランジアンが\n\n\\[\nL(q,\\dot q)=\\dot q^2-q^2\n\\]\n\nで与えられるとき、以下の問いに答えよ。\n\n(1) \\(q\\) と \\(p\\) の関数であるハミルトニアン\n\n\\[\nH(q,p)=p\\dot q-L\n\\]\n\nを求めよ。ただし、\n\n\\[\np=\\frac{\\partial L}{\\partial\\dot q}\n\\]\n\nとする。\n\n(2) ポアソン括弧式\n\n\\[\n[A,B]\n=\n\\frac{\\partial A}{\\partial q}\n\\frac{\\partial B}{\\partial p}\n-\n\\frac{\\partial A}{\\partial p}\n\\frac{\\partial B}{\\partial q}\n\\]\n\nを考えることにより、この運動の保存量（\\(H\\) の定数倍を除く）を1つ求めよ。\n\n\\(q,p\\) を正準変数とする正準方程式は、\n\n\\[\n\\frac{dq}{dt}=\\frac{\\partial H}{\\partial p},\n\\qquad\n\\frac{dp}{dt}=-\\frac{\\partial H}{\\partial q}\n\\tag{A}\n\\]\n\nである。\n\n(3) (1) の \\(H=E\\)（正の定数）のとき、位相空間（\\(q-p\\) 面）内での軌道を図示せよ。その際、軌道上の運動の向きも矢印で記入すること。\n\n(4) 軌道上の2点 \\(A\\) と \\(B\\) が、初期 \\(t=0\\) にそれぞれ\n\n\\[\nA(0,p_0),\\qquad B(q_0,0)\n\\]\n\nにあったとき、任意の時刻 \\(t\\) におけるそれぞれの座標 \\((q,p)\\) を求めよ。\n\n(5) 位相空間の原点 \\(O(0,0)\\) は位相空間内での不動点である。(4) の結果を用いて、\\(\\triangle OAB\\) の面積が運動によって不変であることを示せ（Liouvilleの定理の例）。\n\n(1) のハミルトニアン \\(H(q,p)\\) において、\n\n\\[\nQ=\\log\\left(\\frac1q\\sin p\\right),\n\\qquad\nP=q\\cot p\n\\tag{B}\n\\]\n\nで定義される \\((q,p)\\to(Q,P)\\) の独立変数変換を行う。\n\n(6)\n\n\\[\n\\frac{\\partial H}{\\partial p},\n\\qquad\n\\frac{\\partial H}{\\partial q}\n\\]\n\nをそれぞれ、\n\n\\[\n\\frac{\\partial H}{\\partial P},\n\\qquad\n\\frac{\\partial H}{\\partial Q}\n\\]\n\nを用いて表せ。\n\n(7) 正準方程式 (A) と (6) の結果を用いて、\n\n\\[\n\\frac{dQ}{dt},\n\\qquad\n\\frac{dP}{dt}\n\\]\n\nを計算し、変換 (B) が正準変換であることを示せ。\n:::\n\n:::problem-asset\nsrc: /exams/engineering-mechanics-a/2023/page-3.webp\nalt: 工業力学A 2023年度 問題3の原本\n:::\n\n---\n\n---\n\n変数変換は、\n\n\\[\nQ=\\log\\left(\\frac{\\sin p}{q}\\right)\n\\]\n\n\\[\nP=q\\cot p\n\\]\n\nである。\n\n### \\(Q,P\\) の偏微分\n\n\\[\n\\frac{\\partial Q}{\\partial p}\n=\n\\cot p\n\\]\n\n\\[\n\\frac{\\partial Q}{\\partial q}\n=\n-\\frac1q\n\\]\n\n\\[\n\\frac{\\partial P}{\\partial p}\n=\n-q\\csc^2p\n\\]\n\n\\[\n\\frac{\\partial P}{\\partial q}\n=\n\\cot p.\n\\]\n\n### 連鎖律\n\n\\[\n\\frac{\\partial}{\\partial p}\n=\n\\frac{\\partial Q}{\\partial p}\n\\frac{\\partial}{\\partial Q}\n+\n\\frac{\\partial P}{\\partial p}\n\\frac{\\partial}{\\partial P}.\n\\]\n\nしたがって、\n\n\\[\n\\frac{\\partial}{\\partial p}\n=\n\\cot p\\frac{\\partial}{\\partial Q}\n-\nq\\csc^2p\\frac{\\partial}{\\partial P}.\n\\]\n\nよって、\n\n\\[\n\\boxed{\n\\frac{\\partial H}{\\partial p}\n=\n\\cot p\\frac{\\partial H}{\\partial Q}\n-\nq\\csc^2p\\frac{\\partial H}{\\partial P}\n}\n\\]\n\nである。\n\n同様に、\n\n\\[\n\\frac{\\partial}{\\partial q}\n=\n-\\frac1q\\frac{\\partial}{\\partial Q}\n+\n\\cot p\\frac{\\partial}{\\partial P}.\n\\]\n\nよって、\n\n\\[\n\\boxed{\n\\frac{\\partial H}{\\partial q}\n=\n-\\frac1q\\frac{\\partial H}{\\partial Q}\n+\n\\cot p\\frac{\\partial H}{\\partial P}\n}\n\\]\n\nである。\n\n### 間違えやすい点\n\n- \\(P=q\\cot p\\) の \\(p\\) 微分では、\n\n\\[\n\\frac{d}{dp}\\cot p=-\\csc^2p\n\\]\n\nを使う。\n- \\(\\partial H/\\partial p\\) を計算するときは、\\(Q\\) と \\(P\\) の両方が \\(p\\) に依存する。\n\n---",
+              "major": "3",
+              "why": [],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q3-7",
+              "label": "Q3-(7)",
+              "title": "正準変換の証明",
+              "markdown": "## 問題文（原文）\n\n:::problem-original\n1次元運動のラグランジアンが\n\n\\[\nL(q,\\dot q)=\\dot q^2-q^2\n\\]\n\nで与えられるとき、以下の問いに答えよ。\n\n(1) \\(q\\) と \\(p\\) の関数であるハミルトニアン\n\n\\[\nH(q,p)=p\\dot q-L\n\\]\n\nを求めよ。ただし、\n\n\\[\np=\\frac{\\partial L}{\\partial\\dot q}\n\\]\n\nとする。\n\n(2) ポアソン括弧式\n\n\\[\n[A,B]\n=\n\\frac{\\partial A}{\\partial q}\n\\frac{\\partial B}{\\partial p}\n-\n\\frac{\\partial A}{\\partial p}\n\\frac{\\partial B}{\\partial q}\n\\]\n\nを考えることにより、この運動の保存量（\\(H\\) の定数倍を除く）を1つ求めよ。\n\n\\(q,p\\) を正準変数とする正準方程式は、\n\n\\[\n\\frac{dq}{dt}=\\frac{\\partial H}{\\partial p},\n\\qquad\n\\frac{dp}{dt}=-\\frac{\\partial H}{\\partial q}\n\\tag{A}\n\\]\n\nである。\n\n(3) (1) の \\(H=E\\)（正の定数）のとき、位相空間（\\(q-p\\) 面）内での軌道を図示せよ。その際、軌道上の運動の向きも矢印で記入すること。\n\n(4) 軌道上の2点 \\(A\\) と \\(B\\) が、初期 \\(t=0\\) にそれぞれ\n\n\\[\nA(0,p_0),\\qquad B(q_0,0)\n\\]\n\nにあったとき、任意の時刻 \\(t\\) におけるそれぞれの座標 \\((q,p)\\) を求めよ。\n\n(5) 位相空間の原点 \\(O(0,0)\\) は位相空間内での不動点である。(4) の結果を用いて、\\(\\triangle OAB\\) の面積が運動によって不変であることを示せ（Liouvilleの定理の例）。\n\n(1) のハミルトニアン \\(H(q,p)\\) において、\n\n\\[\nQ=\\log\\left(\\frac1q\\sin p\\right),\n\\qquad\nP=q\\cot p\n\\tag{B}\n\\]\n\nで定義される \\((q,p)\\to(Q,P)\\) の独立変数変換を行う。\n\n(6)\n\n\\[\n\\frac{\\partial H}{\\partial p},\n\\qquad\n\\frac{\\partial H}{\\partial q}\n\\]\n\nをそれぞれ、\n\n\\[\n\\frac{\\partial H}{\\partial P},\n\\qquad\n\\frac{\\partial H}{\\partial Q}\n\\]\n\nを用いて表せ。\n\n(7) 正準方程式 (A) と (6) の結果を用いて、\n\n\\[\n\\frac{dQ}{dt},\n\\qquad\n\\frac{dP}{dt}\n\\]\n\nを計算し、変換 (B) が正準変換であることを示せ。\n:::\n\n:::problem-asset\nsrc: /exams/engineering-mechanics-a/2023/page-3.webp\nalt: 工業力学A 2023年度 問題3の原本\n:::\n\n---\n\n---\n\n元の正準方程式は、\n\n\\[\n\\dot q=H_p\n\\]\n\n\\[\n\\dot p=-H_q\n\\]\n\nである。\n\nここで、\n\n\\[\nH_p=\\frac{\\partial H}{\\partial p},\n\\qquad\nH_q=\\frac{\\partial H}{\\partial q}.\n\\]\n\n---\n\n### \\(dQ/dt\\)\n\n連鎖律より、\n\n\\[\n\\dot Q\n=\nQ_q\\dot q+Q_p\\dot p.\n\\]\n\n\\[\n=\n-\\frac1qH_p\n+\n\\cot p(-H_q).\n\\]\n\n\\[\n=\n-\\frac1qH_p-\\cot pH_q.\n\\]\n\n前問の結果を代入する。\n\n\\[\n-\\frac1qH_p\n=\n-\\frac{\\cot p}{q}H_Q\n+\n\\csc^2pH_P.\n\\]\n\n\\[\n-\\cot pH_q\n=\n\\frac{\\cot p}{q}H_Q\n-\n\\cot^2pH_P.\n\\]\n\n足すと \\(H_Q\\) の項は消える。\n\n\\[\n\\dot Q\n=\n(\\csc^2p-\\cot^2p)H_P.\n\\]\n\n恒等式\n\n\\[\n\\csc^2p-\\cot^2p=1\n\\]\n\nより、\n\n\\[\n\\boxed{\n\\dot Q=\\frac{\\partial H}{\\partial P}\n}\n\\]\n\nを得る。\n\n---\n\n### \\(dP/dt\\)\n\n\\[\n\\dot P\n=\nP_q\\dot q+P_p\\dot p.\n\\]\n\n\\[\n=\n\\cot pH_p\n+\n(-q\\csc^2p)(-H_q).\n\\]\n\n\\[\n=\n\\cot pH_p\n+\nq\\csc^2pH_q.\n\\]\n\n前問の結果を代入する。\n\n\\[\n\\dot P\n=\n\\cot p\n\\left(\n\\cot pH_Q-q\\csc^2pH_P\n\\right)\n\\]\n\n\\[\n+\nq\\csc^2p\n\\left(\n-\\frac1qH_Q+\\cot pH_P\n\\right).\n\\]\n\n\\(H_P\\) の項は打ち消し合う。\n\n\\[\n\\dot P\n=\n(\\cot^2p-\\csc^2p)H_Q.\n\\]\n\n\\[\n\\cot^2p-\\csc^2p=-1\n\\]\n\nより、\n\n\\[\n\\boxed{\n\\dot P=-\\frac{\\partial H}{\\partial Q}\n}\n\\]\n\nを得る。\n\n---\n\n### 最終結論\n\n新しい変数 \\(Q,P\\) についても、\n\n\\[\n\\boxed{\n\\dot Q=\\frac{\\partial H}{\\partial P}\n}\n\\]\n\n\\[\n\\boxed{\n\\dot P=-\\frac{\\partial H}{\\partial Q}\n}\n\\]\n\nが成立する。\n\nしたがって、変換\n\n\\[\n\\boxed{\nQ=\\log\\left(\\frac{\\sin p}{q}\\right),\n\\qquad\nP=q\\cot p\n}\n\\]\n\nは正準変換である。\n\n# 年度全体の重要ポイント\n\n- 壁との接触中と離れた後では、系に作用する外力が変わる。\n- 2物体のばね運動は、重心運動と相対運動に分けると簡単になる。\n- リンク機構では、各剛体の重心座標と角速度を一般化座標で表す。\n- 小振動の固有振動数は、平衡位置近くのポテンシャルエネルギーの二次項で決まる。\n- ハミルトン力学では、位相空間の軌道と正準変換を連鎖律で扱う。",
+              "major": "3",
+              "why": [],
+              "importantPoints": [],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": false
             }
           ]
         }
