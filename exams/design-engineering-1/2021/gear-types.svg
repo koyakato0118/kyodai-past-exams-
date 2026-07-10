@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720">
+<style>
+text{font-family:"Noto Sans CJK JP","Yu Gothic",sans-serif;fill:#172033}
+.title{font-size:32px;font-weight:700}.label{font-size:24px}.small{font-size:20px}
+.gear{fill:#e9eef7;stroke:#26364a;stroke-width:4}.tooth{stroke:#2563eb;stroke-width:8}
+.axis{stroke:#475569;stroke-width:7}.guide{stroke:#94a3b8;stroke-width:2;stroke-dasharray:8 7}
+</style>
+<rect width="1400" height="720" fill="white"/>
+<text x="55" y="55" class="title">平歯車・はすば歯車・やまば歯車</text>
+
+<g transform="translate(40,90)">
+<text x="130" y="35" class="title">平歯車</text>
+<rect x="80" y="120" width="250" height="300" rx="28" class="gear"/>
+<line x1="40" y1="270" x2="370" y2="270" class="axis"/>
+<g class="tooth">
+<line x1="95" y1="125" x2="95" y2="415"/><line x1="125" y1="125" x2="125" y2="415"/>
+<line x1="155" y1="125" x2="155" y2="415"/><line x1="185" y1="125" x2="185" y2="415"/>
+<line x1="215" y1="125" x2="215" y2="415"/><line x1="245" y1="125" x2="245" y2="415"/>
+<line x1="275" y1="125" x2="275" y2="415"/><line x1="305" y1="125" x2="305" y2="415"/>
+</g>
+<text x="55" y="475" class="label">歯すじが軸に平行</text>
+<text x="40" y="515" class="small">・製作が容易、軸力なし</text>
+<text x="40" y="548" class="small">・高速では騒音・振動が増えやすい</text>
+</g>
+
+<g transform="translate(480,90)">
+<text x="100" y="35" class="title">はすば歯車</text>
+<rect x="80" y="120" width="250" height="300" rx="28" class="gear"/>
+<line x1="40" y1="270" x2="370" y2="270" class="axis"/>
+<g class="tooth">
+<line x1="55" y1="415" x2="145" y2="125"/><line x1="90" y1="415" x2="180" y2="125"/>
+<line x1="125" y1="415" x2="215" y2="125"/><line x1="160" y1="415" x2="250" y2="125"/>
+<line x1="195" y1="415" x2="285" y2="125"/><line x1="230" y1="415" x2="320" y2="125"/>
+<line x1="265" y1="415" x2="355" y2="125"/>
+</g>
+<path d="M350 210 L410 210" stroke="#dc2626" stroke-width="5"/>
+<polygon points="410,210 390,200 390,220" fill="#dc2626"/>
+<text x="350" y="188" class="small" fill="#dc2626">軸方向力</text>
+<text x="55" y="475" class="label">歯すじが斜め</text>
+<text x="40" y="515" class="small">・かみ合いが連続的で静粛</text>
+<text x="40" y="548" class="small">・負荷能力が高いが軸方向力が生じる</text>
+</g>
+
+<g transform="translate(930,90)">
+<text x="75" y="35" class="title">やまば歯車</text>
+<rect x="80" y="120" width="250" height="300" rx="28" class="gear"/>
+<line x1="40" y1="270" x2="370" y2="270" class="axis"/>
+<g class="tooth">
+<polyline points="50,415 135,270 50,125"/><polyline points="90,415 175,270 90,125"/>
+<polyline points="130,415 215,270 130,125"/><polyline points="170,415 255,270 170,125"/>
+<polyline points="210,415 295,270 210,125"/><polyline points="250,415 335,270 250,125"/>
+</g>
+<path d="M340 235 L395 235" stroke="#059669" stroke-width="5"/>
+<path d="M395 305 L340 305" stroke="#059669" stroke-width="5"/>
+<polygon points="395,235 375,225 375,245" fill="#059669"/>
+<polygon points="340,305 360,295 360,315" fill="#059669"/>
+<text x="340" y="200" class="small" fill="#059669">軸方向力が相殺</text>
+<text x="40" y="475" class="label">左右逆ねじれを組合せ</text>
+<text x="40" y="515" class="small">・静粛、高負荷、軸方向力を相殺</text>
+<text x="40" y="548" class="small">・加工・組立が複雑で高価</text>
+</g>
+</svg>

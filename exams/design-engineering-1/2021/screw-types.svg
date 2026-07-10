@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1350" height="700" viewBox="0 0 1350 700">
+<style>
+text{font-family:"Noto Sans CJK JP","Yu Gothic",sans-serif;fill:#172033}
+.title{font-size:31px;font-weight:700}.label{font-size:23px}.small{font-size:20px}
+.part{fill:#e8edf4;stroke:#334155;stroke-width:3}.screw{fill:#dbeafe;stroke:#2563eb;stroke-width:4}
+.thread{stroke:#dc2626;stroke-width:3}.shaft{fill:#f8fafc;stroke:#334155;stroke-width:4}
+</style>
+<rect width="1350" height="700" fill="white"/>
+<text x="55" y="55" class="title">止めねじとタッピングねじ</text>
+
+<g transform="translate(50,100)">
+<text x="190" y="35" class="title">止めねじ</text>
+<circle cx="270" cy="310" r="105" class="shaft"/>
+<rect x="95" y="205" width="350" height="210" rx="20" class="part" fill-opacity=".75"/>
+<rect x="245" y="75" width="50" height="210" class="screw"/>
+<g class="thread">
+<line x1="245" y1="105" x2="295" y2="125"/><line x1="245" y1="130" x2="295" y2="150"/>
+<line x1="245" y1="155" x2="295" y2="175"/><line x1="245" y1="180" x2="295" y2="200"/>
+</g>
+<polygon points="245,285 295,285 270,330" fill="#2563eb" stroke="#2563eb"/>
+<text x="50" y="470" class="label">ハブからねじを締め、先端を軸へ押し付ける</text>
+<text x="50" y="515" class="small">目的：軽荷重での回り止め・軸方向位置決め</text>
+<text x="50" y="550" class="small">注意：大トルクには不向き。軸へ平面・くぼみを設ける</text>
+</g>
+
+<g transform="translate(720,100)">
+<text x="145" y="35" class="title">タッピングねじ</text>
+<rect x="80" y="300" width="440" height="95" class="part"/>
+<rect x="235" y="70" width="70" height="290" class="screw"/>
+<rect x="200" y="45" width="140" height="50" rx="12" class="screw"/>
+<g class="thread">
+<line x1="235" y1="120" x2="305" y2="145"/><line x1="235" y1="150" x2="305" y2="175"/>
+<line x1="235" y1="180" x2="305" y2="205"/><line x1="235" y1="210" x2="305" y2="235"/>
+<line x1="235" y1="240" x2="305" y2="265"/><line x1="235" y1="270" x2="305" y2="295"/>
+</g>
+<polygon points="235,360 305,360 270,420" fill="#2563eb"/>
+<path d="M410 255 C470 245 500 275 520 300" fill="none" stroke="#059669" stroke-width="5"/>
+<polygon points="520,300 500,285 500,310" fill="#059669"/>
+<text x="360" y="230" class="small" fill="#059669">ねじ自身で雌ねじを形成</text>
+<text x="45" y="470" class="label">下穴へ直接ねじ込み、材料側にねじ山を作る</text>
+<text x="45" y="515" class="small">目的：薄板、樹脂、家電・車体部品の簡便な締結</text>
+<text x="45" y="550" class="small">注意：適正下穴径、板厚、締付トルク。反復脱着は不利</text>
+</g>
+</svg>
