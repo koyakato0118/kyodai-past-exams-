@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>工業数学F2 2023 解説</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body id="top">
+<header class="topbar">
+  <div class="brand">
+    <button class="mobile-btn" onclick="toggleSidebar()" aria-label="メニュー">☰</button>
+    <div class="brand-icon">📘</div><span>京大工学部 過去問解説</span>
+  </div>
+  <nav class="year-switch">
+    <a class="active" href="2023.html">2023</a>
+    <a class="" href="2021.html">2021</a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <h2>工業数学F2・2023</h2>
+  <a href="index.html">← 年度一覧</a>
+  <a class="current" href="#prep" onclick="closeSidebar()">0. 予備知識</a>
+<a class="" href="#q1" onclick="closeSidebar()">大問1 フーリエ級数</a>
+<a class="indent" href="#q11" onclick="closeSidebar()">1-1 内積</a>
+<a class="indent" href="#q12" onclick="closeSidebar()">1-2 演算子</a>
+<a class="indent" href="#q13" onclick="closeSidebar()">1-3 最良近似</a>
+<a class="indent" href="#q14" onclick="closeSidebar()">1-4 極限</a>
+<a class="" href="#q2" onclick="closeSidebar()">大問2 フーリエ変換</a>
+<a class="indent" href="#q21" onclick="closeSidebar()">2-1 定義</a>
+<a class="indent" href="#q22" onclick="closeSidebar()">2-2 変換計算</a>
+<a class="" href="#q3" onclick="closeSidebar()">大問3 波動方程式</a>
+<a class="indent" href="#q31" onclick="closeSidebar()">3-1 一般解</a>
+<a class="indent" href="#q32" onclick="closeSidebar()">3-2 ダランベール解</a>
+<a class="indent" href="#q33" onclick="closeSidebar()">3-3 具体例</a>
+<a class="" href="#exam" onclick="closeSidebar()">試験答案まとめ</a>
+</aside>
+<main class="main">
+
+<section class="hero">
+  <div class="eyebrow">2023年度・担当教員：瀬波</div>
+  <h1>工業数学F2</h1>
+  <p>内積・フーリエ級数・フーリエ変換・波動方程式を、予備知識から解説します。</p>
+</section>
+
+<section class="card" id="prep">
+<h2>0. 予備知識</h2>
+<h3>関数の内積</h3>
+<p>ベクトルの内積を関数へ拡張したものです。</p>
+<div class="important box"><span class="label">重要公式</span>
+\[(f,g)=\int_{-\pi}^{\pi}f(x)g(x)\,dx\]
+</div>
+<details class="why"><summary>なぜ積分が内積になるの？</summary><div class="why-body">
+<p>ベクトルでは対応する成分を掛けて足します。関数は連続的に無数の値を持つため、その「無数の足し算」を積分で表します。</p>
+</div></details>
+<h3>フーリエ変換の約束</h3>
+<div class="important box"><span class="label">この解説で使う定義</span>
+\[
+\hat f(k)=\int_{-\infty}^{\infty}f(x)e^{-ikx}\,dx,\qquad
+f(x)=\frac1{2\pi}\int_{-\infty}^{\infty}\hat f(k)e^{ikx}\,dk.
+\]
+</div>
+<p class="formula-note">授業で別の係数を採用している場合は、最終結果の \(2\pi\) の位置が変わります。</p>
+<h3>偏微分</h3>
+<p>\(u(x,t)\) を \(x\) で微分するときは \(t\) を定数として扱い、\(t\) で微分するときは \(x\) を定数として扱います。</p>
+</section>
+
+<section class="card" id="q1">
+<h2>大問1　内積・演算子・フーリエ級数</h2>
+
+<h3 id="q11">1-1　\((f_1,f_2)\) を求める</h3>
+<div class="problem">
+\[
+f_1=a_0\frac1{\sqrt{2\pi}}+a_1\frac{\cos x}{\sqrt\pi}+a_2\frac{\sin x}{\sqrt\pi},
+\quad
+f_2=b_0\frac1{\sqrt{2\pi}}+b_1\frac{\cos x}{\sqrt\pi}+b_2\frac{\sin x}{\sqrt\pi}.
+\]
+</div>
+<p>3つの基底は互いに直交し、自分自身との内積は1です。</p>
+\[
+\left(\frac1{\sqrt{2\pi}},\frac1{\sqrt{2\pi}}\right)=1,\quad
+\left(\frac{\cos x}{\sqrt\pi},\frac{\cos x}{\sqrt\pi}\right)=1,\quad
+\left(\frac{\sin x}{\sqrt\pi},\frac{\sin x}{\sqrt\pi}\right)=1.
+\]
+<details class="why"><summary>なぜ交差項が消えるの？</summary><div class="why-body">
+<p>\(\sin x\)、\(\cos x\)、定数を異なる組合せで掛けると、対称区間で正負が打ち消し合うため積分が0になります。</p>
+</div></details>
+<div class="answer box"><span class="label">答え</span>
+\[\boxed{(f_1,f_2)=a_0b_0+a_1b_1+a_2b_2}\]
+</div>
+
+<h3 id="q12">1-2　演算子の行列表現</h3>
+<div class="problem">\[\hat O=\frac d{dx}+\frac{d^2}{dx^2}\]</div>
+<p>基底を \(e_0=1/\sqrt{2\pi},\,e_1=\cos x/\sqrt\pi,\,e_2=\sin x/\sqrt\pi\) とします。</p>
+\[
+\hat Oe_0=0,\qquad
+\hat Oe_1=-e_1-e_2,\qquad
+\hat Oe_2=e_1-e_2.
+\]
+<details class="why"><summary>なぜ結果の係数を「列」に入れるの？</summary><div class="why-body">
+<p>行列の第 \(j\) 列は、基底 \(e_j\) を写した結果の座標です。したがって上の3つの結果を順番に列へ並べます。</p>
+</div></details>
+<div class="answer box"><span class="label">答え</span>
+\[
+\boxed{A=\begin{pmatrix}0&0&0\\0&-1&1\\0&-1&-1\end{pmatrix}}
+\]
+</div>
+
+<h3 id="q13">1-3　\(h(x)=|x|\) の最良近似</h3>
+<p>平均二乗誤差を最小にする係数は、\(h\) のフーリエ係数です。</p>
+\[
+\alpha_0=\frac1\pi\int_{-\pi}^{\pi}|x|dx=\pi.
+\]
+<p>\(|x|\) は偶関数、\(\sin kx\) は奇関数なので、</p>
+\[\beta_k=0.\]
+<p>余弦係数は</p>
+\[
+\alpha_k=\frac2\pi\int_0^\pi x\cos kx\,dx.
+\]
+<details class="why"><summary>なぜ部分積分を使うの？</summary><div class="why-body">
+<p>\(x\) は微分すると1になり、\(\cos kx\) は積分できます。「一方を簡単にし、もう一方を積分できる」ので部分積分が適しています。</p>
+</div></details>
+\[
+\int_0^\pi x\cos kx\,dx
+=\left[\frac{x\sin kx}{k}\right]_0^\pi-\frac1k\int_0^\pi\sin kx\,dx
+=\frac{(-1)^k-1}{k^2}.
+\]
+<div class="answer box"><span class="label">答え</span>
+\[
+\boxed{\alpha_0=\pi,\quad
+\alpha_k=\frac{2\{(-1)^k-1\}}{\pi k^2},\quad
+\beta_k=0}
+\]
+\[
+g_n(x)=\frac\pi2-\frac4\pi
+\sum_{\substack{1\le k\le n\\k\text{ odd}}}\frac{\cos kx}{k^2}.
+\]
+</div>
+
+<h3 id="q14">1-4　\(\lim_{n\to\infty}(g_n,g_n)\)</h3>
+<p>\(g_n\) は平均二乗の意味で \(h=|x|\) に近づくため、ノルムの二乗も収束します。</p>
+\[
+\lim_{n\to\infty}(g_n,g_n)=(h,h)
+=\int_{-\pi}^{\pi}x^2dx
+=2\left[\frac{x^3}{3}\right]_0^\pi.
+\]
+<div class="answer box"><span class="label">答え</span>
+\[\boxed{\displaystyle\frac{2\pi^3}{3}}\]
+</div>
+</section>
+
+<section class="card" id="q2">
+<h2>大問2　フーリエ変換</h2>
+<h3 id="q21">2-1　定義</h3>
+<div class="answer box">
+\[
+\boxed{\hat f(k)=\int_{-\infty}^{\infty}f(x)e^{-ikx}dx},\qquad
+\boxed{f(x)=\frac1{2\pi}\int_{-\infty}^{\infty}\hat f(k)e^{ikx}dk}.
+\]
+</div>
+
+<h3 id="q22">2-2(a)　\(f(x)=3+i\)</h3>
+<p>定数関数は通常の意味では積分が収束しません。デルタ関数を用いる「超関数」の意味で扱います。</p>
+\[
+\mathcal F[1]=2\pi\delta(k)
+\]
+より、線形性から
+<div class="answer box"><span class="label">答え</span>
+\[
+\boxed{\hat f(k)=2\pi(3+i)\delta(k)}
+\]
+</div>
+<details class="why"><summary>デルタ関数とは？</summary><div class="why-body">
+<p>\(\delta(k)\) は \(k=0\) にだけ集中し、\(\int\delta(k)\varphi(k)dk=\varphi(0)\) を満たす対象です。定数関数は周波数0だけを持つため、変換すると \(k=0\) に集中します。</p>
+</div></details>
+
+<h3>2-2(b)　\(f(x)=e^{a|x|}\;(a&lt;0)\)</h3>
+<p>偶関数なので左右を2倍します。</p>
+\[
+\hat f(k)=2\int_0^\infty e^{ax}\cos(kx)dx.
+\]
+<p>\(a&lt;0\) なので無限遠で指数関数が0になり、</p>
+\[
+\int_0^\infty e^{ax}\cos(kx)dx
+=-\frac{a}{a^2+k^2}.
+\]
+<div class="answer box"><span class="label">答え</span>
+\[
+\boxed{\hat f(k)=\frac{-2a}{a^2+k^2}}
+\]
+</div>
+</section>
+
+<section class="card" id="q3">
+<h2>大問3　波動方程式</h2>
+<div class="problem">\[\frac{\partial^2u}{\partial t^2}=c^2\frac{\partial^2u}{\partial x^2}\]</div>
+
+<h3 id="q31">3-1　\(u=\phi(x+ct)+\psi(x-ct)\) が解であること</h3>
+<p>合成関数の微分を使います。</p>
+\[
+u_t=c\phi'(x+ct)-c\psi'(x-ct),
+\]
+\[
+u_{tt}=c^2\phi''(x+ct)+c^2\psi''(x-ct).
+\]
+一方、
+\[
+u_x=\phi'(x+ct)+\psi'(x-ct),
+\quad
+u_{xx}=\phi''(x+ct)+\psi''(x-ct).
+\]
+したがって
+\[
+u_{tt}=c^2u_{xx}.
+\]
+<div class="answer box"><span class="label">結論</span>与えられた形は波動方程式を満たします。</div>
+
+<h3 id="q32">3-2　初期条件からダランベール解を導く</h3>
+\[
+u(x,0)=\phi(x)+\psi(x)=f(x)
+\]
+\[
+u_t(x,0)=c\phi'(x)-c\psi'(x)=g(x).
+\]
+第2式を積分すると
+\[
+\phi(x)-\psi(x)=\frac1c\int^x g(y)dy+C.
+\]
+これと \(\phi+\psi=f\) を連立して \(\phi,\psi\) を求め、定数を整理すると
+<div class="answer box"><span class="label">ダランベールの公式</span>
+\[
+\boxed{
+u(x,t)=\frac12\left[
+f(x+ct)+f(x-ct)+\frac1c\int_{x-ct}^{x+ct}g(y)dy
+\right]}
+\]
+</div>
+<details class="why"><summary>積分区間が \(x-ct\) から \(x+ct\) になる理由</summary><div class="why-body">
+<p>右向き・左向きに速度 \(c\) で進む情報が、時刻 \(t\) に点 \(x\) へ到達できる初期位置の範囲が \([x-ct,x+ct]\) だからです。</p>
+</div></details>
+
+<h3 id="q33">3-3　具体的初期条件</h3>
+<div class="problem">
+\[
+f(x)=\sum_{n=1}^{\infty}\sin\frac{n\pi x}{l},
+\qquad
+g(x)=\sin\frac{\pi x}{l}.
+\]
+</div>
+<p>各正弦波は独立に伝わります。恒等式
+\[
+\frac12\{\sin(A+B)+\sin(A-B)\}=\sin A\cos B
+\]
+を使うと、変位の項は</p>
+\[
+\sum_{n=1}^{\infty}
+\sin\frac{n\pi x}{l}\cos\frac{n\pi ct}{l}.
+\]
+速度項は
+\[
+\frac1{2c}\int_{x-ct}^{x+ct}\sin\frac{\pi y}{l}dy
+=\frac{l}{\pi c}\sin\frac{\pi x}{l}\sin\frac{\pi ct}{l}.
+\]
+<div class="answer box"><span class="label">答え</span>
+\[
+\boxed{
+u(x,t)=
+\sum_{n=1}^{\infty}\sin\frac{n\pi x}{l}\cos\frac{n\pi ct}{l}
++\frac{l}{\pi c}\sin\frac{\pi x}{l}\sin\frac{\pi ct}{l}}
+\]
+</div>
+<div class="warning box"><span class="label">注意</span>
+問題画像の総和記号には上下限が明示されていないように見えるため、この解説では通常どおり \(n=1,2,\ldots\) と解釈しています。
+</div>
+</section>
+
+<section class="card" id="exam">
+<h2>試験答案まとめ</h2>
+<div class="exam-answer"><b>大問1：</b>
+\((f_1,f_2)=a_0b_0+a_1b_1+a_2b_2\)、
+\(A=\begin{pmatrix}0&0&0\\0&-1&1\\0&-1&-1\end{pmatrix}\)、
+\(\alpha_0=\pi,\;\alpha_k=2\{(-1)^k-1\}/(\pi k^2),\;\beta_k=0\)、
+極限は \(2\pi^3/3\)。
+</div>
+<div class="exam-answer"><b>大問2：</b>
+\(\mathcal F[3+i]=2\pi(3+i)\delta(k)\)、
+\(\mathcal F[e^{a|x|}]=-2a/(a^2+k^2)\)。
+</div>
+<div class="exam-answer"><b>大問3：</b>
+ダランベール公式を導出し、3-3は上記の正弦級数解。
+</div>
+</section>
+
+<footer>工業数学F2 初学者向け過去問解説</footer>
+</main>
+</div>
+<a class="backtop" href="#top" aria-label="上へ戻る">↑</a>
+</body>
+</html>

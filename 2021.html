@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>工業数学F2 2021 解説</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body id="top">
+<header class="topbar">
+  <div class="brand">
+    <button class="mobile-btn" onclick="toggleSidebar()" aria-label="メニュー">☰</button>
+    <div class="brand-icon">📘</div><span>京大工学部 過去問解説</span>
+  </div>
+  <nav class="year-switch">
+    <a class="" href="2023.html">2023</a>
+    <a class="active" href="2021.html">2021</a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <h2>工業数学F2・2021</h2>
+  <a href="index.html">← 年度一覧</a>
+  <a class="current" href="#prep" onclick="closeSidebar()">0. 予備知識</a>
+<a class="" href="#q1" onclick="closeSidebar()">大問1 フーリエ級数</a>
+<a class="indent" href="#q11" onclick="closeSidebar()">1-1 直交性</a>
+<a class="indent" href="#q12" onclick="closeSidebar()">1-2 係数計算</a>
+<a class="indent" href="#q13" onclick="closeSidebar()">1-3 ライプニッツ級数</a>
+<a class="" href="#q2" onclick="closeSidebar()">大問2 フーリエ変換</a>
+<a class="indent" href="#q21" onclick="closeSidebar()">2-1 定義</a>
+<a class="indent" href="#q22a" onclick="closeSidebar()">2-2(a) 指数関数</a>
+<a class="indent" href="#q22b" onclick="closeSidebar()">2-2(b) x の変換</a>
+<a class="" href="#q3" onclick="closeSidebar()">大問3 熱方程式</a>
+<a class="indent" href="#q31" onclick="closeSidebar()">3-1 変数分離</a>
+<a class="indent" href="#q32" onclick="closeSidebar()">3-2 係数</a>
+<a class="indent" href="#q33" onclick="closeSidebar()">3-3 具体例</a>
+<a class="" href="#exam" onclick="closeSidebar()">試験答案まとめ</a>
+</aside>
+<main class="main">
+
+<section class="hero">
+  <div class="eyebrow">2021年度・担当教員：瀬波</div>
+  <h1>工業数学F2</h1>
+  <p>フーリエ級数・フーリエ変換・周期境界条件つき熱方程式を解説します。</p>
+</section>
+
+<section class="card" id="prep">
+<h2>0. 予備知識</h2>
+<h3>フーリエ級数</h3>
+<div class="important box"><span class="label">標準形</span>
+\[
+f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx)
+\]
+\[
+a_n=\frac1\pi\int_{-\pi}^{\pi}f(x)\cos nx\,dx,\qquad
+b_n=\frac1\pi\int_{-\pi}^{\pi}f(x)\sin nx\,dx.
+\]
+</div>
+<h3>変数分離法</h3>
+<p>偏微分方程式の解を \(u(x,t)=X(x)T(t)\) と仮定し、空間だけの式と時間だけの式に分ける方法です。</p>
+<details class="why"><summary>なぜ積の形を仮定するの？</summary><div class="why-body">
+<p>すべての解が1つの積になるわけではありません。しかし積の形の基本解を多数求め、その和を取ることで一般的な初期条件を表せます。</p>
+</div></details>
+</section>
+
+<section class="card" id="q1">
+<h2>大問1　フーリエ級数</h2>
+<h3 id="q11">1-1　\(\sin\) と \(\cos\) の直交性</h3>
+<p>内積を</p>
+\[
+(f,g)=\int_{-\pi}^{\pi}f(x)g(x)dx
+\]
+と定めます。「直交」とは内積が0になることです。</p>
+\[
+\sin mx\cos nx=\frac12\{\sin((m+n)x)+\sin((m-n)x)\}
+\]
+なので、対称区間で積分すると0です。また
+\[
+\int_{-\pi}^{\pi}\sin mx\sin nx\,dx=
+\begin{cases}\pi&(m=n)\\0&(m\ne n)\end{cases}
+\]
+\[
+\int_{-\pi}^{\pi}\cos mx\cos nx\,dx=
+\begin{cases}\pi&(m=n)\\0&(m\ne n)\end{cases}.
+\]
+<div class="point box"><span class="label">意味</span>
+異なる周波数の正弦・余弦は、内積の意味で互いに混ざらないため、各係数を独立に取り出せます。
+</div>
+
+<h3 id="q12">1-2　段階関数のフーリエ係数</h3>
+<div class="problem">
+\[
+f(x)=\begin{cases}2&(0&lt;x&lt;\pi)\\0&(-\pi&lt;x&lt;0)\end{cases}
+\]
+</div>
+\[
+a_0=\frac1\pi\int_{-\pi}^{\pi}f(x)dx
+=\frac1\pi\int_0^\pi2dx=2.
+\]
+\[
+a_n=\frac2\pi\int_0^\pi\cos nx\,dx=0.
+\]
+\[
+b_n=\frac2\pi\int_0^\pi\sin nx\,dx
+=\frac{2}{\pi n}\{1-(-1)^n\}.
+\]
+したがって偶数 \(n\) では0、奇数 \(n\) では \(4/(\pi n)\) です。
+<div class="answer box"><span class="label">答え</span>
+\[
+\boxed{
+f(x)=1+\frac4\pi\left(
+\sin x+\frac{\sin3x}{3}+\frac{\sin5x}{5}+\cdots
+\right)}
+\]
+</div>
+
+<h3 id="q13">1-3　\(\pi/4\) の級数</h3>
+<p>\(x=\pi/2\) は不連続点ではなく、\(f(\pi/2)=2\) です。前問の式へ代入します。</p>
+\[
+2=1+\frac4\pi\left(
+1-\frac13+\frac15-\frac17+\cdots
+\right).
+\]
+整理すると
+<div class="answer box"><span class="label">答え</span>
+\[
+\boxed{
+\frac\pi4=
+1-\frac13+\frac15-\frac17+\cdots
+=\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{2n-1}}
+\]
+</div>
+<details class="why"><summary>なぜ符号が交互になるの？</summary><div class="why-body">
+<p>\(\sin((2n-1)\pi/2)\) は \(1,-1,1,-1,\ldots\) と交互になるからです。</p>
+</div></details>
+</section>
+
+<section class="card" id="q2">
+<h2>大問2　フーリエ変換</h2>
+<h3 id="q21">2-1　定義</h3>
+<div class="answer box">
+\[
+\boxed{\hat f(k)=\int_{-\infty}^{\infty}f(x)e^{-ikx}dx},\qquad
+\boxed{f(x)=\frac1{2\pi}\int_{-\infty}^{\infty}\hat f(k)e^{ikx}dk}.
+\]
+</div>
+
+<h3 id="q22a">2-2(a)　\(f(x)=e^{-|x|}\)</h3>
+<p>偶関数なので</p>
+\[
+\hat f(k)=2\int_0^\infty e^{-x}\cos kx\,dx.
+\]
+基本積分
+\[
+\int_0^\infty e^{-x}\cos kx\,dx=\frac1{1+k^2}
+\]
+より、
+<div class="answer box"><span class="label">答え</span>
+\[
+\boxed{\hat f(k)=\frac2{1+k^2}}
+\]
+</div>
+
+<h3 id="q22b">2-2(b)　\(f(x)=x\)</h3>
+<p>この積分は通常の意味では収束しないため、超関数として扱います。</p>
+<div class="important box"><span class="label">微分則</span>
+\[
+\mathcal F[xf(x)]=i\frac{d}{dk}\hat f(k)
+\]
+</div>
+<p>\(\mathcal F[1]=2\pi\delta(k)\) なので、</p>
+<div class="answer box"><span class="label">答え</span>
+\[
+\boxed{\mathcal F[x]=2\pi i\,\delta'(k)}
+\]
+</div>
+<details class="why"><summary>なぜデルタ関数の微分が出るの？</summary><div class="why-body">
+<p>元の関数に \(x\) を掛ける操作は、周波数側では \(i\,d/dk\) に対応します。定数1の変換がデルタ関数なので、それを微分したものになります。</p>
+</div></details>
+</section>
+
+<section class="card" id="q3">
+<h2>大問3　周期境界条件つき熱方程式</h2>
+<div class="problem">
+\[
+u_t=D u_{xx},\qquad u(x+2l,t)=u(x,t),\qquad u(x,0)=f(x).
+\]
+</div>
+
+<h3 id="q31">3-1　変数分離法</h3>
+<p>\(u=X(x)T(t)\) と置くと、</p>
+\[
+XT'=DX''T.
+\]
+両辺を \(DXT\) で割り、
+\[
+\frac{T'}{DT}=\frac{X''}{X}=-\lambda.
+\]
+周期境界条件から許される波数は
+\[
+\lambda=\left(\frac{k\pi}{l}\right)^2,\qquad k=1,2,\ldots
+\]
+です。空間解と時間解は
+\[
+X=A_k\cos\frac{k\pi x}{l}+B_k\sin\frac{k\pi x}{l},
+\]
+\[
+T=\exp\left(-\frac{k^2\pi^2D}{l^2}t\right).
+\]
+よって
+<div class="answer box"><span class="label">問題文の形</span>
+\[
+\boxed{
+u(x,t)=\sum_{k=1}^{\infty}
+\left(A_k\cos\frac{k\pi x}{l}+B_k\sin\frac{k\pi x}{l}\right)
+\exp\left(-\frac{k^2\pi^2D}{l^2}t\right)}
+\]
+</div>
+<div class="warning box"><span class="label">数学的な補足</span>
+一般の初期条件では、減衰しない定数モード \(A_0\) も加えるのが完全な形です。問題文は \(k=1,2,\ldots\) の非定数モードを示しています。
+</div>
+
+<h3 id="q32">3-2　\(A_k,B_k\) を \(f(x)\) から求める</h3>
+<p>\(t=0\) とすると、初期条件はフーリエ級数になります。</p>
+\[
+f(x)=A_0+\sum_{k=1}^{\infty}
+\left(A_k\cos\frac{k\pi x}{l}+B_k\sin\frac{k\pi x}{l}\right).
+\]
+直交性を使って、
+<div class="answer box"><span class="label">係数</span>
+\[
+\boxed{A_0=\frac1{2l}\int_{-l}^{l}f(x)dx}
+\]
+\[
+\boxed{A_k=\frac1l\int_{-l}^{l}f(x)\cos\frac{k\pi x}{l}dx}
+\]
+\[
+\boxed{B_k=\frac1l\int_{-l}^{l}f(x)\sin\frac{k\pi x}{l}dx}
+\]
+</div>
+<p>問題文の指定どおり \(B_k\) を求める式では \(A_k\) が入らず、逆も同様です。これは正弦と余弦の直交性によります。</p>
+
+<h3 id="q33">3-3　\(f(x)=\sin(n\pi x/l)\)</h3>
+<p>初期条件は1つの正弦モードだけなので、対応する係数 \(B_n=1\) だけが残ります。</p>
+<div class="answer box"><span class="label">答え</span>
+\[
+\boxed{
+u(x,t)=
+\sin\frac{n\pi x}{l}
+\exp\left(-\frac{n^2\pi^2D}{l^2}t\right)}
+\]
+</div>
+<details class="why"><summary>時間とともに指数関数的に小さくなる理由</summary><div class="why-body">
+<p>熱伝導は温度の凹凸をならす現象です。波数 \(n\) が大きいほど細かな凹凸なので、減衰率 \(n^2\) が大きく、より速く消えます。</p>
+</div></details>
+</section>
+
+<section class="card" id="exam">
+<h2>試験答案まとめ</h2>
+<div class="exam-answer"><b>大問1：</b>
+\(a_0=2,\;a_n=0,\;b_n=2\{1-(-1)^n\}/(\pi n)\)。これを \(x=\pi/2\) に代入してライプニッツ級数を得る。
+</div>
+<div class="exam-answer"><b>大問2：</b>
+\(\mathcal F[e^{-|x|}]=2/(1+k^2)\)、\(\mathcal F[x]=2\pi i\delta'(k)\)。
+</div>
+<div class="exam-answer"><b>大問3：</b>
+変数分離により各モードは \(\exp[-k^2\pi^2Dt/l^2]\) で減衰。係数は区間 \([-l,l]\) のフーリエ係数。
+</div>
+</section>
+
+<footer>工業数学F2 初学者向け過去問解説</footer>
+</main>
+</div>
+<a class="backtop" href="#top" aria-label="上へ戻る">↑</a>
+</body>
+</html>
