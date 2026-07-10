@@ -32,6 +32,10 @@
     return window.location.protocol === "file:" ? `#${path}` : path;
   }
 
+  function currentPageAttr(isCurrent) {
+    return isCurrent ? ' aria-current="page"' : "";
+  }
+
   function publicHref(url) {
     if (!url) return "";
     if (/^https?:\/\//u.test(url)) return url;
@@ -263,7 +267,7 @@
   function renderPdfActions(year) {
     const links = [];
     if (year?.localPdfUrl) {
-      links.push(`<a class="button-link" href="${publicHref(year.localPdfUrl)}" target="_blank" rel="noopener noreferrer">PDFをブラウザで開く</a>`);
+      links.push(`<a class="text-link" href="${publicHref(year.localPdfUrl)}" target="_blank" rel="noopener noreferrer">PDFをブラウザで開く</a>`);
     }
     if (year?.sourceUrl) {
       links.push(`<a class="text-link" href="${escapeHtml(year.sourceUrl)}" target="_blank" rel="noopener noreferrer">元サイトで開く</a>`);
@@ -295,7 +299,7 @@
             (subject) => `<section class="toc-subject">
               <div class="toc-subject-head">
                 <h2>${escapeHtml(subject.name)}</h2>
-                <a class="button-link" href="${hrefFor(`/subjects/${subject.slug}`)}" data-route="/subjects/${subject.slug}">年度一覧</a>
+                <a class="text-link" href="${hrefFor(`/subjects/${subject.slug}`)}" data-route="/subjects/${subject.slug}">年度一覧</a>
               </div>
               ${subject.years
                 .map(
@@ -559,7 +563,7 @@
         ? results
             .map(
               ({ year, question, path: itemPath }) => `
-                <a class="search-result clickable ${itemPath === path ? "active" : ""}" href="${hrefFor(itemPath)}" data-route="${itemPath}">
+                <a class="search-result clickable ${itemPath === path ? "active" : ""}" href="${hrefFor(itemPath)}" data-route="${itemPath}"${currentPageAttr(itemPath === path)}>
                   <span class="nav-kicker">${year.year}</span>
                   <span>${escapeHtml(question.label)} ${escapeHtml(question.title)}</span>
                 </a>
@@ -591,7 +595,7 @@
                       ${questions
                         .map((question) => {
                           const questionPath = `${yearPath}/${question.id}`;
-                          return `<a class="nav-link clickable ${path === questionPath ? "active" : ""}" href="${hrefFor(questionPath)}" data-route="${questionPath}"><span class="nav-kicker">${escapeHtml(question.label)}</span><span>${escapeHtml(question.title)}</span></a>`;
+                          return `<a class="nav-link clickable ${path === questionPath ? "active" : ""}" href="${hrefFor(questionPath)}" data-route="${questionPath}"${currentPageAttr(path === questionPath)}><span class="nav-kicker">${escapeHtml(question.label)}</span><span>${escapeHtml(question.title)}</span></a>`;
                         })
                         .join("")}
                     </div>
@@ -610,7 +614,7 @@
                   </span>
                 </summary>
                 <div class="nav-level" id="nav-${subject.slug}-${year.year}">
-                  <a class="nav-link clickable ${path === yearPath ? "active" : ""}" href="${hrefFor(yearPath)}" data-route="${yearPath}"><span class="nav-kicker">予備</span><span>この年度で必要な予備知識</span></a>
+                  <a class="nav-link clickable ${path === yearPath ? "active" : ""}" href="${hrefFor(yearPath)}" data-route="${yearPath}"${currentPageAttr(path === yearPath)}><span class="nav-kicker">予備</span><span>この年度で必要な予備知識</span></a>
                   ${groupsHtml}
                 </div>
               </details>
@@ -625,7 +629,7 @@
               <span>${escapeHtml(subject.name)}</span>
             </summary>
             <div class="nav-level" id="nav-${subject.slug}">
-              <a class="nav-link clickable ${path === subjectPath ? "active" : ""}" href="${hrefFor(subjectPath)}" data-route="${subjectPath}"><span class="nav-kicker">科目</span><span>年度一覧</span></a>
+              <a class="nav-link clickable ${path === subjectPath ? "active" : ""}" href="${hrefFor(subjectPath)}" data-route="${subjectPath}"${currentPageAttr(path === subjectPath)}><span class="nav-kicker">科目</span><span>年度一覧</span></a>
               ${yearsHtml}
             </div>
           </details>
