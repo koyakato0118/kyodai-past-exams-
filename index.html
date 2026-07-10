@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>工業数学F2 2023｜大問1 解説</title>
+  <meta name="description" content="京都大学 工業数学F2 2023年度 大問1の初学者向け解説" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <style>
+    :root{
+      --bg:#f6f8fc; --card:#fff; --text:#172033; --muted:#667085;
+      --blue:#2563eb; --blue-soft:#eaf2ff; --yellow:#fff5bf;
+      --red:#fff0f0; --green:#eefbf2; --border:#dde3ee; --shadow:0 10px 30px rgba(20,30,60,.08);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;line-height:1.8}
+    .wrap{max-width:980px;margin:auto;padding:24px 16px 72px}
+    header{background:linear-gradient(135deg,#0f4db8,#2563eb);color:#fff;border-radius:24px;padding:28px 24px;box-shadow:var(--shadow)}
+    header h1{margin:0 0 6px;font-size:clamp(28px,5vw,46px);line-height:1.2}
+    header p{margin:0;opacity:.9}
+    .nav{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 28px}
+    .nav a{display:inline-block;background:#fff;color:var(--blue);border:1px solid var(--border);padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:700}
+    section{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;margin:18px 0;box-shadow:var(--shadow)}
+    h2{font-size:1.6rem;margin:0 0 14px}
+    h3{font-size:1.22rem;margin:28px 0 10px}
+    p{margin:10px 0}
+    .box{border-radius:16px;padding:16px 18px;margin:16px 0;border-left:6px solid}
+    .important{background:var(--yellow);border-color:#eab308}
+    .point{background:var(--blue-soft);border-color:var(--blue)}
+    .warning{background:var(--red);border-color:#dc2626}
+    .answer{background:var(--green);border-color:#16a34a}
+    .label{font-weight:800;display:block;margin-bottom:4px}
+    .problem{background:#f8fafc;border:1px dashed #b7c1d1;border-radius:16px;padding:18px}
+    .step{counter-increment:steps;border-left:3px solid #cbd5e1;padding-left:16px;margin:18px 0}
+    .step::before{content:"STEP " counter(steps);font-weight:800;color:var(--blue)}
+    .steps{counter-reset:steps}
+    code{background:#eef2f7;border-radius:6px;padding:2px 6px}
+    table{width:100%;border-collapse:collapse;margin:16px 0}
+    th,td{border:1px solid var(--border);padding:10px;text-align:center}
+    th{background:#f1f5f9}
+    .small{color:var(--muted);font-size:.95rem}
+    .toc li{margin:5px 0}
+    footer{color:var(--muted);text-align:center;margin-top:32px}
+    @media(max-width:640px){
+      section{padding:18px}
+      .wrap{padding:12px 10px 56px}
+      header{border-radius:18px;padding:22px 18px}
+      .mjx-container{overflow-x:auto;overflow-y:hidden;max-width:100%}
+    }
+  
+    .layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:22px;align-items:start}
+    .sidebar{
+      position:sticky;top:16px;height:calc(100vh - 32px);overflow:auto;
+      background:#fff;border:1px solid var(--border);border-radius:20px;
+      padding:18px;box-shadow:var(--shadow)
+    }
+    .sidebar h2{font-size:1.05rem;margin:0 0 12px}
+    .sidebar a{
+      display:block;text-decoration:none;color:var(--text);padding:9px 10px;
+      border-radius:10px;margin:3px 0;font-weight:650
+    }
+    .sidebar a:hover{background:var(--blue-soft);color:var(--blue)}
+    .sidebar .sub{padding-left:14px;font-size:.94rem}
+    .content{min-width:0}
+    .mobile-menu-btn{
+      display:none;position:fixed;z-index:50;left:14px;bottom:14px;
+      border:0;border-radius:999px;background:var(--blue);color:#fff;
+      width:52px;height:52px;font-size:24px;box-shadow:var(--shadow)
+    }
+    details.why{
+      margin:12px 0;background:#f8fafc;border:1px solid var(--border);
+      border-radius:14px;padding:0 14px
+    }
+    details.why summary{
+      cursor:pointer;font-weight:800;color:var(--blue);padding:12px 0;
+      list-style:none
+    }
+    details.why summary::-webkit-details-marker{display:none}
+    details.why summary::before{content:"▶";display:inline-block;margin-right:8px;transition:.2s}
+    details.why[open] summary::before{transform:rotate(90deg)}
+    details.why .why-body{padding:0 0 14px}
+    @media(max-width:860px){
+      .layout{display:block}
+      .sidebar{
+        position:fixed;z-index:40;left:0;top:0;height:100vh;width:min(82vw,320px);
+        border-radius:0 18px 18px 0;transform:translateX(-105%);transition:.25s
+      }
+      .sidebar.open{transform:translateX(0)}
+      .mobile-menu-btn{display:block}
+      .nav{display:none}
+    }
+
+  </style>
+</head>
+<body>
+
+<button class="mobile-menu-btn" aria-label="メニューを開く" onclick="toggleSidebar()">☰</button>
+<div class="wrap">
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <h2>工業数学F2・2023</h2>
+      <a href="#prep" onclick="closeSidebar()">0. 予備知識</a>
+      <a href="#q11" onclick="closeSidebar()">1-1 内積</a>
+      <a href="#q12" onclick="closeSidebar()">1-2 行列表現</a>
+      <a href="#q13" onclick="closeSidebar()">1-3 フーリエ近似</a>
+      <a href="#q14" onclick="closeSidebar()">1-4 極限</a>
+      <a href="#exam" onclick="closeSidebar()">試験答案まとめ</a>
+    </aside>
+    <main class="content">
+
+  <header>
+    <div class="small" style="color:white">2023年度・瀬波先生</div>
+    <h1>工業数学F2｜大問1</h1>
+    <p>内積・微分演算子・フーリエ級数を、初学者向けに順番から解説します。</p>
+  </header>
+
+  <nav class="nav">
+    <a href="#prep">予備知識</a>
+    <a href="#q11">1-1</a>
+    <a href="#q12">1-2</a>
+    <a href="#q13">1-3</a>
+    <a href="#q14">1-4</a>
+    <a href="#exam">試験答案</a>
+  </nav>
+
+  <section id="prep">
+    <h2>0. まず必要な予備知識</h2>
+
+    <h3>内積とは</h3>
+    <p>この問題では、2つの関数 \(f(x),g(x)\) の「似ている度合い」を、次の積分で測ります。</p>
+    <div class="important box">
+      <span class="label">重要公式</span>
+      \[
+      (f,g)=\int_{-\pi}^{\pi}f(x)g(x)\,dx
+      \]
+    </div>
+    <p>ベクトルの内積 \(a_1b_1+a_2b_2\) を、関数に拡張したものだと考えると分かりやすいです。</p>
+<details class="why"><summary>なぜ積分が「内積」になるの？</summary><div class="why-body">
+<p>通常のベクトルでは、対応する成分を掛けて足します。関数は無数の点 \(x\) に値を持つので、その「無数の足し算」を積分で表します。</p>
+</div></details>
+
+    <h3>直交とは</h3>
+    <p>内積が0になる2つの関数を「直交する」といいます。</p>
+    <div class="point box">
+      <span class="label">この問題で使う性質</span>
+      \[
+      \int_{-\pi}^{\pi}\cos x\,dx=0,\qquad
+      \int_{-\pi}^{\pi}\sin x\,dx=0,\qquad
+      \int_{-\pi}^{\pi}\sin x\cos x\,dx=0
+      \]
+      また、
+      \[
+      \int_{-\pi}^{\pi}\cos^2x\,dx=\pi,\qquad
+      \int_{-\pi}^{\pi}\sin^2x\,dx=\pi.
+      \]
+    </div>
+    <details class="why"><summary>なぜ異なる基底同士の内積は0になるの？</summary><div class="why-body">
+<p>\(\sin x\) や \(\cos x\) は正負が対称に現れます。そのため、対称区間 \([-\pi,\pi]\) で積分すると正の面積と負の面積が打ち消し合います。</p>
+</div></details>
+<p>したがって、</p>
+    \[
+    \frac1{\sqrt{2\pi}},\qquad \frac{\cos x}{\sqrt\pi},\qquad \frac{\sin x}{\sqrt\pi}
+    \]
+    <p>は、互いに直交し、しかも自分自身との内積が1になる「正規直交基底」です。</p>
+
+    <h3>フーリエ級数とは</h3>
+    <p>周期関数を、定数・余弦・正弦の足し合わせで表す方法です。</p>
+    <div class="important box">
+      <span class="label">重要公式</span>
+      \[
+      g_n(x)=\frac{\alpha_0}{2}+\sum_{k=1}^{n}
+      \left(\alpha_k\cos kx+\beta_k\sin kx\right)
+      \]
+      \[
+      \alpha_k=\frac1\pi\int_{-\pi}^{\pi}h(x)\cos kx\,dx,\qquad
+      \beta_k=\frac1\pi\int_{-\pi}^{\pi}h(x)\sin kx\,dx.
+      \]
+    </div>
+  </section>
+
+  <section id="q11">
+    <h2>1-1. \((f_1,f_2)\) を計算する</h2>
+    <div class="problem">
+      \[
+      f_1=a_0\frac1{\sqrt{2\pi}}+a_1\frac{\cos x}{\sqrt\pi}+a_2\frac{\sin x}{\sqrt\pi}
+      \]
+      \[
+      f_2=b_0\frac1{\sqrt{2\pi}}+b_1\frac{\cos x}{\sqrt\pi}+b_2\frac{\sin x}{\sqrt\pi}
+      \]
+    </div>
+    <div class="steps">
+      <div class="step">
+        <p>積を展開すると9項できます。ただし、異なる基底同士の内積はすべて0です。</p>
+      </div>
+      <div class="step">
+        <p>同じ基底同士だけが残り、それぞれの内積は1です。</p>
+        \[
+        \left(\frac1{\sqrt{2\pi}},\frac1{\sqrt{2\pi}}\right)=1,\quad
+        \left(\frac{\cos x}{\sqrt\pi},\frac{\cos x}{\sqrt\pi}\right)=1,\quad
+        \left(\frac{\sin x}{\sqrt\pi},\frac{\sin x}{\sqrt\pi}\right)=1.
+        \]
+      </div>
+    </div>
+    <div class="answer box">
+      <span class="label">答え</span>
+      \[
+      \boxed{(f_1,f_2)=a_0b_0+a_1b_1+a_2b_2}
+      \]
+    </div>
+  </section>
+
+  <section id="q12">
+    <h2>1-2. 演算子の行列表現</h2>
+    <p>演算子は</p>
+    \[
+    \hat O=\frac d{dx}+\frac{d^2}{dx^2}
+    \]
+    <p>です。基底を</p>
+    \[
+    e_0=\frac1{\sqrt{2\pi}},\quad e_1=\frac{\cos x}{\sqrt\pi},\quad e_2=\frac{\sin x}{\sqrt\pi}
+    \]
+    <p>と置きます。</p>
+
+    <div class="steps">
+      <div class="step">
+        <p>定数は微分すると0なので、</p>
+        \[
+        \hat Oe_0=0.
+        \]
+      </div>
+      <div class="step">
+        <p>\(e_1\) に作用させます。</p>
+        \[
+        \frac d{dx}\frac{\cos x}{\sqrt\pi}=-\frac{\sin x}{\sqrt\pi}=-e_2
+        \]
+        \[
+        \frac{d^2}{dx^2}\frac{\cos x}{\sqrt\pi}=-\frac{\cos x}{\sqrt\pi}=-e_1
+        \]
+        よって
+        \[
+        \hat Oe_1=-e_1-e_2.
+        \]
+      </div>
+      <div class="step">
+        <p>\(e_2\) に作用させます。</p>
+        \[
+        \frac d{dx}\frac{\sin x}{\sqrt\pi}=\frac{\cos x}{\sqrt\pi}=e_1
+        \]
+        \[
+        \frac{d^2}{dx^2}\frac{\sin x}{\sqrt\pi}=-\frac{\sin x}{\sqrt\pi}=-e_2
+        \]
+        よって
+        \[
+        \hat Oe_2=e_1-e_2.
+        \]
+      </div>
+    </div>
+
+    <details class="why"><summary>なぜ各列に係数を並べるの？</summary><div class="why-body">
+<p>行列 \(A\) は、基底ベクトル \(e_j\) を作用させた結果 \(Ae_j\) を第 \(j\) 列に持ちます。したがって、\(\hat Oe_0,\hat Oe_1,\hat Oe_2\) の座標を順に列へ入れます。</p>
+</div></details>
+<div class="point box">
+      <span class="label">行列の作り方</span>
+      各列には、\(\hat Oe_0,\hat Oe_1,\hat Oe_2\) の係数を順に並べます。
+    </div>
+
+    \[
+    \hat Oe_0=
+    \begin{pmatrix}0\\0\\0\end{pmatrix},\quad
+    \hat Oe_1=
+    \begin{pmatrix}0\\-1\\-1\end{pmatrix},\quad
+    \hat Oe_2=
+    \begin{pmatrix}0\\1\\-1\end{pmatrix}.
+    \]
+
+    <div class="answer box">
+      <span class="label">答え</span>
+      \[
+      \boxed{
+      A=
+      \begin{pmatrix}
+      0&0&0\\
+      0&-1&1\\
+      0&-1&-1
+      \end{pmatrix}}
+      \]
+    </div>
+  </section>
+
+  <section id="q13">
+    <h2>1-3. \(h(x)=|x|\) の最良近似</h2>
+    <p>平均二乗誤差を最小にする係数は、フーリエ係数そのものです。</p>
+
+    <h3>\(\alpha_0\) の計算</h3>
+    \[
+    \alpha_0=\frac1\pi\int_{-\pi}^{\pi}|x|\,dx.
+    \]
+    <p>\(|x|\) は偶関数なので、左右対称性を使えます。</p>
+<details class="why"><summary>なぜ偶関数だと積分を2倍できるの？</summary><div class="why-body">
+<p>偶関数は \(f(-x)=f(x)\) を満たし、グラフが \(y\) 軸対称です。そのため左半分と右半分の面積が等しく、\(\int_{-a}^{a}f(x)\,dx=2\int_0^a f(x)\,dx\) となります。</p>
+</div></details>
+    \[
+    \int_{-\pi}^{\pi}|x|\,dx=2\int_0^\pi x\,dx
+    =2\left[\frac{x^2}{2}\right]_0^\pi=\pi^2.
+    \]
+    したがって、
+    \[
+    \boxed{\alpha_0=\pi}.
+    \]
+
+    <h3>\(\beta_k\) の計算</h3>
+    <p>\(|x|\) は偶関数、\(\sin kx\) は奇関数なので、積は奇関数です。奇関数を対称区間で積分すると0になります。</p>
+<details class="why"><summary>なぜ偶関数×奇関数は奇関数？</summary><div class="why-body">
+<p>\(E(-x)=E(x)\)、\(O(-x)=-O(x)\) なので、\((EO)(-x)=E(-x)O(-x)=E(x)(-O(x))=-(EO)(x)\) となるからです。</p>
+</div></details>
+    \[
+    \boxed{\beta_k=0}.
+    \]
+
+    <h3>\(\alpha_k\) の計算</h3>
+    \[
+    \alpha_k=\frac1\pi\int_{-\pi}^{\pi}|x|\cos kx\,dx
+    =\frac2\pi\int_0^\pi x\cos kx\,dx.
+    \]
+
+    <details class="why"><summary>なぜここで部分積分を使うの？</summary><div class="why-body">
+<p>\(x\cos kx\) は、そのままでは基本積分公式に当てはまりません。しかし \(x\) は微分すると1になって簡単になり、\(\cos kx\) は積分できます。そのため部分積分が適しています。</p>
+</div></details>
+<div class="important box">
+      <span class="label">部分積分</span>
+      \[
+      \int u\,dv=uv-\int v\,du
+      \]
+      ここでは \(u=x,\;dv=\cos kx\,dx\) と置きます。
+      すると \(du=dx,\;v=\frac{\sin kx}{k}\) です。
+    </div>
+
+    \[
+    \int_0^\pi x\cos kx\,dx
+    =
+    \left[\frac{x\sin kx}{k}\right]_0^\pi
+    -\frac1k\int_0^\pi\sin kx\,dx.
+    \]
+    第1項は \(\sin(k\pi)=0\) により0です。第2項は
+    \[
+    -\frac1k\left[-\frac{\cos kx}{k}\right]_0^\pi
+    =
+    \frac{\cos(k\pi)-1}{k^2}
+    =
+    \frac{(-1)^k-1}{k^2}.
+    \]
+    よって
+    \[
+    \boxed{
+    \alpha_k=\frac{2}{\pi}\frac{(-1)^k-1}{k^2}
+    }.
+    \]
+
+    <table>
+      <tr><th>\(k\)</th><th>\((-1)^k-1\)</th><th>\(\alpha_k\)</th></tr>
+      <tr><td>偶数</td><td>0</td><td>0</td></tr>
+      <tr><td>奇数</td><td>-2</td><td>\(-\frac4{\pi k^2}\)</td></tr>
+    </table>
+
+    <div class="answer box">
+      <span class="label">答え</span>
+      \[
+      \boxed{\alpha_0=\pi,\qquad
+      \alpha_k=\frac{2\{(-1)^k-1\}}{\pi k^2},\qquad
+      \beta_k=0}
+      \]
+      したがって
+      \[
+      g_n(x)=\frac\pi2-\frac4\pi
+      \sum_{\substack{1\le k\le n\\k:\,\mathrm{odd}}}
+      \frac{\cos kx}{k^2}.
+      \]
+    </div>
+  </section>
+
+  <section id="q14">
+    <h2>1-4. \(\displaystyle\lim_{n\to\infty}(g_n,g_n)\)</h2>
+    <p>\(g_n\) は \(h(x)=|x|\) のフーリエ部分和です。フーリエ部分和は、平均二乗の意味で元の関数へ近づきます。</p>
+<details class="why"><summary>「平均二乗の意味で近づく」とは？</summary><div class="why-body">
+<p>各点で完全に一致するという意味ではなく、差の二乗を区間全体で積分した量 \(\int|g_n-h|^2dx\) が0に近づくという意味です。</p>
+</div></details>
+
+    <div class="point box">
+      <span class="label">ここで使う考え方</span>
+      \[
+      g_n\to h\quad(L^2\text{の意味})
+      \]
+      ならば、
+      \[
+      (g_n,g_n)\to(h,h).
+      \]
+    </div>
+
+    \[
+    (h,h)=\int_{-\pi}^{\pi}|x|^2\,dx
+    =\int_{-\pi}^{\pi}x^2\,dx.
+    \]
+    \(x^2\) は偶関数なので、
+    \[
+    \int_{-\pi}^{\pi}x^2\,dx
+    =2\int_0^\pi x^2\,dx
+    =2\left[\frac{x^3}{3}\right]_0^\pi
+    =\frac{2\pi^3}{3}.
+    \]
+
+    <div class="answer box">
+      <span class="label">答え</span>
+      \[
+      \boxed{\displaystyle
+      \lim_{n\to\infty}(g_n,g_n)=\frac{2\pi^3}{3}}
+      \]
+    </div>
+  </section>
+
+  <section id="exam">
+    <h2>試験答案としてのまとめ</h2>
+    <div class="answer box">
+      <span class="label">(1-1)</span>
+      \[
+      (f_1,f_2)=a_0b_0+a_1b_1+a_2b_2.
+      \]
+    </div>
+    <div class="answer box">
+      <span class="label">(1-2)</span>
+      \[
+      A=
+      \begin{pmatrix}
+      0&0&0\\
+      0&-1&1\\
+      0&-1&-1
+      \end{pmatrix}.
+      \]
+    </div>
+    <div class="answer box">
+      <span class="label">(1-3)</span>
+      \[
+      \alpha_0=\pi,\qquad
+      \alpha_k=\frac{2\{(-1)^k-1\}}{\pi k^2},\qquad
+      \beta_k=0.
+      \]
+    </div>
+    <div class="answer box">
+      <span class="label">(1-4)</span>
+      \[
+      \lim_{n\to\infty}(g_n,g_n)
+      =(h,h)
+      =\int_{-\pi}^{\pi}x^2dx
+      =\frac{2\pi^3}{3}.
+      \]
+    </div>
+  </section>
+
+  <footer>工業数学F2 2023年度｜初学者向け解説 初版</footer>
+
+    </main>
+  </div>
+</div>
+<script>
+  function toggleSidebar(){
+    document.getElementById('sidebar').classList.toggle('open');
+  }
+  function closeSidebar(){
+    if(window.innerWidth <= 860){
+      document.getElementById('sidebar').classList.remove('open');
+    }
+  }
+</script>
+
+</body>
+</html>
