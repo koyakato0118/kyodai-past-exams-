@@ -1,9 +1,8 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>工業数学F2 2023 解説</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>工業数学F2 2023｜京大過去問解説</title>
 <link rel="stylesheet" href="styles.css">
 <script>
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
@@ -14,292 +13,388 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
 <body id="top">
 <header class="topbar">
   <div class="brand">
-    <button class="mobile-btn" onclick="toggleSidebar()" aria-label="メニュー">☰</button>
-    <div class="brand-icon">📘</div><span>京大工学部 過去問解説</span>
+    <button class="menu-btn" onclick="toggleSidebar()" aria-label="メニュー">☰</button>
+    <div class="brand-icon">📖</div><span>京大工学部 過去問解説</span>
   </div>
-  <nav class="year-switch">
-    <a class="active" href="2023.html">2023</a>
-    <a class="" href="2021.html">2021</a>
-  </nav>
+  <div class="search-wrap"><input id="searchInput" placeholder="キーワードで検索（例：フーリエ、ラプラス）"><span class="search-hint">Enter</span></div>
 </header>
 <div class="layout">
 <aside class="sidebar" id="sidebar">
-  <h2>工業数学F2・2023</h2>
-  <a href="index.html">← 年度一覧</a>
-  <a class="current" href="#prep" onclick="closeSidebar()">0. 予備知識</a>
-<a class="" href="#q1" onclick="closeSidebar()">大問1 フーリエ級数</a>
-<a class="indent" href="#q11" onclick="closeSidebar()">1-1 内積</a>
-<a class="indent" href="#q12" onclick="closeSidebar()">1-2 演算子</a>
-<a class="indent" href="#q13" onclick="closeSidebar()">1-3 最良近似</a>
-<a class="indent" href="#q14" onclick="closeSidebar()">1-4 極限</a>
-<a class="" href="#q2" onclick="closeSidebar()">大問2 フーリエ変換</a>
-<a class="indent" href="#q21" onclick="closeSidebar()">2-1 定義</a>
-<a class="indent" href="#q22" onclick="closeSidebar()">2-2 変換計算</a>
-<a class="" href="#q3" onclick="closeSidebar()">大問3 波動方程式</a>
-<a class="indent" href="#q31" onclick="closeSidebar()">3-1 一般解</a>
-<a class="indent" href="#q32" onclick="closeSidebar()">3-2 ダランベール解</a>
-<a class="indent" href="#q33" onclick="closeSidebar()">3-3 具体例</a>
-<a class="" href="#exam" onclick="closeSidebar()">試験答案まとめ</a>
+  <div class="sidebar-title"><span>工業数学F2</span><span>⌄</span></div>
+  <details class="nav-group" open>
+<summary>2023年度</summary><a class="nav-link" href="#y23-intro" data-target="y23-intro"><span class="nav-dot"></span>予備知識</a>
+<a class="nav-link" href="#y23-q11" data-target="y23-q11"><span class="nav-dot"></span>1-1 内積</a>
+<a class="nav-link" href="#y23-q12" data-target="y23-q12"><span class="nav-dot"></span>1-2 演算子</a>
+<a class="nav-link" href="#y23-q13" data-target="y23-q13"><span class="nav-dot"></span>1-3 フーリエ近似</a>
+<a class="nav-link" href="#y23-q14" data-target="y23-q14"><span class="nav-dot"></span>1-4 極限</a>
+<a class="nav-link" href="#y23-q21" data-target="y23-q21"><span class="nav-dot"></span>2-1 変換の定義</a>
+<a class="nav-link" href="#y23-q22a" data-target="y23-q22a"><span class="nav-dot"></span>2-2(a) 定数関数</a>
+<a class="nav-link" href="#y23-q22b" data-target="y23-q22b"><span class="nav-dot"></span>2-2(b) 指数関数</a>
+<a class="nav-link" href="#y23-q31" data-target="y23-q31"><span class="nav-dot"></span>3-1 一般解</a>
+<a class="nav-link" href="#y23-q32" data-target="y23-q32"><span class="nav-dot"></span>3-2 ダランベール解</a>
+<a class="nav-link" href="#y23-q33" data-target="y23-q33"><span class="nav-dot"></span>3-3 具体例</a>
+<a class="nav-link" href="#y23-exam" data-target="y23-exam"><span class="nav-dot"></span>試験答案まとめ</a></details><details class="nav-group" >
+<summary>2021年度</summary><a class="nav-link" href="2021.html#y21-intro"><span class="nav-dot"></span>予備知識</a>
+<a class="nav-link" href="2021.html#y21-q11"><span class="nav-dot"></span>大問1</a>
+<a class="nav-link" href="2021.html#y21-q21"><span class="nav-dot"></span>大問2</a>
+<a class="nav-link" href="2021.html#y21-q31"><span class="nav-dot"></span>大問3</a>
+<a class="nav-link" href="2021.html#y21-exam"><span class="nav-dot"></span>試験答案まとめ</a></details>
+  <a class="subject-link" href="#"><span>制御工学1</span><span class="badge">準備中</span></a>
+  <a class="subject-link" href="#"><span>工業力学A</span><span class="badge">準備中</span></a>
+  <a class="subject-link" href="#"><span>設計工学1</span><span class="badge">準備中</span></a>
+  <a class="subject-link" href="#"><span>応用電磁気学</span><span class="badge">準備中</span></a>
+  <a class="subject-link" href="#"><span>流体力学2</span><span class="badge">準備中</span></a>
+  <a class="subject-link" href="#"><span>統計熱力学</span><span class="badge">準備中</span></a>
+  <a class="subject-link" href="#"><span>材料基礎学1</span><span class="badge">準備中</span></a>
 </aside>
 <main class="main">
-
-<section class="hero">
-  <div class="eyebrow">2023年度・担当教員：瀬波</div>
-  <h1>工業数学F2</h1>
-  <p>内積・フーリエ級数・フーリエ変換・波動方程式を、予備知識から解説します。</p>
-</section>
-
-<section class="card" id="prep">
-<h2>0. 予備知識</h2>
-<h3>関数の内積</h3>
-<p>ベクトルの内積を関数へ拡張したものです。</p>
-<div class="important box"><span class="label">重要公式</span>
-\[(f,g)=\int_{-\pi}^{\pi}f(x)g(x)\,dx\]
+  <div class="breadcrumb"><span>ホーム</span><span>›</span><span>工業数学F2</span><span>›</span><span>2023年度</span><span>›</span><span id="crumb-question"></span></div>
+  <div class="lesson-head">
+    <h1 class="lesson-title" id="page-title"></h1>
+    <div class="pager"><button id="prevBtn" onclick="moveLesson(-1)">← 前へ</button><button id="nextBtn" onclick="moveLesson(1)">次へ →</button></div>
+  </div>
+  <section class="lesson" id="y23-intro" data-title="予備知識" data-crumb="予備知識">
+<div class="card">
+  <div class="section-title">この年度で必要な知識</div>
+  <p>2023年度は、内積・フーリエ級数・フーリエ変換・波動方程式が中心です。</p>
+  <div class="problem">\[
+  (f,g)=\int_{-\pi}^{\pi}f(x)g(x)\,dx
+  \]</div>
+  <div class="formula-row">\[
+  \hat f(k)=\int_{-\infty}^{\infty}f(x)e^{-ikx}dx,\qquad
+  f(x)=\frac1{2\pi}\int_{-\infty}^{\infty}\hat f(k)e^{ikx}dk
+  \]
+  <button class="why-inline" onclick="toggleWhy(this)">なぜ？</button>
+  <div class="why-panel">フーリエ変換は、関数を「どの周波数がどれだけ含まれるか」に分解する操作です。</div>
+  </div>
 </div>
-<details class="why"><summary>なぜ積分が内積になるの？</summary><div class="why-body">
-<p>ベクトルでは対応する成分を掛けて足します。関数は連続的に無数の値を持つため、その「無数の足し算」を積分で表します。</p>
-</div></details>
-<h3>フーリエ変換の約束</h3>
-<div class="important box"><span class="label">この解説で使う定義</span>
-\[
-\hat f(k)=\int_{-\infty}^{\infty}f(x)e^{-ikx}\,dx,\qquad
-f(x)=\frac1{2\pi}\int_{-\infty}^{\infty}\hat f(k)e^{ikx}\,dk.
-\]
-</div>
-<p class="formula-note">授業で別の係数を採用している場合は、最終結果の \(2\pi\) の位置が変わります。</p>
-<h3>偏微分</h3>
-<p>\(u(x,t)\) を \(x\) で微分するときは \(t\) を定数として扱い、\(t\) で微分するときは \(x\) を定数として扱います。</p>
-</section>
-
-<section class="card" id="q1">
-<h2>大問1　内積・演算子・フーリエ級数</h2>
-
-<h3 id="q11">1-1　\((f_1,f_2)\) を求める</h3>
-<div class="problem">
-\[
+<template class="side-template">
+<div class="side-card"><h3>💡 なぜ？（考え方の補足）</h3><b>なぜ最初に定義を確認するのか？</b><p class="small">フーリエ変換は教科書によって \(2\pi\) の置き方が違います。最初に定義を固定しないと、正しい途中式でも最終係数がずれます。</p></div>
+<div class="side-card"><h3>重要ポイント</h3><div class="highlight hl-yellow">内積・フーリエ変換の定義を先に固定する</div><div class="highlight hl-blue">偶関数・奇関数の対称性を使う</div><div class="highlight hl-green">偏微分では他方の変数を定数として扱う</div></div>
+<div class="side-card"><h3>関連する予備知識</h3><div class="tags"><div class="tag">偶関数・奇関数</div><div class="tag">部分積分</div><div class="tag">合成関数の微分</div></div></div>
+<div class="side-card"><h3>タグ</h3><div class="tags"><span class="tag">#予備知識</span><span class="tag">#フーリエ級数</span><span class="tag">#フーリエ変換</span></div></div>
+</template></section>
+<section class="lesson" id="y23-q11" data-title="1-1　関数の内積を計算する" data-crumb="大問1 › 1-1">
+<div class="problem">\[
 f_1=a_0\frac1{\sqrt{2\pi}}+a_1\frac{\cos x}{\sqrt\pi}+a_2\frac{\sin x}{\sqrt\pi},
 \quad
 f_2=b_0\frac1{\sqrt{2\pi}}+b_1\frac{\cos x}{\sqrt\pi}+b_2\frac{\sin x}{\sqrt\pi}.
-\]
+\]</div>
+<div class="card">
+  <div class="section-title">解答</div>
+  <p>3つの関数は正規直交基底です。</p>
+  <div class="formula-row">\[
+  \left(\frac1{\sqrt{2\pi}},\frac1{\sqrt{2\pi}}\right)=
+  \left(\frac{\cos x}{\sqrt\pi},\frac{\cos x}{\sqrt\pi}\right)=
+  \left(\frac{\sin x}{\sqrt\pi},\frac{\sin x}{\sqrt\pi}\right)=1
+  \]
+  <button class="why-inline" onclick="toggleWhy(this)">なぜ？</button>
+  <div class="why-panel">各関数を2乗して \([-\pi,\pi]\) で積分すると1になるよう、分母が調整されています。</div></div>
+  <p>異なる基底どうしの内積は0なので、同じ基底の項だけが残ります。</p>
+  <div class="answer-box"><span class="answer-label">答え</span>\[
+  \boxed{(f_1,f_2)=a_0b_0+a_1b_1+a_2b_2}
+  \]</div>
 </div>
-<p>3つの基底は互いに直交し、自分自身との内積は1です。</p>
-\[
-\left(\frac1{\sqrt{2\pi}},\frac1{\sqrt{2\pi}}\right)=1,\quad
-\left(\frac{\cos x}{\sqrt\pi},\frac{\cos x}{\sqrt\pi}\right)=1,\quad
-\left(\frac{\sin x}{\sqrt\pi},\frac{\sin x}{\sqrt\pi}\right)=1.
-\]
-<details class="why"><summary>なぜ交差項が消えるの？</summary><div class="why-body">
-<p>\(\sin x\)、\(\cos x\)、定数を異なる組合せで掛けると、対称区間で正負が打ち消し合うため積分が0になります。</p>
-</div></details>
-<div class="answer box"><span class="label">答え</span>
-\[\boxed{(f_1,f_2)=a_0b_0+a_1b_1+a_2b_2}\]
+<div class="card">
+  <div class="section-title">試験での答案の書き方</div>
+  <div class="exam-card"><div class="exam-side">答案例</div><div class="exam-main">
+  正規直交性より交差項はすべて0であり、各基底の自己内積は1である。したがって
+  \[
+  (f_1,f_2)=a_0b_0+a_1b_1+a_2b_2.
+  \]
+  </div></div>
 </div>
-
-<h3 id="q12">1-2　演算子の行列表現</h3>
-<div class="problem">\[\hat O=\frac d{dx}+\frac{d^2}{dx^2}\]</div>
-<p>基底を \(e_0=1/\sqrt{2\pi},\,e_1=\cos x/\sqrt\pi,\,e_2=\sin x/\sqrt\pi\) とします。</p>
-\[
-\hat Oe_0=0,\qquad
-\hat Oe_1=-e_1-e_2,\qquad
-\hat Oe_2=e_1-e_2.
-\]
-<details class="why"><summary>なぜ結果の係数を「列」に入れるの？</summary><div class="why-body">
-<p>行列の第 \(j\) 列は、基底 \(e_j\) を写した結果の座標です。したがって上の3つの結果を順番に列へ並べます。</p>
-</div></details>
-<div class="answer box"><span class="label">答え</span>
-\[
-\boxed{A=\begin{pmatrix}0&0&0\\0&-1&1\\0&-1&-1\end{pmatrix}}
-\]
+<template class="side-template">
+<div class="side-card"><h3>💡 なぜ？（考え方の補足）</h3><b>なぜ交差項が消えるのか？</b><p class="small">\(\sin x\)、\(\cos x\)、定数の異なる組合せは、対称区間で正負が打ち消し合うため内積が0になります。</p></div>
+<div class="side-card"><h3>重要ポイント</h3><div class="highlight hl-yellow">正規直交基底なら係数どうしの内積になる</div><div class="highlight hl-blue">交差項を全部展開して計算する必要はない</div><div class="highlight hl-red">積分区間が \([-\pi,\pi]\) であることに注意</div></div>
+<div class="side-card"><h3>関連する予備知識</h3><div class="tags"><div class="tag">内積</div><div class="tag">直交性</div><div class="tag">三角関数の積分</div></div></div>
+<div class="side-card"><h3>タグ</h3><div class="tags"><span class="tag">#内積</span><span class="tag">#直交基底</span><span class="tag">#フーリエ級数</span></div></div>
+</template></section>
+<section class="lesson" id="y23-q12" data-title="1-2　演算子を行列で表す" data-crumb="大問1 › 1-2">
+<div class="problem">\[
+\hat O=\frac d{dx}+\frac{d^2}{dx^2}
+\]</div>
+<div class="card">
+<div class="section-title">解答</div>
+<p>基底を \(e_0=1/\sqrt{2\pi}\)、\(e_1=\cos x/\sqrt\pi\)、\(e_2=\sin x/\sqrt\pi\) と置きます。</p>
+<div class="formula-row">\[
+\hat Oe_0=0
+\]<button class="why-inline" onclick="toggleWhy(this)">なぜ？</button><div class="why-panel">定数は1回微分しても2回微分しても0です。</div></div>
+<div class="formula-row">\[
+\hat Oe_1=-e_1-e_2
+\]<button class="why-inline" onclick="toggleWhy(this)">なぜ？</button><div class="why-panel">\((\cos x)'=-\sin x\)、\((\cos x)''=-\cos x\) だからです。</div></div>
+<div class="formula-row">\[
+\hat Oe_2=e_1-e_2
+\]<button class="why-inline" onclick="toggleWhy(this)">なぜ？</button><div class="why-panel">\((\sin x)'=\cos x\)、\((\sin x)''=-\sin x\) だからです。</div></div>
+<div class="answer-box"><span class="answer-label">答え</span>\[
+\boxed{
+A=\begin{pmatrix}
+0&0&0\\
+0&-1&1\\
+0&-1&-1
+\end{pmatrix}}
+\]</div>
 </div>
-
-<h3 id="q13">1-3　\(h(x)=|x|\) の最良近似</h3>
-<p>平均二乗誤差を最小にする係数は、\(h\) のフーリエ係数です。</p>
-\[
-\alpha_0=\frac1\pi\int_{-\pi}^{\pi}|x|dx=\pi.
+<template class="side-template">
+<div class="side-card"><h3>💡 なぜ？（考え方の補足）</h3><b>なぜ係数を列に並べるのか？</b><p class="small">行列の第 \(j\) 列は、基底 \(e_j\) を作用させた結果の座標です。</p></div>
+<div class="side-card"><h3>重要ポイント</h3><div class="highlight hl-yellow">第1列は \(\hat Oe_0\)、第2列は \(\hat Oe_1\)</div><div class="highlight hl-blue">先に各基底への作用を求める</div><div class="highlight hl-red">行と列を逆にしない</div></div>
+<div class="side-card"><h3>関連する予備知識</h3><div class="tags"><div class="tag">行列表示</div><div class="tag">微分</div><div class="tag">基底</div></div></div>
+<div class="side-card"><h3>タグ</h3><div class="tags"><span class="tag">#線形演算子</span><span class="tag">#行列表現</span><span class="tag">#微分</span></div></div>
+</template></section>
+<section class="lesson" id="y23-q13" data-title="1-3　\(|x|\) をフーリエ級数で近似する" data-crumb="大問1 › 1-3">
+<div class="problem">\[
+g_n(x)=\frac{\alpha_0}{2}+\sum_{k=1}^{n}(\alpha_k\cos kx+\beta_k\sin kx),
+\qquad h(x)=|x|
+\]</div>
+<div class="card">
+<div class="section-title">解答</div>
+<p>平均二乗誤差を最小にする係数は、\(h(x)\) のフーリエ係数です。</p>
+<div class="formula-row">\[
+\alpha_0=\frac1\pi\int_{-\pi}^{\pi}|x|dx=\pi
+\]<button class="why-inline" onclick="toggleWhy(this)">なぜ？</button><div class="why-panel">\(|x|\) は偶関数なので、積分は \(2\int_0^\pi x\,dx\) にできます。</div></div>
+<div class="formula-row">\[
+\beta_k=0
+\]<button class="why-inline" onclick="toggleWhy(this)">なぜ？</button><div class="why-panel">\(|x|\) は偶関数、\(\sin kx\) は奇関数なので積は奇関数です。対称区間で積分すると0です。</div></div>
+<div class="formula-row">\[
+\alpha_k=\frac2\pi\int_0^\pi x\cos kx\,dx
+=\frac{2\{(-1)^k-1\}}{\pi k^2}
 \]
-<p>\(|x|\) は偶関数、\(\sin kx\) は奇関数なので、</p>
-\[\beta_k=0.\]
-<p>余弦係数は</p>
-\[
-\alpha_k=\frac2\pi\int_0^\pi x\cos kx\,dx.
-\]
-<details class="why"><summary>なぜ部分積分を使うの？</summary><div class="why-body">
-<p>\(x\) は微分すると1になり、\(\cos kx\) は積分できます。「一方を簡単にし、もう一方を積分できる」ので部分積分が適しています。</p>
-</div></details>
-\[
-\int_0^\pi x\cos kx\,dx
-=\left[\frac{x\sin kx}{k}\right]_0^\pi-\frac1k\int_0^\pi\sin kx\,dx
-=\frac{(-1)^k-1}{k^2}.
-\]
-<div class="answer box"><span class="label">答え</span>
-\[
+<button class="why-inline" onclick="toggleWhy(this)">なぜ？</button>
+<div class="why-panel">\(x\) は微分すると1になり、\(\cos kx\) は積分できるため、部分積分を使います。</div></div>
+<div class="answer-box"><span class="answer-label">答え</span>\[
 \boxed{\alpha_0=\pi,\quad
 \alpha_k=\frac{2\{(-1)^k-1\}}{\pi k^2},\quad
 \beta_k=0}
 \]
 \[
-g_n(x)=\frac\pi2-\frac4\pi
-\sum_{\substack{1\le k\le n\\k\text{ odd}}}\frac{\cos kx}{k^2}.
-\]
+g_n(x)=\frac{\pi}{2}-\frac4\pi
+\sum_{\substack{1\le k\le n\\k\ \mathrm{odd}}}\frac{\cos kx}{k^2}
+\]</div>
 </div>
-
-<h3 id="q14">1-4　\(\lim_{n\to\infty}(g_n,g_n)\)</h3>
-<p>\(g_n\) は平均二乗の意味で \(h=|x|\) に近づくため、ノルムの二乗も収束します。</p>
+<div class="card"><div class="section-title">試験での答案の書き方</div>
+<div class="exam-card"><div class="exam-side">答案例</div><div class="exam-main">
+偶奇性より \(\beta_k=0\)。また、
 \[
+\alpha_k=\frac2\pi\int_0^\pi x\cos kx\,dx
+=\frac{2\{(-1)^k-1\}}{\pi k^2}.
+\]
+したがって上記の \(g_n(x)\) を得る。
+</div></div></div>
+<template class="side-template">
+<div class="side-card"><h3>💡 なぜ？（考え方の補足）</h3><b>なぜ部分積分を使うのか？</b><p class="small">\(x\cos kx\) は基本積分公式だけでは処理しにくいですが、\(x\) を微分すると簡単になり、\(\cos kx\) は積分できます。</p></div>
+<div class="side-card"><h3>重要ポイント</h3><div class="highlight hl-yellow">偶関数なら積分区間を半分にできる</div><div class="highlight hl-blue">奇関数の対称区間積分は0</div><div class="highlight hl-green">部分積分の境界項を必ず評価する</div><div class="highlight hl-red">\((-1)^k\) の偶奇判定を間違えない</div></div>
+<div class="side-card"><h3>関連する予備知識</h3><div class="tags"><div class="tag">偶関数</div><div class="tag">奇関数</div><div class="tag">部分積分</div></div></div>
+<div class="side-card"><h3>タグ</h3><div class="tags"><span class="tag">#フーリエ級数</span><span class="tag">#部分積分</span><span class="tag">#偶奇性</span></div></div>
+</template></section>
+<section class="lesson" id="y23-q14" data-title="1-4　\((g_n,g_n)\) の極限を求める" data-crumb="大問1 › 1-4">
+<div class="card">
+<div class="section-title">解答</div>
+<p>\(g_n\) は平均二乗の意味で \(h(x)=|x|\) に収束します。</p>
+<div class="formula-row">\[
 \lim_{n\to\infty}(g_n,g_n)=(h,h)
-=\int_{-\pi}^{\pi}x^2dx
-=2\left[\frac{x^3}{3}\right]_0^\pi.
-\]
-<div class="answer box"><span class="label">答え</span>
-\[\boxed{\displaystyle\frac{2\pi^3}{3}}\]
-</div>
-</section>
-
-<section class="card" id="q2">
-<h2>大問2　フーリエ変換</h2>
-<h3 id="q21">2-1　定義</h3>
-<div class="answer box">
+\]<button class="why-inline" onclick="toggleWhy(this)">なぜ？</button><div class="why-panel">フーリエ部分和は \(L^2\) の意味で元の関数へ近づくため、ノルムの二乗も元の関数のノルムへ近づきます。</div></div>
 \[
-\boxed{\hat f(k)=\int_{-\infty}^{\infty}f(x)e^{-ikx}dx},\qquad
-\boxed{f(x)=\frac1{2\pi}\int_{-\infty}^{\infty}\hat f(k)e^{ikx}dk}.
+(h,h)=\int_{-\pi}^{\pi}|x|^2dx
+=2\int_0^\pi x^2dx
+=\frac{2\pi^3}{3}.
+\]
+<div class="answer-box"><span class="answer-label">答え</span>\[
+\boxed{\displaystyle\lim_{n\to\infty}(g_n,g_n)=\frac{2\pi^3}{3}}
+\]</div>
+</div>
+<template class="side-template">
+<div class="side-card"><h3>💡 なぜ？（考え方の補足）</h3><b>平均二乗収束とは？</b><p class="small">各点で完全に一致するという意味ではなく、差の二乗の積分が0へ近づくという意味です。</p></div>
+<div class="side-card"><h3>重要ポイント</h3><div class="highlight hl-yellow">\((f,f)\) はノルムの二乗</div><div class="highlight hl-blue">\(|x|^2=x^2\)</div><div class="highlight hl-green">偶関数なので2倍できる</div></div>
+<div class="side-card"><h3>関連する予備知識</h3><div class="tags"><div class="tag">ノルム</div><div class="tag">平均二乗収束</div><div class="tag">積分</div></div></div>
+<div class="side-card"><h3>タグ</h3><div class="tags"><span class="tag">#フーリエ級数</span><span class="tag">#極限</span><span class="tag">#ノルム</span></div></div>
+</template></section>
+<section class="lesson" id="y23-q21" data-title="2-1　フーリエ変換と逆変換の定義" data-crumb="大問2 › 2-1">
+<div class="card">
+<div class="section-title">解答</div>
+<div class="answer-box">
+\[
+\boxed{\hat f(k)=\int_{-\infty}^{\infty}f(x)e^{-ikx}dx}
+\]
+\[
+\boxed{f(x)=\frac1{2\pi}\int_{-\infty}^{\infty}\hat f(k)e^{ikx}dk}
 \]
 </div>
-
-<h3 id="q22">2-2(a)　\(f(x)=3+i\)</h3>
-<p>定数関数は通常の意味では積分が収束しません。デルタ関数を用いる「超関数」の意味で扱います。</p>
-\[
+<p class="small">この解説ではこの定義を採用します。</p>
+</div>
+<template class="side-template">
+<div class="side-card"><h3>💡 なぜ？（考え方の補足）</h3><b>なぜ定義の係数が教科書で違うのか？</b><p class="small">変換と逆変換のどちらに \(2\pi\) を置くかは約束の違いです。両方を合わせて使えば、どの流儀でも同じ内容になります。</p></div>
+<div class="side-card"><h3>重要ポイント</h3><div class="highlight hl-yellow">まず授業の定義を確認する</div><div class="highlight hl-red">\(2\pi\) の位置に注意</div></div>
+<div class="side-card"><h3>関連する予備知識</h3><div class="tags"><div class="tag">複素指数関数</div><div class="tag">積分</div></div></div>
+<div class="side-card"><h3>タグ</h3><div class="tags"><span class="tag">#フーリエ変換</span><span class="tag">#定義</span></div></div>
+</template></section>
+<section class="lesson" id="y23-q22a" data-title="2-2(a)　定数関数 \(3+i\) の変換" data-crumb="大問2 › 2-2(a)">
+<div class="problem">\[
+f(x)=3+i
+\]</div>
+<div class="card">
+<div class="section-title">解答</div>
+<p>通常の積分としては収束しないため、デルタ関数を使う超関数の意味で扱います。</p>
+<div class="formula-row">\[
 \mathcal F[1]=2\pi\delta(k)
 \]
-より、線形性から
-<div class="answer box"><span class="label">答え</span>
-\[
+<button class="why-inline" onclick="toggleWhy(this)">なぜ？</button>
+<div class="why-panel">定数関数は周波数0だけを持つので、変換後は \(k=0\) に集中します。</div></div>
+<div class="answer-box"><span class="answer-label">答え</span>\[
 \boxed{\hat f(k)=2\pi(3+i)\delta(k)}
-\]
+\]</div>
 </div>
-<details class="why"><summary>デルタ関数とは？</summary><div class="why-body">
-<p>\(\delta(k)\) は \(k=0\) にだけ集中し、\(\int\delta(k)\varphi(k)dk=\varphi(0)\) を満たす対象です。定数関数は周波数0だけを持つため、変換すると \(k=0\) に集中します。</p>
-</div></details>
-
-<h3>2-2(b)　\(f(x)=e^{a|x|}\;(a&lt;0)\)</h3>
-<p>偶関数なので左右を2倍します。</p>
-\[
-\hat f(k)=2\int_0^\infty e^{ax}\cos(kx)dx.
+<template class="side-template">
+<div class="side-card"><h3>💡 なぜ？（考え方の補足）</h3><b>デルタ関数とは？</b><p class="small">\(\delta(k)\) は \(k=0\) に集中し、積分すると1になる理想化された対象です。</p></div>
+<div class="side-card"><h3>重要ポイント</h3><div class="highlight hl-yellow">定数関数の周波数は0だけ</div><div class="highlight hl-blue">線形性を使って定数倍する</div><div class="highlight hl-red">普通の積分では収束しない</div></div>
+<div class="side-card"><h3>関連する予備知識</h3><div class="tags"><div class="tag">デルタ関数</div><div class="tag">超関数</div><div class="tag">線形性</div></div></div>
+<div class="side-card"><h3>タグ</h3><div class="tags"><span class="tag">#フーリエ変換</span><span class="tag">#デルタ関数</span></div></div>
+</template></section>
+<section class="lesson" id="y23-q22b" data-title="2-2(b)　\(e^{a|x|}\) の変換" data-crumb="大問2 › 2-2(b)">
+<div class="problem">\[
+f(x)=e^{a|x|},\qquad a<0
+\]</div>
+<div class="card">
+<div class="section-title">解答</div>
+<p>偶関数なので、複素指数関数の虚部は打ち消されます。</p>
+<div class="formula-row">\[
+\hat f(k)=2\int_0^\infty e^{ax}\cos kx\,dx
 \]
-<p>\(a&lt;0\) なので無限遠で指数関数が0になり、</p>
+<button class="why-inline" onclick="toggleWhy(this)">なぜ？</button>
+<div class="why-panel">\(e^{a|x|}\) は偶関数です。\(e^{-ikx}=\cos kx-i\sin kx\) のうち、奇関数である正弦部分の積分は0になります。</div></div>
 \[
-\int_0^\infty e^{ax}\cos(kx)dx
-=-\frac{a}{a^2+k^2}.
+\int_0^\infty e^{ax}\cos kx\,dx=-\frac{a}{a^2+k^2}
 \]
-<div class="answer box"><span class="label">答え</span>
-\[
+より、
+<div class="answer-box"><span class="answer-label">答え</span>\[
 \boxed{\hat f(k)=\frac{-2a}{a^2+k^2}}
-\]
+\]</div>
 </div>
-</section>
-
-<section class="card" id="q3">
-<h2>大問3　波動方程式</h2>
-<div class="problem">\[\frac{\partial^2u}{\partial t^2}=c^2\frac{\partial^2u}{\partial x^2}\]</div>
-
-<h3 id="q31">3-1　\(u=\phi(x+ct)+\psi(x-ct)\) が解であること</h3>
-<p>合成関数の微分を使います。</p>
+<template class="side-template">
+<div class="side-card"><h3>💡 なぜ？（考え方の補足）</h3><b>なぜ \(a<0\) が必要なのか？</b><p class="small">\(x	o\infty\) で \(e^{ax}	o0\) となり、積分が収束するためです。</p></div>
+<div class="side-card"><h3>重要ポイント</h3><div class="highlight hl-yellow">偶関数なら余弦変換にできる</div><div class="highlight hl-blue">\(a<0\) が収束条件</div><div class="highlight hl-red">符号 \(-2a\) に注意</div></div>
+<div class="side-card"><h3>関連する予備知識</h3><div class="tags"><div class="tag">偶関数</div><div class="tag">指数関数の積分</div><div class="tag">複素指数</div></div></div>
+<div class="side-card"><h3>タグ</h3><div class="tags"><span class="tag">#フーリエ変換</span><span class="tag">#指数関数</span></div></div>
+</template></section>
+<section class="lesson" id="y23-q31" data-title="3-1　波動方程式の一般解を確かめる" data-crumb="大問3 › 3-1">
+<div class="problem">\[
+u(x,t)=\phi(x+ct)+\psi(x-ct)
+\]</div>
+<div class="card">
+<div class="section-title">解答</div>
 \[
-u_t=c\phi'(x+ct)-c\psi'(x-ct),
+u_t=c\phi'(x+ct)-c\psi'(x-ct)
 \]
 \[
-u_{tt}=c^2\phi''(x+ct)+c^2\psi''(x-ct).
+u_{tt}=c^2\phi''(x+ct)+c^2\psi''(x-ct)
 \]
 一方、
 \[
-u_x=\phi'(x+ct)+\psi'(x-ct),
-\quad
-u_{xx}=\phi''(x+ct)+\psi''(x-ct).
+u_{xx}=\phi''(x+ct)+\psi''(x-ct)
 \]
-したがって
-\[
-u_{tt}=c^2u_{xx}.
-\]
-<div class="answer box"><span class="label">結論</span>与えられた形は波動方程式を満たします。</div>
-
-<h3 id="q32">3-2　初期条件からダランベール解を導く</h3>
+なので、
+<div class="answer-box"><span class="answer-label">結論</span>\[
+\boxed{u_{tt}=c^2u_{xx}}
+\]</div>
+</div>
+<template class="side-template">
+<div class="side-card"><h3>💡 なぜ？（考え方の補足）</h3><b>なぜ符号が途中で元に戻るのか？</b><p class="small">\(\psi(x-ct)\) を1回 \(t\) 微分すると \(-c\) が出ますが、2回目でもう一度 \(-c\) が出るため、積が \(+c^2\) になります。</p></div>
+<div class="side-card"><h3>重要ポイント</h3><div class="highlight hl-yellow">合成関数の微分を使う</div><div class="highlight hl-red">1階微分の符号に注意</div></div>
+<div class="side-card"><h3>関連する予備知識</h3><div class="tags"><div class="tag">合成関数の微分</div><div class="tag">偏微分</div></div></div>
+<div class="side-card"><h3>タグ</h3><div class="tags"><span class="tag">#波動方程式</span><span class="tag">#ダランベール解</span></div></div>
+</template></section>
+<section class="lesson" id="y23-q32" data-title="3-2　ダランベールの公式を導く" data-crumb="大問3 › 3-2">
+<div class="card">
+<div class="section-title">解答</div>
 \[
 u(x,0)=\phi(x)+\psi(x)=f(x)
 \]
 \[
-u_t(x,0)=c\phi'(x)-c\psi'(x)=g(x).
+u_t(x,0)=c\phi'(x)-c\psi'(x)=g(x)
 \]
-第2式を積分すると
-\[
-\phi(x)-\psi(x)=\frac1c\int^x g(y)dy+C.
-\]
-これと \(\phi+\psi=f\) を連立して \(\phi,\psi\) を求め、定数を整理すると
-<div class="answer box"><span class="label">ダランベールの公式</span>
-\[
+第2式を積分し、第1式と連立すると、
+<div class="answer-box"><span class="answer-label">ダランベールの公式</span>\[
 \boxed{
 u(x,t)=\frac12\left[
 f(x+ct)+f(x-ct)+\frac1c\int_{x-ct}^{x+ct}g(y)dy
 \right]}
-\]
+\]</div>
 </div>
-<details class="why"><summary>積分区間が \(x-ct\) から \(x+ct\) になる理由</summary><div class="why-body">
-<p>右向き・左向きに速度 \(c\) で進む情報が、時刻 \(t\) に点 \(x\) へ到達できる初期位置の範囲が \([x-ct,x+ct]\) だからです。</p>
-</div></details>
-
-<h3 id="q33">3-3　具体的初期条件</h3>
-<div class="problem">
-\[
+<template class="side-template">
+<div class="side-card"><h3>💡 なぜ？（考え方の補足）</h3><b>なぜ積分区間が \(x-ct\) から \(x+ct\) なのか？</b><p class="small">時刻 \(t\) に点 \(x\) へ到達できる初期位置は、速度 \(c\) で左右にさかのぼった範囲だからです。</p></div>
+<div class="side-card"><h3>重要ポイント</h3><div class="highlight hl-yellow">初期変位は左右平均</div><div class="highlight hl-blue">初期速度は区間積分</div><div class="highlight hl-red">前の係数 \(1/c\) を忘れない</div></div>
+<div class="side-card"><h3>関連する予備知識</h3><div class="tags"><div class="tag">初期条件</div><div class="tag">積分</div><div class="tag">連立方程式</div></div></div>
+<div class="side-card"><h3>タグ</h3><div class="tags"><span class="tag">#波動方程式</span><span class="tag">#ダランベール公式</span></div></div>
+</template></section>
+<section class="lesson" id="y23-q33" data-title="3-3　具体的な初期条件を代入する" data-crumb="大問3 › 3-3">
+<div class="problem">\[
 f(x)=\sum_{n=1}^{\infty}\sin\frac{n\pi x}{l},
 \qquad
-g(x)=\sin\frac{\pi x}{l}.
+g(x)=\sin\frac{\pi x}{l}
+\]</div>
+<div class="card">
+<div class="section-title">解答</div>
+<p>ダランベールの公式へ代入します。</p>
+<div class="formula-row">\[
+\frac12\left[
+\sin\frac{n\pi(x+ct)}l+\sin\frac{n\pi(x-ct)}l
+\right]
+=
+\sin\frac{n\pi x}l\cos\frac{n\pi ct}l
 \]
-</div>
-<p>各正弦波は独立に伝わります。恒等式
-\[
-\frac12\{\sin(A+B)+\sin(A-B)\}=\sin A\cos B
-\]
-を使うと、変位の項は</p>
-\[
-\sum_{n=1}^{\infty}
-\sin\frac{n\pi x}{l}\cos\frac{n\pi ct}{l}.
-\]
-速度項は
+<button class="why-inline" onclick="toggleWhy(this)">なぜ？</button>
+<div class="why-panel">\(\sin(A+B)+\sin(A-B)=2\sin A\cos B\) を使っています。</div></div>
 \[
 \frac1{2c}\int_{x-ct}^{x+ct}\sin\frac{\pi y}{l}dy
-=\frac{l}{\pi c}\sin\frac{\pi x}{l}\sin\frac{\pi ct}{l}.
+=
+\frac{l}{\pi c}\sin\frac{\pi x}{l}\sin\frac{\pi ct}{l}
 \]
-<div class="answer box"><span class="label">答え</span>
-\[
+<div class="answer-box"><span class="answer-label">答え</span>\[
 \boxed{
 u(x,t)=
 \sum_{n=1}^{\infty}\sin\frac{n\pi x}{l}\cos\frac{n\pi ct}{l}
 +\frac{l}{\pi c}\sin\frac{\pi x}{l}\sin\frac{\pi ct}{l}}
+\]</div>
+<p class="small">問題画像では総和の上下限が明記されていないように見えるため、通常どおり \(n=1,2,\ldots\) と解釈しています。</p>
+</div>
+<template class="side-template">
+<div class="side-card"><h3>💡 なぜ？（考え方の補足）</h3><b>なぜ各正弦波を別々に扱えるのか？</b><p class="small">波動方程式は線形なので、各モードの解を足したものも解になります。</p></div>
+<div class="side-card"><h3>重要ポイント</h3><div class="highlight hl-yellow">加法定理を使って整理する</div><div class="highlight hl-blue">線形性によりモードごとに解ける</div><div class="highlight hl-red">総和の添字範囲を答案で明記する</div></div>
+<div class="side-card"><h3>関連する予備知識</h3><div class="tags"><div class="tag">三角関数の加法定理</div><div class="tag">線形性</div></div></div>
+<div class="side-card"><h3>タグ</h3><div class="tags"><span class="tag">#波動方程式</span><span class="tag">#正弦級数</span></div></div>
+</template></section>
+<section class="lesson" id="y23-exam" data-title="2023年度　試験答案まとめ" data-crumb="試験答案まとめ">
+<div class="card">
+<div class="section-title">最終結果一覧</div>
+<div class="exam-card"><div class="exam-side">大問1</div><div class="exam-main">
+\[
+(f_1,f_2)=a_0b_0+a_1b_1+a_2b_2,\quad
+A=\begin{pmatrix}0&0&0\\0&-1&1\\0&-1&-1\end{pmatrix}
 \]
+\[
+\alpha_0=\pi,\quad
+\alpha_k=\frac{2\{(-1)^k-1\}}{\pi k^2},\quad
+\beta_k=0,\quad
+\lim(g_n,g_n)=\frac{2\pi^3}{3}.
+\]
+</div></div>
+<div class="exam-card" style="margin-top:12px"><div class="exam-side">大問2</div><div class="exam-main">
+\[
+\mathcal F[3+i]=2\pi(3+i)\delta(k),\qquad
+\mathcal F[e^{a|x|}]=\frac{-2a}{a^2+k^2}.
+\]
+</div></div>
+<div class="exam-card" style="margin-top:12px"><div class="exam-side">大問3</div><div class="exam-main">
+ダランベールの公式を導出し、具体的初期条件を代入する。
+</div></div>
 </div>
-<div class="warning box"><span class="label">注意</span>
-問題画像の総和記号には上下限が明示されていないように見えるため、この解説では通常どおり \(n=1,2,\ldots\) と解釈しています。
-</div>
-</section>
-
-<section class="card" id="exam">
-<h2>試験答案まとめ</h2>
-<div class="exam-answer"><b>大問1：</b>
-\((f_1,f_2)=a_0b_0+a_1b_1+a_2b_2\)、
-\(A=\begin{pmatrix}0&0&0\\0&-1&1\\0&-1&-1\end{pmatrix}\)、
-\(\alpha_0=\pi,\;\alpha_k=2\{(-1)^k-1\}/(\pi k^2),\;\beta_k=0\)、
-極限は \(2\pi^3/3\)。
-</div>
-<div class="exam-answer"><b>大問2：</b>
-\(\mathcal F[3+i]=2\pi(3+i)\delta(k)\)、
-\(\mathcal F[e^{a|x|}]=-2a/(a^2+k^2)\)。
-</div>
-<div class="exam-answer"><b>大問3：</b>
-ダランベール公式を導出し、3-3は上記の正弦級数解。
-</div>
-</section>
-
-<footer>工業数学F2 初学者向け過去問解説</footer>
+<template class="side-template">
+<div class="side-card"><h3>💡 なぜ？（考え方の補足）</h3><b>このページの使い方</b><p class="small">試験直前はここで最終結果を確認し、途中式が不安な問題だけ左のサイドバーから戻るのがおすすめです。</p></div>
+<div class="side-card"><h3>重要ポイント</h3><div class="highlight hl-yellow">公式だけでなく導出の流れも確認する</div><div class="highlight hl-green">答案では条件と結論を明記する</div></div>
+<div class="side-card"><h3>関連する予備知識</h3><div class="tags"><div class="tag">全範囲</div></div></div>
+<div class="side-card"><h3>タグ</h3><div class="tags"><span class="tag">#試験対策</span><span class="tag">#まとめ</span></div></div>
+</template></section>
 </main>
+<aside class="right-rail" id="rightRail"></aside>
 </div>
-<a class="backtop" href="#top" aria-label="上へ戻る">↑</a>
-</body>
-</html>
+<a class="top-btn" href="#top">↑</a>
+</body></html>
