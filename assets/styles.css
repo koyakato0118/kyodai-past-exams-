@@ -508,11 +508,16 @@ details[open] > .nav-summary .nav-chevron {
   color: #fff;
 }
 
-.pdf-actions {
+.pdf-actions,
+.resource-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
+}
+
+.resource-actions {
+  margin-top: 4px;
 }
 
 .text-link {
@@ -1091,4 +1096,40 @@ details[open] > .nav-summary .nav-chevron {
     align-items: flex-start;
     flex-direction: column;
   }
+}
+.table-scroll {
+  margin: 1.25rem 0;
+  overflow-x: auto;
+  border: 1px solid var(--line, #d9dee7);
+  border-radius: 0.75rem;
+}
+
+.content-markdown table {
+  width: 100%;
+  min-width: 42rem;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.content-markdown th,
+.content-markdown td {
+  padding: 0.7rem 0.8rem;
+  border-bottom: 1px solid var(--line, #d9dee7);
+  border-right: 1px solid var(--line, #d9dee7);
+  text-align: left;
+  vertical-align: top;
+}
+
+.content-markdown th {
+  background: #f4f6f9;
+  font-weight: 700;
+}
+
+.content-markdown tr:last-child td {
+  border-bottom: 0;
+}
+
+.content-markdown th:last-child,
+.content-markdown td:last-child {
+  border-right: 0;
 }
