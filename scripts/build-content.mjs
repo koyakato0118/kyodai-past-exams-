@@ -247,15 +247,16 @@ async function readMarkdownFiles(pdfEntries) {
       const split = splitQuestions(body, frontMatter.questions || []);
       subjectName = frontMatter.subject || subjectName;
       subjectSlug = frontMatter.subject_slug || subjectSlug;
-      const titleMap = new Map((frontMatter.questions || []).map((item) => [item.id, item.title]));
+      const questionMetaMap = new Map((frontMatter.questions || []).map((item) => [item.id, item]));
       const pdfInfo = pdfByKey.get(`${frontMatter.subject}__${frontMatter.year}`) || null;
 
       const questions = split.questions.map((question) => {
-        const title = titleMap.get(question.id) || question.title;
+        const questionMeta = questionMetaMap.get(question.id) || {};
+        const title = questionMeta.title || question.title;
         return {
           ...question,
           title,
-          label: question.label || labelFromId(question.id),
+          label: questionMeta.label || question.label || labelFromId(question.id),
           major: majorFromId(question.id),
           why: extractWhy(question.markdown),
           importantPoints: extractList(question.markdown, "重要ポイント"),
@@ -268,6 +269,8 @@ async function readMarkdownFiles(pdfEntries) {
 
       years.push({
         year: frontMatter.year || path.basename(file, ".md"),
+        contentType: frontMatter.content_type || "exam",
+        displayLabel: frontMatter.display_label || "",
         teachers: frontMatter.teachers || [],
         status: frontMatter.status || "draft",
         sourceFile: frontMatter.source_file || "",
