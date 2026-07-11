@@ -1,5 +1,5 @@
 window.__PAST_EXAM_CONTENT__ = {
-  "generatedAt": "2026-07-10T06:52:10.657Z",
+  "generatedAt": "2026-07-11T13:17:20.873Z",
   "subjects": [
     {
       "name": "応用電磁気学",
@@ -7,6 +7,8 @@ window.__PAST_EXAM_CONTENT__ = {
       "years": [
         {
           "year": 2024,
+          "contentType": "exam",
+          "displayLabel": "",
           "teachers": [
             "四竈泰一"
           ],
@@ -176,6 +178,8 @@ window.__PAST_EXAM_CONTENT__ = {
         },
         {
           "year": 2023,
+          "contentType": "exam",
+          "displayLabel": "",
           "teachers": [
             "四竈泰一"
           ],
@@ -330,6 +334,8 @@ window.__PAST_EXAM_CONTENT__ = {
       "years": [
         {
           "year": 2023,
+          "contentType": "exam",
+          "displayLabel": "",
           "teachers": [
             "細田",
             "遠藤"
@@ -489,6 +495,8 @@ window.__PAST_EXAM_CONTENT__ = {
       "years": [
         {
           "year": 2023,
+          "contentType": "exam",
+          "displayLabel": "",
           "teachers": [
             "小森",
             "平山"
@@ -667,6 +675,8 @@ window.__PAST_EXAM_CONTENT__ = {
         },
         {
           "year": 2021,
+          "contentType": "exam",
+          "displayLabel": "",
           "teachers": [
             "小森",
             "平山"
@@ -836,6 +846,8 @@ window.__PAST_EXAM_CONTENT__ = {
       "years": [
         {
           "year": 2024,
+          "contentType": "exam",
+          "displayLabel": "",
           "teachers": [
             "西原",
             "花崎"
@@ -1055,6 +1067,8 @@ window.__PAST_EXAM_CONTENT__ = {
         },
         {
           "year": 2023,
+          "contentType": "exam",
+          "displayLabel": "",
           "teachers": [
             "西原",
             "花崎"
@@ -1283,6 +1297,8 @@ window.__PAST_EXAM_CONTENT__ = {
       "years": [
         {
           "year": 2024,
+          "contentType": "exam",
+          "displayLabel": "",
           "teachers": [
             "花崎",
             "沖野"
@@ -1515,6 +1531,8 @@ window.__PAST_EXAM_CONTENT__ = {
       "years": [
         {
           "year": 2023,
+          "contentType": "exam",
+          "displayLabel": "",
           "teachers": [
             "瀬波"
           ],
@@ -1702,6 +1720,8 @@ window.__PAST_EXAM_CONTENT__ = {
         },
         {
           "year": 2021,
+          "contentType": "exam",
+          "displayLabel": "",
           "teachers": [
             "瀬波"
           ],
@@ -1857,6 +1877,8 @@ window.__PAST_EXAM_CONTENT__ = {
       "years": [
         {
           "year": 2018,
+          "contentType": "exam",
+          "displayLabel": "",
           "teachers": [
             "平方",
             "嶋田"
@@ -2037,7 +2059,122 @@ window.__PAST_EXAM_CONTENT__ = {
       "slug": "statistical-thermodynamics",
       "years": [
         {
+          "year": 2026,
+          "contentType": "lecture_summary",
+          "displayLabel": "2026 授業資料まとめ",
+          "teachers": [
+            "松本充弘"
+          ],
+          "status": "completed",
+          "sourceFile": "StatPhys2026_00-10.pdf・report2026.pdf・report2026answer.pdf",
+          "sourcePages": [],
+          "problemAssets": [],
+          "localPdfUrl": "",
+          "sourceUrl": "",
+          "pdfSourceFile": "",
+          "introMarkdown": "> [!NOTE]\n> 2026年度の講義ノート第0〜10章、レポート課題、略解を、期末試験対策用にA4約5枚相当へ圧縮したまとめである。定義だけでなく、「どの条件で、何を足し上げ、どの熱力学量へ変換するか」を軸に整理した。\n\n## 最初に覚える一本の流れ\n\n\\[\n\\boxed{\n\\text{微視的状態を数える}\n\\to g(E)\n\\to S=k_{\\mathrm B}\\ln g\n\\to \\text{確率分布}\n\\to \\text{分配関数}\n\\to \\text{熱力学量}\n}\n\\]\n\n統計熱力学の計算は、ほぼ必ず次の順で進む。\n\n- 系の外部条件 (E,T,P,\\mu,N,V) のうち、固定されている量を確認する。\n- 使う統計集団と確率の重みを決める。\n- 微視的状態の和または位相空間積分から分配関数を作る。\n- (ln Z) などを微分し、平均エネルギー・圧力・エントロピー・熱容量を得る。\n- 高温・低温、希薄、粒子数大などの近似条件を最後に確認する。\n\n## 優先順位\n\n1. Boltzmann分布と分配関数から平均値を出せること。\n2. 4つの統計集団と対応する自由エネルギーを区別できること。\n3. Fermi-Dirac、Bose-Einstein、古典極限を比較できること。\n4. レポート2題を途中式から再現できること。\n5. フォトン・フォノン・半導体の代表的な温度依存性を説明できること。",
+          "questions": [
+            {
+              "id": "q1",
+              "label": "第1部",
+              "title": "確率・多重度・エントロピー",
+              "markdown": "## 1. 二項分布から正規分布へ\n\n独立な試行を (N) 回行い、成功確率を (p)、失敗確率を (q=1-p) とする。成功回数が (n) である確率は\n\n\\[\nP_N(n)=\\binom{N}{n}p^nq^{N-n}.\n\\]\n\n平均と分散は\n\n\\[\n\\boxed{\\langle n\\rangle=Np},\\qquad\n\\boxed{\\langle(\\Delta n)^2\\rangle=Npq}.\n\\]\n\n(N) が大きいとき、Stirling公式\n\n\\[\n\\boxed{\\ln N!\\simeq N\\ln N-N+\\frac12\\ln(2\\pi N)}\n\\]\n\nを使えば、二項分布は\n\n\\[\nP_N(n)\\simeq\n\\frac{1}{\\sqrt{2\\pi Npq}}\n\\exp\\left[-\\frac{(n-Np)^2}{2Npq}\\right]\n\\]\n\nという正規分布で近似できる。標準偏差は √N に比例するが、相対揺らぎは\n\n\\[\n\\frac{\\sqrt{\\langle(\\Delta n)^2\\rangle}}{\\langle n\\rangle}\n=\\sqrt{\\frac{q}{Np}}\\propto N^{-1/2}\n\\]\n\nなので、巨視的な粒子数では密度がほぼ一定に見える。\n\n## 2. 巨視的状態と微視的状態\n\n- 巨視的状態：(E,V,N,T,P) など少数の熱力学変数で指定する状態。\n- 微視的状態：各粒子の位置・運動量、または量子状態の占有数まで指定した状態。\n- 多重度 (g(E))：同じ巨視的エネルギー (E) を実現する微視的状態の数または密度。\n\n観測されやすい巨視的状態は、「対応する微視的状態が多い状態」である。独立な2系では多重度が掛け算になる。\n\n\\[\ng_{\\mathrm{tot}}(E_1,E_2)=g_1(E_1)g_2(E_2).\n\\]\n\n積より対数の方が扱いやすいため、平衡条件は (ln g) で考える。\n\n## 3. エントロピーと温度\n\nBoltzmannの関係式は\n\n\\[\n\\boxed{S(E)=k_{\\mathrm B}\\ln g(E)},\\qquad\n\\boxed{g(E)=\\exp\\left(\\frac{S}{k_{\\mathrm B}}\\right)}.\n\\]\n\n独立な系では (g=g_1g_2) なので (S=S_1+S_2)。これによりエントロピーの示量性が説明できる。\n\n全エネルギー一定の2系を接触させると、平衡では (g_1(E_1)g_2(E-E_1)) が最大になる。微分して\n\n\\[\n\\frac{\\partial\\ln g_1}{\\partial E_1}\n=\n\\frac{\\partial\\ln g_2}{\\partial E_2}.\n\\]\n\nここから温度を\n\n\\[\n\\boxed{\n\\frac1T=k_{\\mathrm B}\\left(\\frac{\\partial\\ln g}{\\partial E}\\right)_{N,V}\n=\\left(\\frac{\\partial S}{\\partial E}\\right)_{N,V}\n}\n\\]\n\nと定義する。高温系1から低温系2へ (Delta E>0) が移ると\n\n\\[\n\\Delta S_{\\mathrm{tot}}simeq\n\\left(\\frac1{T_2}-\\frac1{T_1}\\right)\\Delta E>0\n\\]\n\nとなる。つまり「熱は高温から低温へ流れる」と「孤立系のエントロピーは増える」は、多重度の大きい状態へ移るという同じ事実の表現である。\n\n:::why title=\"なぜエントロピーは多重度そのものではなく対数なのか\"\n独立な系を合わせると多重度は掛け算になるが、熱力学のエントロピーは足し算できなければならない。対数を取れば \\(\\ln(g_1g_2)=\\ln g_1+\\ln g_2\\) となり、示量性と両立する。\n:::\n\n### 重要ポイント\n\n- 最確状態は (g) または (ln g) を最大にする状態。\n- 巨視的極限では相対揺らぎが (N^{-1/2}) で小さくなる。\n- (S=k_{\\mathrm B}\\ln g) と (1/T=(\\partial S/\\partial E)_{N,V}) は必ず組で覚える。",
+              "major": "1",
+              "why": [
+                {
+                  "title": "なぜエントロピーは多重度そのものではなく対数なのか",
+                  "markdown": "独立な系を合わせると多重度は掛け算になるが、熱力学のエントロピーは足し算できなければならない。対数を取れば \\(\\ln(g_1g_2)=\\ln g_1+\\ln g_2\\) となり、示量性と両立する。"
+                }
+              ],
+              "importantPoints": [
+                "最確状態は (g) または (ln g) を最大にする状態。",
+                "巨視的極限では相対揺らぎが (N^{-1/2}) で小さくなる。",
+                "(S=k_{\\mathrm B}\\ln g) と (1/T=(\\partial S/\\partial E)_{N,V}) は必ず組で覚える。"
+              ],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q2",
+              "label": "第2部",
+              "title": "Boltzmann分布・分配関数・古典極限",
+              "markdown": "## 1. 熱浴と接した系\n\n温度 (T) の非常に大きな熱浴と接した小さい系を考える。小系が微視的状態 (i)、エネルギー (E_i) を取る確率は\n\n\\[\n\\boxed{p_i=\\frac{e^{-\\beta E_i}}{Z}},\\qquad\n\\beta\\equiv\\frac1{k_{\\mathrm B}T},\n\\]\n\n\\[\n\\boxed{Z=\\sum_i e^{-\\beta E_i}\n=\\sum_E g(E)e^{-\\beta E}}.\n\\]\n\n(e^{-\\beta E}) がBoltzmann因子、(Z) が正準分配関数である。連続状態なら和を積分に置き換える。\n\n## 2. 分配関数から得られる量\n\n\\[\n\\boxed{U=\\langle E\\rangle=-\\frac{\\partial\\ln Z}{\\partial\\beta}\n=k_{\\mathrm B}T^2\\frac{\\partial\\ln Z}{\\partial T}}\n\\]\n\n\\[\n\\boxed{F=-k_{\\mathrm B}T\\ln Z},\\qquad\n\\boxed{S=-\\left(\\frac{\\partial F}{\\partial T}\\right)_{V,N}}\n\\]\n\n\\[\n\\boxed{P=-\\left(\\frac{\\partial F}{\\partial V}\\right)_{T,N}\n=k_{\\mathrm B}T\\left(\\frac{\\partial\\ln Z}{\\partial V}\\right)_{T,N}}\n\\]\n\n熱容量とエネルギー揺らぎは\n\n\\[\n\\boxed{C_V=\\left(\\frac{\\partial U}{\\partial T}\\right)_V\n=\\frac{\\langle E^2\\rangle-\\langle E\\rangle^2}{k_{\\mathrm B}T^2}}.\n\\]\n\n熱容量が正なら、正準集団のエネルギー揺らぎも正である。\n\n## 3. エネルギー等分配則\n\n古典系でHamiltonianに独立な2次項 (a x^2) が含まれると、その項の平均エネルギーは\n\n\\[\n\\boxed{\\langle ax^2\\rangle=\\frac12k_{\\mathrm B}T}.\n\\]\n\n3次元自由粒子では運動量の3つの2次項から\n\n\\[\n\\langle K\\rangle=\\frac32k_{\\mathrm B}T.\n\\]\n\n3次元等方調和振動子\n\n\\[\nH=\\frac{p_x^2+p_y^2+p_z^2}{2m}+\\frac c2(x^2+y^2+z^2)\n\\]\n\nには6個の2次項があるため\n\n\\[\n\\boxed{\\langle K\\rangle=\\frac32k_{\\mathrm B}T},\\quad\n\\boxed{\\langle U\\rangle=\\frac32k_{\\mathrm B}T},\\quad\n\\boxed{\\langle H\\rangle=3k_{\\mathrm B}T}.\n\\]\n\n## 4. 古典理想気体の分配関数\n\n同種粒子 (N) 個では、粒子交換の重複を除く (N!) と、位相空間を無次元化する (h^{3N}) が必要である。\n\n\\[\n\\boxed{\nZ_N=\\frac1{N!h^{3N}}\n\\int d^{3N}r\\,d^{3N}p\\,e^{-\\beta H}\n}\n\\]\n\n相互作用のない単原子理想気体なら\n\n\\[\n\\boxed{\nZ_N=\\frac1{N!}\n\\left[\\frac{V}{\\lambda_T^3}\\right]^N},\\qquad\n\\lambda_T=\\frac{h}{\\sqrt{2\\pi mk_{\\mathrm B}T}}.\n\\]\n\n古典極限の目安は\n\n\\[\n\\boxed{n\\lambda_T^3\\ll1}\n\\]\n\nであり、「1つの量子状態の平均占有数が十分小さい」ことを意味する。\n\n## 5. 量子調和振動子\n\n(E_n=(n+1/2)\\hbar\\omega) なので\n\n\\[\nZ=\\sum_{n=0}^{\\infty}e^{-\\beta\\hbar\\omega(n+1/2)}\n=\\frac{e^{-\\beta\\hbar\\omega/2}}{1-e^{-\\beta\\hbar\\omega}}.\n\\]\n\n\\[\n\\boxed{U=\\frac{\\hbar\\omega}{2}\n\\coth\\left(\\frac{\\hbar\\omega}{2k_{\\mathrm B}T}\\right)}.\n\\]\n\n高温 (k_{\\mathrm B}T\\gg\\hbar\\omega) では (U\\to k_{\\mathrm B}T)、(C_V\\to k_{\\mathrm B}) となり、古典等分配則へ戻る。低温では励起が凍結し、熱容量が小さくなる。\n\n### 重要ポイント\n\n- (Z) は「許される全状態のBoltzmann重みの和」。\n- 平均エネルギーは (-\\partial_\\beta\\ln Z)、自由エネルギーは (-k_{\\mathrm B}T\\ln Z)。\n- 等分配則を使う前に、古典極限かつHamiltonianが2次形式かを確認する。",
+              "major": "2",
+              "why": [],
+              "importantPoints": [
+                "(Z) は「許される全状態のBoltzmann重みの和」。",
+                "平均エネルギーは (-\\partial_\\beta\\ln Z)、自由エネルギーは (-k_{\\mathrm B}T\\ln Z)。",
+                "等分配則を使う前に、古典極限かつHamiltonianが2次形式かを確認する。"
+              ],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q3",
+              "label": "第3部",
+              "title": "統計集団・自由エネルギー・化学ポテンシャル",
+              "markdown": "## 1. 4つの統計集団\n\n| 外部条件 | 統計集団 | 状態の重み | 規格化因子 | 対応する熱力学関数 |\n|---|---|---|---|---|\n| (N,V,E) | 小正準 | (g(E)) | 多重度 (g) | (S=k_{\\mathrm B}\\ln g) |\n| (N,V,T) | 正準 | (g(E)e^{-\\beta E}) | (Z) | (F=-k_{\\mathrm B}T\\ln Z) |\n| (N,P,T) | (T-P) | (g(E,V)e^{-\\beta(E+PV)}) | (Y) | (G=-k_{\\mathrm B}T\\ln Y) |\n| (μ,V,T) | 大正準 | (g(N,E)e^{-\\beta(E-\\mu N)}) | (Ξ) | (J=-k_{\\mathrm B}T\\ln\\Xi) |\n\n> [!IMPORTANT]\n> (T-P) 集団の指数は (-\\beta(E+PV))、大正準集団は (-\\beta(E-\\mu N))。(PV) と (μN) の符号を混同しやすい。\n\n## 2. Legendre変換と自由エネルギー\n\n熱力学の基本式は\n\n\\[\n\\boxed{dE=TdS-PdV+\\mu dN}.\n\\]\n\n自然変数を変えるために\n\n\\[\nF=E-TS,\\qquad G=E-TS+PV,\\qquad J=F-\\mu N\n\\]\n\nを定義する。微分形は\n\n\\[\ndF=-S\\,dT-P\\,dV+\\mu\\,dN,\n\\]\n\n\\[\ndG=-S\\,dT+V\\,dP+\\mu\\,dN,\n\\]\n\n\\[\ndJ=-S\\,dT-P\\,dV-N\\,d\\mu.\n\\]\n\nよって\n\n\\[\nS=-\\left(\\frac{\\partial F}{\\partial T}\\right)_{V,N},\\quad\nP=-\\left(\\frac{\\partial F}{\\partial V}\\right)_{T,N},\\quad\n\\mu=\\left(\\frac{\\partial F}{\\partial N}\\right)_{T,V}.\n\\]\n\n一様な巨視的系では (G=\\mu N)、グランドポテンシャルは (J=-PV) となる。\n\n## 3. 大正準集団\n\n粒子溜・熱浴と接し、(T,V,\\mu) が一定の系では\n\n\\[\n\\boxed{\nP(N,i)=\\frac{e^{-\\beta(E_{N,i}-\\mu N)}}{\\Xi}},\n\\]\n\n\\[\n\\boxed{\n\\Xi=\\sum_N e^{\\beta\\mu N}Z_N}.\n\\]\n\n平均粒子数は\n\n\\[\n\\boxed{\n\\langle N\\rangle\n=\\frac1\\beta\\frac{\\partial\\ln\\Xi}{\\partial\\mu}}.\n\\]\n\n## 4. Langmuir吸着\n\n吸着サイトが (M) 個あり、各サイトに最大1分子、吸着エネルギーが (-\\epsilon) のとき\n\n\\[\n\\Xi=\\left[1+e^{\\beta(\\mu+\\epsilon)}\\right]^M,\n\\]\n\n\\[\n\\boxed{\n\\frac{\\langle N\\rangle}{M}\n=\\frac{e^{\\beta(\\mu+\\epsilon)}}{1+e^{\\beta(\\mu+\\epsilon)}}}.\n\\]\n\n理想気体の (μ-μ_0=k_{\\mathrm B}T\\ln(P/P_0)) を代入すると、被覆率は圧力とともに0から1へ飽和する。これはLangmuir吸着等温線である。\n\n## 5. 解法の選び方\n\n- 「孤立・(E)一定」なら多重度最大化。\n- 「熱浴・(T)一定」なら (Z,F)。\n- 「温度と圧力一定」なら (Y,G)。\n- 「粒子が出入り・(μ)一定」なら (Ξ,J)。\n\n:::why title=\"自由エネルギーが何種類も必要な理由\"\n実験で固定しやすい外部条件が異なるからである。固定したい自然変数に合わせてLegendre変換すると、平衡条件と微分公式を最も簡単に書ける。\n:::\n\n### 重要ポイント\n\n- 統計集団は外部条件から選ぶ。\n- 分配関数の対数と自由エネルギーが対応する。\n- 共役な組は (E\\leftrightarrow T)、(V\\leftrightarrow P)、(N\\leftrightarrow\\mu)。",
+              "major": "3",
+              "why": [
+                {
+                  "title": "自由エネルギーが何種類も必要な理由",
+                  "markdown": "実験で固定しやすい外部条件が異なるからである。固定したい自然変数に合わせてLegendre変換すると、平衡条件と微分公式を最も簡単に書ける。"
+                }
+              ],
+              "importantPoints": [
+                "統計集団は外部条件から選ぶ。",
+                "分配関数の対数と自由エネルギーが対応する。",
+                "共役な組は (E\\leftrightarrow T)、(V\\leftrightarrow P)、(N\\leftrightarrow\\mu)。"
+              ],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q4",
+              "label": "第4部",
+              "title": "Fermi粒子・Bose粒子・フォトン・フォノン",
+              "markdown": "## 1. Fermi粒子とBose粒子\n\n同種粒子交換に対して、Fermi粒子の波動関数は反対称、Bose粒子は対称である。\n\n- Fermi粒子：各1粒子状態の占有数は (n_k=0,1)。Pauliの排他律に従う。\n- Bose粒子：(n_k=0,1,2,\\ldots)。同一状態へ多数入れる。\n\n平均占有数は\n\n\\[\n\\boxed{f_{\\mathrm{FD}}(\\epsilon)=\n\\frac1{e^{(\\epsilon-\\mu)/(k_{\\mathrm B}T)}+1}}\n\\]\n\n\\[\n\\boxed{f_{\\mathrm{BE}}(\\epsilon)=\n\\frac1{e^{(\\epsilon-\\mu)/(k_{\\mathrm B}T)}-1}}.\n\\]\n\n占有数が十分小さい (e^{(\\epsilon-\\mu)/(k_{\\mathrm B}T)}\\gg1) では、両者とも\n\n\\[\n\\boxed{f_{\\mathrm{MB}}(\\epsilon)\\simeq e^{-(\\epsilon-\\mu)/(k_{\\mathrm B}T)}}\n\\]\n\nというMaxwell-Boltzmann型の古典極限になる。\n\n## 2. 自由電子気体\n\n3次元自由粒子の状態密度は\n\n\\[\n\\boxed{g(\\epsilon)\\propto V\\sqrt{\\epsilon}}.\n\\]\n\n(T=0) では低エネルギー準位からFermiエネルギー (epsilon_{\\mathrm F}) まで詰まる。\n\n\\[\n\\boxed{\n\\epsilon_{\\mathrm F}=\\frac{\\hbar^2}{2m}(3\\pi^2n)^{2/3}},\\qquad\n\\boxed{T_{\\mathrm F}=\\frac{\\epsilon_{\\mathrm F}}{k_{\\mathrm B}}}.\n\\]\n\n金属では通常 (T\\ll T_{\\mathrm F})。熱励起されるのはFermi準位近傍の幅 (\\sim k_{\\mathrm B}T) の電子だけなので、電子熱容量は古典値より小さく\n\n\\[\n\\boxed{C_{V,e}\\propto NT/T_{\\mathrm F}}\n\\]\n\nと温度に比例する。正確な数係数は近似法に依存するため、答案では授業で指定された式を用いる。\n\n## 3. Bose-Einstein凝縮\n\nBose粒子では低温・高密度になると励起状態だけでは全粒子を収容できず、基底状態に巨視的粒子数が集まる。これがBose-Einstein凝縮である。化学ポテンシャルは基底エネルギーを0とした場合 (μ\\le0) で、凝縮点に近づくと (μ\\to0)。\n\n## 4. フォトン\n\nフォトンは粒子数が保存されないBose粒子なので\n\n\\[\n\\boxed{\\mu=0},\\qquad\n\\boxed{\\bar n(\\omega)=\\frac1{e^{\\hbar\\omega/(k_{\\mathrm B}T)}-1}}.\n\\]\n\n電磁波の状態密度 (g(\\omega)\\propto V\\omega^2/c^3) と掛けるとPlanckの放射則が得られる。全周波数で積分すると\n\n\\[\n\\boxed{u(T)\\propto T^4},\\qquad\n\\boxed{j=\\sigma T^4}\n\\]\n\nというStefan-Boltzmann則になる。試験では「分布関数だけ」ではなく「1量子のエネルギー (hbar\\omega)」「状態密度」「平均占有数」の3つを掛ける。\n\n## 5. フォノンと固体熱容量\n\nフォノンも粒子数非保存のBose粒子で (μ=0)。\n\n- Einsteinモデル：全振動子が同じ角振動数。低温で励起が凍結し、高温で (C_V\\to3Nk_{\\mathrm B})。\n- Debyeモデル：音響分散 (ω=ck)、状態密度 (g(\\omega)\\propto\\omega^2)、最大角振動数 (ω_D) を導入する。\n\nDebye温度 (Θ_D=hbar\\omega_D/k_{\\mathrm B}) を使うと\n\n\\[\nC_V=9Nk_{\\mathrm B}\\left(\\frac{T}{\\Theta_D}\\right)^3\n\\int_0^{\\Theta_D/T}\\frac{x^4e^x}{(e^x-1)^2}\\,dx.\n\\]\n\n極限は必須である。\n\n\\[\n\\boxed{T\\gg\\Theta_D:\\ C_V\\to3Nk_{\\mathrm B}}\n\\]\n\n\\[\n\\boxed{T\\ll\\Theta_D:\\ C_V\\simeq\n\\frac{12\\pi^4}{5}Nk_{\\mathrm B}\n\\left(\\frac{T}{\\Theta_D}\\right)^3}.\n\\]\n\n### 比較まとめ\n\n| 対象 | 統計 | 化学ポテンシャル | 低温で重要な結果 |\n|---|---|---|---|\n| 金属中の電子 | Fermi-Dirac | (\\mu\\simeq\\epsilon_F) | (C_{V,e}\\propto T) |\n| Bose気体 | Bose-Einstein | (μ\\to0) | Bose凝縮 |\n| フォトン | Bose-Einstein | (μ=0) | 放射エネルギー (∝T^4) |\n| フォノン | Bose-Einstein | (μ=0) | (C_V\\propto T^3) |\n\n### 重要ポイント\n\n- 分布関数の分母の (+1)、(-1) を区別する。\n- 物理量の総和は原則として (∫ g(\\epsilon)f(\\epsilon)(\\text{1粒子あたりの量})d\\epsilon)。\n- フォトンとフォノンは粒子数非保存なので (μ=0)。",
+              "major": "4",
+              "why": [],
+              "importantPoints": [
+                "分布関数の分母の (+1)、(-1) を区別する。",
+                "物理量の総和は原則として (∫ g(\\epsilon)f(\\epsilon)(\\text{1粒子あたりの量})d\\epsilon)。",
+                "フォトンとフォノンは粒子数非保存なので (μ=0)。"
+              ],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": false
+            },
+            {
+              "id": "q5",
+              "label": "第5部",
+              "title": "半導体・レポート課題・直前チェック",
+              "markdown": "## 1. バンド理論と半導体\n\n結晶の周期ポテンシャル中では、電子のエネルギーは許容帯と禁制帯に分かれる。\n\n- 金属：許容帯が部分的に占有され、すぐ上に空状態がある。\n- 絶縁体：価電子帯が満杯で、伝導帯までのバンドギャップ (E_g) が大きい。\n- 半導体：(E_g) が比較的小さく、熱・光・電場でキャリアを励起できる。\n\n真性半導体では電子密度とホール密度が等しく、概略\n\n\\[\n\\boxed{n_i\\propto T^{3/2}\\exp\\left(-\\frac{E_g}{2k_{\\mathrm B}T}\\right)}.\n\\]\n\n指数に (E_g/2) が出るのは、Fermi準位がほぼギャップ中央にあり、電子とホールを対で生成するためである。\n\n## 2. ドーピングとp-n接合\n\n- n型：ドナー準位から伝導帯へ電子を供給し、電子が多数キャリア。\n- p型：アクセプター準位が価電子帯から電子を受け取り、ホールが多数キャリア。\n- p-n接合：界面付近でキャリアが拡散し、空乏層と内蔵電場ができる。\n- 順方向バイアス：障壁が下がり、大きな電流が流れる。\n- 逆方向バイアス：障壁が上がり、電流は小さい。\n\n応用はダイオード、トランジスタ、太陽電池、LED、熱電変換である。光電変換では (h\\nu\\gtrsim E_g) が励起の目安になる。\n\n## 3. レポート課題1：3次元調和振動子\n\n確率密度は\n\n\\[\nP(\\boldsymbol r,\\boldsymbol p)\\propto\n\\exp\\left[-\\beta\\left(\n\\frac{p^2}{2m}+\\frac{cr^2}{2}\n\\right)\\right].\n\\]\n\nGaussian積分\n\n\\[\n\\int_{-\\infty}^{\\infty}e^{-ax^2}dx=\\sqrt{\\frac\\pi a},\\qquad\n\\int_{-\\infty}^{\\infty}x^2e^{-ax^2}dx\n=\\frac{\\sqrt\\pi}{2a^{3/2}}\n\\]\n\nを分子・分母に使えば\n\n\\[\n\\left\\langle\\frac{p_i^2}{2m}\\right\\rangle\n=\\frac12k_{\\mathrm B}T,\\qquad\n\\left\\langle\\frac{cx_i^2}{2}\\right\\rangle\n=\\frac12k_{\\mathrm B}T.\n\\]\n\n3方向を足して\n\n\\[\n\\boxed{\\langle K\\rangle=\\frac32k_{\\mathrm B}T},\\qquad\n\\boxed{\\langle U\\rangle=\\frac32k_{\\mathrm B}T}.\n\\]\n\n答案では「他の変数の積分は分子・分母で相殺される」ことを書くとよい。\n\n## 4. レポート課題2：重力場中の古典理想気体\n\n断面積 (A)、高さ (H)、外場 (mgz) の容器では\n\n\\[\nZ=\\frac1{N!h^{3N}}(2\\pi mk_{\\mathrm B}T)^{3N/2}A^N\n\\left[\n\\frac{k_{\\mathrm B}T}{mg}\n\\left(1-e^{-mgH/(k_{\\mathrm B}T)}\\right)\n\\right]^N.\n\\]\n\n(H\\to\\infty) なら\n\n\\[\nZ=\\frac1{N!h^{3N}}(2\\pi mk_{\\mathrm B}T)^{3N/2}A^N\n\\left(\\frac{k_{\\mathrm B}T}{mg}\\right)^N.\n\\]\n\nしたがって\n\n\\[\n\\boxed{U=\\frac52Nk_{\\mathrm B}T},\\qquad\n\\boxed{C_V=\\frac52Nk_{\\mathrm B}}.\n\\]\n\n内訳は並進運動 (3Nk_{\\mathrm B}T/2) と重力ポテンシャル (Nk_{\\mathrm B}T)。密度分布は\n\n\\[\n\\boxed{n(z)\\propto e^{-mgz/(k_{\\mathrm B}T)}}.\n\\]\n\n> [!IMPORTANT]\n> (H\\to\\infty) を先に取った式で、その後 (g\\to0) として通常の理想気体へ戻すことはできない。(g\\to0) と (H\\to\\infty) の極限は交換できず、(z) 積分の収束性が変わる。\n\n## 5. 過去問とのつながり\n\n- 2023問1・2011問1：調和振動子、Boltzmann分布、分配関数、古典極限。\n- 2023問2：Fermiエネルギー、Fermi温度、Seebeck係数。\n- 2011問2：等分配則、Maxwell速度分布。\n- 2011問3：半導体の熱励起とキャリア密度。\n- 2023問3・2011問4：確率・情報エントロピー・拡散。\n- 2023問4：Gaussian鎖の多重度とエントロピー弾性。\n\n## 6. 導出問題の答案テンプレート\n\n1. 固定条件を書き、統計集団を宣言する。\n2. エネルギー (H) と状態の数え方 (g) を書く。\n3. 確率の重み (e^{-\\beta E}) または (e^{-\\beta(E-\\mu N)}) を書く。\n4. 分配関数を「全状態の和」として書く。\n5. (λ_T)、Stirling公式、積分近似など、使う近似と成立条件を明記する。\n6. (⟨E\\rangle=-\\partial_\\beta\\ln Z) などで熱力学量へ変換する。\n7. 単位、高温・低温極限、符号を確認する。\n\n## 7. 最終公式チェック\n\n\\[\n\\boxed{\n\\begin{gathered}\nS=k_{\\mathrm B}\\ln g,\n\\qquad\n\\frac1T=\\left(\\frac{\\partial S}{\\partial E}\\right)_{N,V},\\\\\nZ=\\sum_i e^{-\\beta E_i},\n\\qquad\nF=-k_{\\mathrm B}T\\ln Z,\n\\qquad\nU=-\\frac{\\partial\\ln Z}{\\partial\\beta},\\\\\n\\Xi=\\sum_N e^{\\beta\\mu N}Z_N,\n\\qquad\nJ=-k_{\\mathrm B}T\\ln\\Xi=-PV,\\\\\nf_{\\mathrm{FD}}=\\frac1{e^{\\beta(\\epsilon-\\mu)}+1},\n\\qquad\nf_{\\mathrm{BE}}=\\frac1{e^{\\beta(\\epsilon-\\mu)}-1},\\\\\n\\epsilon_F=\\frac{\\hbar^2}{2m}(3\\pi^2n)^{2/3},\n\\qquad\nT_F=\\epsilon_F/k_{\\mathrm B}.\n\\end{gathered}\n}\n\\]\n\n### 間違えやすい点\n\n- (g(E)) と確率を混同しない。正準集団のエネルギー確率は (g(E)e^{-\\beta E}/Z)。\n- (F=-k_{\\mathrm B}T\\ln Z) の負号を落とさない。\n- (U=-\\partial_\\beta\\ln Z) で、(Z) そのものではなく (\\ln Z) を微分する。\n- 同種古典粒子の (1/N!) と位相空間の (1/h^{3N}) を忘れない。\n- Fermi-Diracは分母 (+1)、Bose-Einsteinは (-1)。\n- フォトン・フォノンは (μ=0)。電子は一般に (μ\\ne0)。\n- 等分配則は量子凍結が無視できる高温の古典極限で使う。\n- 極限を取る順序で結果が変わる場合がある。\n\n### 重要ポイント\n\n- レポート2題は分配関数とGaussian積分の総合練習なので、自力で再計算する。\n- 公式だけでなく、固定条件・近似条件・物理的意味を1文ずつ説明できるようにする。\n- 過去問2011・2023の対応問題を、このまとめの各部を読んだ直後に解く。",
+              "major": "5",
+              "why": [],
+              "importantPoints": [
+                "レポート2題は分配関数とGaussian積分の総合練習なので、自力で再計算する。",
+                "公式だけでなく、固定条件・近似条件・物理的意味を1文ずつ説明できるようにする。",
+                "過去問2011・2023の対応問題を、このまとめの各部を読んだ直後に解く。"
+              ],
+              "relatedKnowledge": [],
+              "tags": [],
+              "hasFinalAnswer": false,
+              "hasExamAnswer": false
+            }
+          ]
+        },
+        {
           "year": 2023,
+          "contentType": "exam",
+          "displayLabel": "",
           "teachers": [
             "松本",
             "井上"
@@ -2274,6 +2411,8 @@ window.__PAST_EXAM_CONTENT__ = {
         },
         {
           "year": 2011,
+          "contentType": "exam",
+          "displayLabel": "",
           "teachers": [
             "松本充弘"
           ],
