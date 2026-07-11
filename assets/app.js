@@ -2,6 +2,12 @@
   "use strict";
 
   const data = window.__PAST_EXAM_CONTENT__ || { subjects: [], pdfs: [] };
+  const studyGuides = {
+    "fluid-mechanics-2": {
+      label: "流体力学2 テスト対策",
+      url: "/study-guides/fluid-mechanics-2.html",
+    },
+  };
   const dom = {
     content: document.getElementById("contentPane"),
     rail: document.getElementById("rightRail"),
@@ -40,6 +46,20 @@
     if (!url) return "";
     if (/^https?:\/\//u.test(url)) return url;
     return window.location.protocol === "file:" ? `.${url}` : url;
+  }
+
+  function renderStudyGuideAction(subject) {
+    const guide = studyGuides[subject?.slug];
+    if (!guide) return "";
+    return `<div class="resource-actions"><a class="text-link" href="${publicHref(guide.url)}">${escapeHtml(guide.label)}を開く</a></div>`;
+  }
+
+  function yearLabel(year) {
+    return year.displayLabel || `${year.year}年度`;
+  }
+
+  function isLectureSummary(year) {
+    return year.contentType === "lecture_summary";
   }
 
   function escapeHtml(value) {
@@ -160,6 +180,7 @@
     let paragraph = [];
     let list = [];
     let quote = [];
+    let table = [];
 
     function withTokens(value) {
       return value.replace(/@@HTML(\d+)@@/g, (_, index) => htmlTokens[Number(index)] || "");
@@ -183,10 +204,19 @@
       quote = [];
     }
 
+    function flushTable() {
+      if (!table.length) return;
+      const [head, ...body] = table;
+      const renderCells = (cells, tag) => cells.map((cell) => `<${tag}>${withTokens(renderInline(cell))}</${tag}>`).join("");
+      output.push(`<div class="table-scroll"><table><thead><tr>${renderCells(head, "th")}</tr></thead><tbody>${body.map((row) => `<tr>${renderCells(row, "td")}</tr>`).join("")}</tbody></table></div>`);
+      table = [];
+    }
+
     function flushAll() {
       flushParagraph();
       flushList();
       flushQuote();
+      flushTable();
     }
 
     for (const rawLine of lines) {
@@ -213,6 +243,16 @@
         continue;
       }
 
+      if (/^\|.*\|$/.test(trimmed)) {
+        flushParagraph();
+        flushList();
+        flushQuote();
+        if (!/^\|(?:\s*:?-+:?\s*\|)+$/.test(trimmed)) {
+          table.push(trimmed.split("|").slice(1, -1).map((cell) => cell.trim()));
+        }
+        continue;
+      }
+
       const bullet = /^-\s+(.+)$/.exec(trimmed);
       if (bullet) {
         flushParagraph();
@@ -231,6 +271,7 @@
 
       flushList();
       flushQuote();
+      flushTable();
       paragraph.push(trimmed);
     }
 
@@ -305,15 +346,15 @@
                 .map(
                   (year) => `<div class="toc-year">
                     <a class="toc-year-head clickable" href="${hrefFor(`/subjects/${subject.slug}/${year.year}`)}" data-route="/subjects/${subject.slug}/${year.year}">
-                      <strong>${year.year}年度</strong>
-                      <span>${escapeHtml(year.teachers.join("・"))} / ${year.questions.length}問</span>
+                      <strong>${escapeHtml(yearLabel(year))}</strong>
+                      <span>${escapeHtml(year.teachers.join("・"))} / ${year.questions.length}${isLectureSummary(year) ? "部" : "問"}</span>
                     </a>
                     ${renderPdfActions(year)}
                     <div class="toc-major-list">
                       ${groupQuestions(year)
                         .map(
                           ({ major, questions }) => `<div class="toc-major">
-                            <div class="toc-major-title">大問${escapeHtml(major)}</div>
+                            <div class="toc-major-title">${isLectureSummary(year) ? `第${escapeHtml(major)}部` : `大問${escapeHtml(major)}`}</div>
                             <div class="toc-question-list">
                               ${questions
                                 .map(
@@ -372,14 +413,15 @@
       <div class="page-head">
         <div class="page-kicker"><span>${escapeHtml(subject.name)}</span><span>${subject.years.length} 年度</span></div>
         <h1 class="page-title">${escapeHtml(subject.name)}</h1>
+        ${renderStudyGuideAction(subject)}
       </div>
       <div class="overview-grid">
         ${subject.years
           .map(
             (year) => `
               <a class="overview-card clickable" href="${hrefFor(`/subjects/${subject.slug}/${year.year}`)}" data-route="/subjects/${subject.slug}/${year.year}">
-                <h2>${year.year}年度</h2>
-                <p>${escapeHtml(year.teachers.join("・"))} / ${year.questions.length}問</p>
+                <h2>${escapeHtml(yearLabel(year))}</h2>
+                <p>${escapeHtml(year.teachers.join("・"))} / ${year.questions.length}${isLectureSummary(year) ? "部" : "問"}</p>
                 <span class="status-pill ${escapeHtml(year.status)}">${escapeHtml(statusLabel(year.status))}</span>
               </a>
             `,
@@ -396,33 +438,34 @@
       ${renderBreadcrumbs([
         { label: "Home", path: "/" },
         { label: subject.name, path: `/subjects/${subject.slug}` },
-        { label: `${year.year}年度` },
+        { label: yearLabel(year) },
       ])}
       <div class="page-head">
         <div class="page-kicker">
           <span>${escapeHtml(subject.name)}</span>
-          <span>${year.year}年度</span>
+          <span>${escapeHtml(yearLabel(year))}</span>
           <span>${escapeHtml(year.teachers.join("・"))}</span>
         </div>
-        <h1 class="page-title">${escapeHtml(subject.name)} ${year.year}年度</h1>
+        <h1 class="page-title">${escapeHtml(subject.name)} ${escapeHtml(yearLabel(year))}</h1>
         ${renderPdfActions(year)}
+        ${renderStudyGuideAction(subject)}
         <div class="page-actions">
           ${
             firstQuestion
-              ? `<a class="button-link primary" href="${hrefFor(`/subjects/${subject.slug}/${year.year}/${firstQuestion.id}`)}" data-route="/subjects/${subject.slug}/${year.year}/${firstQuestion.id}">最初の問題へ</a>`
+              ? `<a class="button-link primary" href="${hrefFor(`/subjects/${subject.slug}/${year.year}/${firstQuestion.id}`)}" data-route="/subjects/${subject.slug}/${year.year}/${firstQuestion.id}">${isLectureSummary(year) ? "第1部を読む" : "最初の問題へ"}</a>`
               : ""
           }
         </div>
       </div>
       <article class="content-markdown">${markdownToHtml(year.introMarkdown, { pdfUrl: year.localPdfUrl })}</article>
-      <h2 class="section-title">問題一覧</h2>
+      <h2 class="section-title">${isLectureSummary(year) ? "まとめの構成" : "問題一覧"}</h2>
       <div class="question-grid">
         ${year.questions
           .map(
             (question) => `
               <a class="question-card clickable" href="${hrefFor(`/subjects/${subject.slug}/${year.year}/${question.id}`)}" data-route="/subjects/${subject.slug}/${year.year}/${question.id}">
                 <h2>${escapeHtml(question.label)} ${escapeHtml(question.title)}</h2>
-                <p>${escapeHtml(question.major ? `大問${question.major}` : "問題")}</p>
+                <p>${escapeHtml(isLectureSummary(year) ? `第${question.major}部` : question.major ? `大問${question.major}` : "問題")}</p>
               </a>
             `,
           )
@@ -441,13 +484,13 @@
       ${renderBreadcrumbs([
         { label: "Home", path: "/" },
         { label: subject.name, path: `/subjects/${subject.slug}` },
-        { label: `${year.year}年度`, path: `/subjects/${subject.slug}/${year.year}` },
+        { label: yearLabel(year), path: `/subjects/${subject.slug}/${year.year}` },
         { label: question.label },
       ])}
       <div class="page-head">
         <div class="page-kicker">
           <span>${escapeHtml(subject.name)}</span>
-          <span>${year.year}年度</span>
+          <span>${escapeHtml(yearLabel(year))}</span>
           <span>${escapeHtml(year.teachers.join("・"))}</span>
         </div>
         <h1 class="page-title">${escapeHtml(question.label)} ${escapeHtml(question.title)}</h1>
@@ -589,7 +632,7 @@
                   <details class="nav-details" ${groupOpen ? "open" : ""}>
                 <summary class="nav-summary" aria-expanded="${groupOpen ? "true" : "false"}" aria-controls="nav-${subject.slug}-${year.year}-${major}">
                   <span class="nav-chevron" aria-hidden="true">›</span>
-                  <span>大問${escapeHtml(major)}</span>
+                  <span>${isLectureSummary(year) ? `第${escapeHtml(major)}部` : `大問${escapeHtml(major)}`}</span>
                 </summary>
                     <div class="nav-level" id="nav-${subject.slug}-${year.year}-${major}">
                       ${questions
@@ -609,12 +652,12 @@
                 <summary class="nav-summary" aria-expanded="${yearOpen ? "true" : "false"}" aria-controls="nav-${subject.slug}-${year.year}">
                   <span class="nav-chevron" aria-hidden="true">›</span>
                   <span class="nav-summary-text">
-                    <span>${year.year}年度</span>
+                    <span>${escapeHtml(yearLabel(year))}</span>
                     <small>${escapeHtml(year.teachers.join("・"))}</small>
                   </span>
                 </summary>
                 <div class="nav-level" id="nav-${subject.slug}-${year.year}">
-                  <a class="nav-link clickable ${path === yearPath ? "active" : ""}" href="${hrefFor(yearPath)}" data-route="${yearPath}"${currentPageAttr(path === yearPath)}><span class="nav-kicker">予備</span><span>この年度で必要な予備知識</span></a>
+                  <a class="nav-link clickable ${path === yearPath ? "active" : ""}" href="${hrefFor(yearPath)}" data-route="${yearPath}"${currentPageAttr(path === yearPath)}><span class="nav-kicker">${isLectureSummary(year) ? "概要" : "予備"}</span><span>${isLectureSummary(year) ? "授業資料まとめの使い方" : "この年度で必要な予備知識"}</span></a>
                   ${groupsHtml}
                 </div>
               </details>
@@ -630,6 +673,11 @@
             </summary>
             <div class="nav-level" id="nav-${subject.slug}">
               <a class="nav-link clickable ${path === subjectPath ? "active" : ""}" href="${hrefFor(subjectPath)}" data-route="${subjectPath}"${currentPageAttr(path === subjectPath)}><span class="nav-kicker">科目</span><span>年度一覧</span></a>
+              ${
+                studyGuides[subject.slug]
+                  ? `<a class="nav-link" href="${publicHref(studyGuides[subject.slug].url)}"><span class="nav-kicker">対策</span><span>テスト対策</span></a>`
+                  : ""
+              }
               ${yearsHtml}
             </div>
           </details>
