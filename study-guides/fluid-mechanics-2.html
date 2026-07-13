@@ -9,58 +9,17 @@
 <title>流体力学2 問題演習型テスト対策</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <script>
-function fluidTex(raw) {
-  let s = raw.trim();
-  const exact = new Map([
-    ["ψ=一定", String.raw`\psi=\text{一定}`],
-    ["u=∂φ/∂x, v=∂φ/∂y", String.raw`u=\frac{\partial\phi}{\partial x},\quad v=\frac{\partial\phi}{\partial y}`],
-    ["u=∂ψ/∂y, v=-∂ψ/∂x", String.raw`u=\frac{\partial\psi}{\partial y},\quad v=-\frac{\partial\psi}{\partial x}`],
-    ["dW/dz=u-iv", String.raw`\frac{dW}{dz}=u-iv`],
-    ["Γ=∮V・ds=∮(u dx+v dy)", String.raw`\Gamma=\oint\boldsymbol{V}\cdot d\boldsymbol{s}=\oint(u\,dx+v\,dy)`],
-    ["Re=ρUL/μ=UL/ν", String.raw`\mathrm{Re}=\frac{\rho UL}{\mu}=\frac{UL}{\nu}`],
-    ["D_f=4πμUa", String.raw`D_f=4\pi\mu Ua`],
-    ["D_p=2πμUa", String.raw`D_p=2\pi\mu Ua`],
-    ["D=6πμUa", String.raw`D=6\pi\mu Ua`],
-    ["M=U/a", String.raw`M=\frac{U}{a}`],
-    ["a=sqrt(κRT)", String.raw`a=\sqrt{\kappa RT}`],
-    ["v_r=q/(2πr)", String.raw`v_r=\frac{q}{2\pi r}`],
-    ["v_θ=Γ/(2πr)=2.0/(2π×0.50)=0.637 m/s", String.raw`v_\theta=\frac{\Gamma}{2\pi r}=\frac{2.0}{2\pi\times0.50}=0.637\,\mathrm{m/s}`],
-    ["L_y=-ρUΓ", String.raw`L_y=-\rho U\Gamma`],
-    ["δ/L~Re_L^(-1/2)", String.raw`\frac{\delta}{L}\sim\mathrm{Re}_L^{-1/2}`],
-    ["δ≈x/sqrt(Re_x)", String.raw`\delta\simeq\frac{x}{\sqrt{\mathrm{Re}_x}}`],
-    ["δ_99≈5x/sqrt(Re_x)", String.raw`\delta_{99}\simeq\frac{5x}{\sqrt{\mathrm{Re}_x}}`],
-    ["dA/A=(M²-1)du/u", String.raw`\frac{dA}{A}=(M^2-1)\frac{du}{u}`],
-    ["dv=(Γ/4π)(ds×r)/|r|³", String.raw`d\boldsymbol{v}=\frac{\Gamma}{4\pi}\frac{d\boldsymbol{s}\times\boldsymbol{r}}{|\boldsymbol{r}|^3}`],
-    ["∂u/∂x+∂v/∂y=0", String.raw`\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}=0`],
-    ["∂p/∂y=0", String.raw`\frac{\partial p}{\partial y}=0`],
-    ["u∂u/∂x+v∂u/∂y=-(1/ρ)dp_e/dx+ν∂²u/∂y²", String.raw`u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}=-\frac{1}{\rho}\frac{dp_e}{dx}+\nu\frac{\partial^2u}{\partial y^2}`]
-  ]);
-  if (exact.has(s)) return exact.get(s);
-  s = s.replace(/sqrt\(([^()]*)\)/g, String.raw`\sqrt{$1}`);
-  s = s.replace(/exp\(([^()]*)\)/g, String.raw`\exp\left($1\right)`);
-  s = s.replace(/\^\(([^()]*)\)/g, "^{$1}");
-  s = s.replace(/\^(-?\d+)/g, "^{$1}");
-  s = s.replace(/²/g, "^{2}").replace(/³/g, "^{3}");
-  s = s.replace(/<<|&lt;&lt;/g, String.raw`\ll `).replace(/>>|&gt;&gt;/g, String.raw`\gg `);
-  s = s.replace(/≈/g, String.raw`\simeq `).replace(/∝/g, String.raw`\propto `).replace(/→/g, String.raw`\to `).replace(/~/g, String.raw`\sim `);
-  s = s.replace(/×/g, String.raw`\times `).replace(/・/g, String.raw`\cdot `);
-  s = s.replace(/∂²/g, String.raw`\partial^{2}`).replace(/∂/g, String.raw`\partial `);
-  s = s.replace(/∮/g, String.raw`\oint `).replace(/∫/g, String.raw`\int `);
-  s = s.replace(/\bgrad\b/g, String.raw`\nabla `).replace(/\bcurl\b/g, String.raw`\nabla\times `);
-  s = s.replace(/\bln\b/g, String.raw`\ln `).replace(/\bsin\b/g, String.raw`\sin `).replace(/\bcos\b/g, String.raw`\cos `);
-  const greek = {"α":"\\alpha ","Γ":"\\Gamma ","δ":"\\delta ","θ":"\\theta ","κ":"\\kappa ","μ":"\\mu ","ν":"\\nu ","ρ":"\\rho ","φ":"\\phi ","ψ":"\\psi "};
-  s = s.replace(/[αΓδθκμνρφψ]/g, ch => greek[ch]);
-  s = s.replace(/±/g, String.raw`\pm `);
-  s = s.replace(/(\d(?:\.\d+)?)\s+(kg\/m\^\{3\}|m\^\{2\}\/s|m\/s|N\/m|Pa s|J\/\(kg K\)|mm|m|K|N)/g, String.raw`$1\,\mathrm{$2}`);
-  return s;
-}
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll("code").forEach(function (node) {
-    const span = document.createElement("span");
-    span.className = "math-rendered";
-    node.replaceWith(span);
-    katex.render(fluidTex(node.textContent), span, {throwOnError:false, strict:"ignore"});
+  if (typeof window.renderMathInElement !== "function") return;
+  window.renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\(", right: "\\)", display: false},
+      {left: "\\[", right: "\\]", display: true}
+    ],
+    throwOnError: false,
+    strict: "ignore"
   });
 });
 </script>
@@ -88,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
   ul, ol { margin: 6px 0 18px; padding-left: 26px; }
   li { margin: 4px 0; }
   li::marker { color: #0b6e75; font-weight: 700; }
-  code { font-family: Consolas, "Yu Gothic", monospace; background: #edf2f7; border-radius: 3px; padding: 2px 5px; color: #243b53; }
   pre { margin: 14px 0 22px; overflow-x: auto; border-left: 4px solid var(--accent); background: var(--soft); padding: 14px 16px; color: var(--deep); font-family: Consolas, "Yu Gothic", monospace; font-size: 14px; line-height: 1.65; }
   blockquote { margin: 0 0 26px; padding: 14px 16px; background: #fff8e8; border-left: 4px solid var(--warm); color: #5b4328; }
   table { width: 100%; border-collapse: collapse; margin: 14px 0 24px; font-size: 14px; }
@@ -112,8 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
   .answer[open] summary::after { content: "−"; }
   .answer > div { border-top: 1px solid #cfe1e2; padding: 13px 14px 2px; }
   .answer p { margin-bottom: 11px; }
-  .math-rendered { display: inline-block; max-width: 100%; overflow-x: auto; overflow-y: hidden; vertical-align: middle; }
-  .math-rendered .katex { font-size: 1.04em; }
+  .katex { font-size: 1.04em; }
+  .katex-display { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
   @media (max-width: 820px) {
     .site-header span { display: none; }
     .guide-head-inner, .guide-shell { width: min(100% - 28px, 760px); }
@@ -203,27 +161,27 @@ document.addEventListener("DOMContentLoaded", function () {
 <p>完全流体と実在流体の違いを、「粘性」という語を使って1文ずつ説明せよ。</p>
 <details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>完全流体は粘性を持たない理想化された流体である。実在流体は粘性を持ち、壁面摩擦・境界層・はく離が生じ得る。</p></div></details>
 <h3 id="語句2-速度ポテンシャル">語句2 速度ポテンシャル</h3>
-<p>速度ポテンシャル <code>φ</code> と速度成分 <code>u,v</code> の関係を書け。また、速度ポテンシャルが存在する流れの渦度はどうなるか。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>u=∂φ/∂x, v=∂φ/∂y</code>。速度が <code>v=grad φ</code> と書ける領域では <code>curl v=0</code> となり、渦なし流れである。</p></div></details>
+<p>速度ポテンシャル \(\phi\) と速度成分 \(u,v\) の関係を書け。また、速度ポテンシャルが存在する流れの渦度はどうなるか。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(u=\frac{\partial\phi}{\partial x},\quad v=\frac{\partial\phi}{\partial y}\)。速度が \(\boldsymbol{v}=\nabla\phi\) と書ける領域では \(\nabla\times\boldsymbol{v}=0\) となり、渦なし流れである。</p></div></details>
 <h3 id="語句3-流れ関数">語句3 流れ関数</h3>
-<p>二次元非圧縮流れの流れ関数 <code>ψ</code> と速度成分の関係を書け。<code>ψ=一定</code> の線は何を表すか。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>u=∂ψ/∂y, v=-∂ψ/∂x</code>。<code>ψ=一定</code> の線は流線を表す。2本の流線間の <code>ψ</code> の差は、単位奥行き当たりの体積流量を表す。</p></div></details>
+<p>二次元非圧縮流れの流れ関数 \(\psi\) と速度成分の関係を書け。\(\psi=\text{一定}\) の線は何を表すか。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(u=\frac{\partial\psi}{\partial y},\quad v=-\frac{\partial\psi}{\partial x}\)。\(\psi=\text{一定}\) の線は流線を表す。2本の流線間の \(\psi\) の差は、単位奥行き当たりの体積流量を表す。</p></div></details>
 <h3 id="語句4-複素ポテンシャル">語句4 複素ポテンシャル</h3>
-<p>複素ポテンシャル <code>W(z)</code> の定義と、その微分から速度を得る式を書け。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>W(z)=φ+iψ</code>、<code>dW/dz=u-iv</code>。<code>u+iv</code> と書かないことが重要である。</p></div></details>
+<p>複素ポテンシャル \(W(z)\) の定義と、その微分から速度を得る式を書け。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(W(z)=\phi+i\psi\)、\(\frac{dW}{dz}=u-iv\)。\(u+iv\) と書かないことが重要である。</p></div></details>
 <h3 id="語句5-循環">語句5 循環</h3>
-<p>循環 <code>Γ</code> の定義を書き、ポテンシャル渦が原点を囲む閉曲線上で循環を持てる理由を答えよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>Γ=∮V・ds=∮(u dx+v dy)</code>。ポテンシャル渦は原点が特異点であり、原点を除く領域では渦度0でも、原点を囲む閉曲線では有限の循環を持てる。</p></div></details>
+<p>循環 \(\Gamma\) の定義を書き、ポテンシャル渦が原点を囲む閉曲線上で循環を持てる理由を答えよ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(\Gamma=\oint_C\boldsymbol{V}\cdot d\boldsymbol{s}=\oint_C(u\,dx+v\,dy)\)。ポテンシャル渦は原点が特異点であり、原点を除く領域では渦度0でも、原点を囲む閉曲線では有限の循環を持てる。</p></div></details>
 <h2 id="粘性流れ-境界層">粘性流れ・境界層</h2>
 <h3 id="語句6-reynolds数">語句6 Reynolds数</h3>
 <p>Reynolds数の定義を書き、運動方程式の中で何と何の比を表すか答えよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>Re=ρUL/μ=UL/ν</code>。慣性効果と粘性効果の比を表す。代表速度 <code>U</code>、代表長さ <code>L</code>、密度 <code>ρ</code>、粘性係数 <code>μ</code>、動粘性係数 <code>ν=μ/ρ</code> を用いる。</p></div></details>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(\mathrm{Re}=\frac{\rho UL}{\mu}=\frac{UL}{\nu}\)。慣性効果と粘性効果の比を表す。代表速度 \(U\)、代表長さ \(L\)、密度 \(\rho\)、粘性係数 \(\mu\)、動粘性係数 \(\nu=\frac{\mu}{\rho}\) を用いる。</p></div></details>
 <h3 id="語句7-stokes近似">語句7 Stokes近似</h3>
 <p>Stokes近似で無視する項と、基本的な適用条件を書け。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>Navier-Stokes方程式の移流慣性項 <code>ρ(v・grad)v</code> を無視する。基本条件は <code>Re&lt;&lt;1</code>。非定常問題では <code>ρ∂v/∂t</code> を残す場合がある。</p></div></details>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>Navier-Stokes方程式の移流慣性項 \(\rho(\boldsymbol{v}\cdot\nabla)\boldsymbol{v}\) を無視する。基本条件は \(\mathrm{Re}\ll 1\)。非定常問題では \(\rho\frac{\partial\boldsymbol{v}}{\partial t}\) を残す場合がある。</p></div></details>
 <h3 id="語句8-境界層">語句8 境界層</h3>
-<p>境界層とは何か。境界層内で流れ方向速度 <code>u</code> と壁面に垂直な速度 <code>v</code> のどちらが大きいか。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>境界層は、壁面の非すべり条件により速度が0から外部流速まで急変する薄い領域である。薄い境界層では一般に <code>u&gt;&gt;v</code> である。</p></div></details>
+<p>境界層とは何か。境界層内で流れ方向速度 \(u\) と壁面に垂直な速度 \(v\) のどちらが大きいか。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>境界層は、壁面の非すべり条件により速度が0から外部流速まで急変する薄い領域である。薄い境界層では一般に \(u\gg v\) である。</p></div></details>
 <h3 id="語句9-はく離">語句9 はく離</h3>
 <p>はく離とは何か。円柱後流と抗力にどのような影響を与えるか。</p>
 <details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>はく離は、境界層が物体表面に沿って流れ続けられず表面から離れる現象である。後方に低圧の後流・渦領域を作り、圧力抵抗を生じさせる。</p></div></details>
@@ -232,150 +190,150 @@ document.addEventListener("DOMContentLoaded", function () {
 <p>Kutta条件を、翼の後縁と速度の状態に触れて説明せよ。</p>
 <details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>翼の鋭い後縁で流れが滑らかに離れ、速度が無限大に発散しない条件である。この条件により翼まわりの循環が一意に決まる。</p></div></details>
 <h3 id="語句11-kutta-joukowskiの定理">語句11 Kutta-Joukowskiの定理</h3>
-<p>一様流速 <code>U</code>、密度 <code>ρ</code>、循環 <code>Γ</code> のとき、単位翼幅当たりの揚力を書け。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>講義の符号規約では <code>L_y=-ρUΓ</code>。反時計回りを <code>Γ&gt;0</code> とすると下向き、時計回りの <code>Γ&lt;0</code> では上向きの揚力になる。</p></div></details>
+<p>一様流速 \(U\)、密度 \(\rho\)、循環 \(\Gamma\) のとき、単位翼幅当たりの揚力を書け。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>講義の符号規約では \(L_y=-\rho U\Gamma\)。反時計回りを \(\Gamma \gt 0\) とすると下向き、時計回りの \(\Gamma \lt 0\) では上向きの揚力になる。</p></div></details>
 <h3 id="語句12-mach数">語句12 Mach数</h3>
-<p>Mach数の定義と、<code>M&lt;1</code>、<code>M&gt;1</code> の名称を書け。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>M=U/a</code>。<code>a</code> は音速。<code>M&lt;1</code> は亜音速、<code>M&gt;1</code> は超音速である。</p></div></details>
+<p>Mach数の定義と、\(M\lt 1\)、\(M\gt 1\) の名称を書け。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(M=\frac{U}{a}\)。\(a\) は音速。\(M\lt 1\) は亜音速、\(M\gt 1\) は超音速である。</p></div></details>
 <h1 id="3-1-3分の簡単計算" class="chapter">3. 1～3分の簡単計算</h1>
 <h2 id="基本流れの計算">基本流れの計算</h2>
 <h3 id="計算1-湧き出しの速度">計算1 湧き出しの速度</h3>
-<p>二次元湧き出しの強さが <code>q=0.040 m²/s</code> である。原点から <code>r=0.20 m</code> の位置の半径方向速度を求めよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>使用式は <code>v_r=q/(2πr)</code>。<code>v_r=0.040/(2π×0.20)=3.18×10^-2 m/s</code>。</p></div></details>
+<p>二次元湧き出しの強さが \(q=0.040\,\mathrm{m^{2}\,s^{-1}}\) である。原点から \(r=0.20\,\mathrm{m}\) の位置の半径方向速度を求めよ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>使用式は \(v_r=\frac{q}{2\pi r}\)。\(v_r=\frac{0.040}{2\pi\times0.20}=3.18\times10^{-2}\,\mathrm{m\,s^{-1}}\)。</p></div></details>
 <h3 id="計算2-ポテンシャル渦">計算2 ポテンシャル渦</h3>
-<p>循環が <code>Γ=2.0 m²/s</code> のポテンシャル渦について、<code>r=0.50 m</code> の周方向速度を求めよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>v_θ=Γ/(2πr)=2.0/(2π×0.50)=0.637 m/s</code>。</p></div></details>
+<p>循環が \(\Gamma=2.0\,\mathrm{m^{2}\,s^{-1}}\) のポテンシャル渦について、\(r=0.50\,\mathrm{m}\) の周方向速度を求めよ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(v_\theta=\frac{\Gamma}{2\pi r}=\frac{2.0}{2\pi\times0.50}=0.637\,\mathrm{m\,s^{-1}}\)。</p></div></details>
 <h3 id="計算3-reynolds数">計算3 Reynolds数</h3>
-<p>密度 <code>ρ=1.2 kg/m³</code>、粘性係数 <code>μ=1.8×10^-5 Pa s</code> の空気中を、代表長さ <code>L=0.50 m</code> の物体が <code>U=10 m/s</code> で進む。Reynolds数を求めよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>Re=ρUL/μ=(1.2×10×0.50)/(1.8×10^-5)=3.33×10^5</code>。無次元である。</p></div></details>
+<p>密度 \(\rho=1.2\,\mathrm{kg\,m^{-3}}\)、粘性係数 \(\mu=1.8\times10^{-5}\,\mathrm{Pa\,s}\) の空気中を、代表長さ \(L=0.50\,\mathrm{m}\) の物体が \(U=10\,\mathrm{m\,s^{-1}}\) で進む。Reynolds数を求めよ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(\mathrm{Re}=\frac{\rho UL}{\mu}=\frac{1.2\times10\times0.50}{1.8\times10^{-5}}=3.33\times10^5\)。無次元である。</p></div></details>
 <h3 id="計算4-stokes抵抗">計算4 Stokes抵抗</h3>
-<p>粘性係数 <code>μ=1.0×10^-3 Pa s</code> の流体中を、半径 <code>a=1.0 mm</code> の球が <code>U=2.0×10^-2 m/s</code> で進む。Stokesの全抵抗を求めよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>D=6πμUa</code>。<code>a=1.0×10^-3 m</code> を用い、<code>D=6π×10^-3×2.0×10^-2×10^-3=3.77×10^-7 N</code>。</p></div></details>
+<p>粘性係数 \(\mu=1.0\times10^{-3}\,\mathrm{Pa\,s}\) の流体中を、半径 \(a=1.0\,\mathrm{mm}\) の球が \(U=2.0\times10^{-2}\,\mathrm{m\,s^{-1}}\) で進む。Stokesの全抵抗を求めよ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(D=6\pi\mu Ua\)。\(a=1.0\times 10^{-3} \mathrm{m}\) を用い、\(D=6\pi\times10^{-3}\times2.0\times10^{-2}\times10^{-3}=3.77\times10^{-7}\,\mathrm{N}\)。</p></div></details>
 <h3 id="計算5-球の摩擦抵抗">計算5 球の摩擦抵抗</h3>
 <p>計算4と同じ条件で、接線応力による摩擦抵抗だけを求めよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>摩擦抵抗は <code>D_f=4πμUa=2.51×10^-7 N</code>。全抵抗 <code>6πμUa</code> と混同しない。</p></div></details>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>摩擦抵抗は \(D_f=4\pi\mu Ua=2.51\times10^{-7}\,\mathrm{N}\)。全抵抗 \(6\pi\mu Ua\) と混同しない。</p></div></details>
 <h2 id="境界層-揚力-圧縮性">境界層・揚力・圧縮性</h2>
 <h3 id="計算6-境界層厚さのオーダー">計算6 境界層厚さのオーダー</h3>
-<p>空気の動粘性係数を <code>ν=1.5×10^-5 m²/s</code>、一様流速を <code>U=5.0 m/s</code> とする。平板前縁から <code>x=0.80 m</code> の位置で <code>Re_x</code> と、<code>δ≈x/sqrt(Re_x)</code> による境界層厚さを求めよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>Re_x=Ux/ν=2.67×10^5</code>。<code>δ≈0.80/sqrt(2.67×10^5)=1.55×10^-3 m=1.55 mm</code>。これは係数を省いたオーダー評価である。</p></div></details>
+<p>空気の動粘性係数を \(\nu=1.5\times10^{-5}\,\mathrm{m^{2}\,s^{-1}}\)、一様流速を \(U=5.0\,\mathrm{m\,s^{-1}}\) とする。平板前縁から \(x=0.80\,\mathrm{m}\) の位置で \(\mathrm{Re}_x\) と、\(\delta\simeq\frac{x}{\sqrt{\mathrm{Re}_x}}\) による境界層厚さを求めよ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(\mathrm{Re}_x=\frac{Ux}{\nu}=2.67\times10^5\)。\(\delta\simeq\frac{0.80}{\sqrt{2.67\times10^5}}=1.55\times10^{-3}\,\mathrm{m}=1.55\,\mathrm{mm}\)。これは係数を省いたオーダー評価である。</p></div></details>
 <h3 id="計算7-blasius境界層厚さ">計算7 Blasius境界層厚さ</h3>
-<p>計算6の条件で、<code>δ_99≈5x/sqrt(Re_x)</code> を使った境界層厚さを求めよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>δ_99≈5×0.80/sqrt(2.67×10^5)=7.75×10^-3 m=7.75 mm</code>。計算6との違いは境界層厚さの定義と係数である。</p></div></details>
+<p>計算6の条件で、\(\delta_{99}\simeq\frac{5x}{\sqrt{\mathrm{Re}_x}}\) を使った境界層厚さを求めよ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(\delta_{99}\simeq\frac{5\times0.80}{\sqrt{2.67\times10^5}}=7.75\times10^{-3}\,\mathrm{m}=7.75\,\mathrm{mm}\)。計算6との違いは境界層厚さの定義と係数である。</p></div></details>
 <h3 id="計算8-循環による揚力">計算8 循環による揚力</h3>
-<p>密度 <code>ρ=1.2 kg/m³</code>、一様流速 <code>U=20 m/s</code>、循環 <code>Γ=-3.0 m²/s</code> のとき、単位幅当たりの揚力を求めよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>L_y=-ρUΓ=-1.2×20×(-3.0)=72 N/m</code>。正のy方向、すなわち上向きである。</p></div></details>
+<p>密度 \(\rho=1.2\,\mathrm{kg\,m^{-3}}\)、一様流速 \(U=20\,\mathrm{m\,s^{-1}}\)、循環 \(\Gamma=-3.0\,\mathrm{m^{2}\,s^{-1}}\) のとき、単位幅当たりの揚力を求めよ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(L_y=-\rho U\Gamma=-1.2\times20\times(-3.0)=72\,\mathrm{N\,m^{-1}}\)。正のy方向、すなわち上向きである。</p></div></details>
 <h3 id="計算9-音速とmach数">計算9 音速とMach数</h3>
-<p>空気を <code>κ=1.4</code>、<code>R=287 J/(kg K)</code>、温度 <code>T=300 K</code> とする。音速と、流速 <code>U=250 m/s</code> のMach数を求めよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>a=sqrt(κRT)=sqrt(1.4×287×300)=347 m/s</code>。<code>M=U/a=250/347=0.720</code> なので亜音速である。</p></div></details>
+<p>空気を \(\kappa=1.4\)、\(R=287\,\mathrm{J\,kg^{-1}\,K^{-1}}\)、温度 \(T=300\,\mathrm{K}\) とする。音速と、流速 \(U=250\,\mathrm{m\,s^{-1}}\) のMach数を求めよ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(a=\sqrt{\kappa RT}=\sqrt{1.4\times287\times300}=347\,\mathrm{m\,s^{-1}}\)。\(M=\frac{U}{a}=\frac{250}{347}=0.720\) なので亜音速である。</p></div></details>
 <h3 id="計算10-よどみ温度">計算10 よどみ温度</h3>
-<p>空気を <code>κ=1.4</code> とし、静温 <code>T=300 K</code>、Mach数 <code>M=0.80</code> のとき、<code>T_0/T=1+(κ-1)M²/2</code> からよどみ温度を求めよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>T_0=300[1+0.2×0.80²]=338.4 K</code>。</p></div></details>
+<p>空気を \(\kappa =1.4\) とし、静温 \(T=300 \mathrm{K}\)、Mach数 \(M=0.80\) のとき、\(\frac{T_0}{T}=1+\frac{(\kappa-1)M^2}{2}\) からよどみ温度を求めよ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(T_0=300\left[1+0.2\times0.80^2\right]=338.4\,\mathrm{K}\)。</p></div></details>
 <h1 id="4-過去問形式a-複素ポテンシャル" class="chapter">4. 過去問形式A 複素ポテンシャル</h1>
 <h2 id="二重湧き出し型">二重湧き出し型</h2>
 <h3 id="a1-流線-速度-循環を一続きで求める">A1 流線・速度・循環を一続きで求める</h3>
-<p>複素ポテンシャルが <code>W(z)=m/z</code> で与えられる。<code>m&gt;0</code> とする。</p>
+<p>複素ポテンシャルが \(W(z)=\frac{m}{z}\) で与えられる。\(m\gt0\) とする。</p>
 <ol>
-<li><code>z=re^(iθ)</code> を使い、速度ポテンシャル <code>φ</code> と流れ関数 <code>ψ</code> を求めよ。</li>
-<li><code>ψ=C</code> を直交座標で表し、流線の形を答えよ。</li>
-<li><code>dW/dz=u-iv</code> から <code>u,v</code> を求めよ。</li>
-<li>半径 <code>r=R</code> の円周に沿う循環を求めよ。</li>
+<li>\(z=re^{i\theta}\) を使い、速度ポテンシャル \(\phi\) と流れ関数 \(\psi\) を求めよ。</li>
+<li>\(\psi =C\) を直交座標で表し、流線の形を答えよ。</li>
+<li>\(\frac{dW}{dz}=u-iv\) から \(u,v\) を求めよ。</li>
+<li>半径 \(r=R\) の円周に沿う循環を求めよ。</li>
 </ol>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>(1) <code>W=(m/r)e^(-iθ)</code> より <code>φ=m cosθ/r</code>、<code>ψ=-m sinθ/r</code>。(2) <code>ψ=-my/(x²+y²)=C</code> より <code>x²+[y+m/(2C)]²=[m/(2C)]²</code>。原点を通る円群である。(3) <code>dW/dz=-m/z²</code> より <code>u=m(y²-x²)/(x²+y²)²</code>、<code>v=-2mxy/(x²+y²)²</code>。(4) <code>v_θ=-m sinθ/R²</code> を <code>Γ=∫[0,2π]v_θR dθ</code> に代入して <code>Γ=0</code>。</p></div></details>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>(1) \(W=\frac{m}{r}e^{-i\theta}\) より \(\phi=\frac{m\cos\theta}{r}\)、\(\psi=-\frac{m\sin\theta}{r}\)。(2) \(\psi=-\frac{my}{x^2+y^2}=C\) より \(x^2+\left(y+\frac{m}{2C}\right)^2=\left(\frac{m}{2C}\right)^2\)。原点を通る円群である。(3) \(\frac{dW}{dz}=-\frac{m}{z^2}\) より \(u=\frac{m(y^2-x^2)}{(x^2+y^2)^2}\)、\(v=-\frac{2mxy}{(x^2+y^2)^2}\)。(4) \(v_\theta=-\frac{m\sin\theta}{R^2}\) を \(\Gamma=\int_0^{2\pi}v_\theta R\,d\theta\) に代入して \(\Gamma =0\)。</p></div></details>
 <h3 id="a2-角度の付いた一様流">A2 角度の付いた一様流</h3>
-<p>速さ <code>U</code>、x軸から反時計回りに角度 <code>α</code> の一様流について、複素ポテンシャルを答え、速度成分 <code>u,v</code> を確認せよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>W(z)=Ue^(-iα)z</code>。<code>dW/dz=U(cosα-i sinα)=u-iv</code> より、<code>u=U cosα</code>、<code>v=U sinα</code>。</p></div></details>
+<p>速さ \(U\)、x軸から反時計回りに角度 \(\alpha\) の一様流について、複素ポテンシャルを答え、速度成分 \(u,v\) を確認せよ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(W(z)=Ue^{-i\alpha}z\)。\(\frac{dW}{dz}=U(\cos\alpha-i\sin\alpha)=u-iv\) より、\(u=U\cos\alpha\)、\(v=U\sin\alpha\)。</p></div></details>
 <h3 id="a3-一様流と湧き出しのよどみ点">A3 一様流と湧き出しのよどみ点</h3>
-<p>x方向一様流 <code>Uz</code> と、原点の湧き出し <code>(q/2π)ln z</code> を重ね合わせる。x軸上のよどみ点を求めよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>dW/dz=U+q/(2πz)</code>。よどみ点では0なので <code>z=-q/(2πU)</code>。<code>q&gt;0,U&gt;0</code> なら原点の上流側、負のx軸上にある。</p></div></details>
+<p>x方向一様流 \(Uz\) と、原点の湧き出し \(\frac{q}{2\pi}\ln z\) を重ね合わせる。x軸上のよどみ点を求めよ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(\frac{dW}{dz}=U+\frac{q}{2\pi z}\)。よどみ点では0なので \(z=-\frac{q}{2\pi U}\)。\(q\gt 0,U\gt 0\) なら原点の上流側、負のx軸上にある。</p></div></details>
 <h1 id="5-過去問形式b-stokes流と球" class="chapter">5. 過去問形式B Stokes流と球</h1>
 <h2 id="近似-境界条件-抵抗">近似・境界条件・抵抗</h2>
 <h3 id="b1-stokes近似をオーダーで説明する">B1 Stokes近似をオーダーで説明する</h3>
-<p>代表速度を <code>U</code>、代表長さを <code>L</code> とする。移流慣性項と粘性項のオーダーを比較し、Stokes近似の条件を示せ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>移流慣性項は <code>ρU²/L</code>、粘性項は <code>μU/L²</code>。比は <code>(ρU²/L)/(μU/L²)=ρUL/μ=Re</code>。したがって <code>Re&lt;&lt;1</code> のとき移流慣性項を粘性項に対して無視できる。</p></div></details>
+<p>代表速度を \(U\)、代表長さを \(L\) とする。移流慣性項と粘性項のオーダーを比較し、Stokes近似の条件を示せ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>移流慣性項は \(\frac{\rho U^2}{L}\)、粘性項は \(\frac{\mu U}{L^2}\)。比は \(\frac{\rho U^2}{L}\big/\frac{\mu U}{L^2}=\frac{\rho UL}{\mu}=\mathrm{Re}\)。したがって \(\mathrm{Re}\ll1\) のとき移流慣性項を粘性項に対して無視できる。</p></div></details>
 <h3 id="b2-球まわりの流れ関数の未定係数">B2 球まわりの流れ関数の未定係数</h3>
-<p>半径 <code>a</code> の球まわりで、流れ関数が <code>ψ=[(1/2)Ur²+A/r-Br]sin²θ</code> と与えられる。球表面の非浸透・非すべり条件から <code>A,B</code> を求めよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>ψ(a,θ)=0</code> より <code>(1/2)Ua²+A/a-Ba=0</code>。<code>∂ψ/∂r=0</code> at <code>r=a</code> より <code>Ua-A/a²-B=0</code>。連立して <code>A=(1/4)Ua³</code>、<code>B=(3/4)Ua</code>。</p></div></details>
+<p>半径 \(a\) の球まわりで、流れ関数が \(\psi=\left(\frac{1}{2}Ur^2+\frac{A}{r}-Br\right)\sin^2\theta\) と与えられる。球表面の非浸透・非すべり条件から \(A,B\) を求めよ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(\psi(a,\theta)=0\) より \(\frac{1}{2}Ua^2+\frac{A}{a}-Ba=0\)。さらに \(r=a\) で \(\frac{\partial\psi}{\partial r}=0\) より \(Ua-\frac{A}{a^2}-B=0\)。連立して \(A=\frac{1}{4}Ua^3\)、\(B=\frac{3}{4}Ua\)。</p></div></details>
 <h3 id="b3-抵抗の内訳">B3 抵抗の内訳</h3>
-<p>半径 <code>a</code> の球に働く摩擦抵抗、圧力抵抗、全抵抗をそれぞれ書け。問題文が「摩擦抵抗を求めよ」の場合にどれを答えるべきか。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>摩擦抵抗 <code>D_f=4πμUa</code>、圧力抵抗 <code>D_p=2πμUa</code>、全抵抗 <code>D=6πμUa</code>。摩擦抵抗を問われた場合は <code>4πμUa</code> を答える。</p></div></details>
+<p>半径 \(a\) の球に働く摩擦抵抗、圧力抵抗、全抵抗をそれぞれ書け。問題文が「摩擦抵抗を求めよ」の場合にどれを答えるべきか。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>摩擦抵抗 \(D_f=4\pi\mu Ua\)、圧力抵抗 \(D_p=2\pi\mu Ua\)、全抵抗 \(D=6\pi\mu Ua\)。摩擦抵抗を問われた場合は \(4\pi\mu Ua\) を答える。</p></div></details>
 <h1 id="6-過去問形式c-reynolds数-後流-境界層" class="chapter">6. 過去問形式C Reynolds数・後流・境界層</h1>
 <h2 id="記述-模式図-導出">記述・模式図・導出</h2>
 <h3 id="c1-円柱後流を4段階で説明する">C1 円柱後流を4段階で説明する</h3>
 <p>円柱直径に基づくReynolds数が増えるとき、後流の変化を模式図と短い文章で説明せよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>答案の順序は「前後ほぼ対称なほふく流 → 定常な双子渦 → 交互の渦放出とvon Kármán渦列 → 三次元化した乱流後流」。およそ <code>Re_D≈47</code> から周期的な渦放出が始まることも書けるとよい。</p></div></details>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>答案の順序は「前後ほぼ対称なほふく流 → 定常な双子渦 → 交互の渦放出とvon Kármán渦列 → 三次元化した乱流後流」。およそ \(\mathrm{Re}_D\simeq47\) から周期的な渦放出が始まることも書けるとよい。</p></div></details>
 <h3 id="c2-境界層厚さを導出する">C2 境界層厚さを導出する</h3>
-<p>平板方向を <code>x~L</code>、垂直方向を <code>y~δ</code>、<code>u~U</code> とする。連続の式から <code>v</code> のオーダーを求め、慣性項と粘性項の釣り合いから <code>δ/L</code> と <code>Re_L</code> の関係を導け。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>連続の式 <code>u_x+v_y=0</code> から <code>U/L~V/δ</code>、よって <code>V~Uδ/L</code>。x方向慣性項は <code>U²/L</code>、主要な粘性項は <code>νU/δ²</code>。両者を釣り合わせると <code>U²/L~νU/δ²</code>、したがって <code>δ/L~sqrt(ν/UL)=Re_L^(-1/2)</code>。</p></div></details>
+<p>平板方向を \(x\sim L\)、垂直方向を \(y\sim\delta\)、\(u\sim U\) とする。連続の式から \(v\) のオーダーを求め、慣性項と粘性項の釣り合いから \(\frac{\delta}{L}\) と \(\mathrm{Re}_L\) の関係を導け。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>連続の式 \(u_x+v_y=0\) から \(\frac{U}{L}\sim\frac{V}{\delta}\)、よって \(V\sim\frac{U\delta}{L}\)。x方向慣性項は \(\frac{U^2}{L}\)、主要な粘性項は \(\frac{\nu U}{\delta^2}\)。両者を釣り合わせると \(\frac{U^2}{L}\sim\frac{\nu U}{\delta^2}\)、したがって \(\frac{\delta}{L}\sim\sqrt{\frac{\nu}{UL}}=\mathrm{Re}_L^{-1/2}\)。</p></div></details>
 <h3 id="c3-境界層方程式を完成させる">C3 境界層方程式を完成させる</h3>
 <p>定常二次元非圧縮流れの境界層について、連続の式、x方向運動方程式、y方向圧力の関係を書け。壁面と境界層外縁の境界条件も書け。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>∂u/∂x+∂v/∂y=0</code>。<code>u∂u/∂x+v∂u/∂y=-(1/ρ)dp_e/dx+ν∂²u/∂y²</code>。<code>∂p/∂y=0</code>。壁面 <code>y=0</code> で <code>u=v=0</code>、外縁で <code>u→U_e(x)</code>。</p></div></details>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}=0\)。\(u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}=-\frac{1}{\rho}\frac{dp_e}{dx}+\nu\frac{\partial^2u}{\partial y^2}\)。\(\frac{\partial p}{\partial y}=0\)。壁面 \(y=0\) で \(u=v=0\)、外縁で \(u\to U_e(x)\)。</p></div></details>
 <h3 id="c4-無次元化の記述">C4 無次元化の記述</h3>
-<p>Navier-Stokes方程式を代表速度 <code>U</code>、代表長さ <code>L</code>、時間 <code>L/U</code>、圧力 <code>ρU²</code> で無次元化したとき、粘性項の前に現れる係数を答え、その意味を説明せよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>粘性項の前には <code>1/Re</code> が現れる。Reynolds数が大きいほど全体として慣性効果が強く、粘性効果は壁面近くの境界層などに集中する。</p></div></details>
+<p>Navier-Stokes方程式を代表速度 \(U\)、代表長さ \(L\)、時間 \(\frac{L}{U}\)、圧力 \(\rho U^{2}\) で無次元化したとき、粘性項の前に現れる係数を答え、その意味を説明せよ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>粘性項の前には \(\frac{1}{\mathrm{Re}}\) が現れる。Reynolds数が大きいほど全体として慣性効果が強く、粘性効果は壁面近くの境界層などに集中する。</p></div></details>
 <h1 id="7-2026年度講義の追加問題" class="chapter">7. 2026年度講義の追加問題</h1>
 <h2 id="円柱-翼-渦糸">円柱・翼・渦糸</h2>
 <h3 id="追加1-円柱まわりの速度">追加1 円柱まわりの速度</h3>
-<p>複素ポテンシャル <code>W(z)=U(z+a²/z)</code> で表される半径 <code>a</code> の円柱まわりの流れについて、円柱表面 <code>r=a</code> の <code>v_r,v_θ</code> を答えよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>円柱表面では <code>v_r=0</code>、<code>v_θ=-2U sinθ</code>。表面が流線となり、流れは円柱を貫かない。</p></div></details>
+<p>複素ポテンシャル \(W(z)=U\left(z+\frac{a^2}{z}\right)\) で表される半径 \(a\) の円柱まわりの流れについて、円柱表面 \(r=a\) の \(v_r,v_\theta\) を答えよ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>円柱表面では \(v_r=0\)、\(v_\theta=-2U\sin\theta\)。表面が流線となり、流れは円柱を貫かない。</p></div></details>
 <h3 id="追加2-理想流体の円柱抗力">追加2 理想流体の円柱抗力</h3>
 <p>循環を持たない円柱まわりのポテンシャル流れでは、圧力を全周で積分した抗力はいくらか。実在流体と異なる理由も答えよ。</p>
 <details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>抗力は0。これがd'Alembertの逆説である。理想流体モデルには粘性、境界層、はく離、後流がなく、前後の圧力分布が対称になるためである。</p></div></details>
 <h3 id="追加3-平板翼の循環と揚力">追加3 平板翼の循環と揚力</h3>
-<p>講義の設定で、迎角 <code>α</code>、円の半径 <code>a</code>、一様流速 <code>U</code> の平板翼についてKutta条件から得られる循環と揚力を書け。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>Γ=-4πaU sinα</code>。<code>L_y=-ρUΓ=4πρaU² sinα</code>。小迎角では <code>sinα≈α</code> なので揚力は迎角にほぼ比例する。</p></div></details>
+<p>講義の設定で、迎角 \(\alpha\)、円の半径 \(a\)、一様流速 \(U\) の平板翼についてKutta条件から得られる循環と揚力を書け。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(\Gamma=-4\pi aU\sin\alpha\)。\(L_y=-\rho U\Gamma=4\pi\rho aU^2\sin\alpha\)。小迎角では \(\sin\alpha\simeq\alpha\) なので揚力は迎角にほぼ比例する。</p></div></details>
 <h3 id="追加4-渦糸の誘起速度">追加4 渦糸の誘起速度</h3>
-<p>渦糸の微小要素 <code>ds</code> が位置ベクトル <code>r</code> だけ離れた点に誘起する速度を表すBiot-Savart則を書け。渦糸自身の移動速度を求めるときの注意も答えよ。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p><code>dv=(Γ/4π)(ds×r)/|r|³</code>。渦糸自身が作る特異な自己誘起速度をそのまま足さず、他の渦糸・一様流・湧き出しなどが作る速度を評価する。</p></div></details>
+<p>渦糸の微小要素 \(ds\) が位置ベクトル \(r\) だけ離れた点に誘起する速度を表すBiot-Savart則を書け。渦糸自身の移動速度を求めるときの注意も答えよ。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>\(d\boldsymbol{v}=\frac{\Gamma}{4\pi}\frac{d\boldsymbol{s}\times\boldsymbol{r}}{\lvert\boldsymbol{r}\rvert^3}\)。渦糸自身が作る特異な自己誘起速度をそのまま足さず、他の渦糸・一様流・湧き出しなどが作る速度を評価する。</p></div></details>
 <h2 id="圧縮性流れ-相似則">圧縮性流れ・相似則</h2>
 <h3 id="追加5-面積と速度">追加5 面積と速度</h3>
-<p>一次元等エントロピー流れで <code>dA/A=(M²-1)du/u</code> が成り立つ。亜音速流と超音速流を加速するには流路断面積をどう変えるか。</p>
-<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>亜音速 <code>M&lt;1</code> では断面積を減少させる。超音速 <code>M&gt;1</code> では断面積を増加させる。<code>M=1</code> はのど部に対応する。</p></div></details>
+<p>一次元等エントロピー流れで \(\frac{dA}{A}=(M^2-1)\frac{du}{u}\) が成り立つ。亜音速流と超音速流を加速するには流路断面積をどう変えるか。</p>
+<details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>亜音速 \(M\lt 1\) では断面積を減少させる。超音速 \(M\gt 1\) では断面積を増加させる。\(M=1\) はのど部に対応する。</p></div></details>
 <h3 id="追加6-相似則の選択">追加6 相似則の選択</h3>
 <p>自動車、船の造波、航空機の高速流れ、液滴の挙動を模型実験する。主に一致させる無次元数をそれぞれ答えよ。</p>
 <details class="answer"><summary>解答・確認ポイントを見る</summary><div><p>自動車はReynolds数、船の造波はFroude数、航空機の高速流れはMach数、液滴はWeber数。現実には複数の無次元数を同時に一致させることが難しい場合がある。</p></div></details>
 <h1 id="8-本番形式ミニ模試" class="chapter">8. 本番形式ミニ模試</h1>
 <h2 id="制限時間45分">制限時間45分</h2>
 <h3 id="模試1-複素ポテンシャル-15分">模試1 複素ポテンシャル 15分</h3>
-<p><code>W(z)=Uz+m/z</code> で表される流れを考える。<code>U&gt;0,m&gt;0</code> とする。</p>
+<p>\(W(z)=Uz+\frac{m}{z}\) で表される流れを考える。\(U\gt0,m\gt0\) とする。</p>
 <ol>
-<li><code>dW/dz</code> を求め、x軸上のよどみ点をすべて求めよ。</li>
-<li><code>φ,ψ</code> を極座標で表せ。</li>
-<li><code>ψ=0</code> となる流線のうち、閉曲線を特定し、その半径を求めよ。</li>
+<li>\(\frac{dW}{dz}\) を求め、x軸上のよどみ点をすべて求めよ。</li>
+<li>\(\phi ,\psi\) を極座標で表せ。</li>
+<li>\(\psi =0\) となる流線のうち、閉曲線を特定し、その半径を求めよ。</li>
 <li>この流れが表す物体まわりの流れを答えよ。</li>
 </ol>
-<details class="answer"><summary>模範解答と採点要素を見る</summary><div><p>(1) <code>dW/dz=U-m/z²=0</code> より <code>z=±sqrt(m/U)</code>。(2) <code>φ=(Ur+m/r)cosθ</code>、<code>ψ=(Ur-m/r)sinθ</code>。(3) <code>ψ=0</code> の閉曲線は <code>r=sqrt(m/U)</code>。(4) 半径 <code>a=sqrt(m/U)</code> の円柱まわりの一様流。採点では、よどみ点2個、極座標への変換、円柱表面が流線であることが重要。</p></div></details>
+<details class="answer"><summary>模範解答と採点要素を見る</summary><div><p>(1) \(\frac{dW}{dz}=U-\frac{m}{z^2}=0\) より \(z=\pm\sqrt{\frac{m}{U}}\)。(2) \(\phi=\left(Ur+\frac{m}{r}\right)\cos\theta\)、\(\psi=\left(Ur-\frac{m}{r}\right)\sin\theta\)。(3) \(\psi =0\) の閉曲線は \(r=\sqrt{\frac{m}{U}}\)。(4) 半径 \(a=\sqrt{\frac{m}{U}}\) の円柱まわりの一様流。採点では、よどみ点2個、極座標への変換、円柱表面が流線であることが重要。</p></div></details>
 <h3 id="模試2-stokes球-15分">模試2 Stokes球 15分</h3>
-<p>低Reynolds数の一様流中に半径 <code>a</code> の静止球がある。</p>
+<p>低Reynolds数の一様流中に半径 \(a\) の静止球がある。</p>
 <ol>
 <li>Stokes近似の条件をオーダー評価で説明せよ。</li>
 <li>球表面で使う速度の境界条件を書け。</li>
 <li>球の摩擦抵抗と全抵抗を書け。</li>
 <li>半径が2倍、速度が3倍になったとき、全抵抗は何倍になるか。</li>
 </ol>
-<details class="answer"><summary>模範解答と採点要素を見る</summary><div><p>(1) 慣性項と粘性項の比が <code>Re=ρUL/μ&lt;&lt;1</code>。(2) <code>v_r(a,θ)=0</code>、<code>v_θ(a,θ)=0</code>。(3) 摩擦抵抗 <code>4πμUa</code>、全抵抗 <code>6πμUa</code>。(4) <code>D∝Ua</code> なので6倍。採点では、無視する移流慣性項、非すべり・非浸透条件、抵抗の区別が重要。</p></div></details>
+<details class="answer"><summary>模範解答と採点要素を見る</summary><div><p>(1) 慣性項と粘性項の比が \(\mathrm{Re}=\frac{\rho UL}{\mu}\ll1\)。(2) \(v_r(a,\theta)=0\)、\(v_\theta(a,\theta)=0\)。(3) 摩擦抵抗 \(4\pi\mu Ua\)、全抵抗 \(6\pi\mu Ua\)。(4) \(D\propto Ua\) なので6倍。採点では、無視する移流慣性項、非すべり・非浸透条件、抵抗の区別が重要。</p></div></details>
 <h3 id="模試3-reynolds数と境界層-15分">模試3 Reynolds数と境界層 15分</h3>
 <p>一様流中に置かれた平板と円柱を考える。</p>
 <ol>
 <li>Reynolds数の定義と物理的意味を書け。</li>
 <li>円柱後流の変化をReynolds数の増加順に4段階で説明せよ。</li>
-<li>平板境界層で <code>v~Uδ/L</code> を導け。</li>
-<li><code>δ/L~Re_L^(-1/2)</code> を導け。</li>
+<li>平板境界層で \(v\sim\frac{U\delta}{L}\) を導け。</li>
+<li>\(\frac{\delta}{L}\sim\mathrm{Re}_L^{-1/2}\) を導け。</li>
 </ol>
-<details class="answer"><summary>模範解答と採点要素を見る</summary><div><p>(1) <code>Re=ρUL/μ=UL/ν</code>、慣性効果と粘性効果の比。(2) ほふく流、定常双子渦、周期的渦放出、三次元・乱流後流。(3) 連続の式で <code>U/L~V/δ</code>。(4) <code>U²/L~νU/δ²</code> を釣り合わせる。採点では、代表量の定義、各項のオーダー、無視した項の理由を書く。</p></div></details>
+<details class="answer"><summary>模範解答と採点要素を見る</summary><div><p>(1) \(\mathrm{Re}=\frac{\rho UL}{\mu}=\frac{UL}{\nu}\)、慣性効果と粘性効果の比。(2) ほふく流、定常双子渦、周期的渦放出、三次元・乱流後流。(3) 連続の式で \(\frac{U}{L}\sim\frac{V}{\delta}\)。(4) \(\frac{U^2}{L}\sim\frac{\nu U}{\delta^2}\) を釣り合わせる。採点では、代表量の定義、各項のオーダー、無視した項の理由を書く。</p></div></details>
 <h1 id="9-間違えた問題だけ確認する一覧" class="chapter">9. 間違えた問題だけ確認する一覧</h1>
 <h2 id="符号-係数">符号・係数</h2>
 <ul>
-<li class="check"><span>□</span><code>dW/dz=u-iv</code> の負号</li>
-<li class="check"><span>□</span>湧き出し <code>(q/2π)ln z</code> と渦 <code>-i(Γ/2π)ln z</code></li>
-<li class="check"><span>□</span>揚力 <code>L_y=-ρUΓ</code> の符号</li>
-<li class="check"><span>□</span>球の摩擦抵抗 <code>4π</code>、圧力抵抗 <code>2π</code>、全抵抗 <code>6π</code></li>
-<li class="check"><span>□</span>音速 <code>a=sqrt(κRT)</code> とMach数 <code>M=U/a</code></li>
+<li class="check"><span>□</span>\(\frac{dW}{dz}=u-iv\) の負号</li>
+<li class="check"><span>□</span>湧き出し \(\frac{q}{2\pi}\ln z\) と渦 \(-i\frac{\Gamma}{2\pi}\ln z\)</li>
+<li class="check"><span>□</span>揚力 \(L_y=-\rho U\Gamma\) の符号</li>
+<li class="check"><span>□</span>球の摩擦抵抗 \(4\pi\)、圧力抵抗 \(2\pi\)、全抵抗 \(6\pi\)</li>
+<li class="check"><span>□</span>音速 \(a=\sqrt{\kappa RT}\) とMach数 \(M=\frac{U}{a}\)</li>
 </ul>
 <h2 id="適用条件">適用条件</h2>
 <ul>
-<li class="check"><span>□</span>Stokes近似は <code>Re&lt;&lt;1</code></li>
+<li class="check"><span>□</span>Stokes近似は \(\mathrm{Re}\ll 1\)</li>
 <li class="check"><span>□</span>ポテンシャル流れは渦なし・粘性無視の近似</li>
-<li class="check"><span>□</span>境界層では <code>δ/L&lt;&lt;1</code>、<code>u&gt;&gt;v</code></li>
+<li class="check"><span>□</span>境界層では \(\frac{\delta}{L}\ll1\)、\(u\gg v\)</li>
 <li class="check"><span>□</span>Kutta条件は翼後縁で速度を有限にする</li>
 <li class="check"><span>□</span>亜音速は縮小流路、超音速は拡大流路で加速</li>
 </ul>
