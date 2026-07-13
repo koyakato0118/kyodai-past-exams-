@@ -3,9 +3,21 @@
 
   const data = window.__PAST_EXAM_CONTENT__ || { subjects: [], pdfs: [] };
   const studyGuides = {
+    "design-engineering-1": {
+      label: "設計工学1 テスト対策",
+      url: "/study-guides/design-engineering-1.html",
+    },
     "fluid-mechanics-2": {
       label: "流体力学2 テスト対策",
       url: "/study-guides/fluid-mechanics-2.html",
+    },
+    "industrial-math-f2": {
+      label: "工業数学F2 59ページ問6 解説",
+      url: "/study-guides/industrial-math-f2-p59-q6.html",
+    },
+    "statistical-thermodynamics": {
+      label: "統計熱力学 問題演習型テスト対策",
+      url: "/study-guides/statistical-thermodynamics.html",
     },
   };
   const dom = {
@@ -377,9 +389,41 @@
           )
           .join("")}
       </div>
+      ${renderStudyGuideCatalog()}
       ${renderPdfCatalog()}
     `;
     renderRail(null);
+  }
+
+  function renderStudyGuideCatalog() {
+    const guides = Object.entries(studyGuides)
+      .map(([slug, guide]) => ({
+        ...guide,
+        subject: data.subjects.find((item) => item.slug === slug),
+      }))
+      .filter((item) => item.subject);
+
+    if (!guides.length) return "";
+    return `
+      <section class="pdf-catalog">
+        <div class="toc-subject-head">
+          <h2>HTML対策資料</h2>
+          <span>${guides.length}件</span>
+        </div>
+        <div class="pdf-list">
+          ${guides
+            .map(
+              (guide) => `
+                <a class="pdf-list-item clickable" href="${publicHref(guide.url)}">
+                  <strong>${escapeHtml(guide.label)}</strong>
+                  <span>${escapeHtml(guide.subject.name)}の独立した学習ページを開く</span>
+                </a>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+    `;
   }
 
   function renderPdfCatalog() {
