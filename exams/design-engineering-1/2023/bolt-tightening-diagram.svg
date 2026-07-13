@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="700" viewBox="0 0 1100 700">
+  <style>
+    text { font-family: "Noto Sans CJK JP","Yu Gothic",sans-serif; fill:#172033; }
+    .axis { stroke:#29364a; stroke-width:3; }
+    .grid { stroke:#d8e0eb; stroke-width:1; }
+    .bolt { stroke:#2563eb; stroke-width:6; fill:none; }
+    .member { stroke:#dc2626; stroke-width:6; fill:none; }
+    .load { stroke:#059669; stroke-width:6; fill:none; }
+    .guide { stroke:#596579; stroke-width:2; stroke-dasharray:8 8; }
+    .title { font-size:30px; font-weight:700; }
+    .label { font-size:23px; }
+    .small { font-size:19px; }
+  </style>
+  <rect width="1100" height="700" fill="white"/>
+  <text x="55" y="52" class="title">ボルト締結体の締付け線図</text>
+
+  <!-- axes -->
+  <line x1="120" y1="610" x2="1010" y2="610" class="axis"/>
+  <line x1="120" y1="610" x2="120" y2="95" class="axis"/>
+  <polygon points="1010,610 990,600 990,620" fill="#29364a"/>
+  <polygon points="120,95 110,115 130,115" fill="#29364a"/>
+  <text x="875" y="655" class="label">変形量 δ</text>
+  <text x="30" y="120" class="label" transform="rotate(-90 30 120)">軸力・締付力 F</text>
+
+  <!-- Initial preload -->
+  <line x1="120" y1="360" x2="890" y2="360" class="guide"/>
+  <text x="45" y="368" class="label">Fᵢ</text>
+
+  <!-- Bolt stiffness line rising -->
+  <line x1="245" y1="610" x2="700" y2="130" class="bolt"/>
+  <text x="650" y="112" class="label" fill="#2563eb">ボルト：傾き K_b</text>
+
+  <!-- Member compression line: descending with deformation axis measured opposite -->
+  <line x1="900" y1="610" x2="445" y2="130" class="member"/>
+  <text x="715" y="112" class="label" fill="#dc2626">被締結体：傾き K_c</text>
+
+  <!-- initial intersection -->
+  <circle cx="575" cy="360" r="9" fill="#111827"/>
+  <text x="590" y="345" class="label">初期締付点</text>
+  <line x1="575" y1="360" x2="575" y2="610" class="guide"/>
+
+  <!-- External load shifted operating point -->
+  <circle cx="665" cy="265" r="9" fill="#059669"/>
+  <line x1="575" y1="360" x2="665" y2="265" class="load"/>
+  <text x="685" y="260" class="label" fill="#059669">外力 W 作用後</text>
+
+  <!-- increments -->
+  <line x1="930" y1="360" x2="930" y2="265" stroke="#2563eb" stroke-width="4"/>
+  <polygon points="930,265 920,285 940,285" fill="#2563eb"/>
+  <text x="945" y="318" class="small" fill="#2563eb">ボルト軸力増加</text>
+  <text x="945" y="343" class="small" fill="#2563eb">ΔF_b = ΦW</text>
+
+  <line x1="850" y1="360" x2="850" y2="455" stroke="#dc2626" stroke-width="4"/>
+  <polygon points="850,455 840,435 860,435" fill="#dc2626"/>
+  <text x="865" y="410" class="small" fill="#dc2626">締付力減少</text>
+  <text x="865" y="435" class="small" fill="#dc2626">ΔF_c = (1−Φ)W</text>
+
+  <!-- formulas -->
+  <rect x="155" y="485" width="420" height="105" rx="16" fill="#eef4ff" stroke="#b8c9e8"/>
+  <text x="180" y="522" class="label">Φ = K_b / (K_b + K_c)</text>
+  <text x="180" y="558" class="small">分離前：F_b = Fᵢ + ΦW</text>
+  <text x="180" y="585" class="small">締付力：F_c = Fᵢ − (1−Φ)W</text>
+</svg>

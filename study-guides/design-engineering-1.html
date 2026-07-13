@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>設計工学1｜問題を解いて覚える期末対策</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false}));
+</script>
+<style>
+*{box-sizing:border-box} :root{--navy:#14213d;--blue:#176b87;--orange:#f08c46;--ink:#202936;--muted:#64748b;--line:#d7e0e8;--pale:#f4f8fa;--green:#287a58;--red:#b43c3c}
+html{scroll-behavior:smooth;background:#eef2f5;color:var(--ink)} body{margin:0;font-family:"Yu Gothic","Meiryo",sans-serif;line-height:1.78;font-size:15px}
+header{background:linear-gradient(125deg,var(--navy),#1d4e68);color:#fff;padding:42px max(20px,calc((100% - 1120px)/2)) 36px} header p{max-width:820px;margin:10px 0 0;color:#e4edf3} h1{font-size:clamp(29px,4vw,44px);line-height:1.25;margin:0}.badge{display:inline-block;background:var(--orange);color:#25190f;font-weight:800;border-radius:999px;padding:4px 11px;margin-bottom:10px;font-size:13px}
+.layout{display:grid;grid-template-columns:245px minmax(0,825px);gap:42px;width:min(1120px,calc(100% - 32px));margin:30px auto 70px}.toc{position:sticky;top:18px;align-self:start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 4px 18px #26384a12}.toc strong{color:var(--navy)}.toc a{display:block;color:#31556b;text-decoration:none;border-left:3px solid transparent;padding:5px 8px;font-size:13px}.toc a:hover{border-color:var(--orange);background:#fff7ef}
+main{min-width:0}.chapter{background:#fff;border:1px solid var(--line);border-radius:16px;padding:clamp(21px,4vw,38px);margin-bottom:26px;box-shadow:0 6px 20px #26384a10}h2{color:var(--navy);font-size:26px;line-height:1.35;margin:0 0 20px;border-bottom:3px solid var(--orange);padding-bottom:9px}h3{color:var(--blue);font-size:19px;margin:28px 0 10px}h4{margin:20px 0 6px;color:#334155}p{margin:8px 0}.lead{font-size:16px}.note,.trap,.formula,.exam{border-radius:10px;padding:14px 16px;margin:14px 0}.note{background:#edf8f3;border-left:5px solid var(--green)}.trap{background:#fff0f0;border-left:5px solid var(--red)}.formula{background:#f1f7fb;border:1px solid #c9dce7;text-align:center;overflow-x:auto}.exam{background:#fff8e8;border:1px solid #efca82}.tag{display:inline-block;border-radius:5px;padding:2px 7px;font-size:12px;font-weight:800;background:#ddebf1;color:#174a62;margin-right:5px}.tag.hot{background:#ffe0ca;color:#8a3e0b}.tag.assignment{background:#dcefe3;color:#1d6444}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}th,td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}th{background:#eaf2f6;color:#173f53}ul,ol{padding-left:1.5em}.q{border:1px solid #cbd8e2;border-radius:11px;padding:15px;margin:13px 0;background:#fff}.q-title{font-weight:800;color:var(--navy)}details{margin-top:10px;border-top:1px dashed #b9c7d2;padding-top:9px}summary{cursor:pointer;color:var(--blue);font-weight:800}details[open] summary{margin-bottom:8px}.answer{background:#f4faf7;border-radius:8px;padding:10px 12px}.flow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:15px 0}.flow span{background:#e7f0f4;border:1px solid #c1d4dd;padding:8px 12px;border-radius:8px;font-weight:700}.flow b{color:var(--orange)}.mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.check li{margin-bottom:5px}.small{font-size:13px;color:var(--muted)}.katex-display{margin:.6em 0;overflow-x:auto;overflow-y:hidden}.diagram{max-width:100%;margin:14px auto;display:block;background:#fbfdfe;border:1px solid var(--line);border-radius:10px}.score{font-weight:800;color:var(--red)}
+@media(max-width:850px){.layout{display:block}.toc{position:static;margin-bottom:24px}.mini-grid{grid-template-columns:1fr}}@media print{html{background:#fff}.toc{display:none}.layout{display:block;width:100%;margin:0}.chapter{box-shadow:none;break-inside:auto;border:0;padding:12mm 10mm;margin:0}.q,details{break-inside:avoid}header{padding:12mm 10mm}details:not([open])>*:not(summary){display:block}.chapter{page-break-after:auto}}
+</style>
+</head>
+<body>
+<header>
+  <span class="badge">2026年前期・設計工学1</span>
+  <h1>問題を解いて覚える 期末テスト対策</h1>
+  <p>配布資料7本と2021・2023年度過去問をつないだ授業資料まとめ。語句→簡単な計算→過去問型→予想模試の順に、式の意味と使い所まで身につける。</p>
+</header>
+<div class="layout">
+<nav class="toc"><strong>目次</strong>
+  <a href="#map">0　出題地図・使い方</a><a href="#words">1　語句の小問</a><a href="#screw">2　ねじと効率</a><a href="#shaft">3　軸の設計</a><a href="#coupling">4　軸継手</a><a href="#rolling">5　転がり軸受</a><a href="#sliding">6　すべり軸受</a><a href="#tribology">7　潤滑・摩擦</a><a href="#past">8　過去問頻出要素</a><a href="#predict">9　予想問題</a><a href="#mock">10　仕上げ模試</a><a href="#sheet">11　直前公式表</a>
+</nav>
+<main>
+<section id="map" class="chapter"><h2>0　出題地図と勉強順</h2>
+<p class="lead">今年の配布資料の核は <strong>ねじ・軸・転がり軸受・すべり軸受・潤滑</strong>。過去問ではこれに、歯車・ベルト・ボルト締結・軸継手・キーが組み合わさる。</p>
+<table><tr><th>範囲</th><th>できるようにすること</th><th>根拠</th></tr>
+<tr><td>ねじ</td><td>正効率・逆効率、セルフロッキング、ボールねじ</td><td>2026配布「ねじの効率」＋2023</td></tr>
+<tr><td>軸</td><td>動力→トルク→必要径、曲げ・ねじり、剛性、応力集中</td><td>2026「軸1・2」＋2021/2023</td></tr>
+<tr><td>転がり軸受</td><td>種類、荷重、基本定格寿命、予圧、潤滑</td><td>2026「転がり軸受1・2」＋両年</td></tr>
+<tr><td>すべり軸受</td><td>潤滑状態、動圧原理、油膜、静圧との比較</td><td>2026「すべり軸受1・2」＋両年</td></tr>
+<tr><td>機械要素</td><td>図・比較・短文説明</td><td>2021/2023過去問</td></tr></table>
+<div class="flow"><span>①語句を即答</span><b>→</b><span>②式の意味</span><b>→</b><span>③単位をそろえる</span><b>→</b><span>④数値計算</span><b>→</b><span>⑤結果を設計判断にする</span></div>
+<div class="note"><strong>答案の型：</strong>「定義」→「原因・原理」→「長所/短所または式」→「設計上どうする」の4点セット。計算問題は、使用式・代入・単位・規格値への切上げまで書く。</div></section>
+
+<section id="words" class="chapter"><h2>1　基本語句を小問で覚える</h2>
+<div class="mini-grid">
+<div class="q"><div class="q-title">語句1　許容応力とは？</div><details><summary>答え</summary><div class="answer">材料が壊れる応力をそのまま使わず、安全率で割った設計上許容できる応力。\(\sigma_a=\sigma_B/S_f\)。変動荷重、寸法誤差、材料ばらつきなどへの余裕を持たせる。</div></details></div>
+<div class="q"><div class="q-title">語句2　ラジアル荷重とアキシアル荷重</div><details><summary>答え</summary><div class="answer">ラジアル荷重は軸に垂直、アキシアル（スラスト）荷重は軸方向。軸受選定では最初に荷重方向を見分ける。</div></details></div>
+<div class="q"><div class="q-title">語句3　基本動定格荷重 \(C\)</div><details><summary>答え</summary><div class="answer">同一軸受の90%が、玉軸受で100万回転の基本定格寿命に達する一定荷重。単なる「壊れる最大荷重」ではない。</div></details></div>
+<div class="q"><div class="q-title">語句4　基本定格寿命 \(L_{10}\)</div><details><summary>答え</summary><div class="answer">同一条件で運転した同一軸受群の90%が、転がり疲れによる損傷を起こさず回転できる総回転数。10%が損傷し得る寿命なので添字10。</div></details></div>
+<div class="q"><div class="q-title">語句5　動圧軸受</div><details><summary>答え</summary><div class="answer">軸の相対運動と収束する油膜すきまが、粘性流体を引き込み圧力を自ら発生させて荷重を支える軸受。始動・停止時は油膜が弱い。</div></details></div>
+<div class="q"><div class="q-title">語句6　静圧軸受</div><details><summary>答え</summary><div class="answer">外部ポンプで加圧流体を供給して荷重を支える軸受。停止中も非接触支持できるが、ポンプと配管が必要。</div></details></div>
+<div class="q"><div class="q-title">語句7　予圧</div><details><summary>答え</summary><div class="answer">転がり軸受にあらかじめ内部荷重を与え、すきまを負にすること。剛性・回転精度を上げる一方、摩擦・発熱・寿命低下に注意。</div></details></div>
+<div class="q"><div class="q-title">語句8　応力集中</div><details><summary>答え</summary><div class="answer">穴・溝・段・切欠きなど急な断面変化で局所応力が公称応力より大きくなる現象。\(K_t=\sigma_{\max}/\sigma_0\)。軸の段部は丸みをつける。</div></details></div>
+<div class="q"><div class="q-title">語句9　バックラッシ</div><details><summary>答え</summary><div class="answer">かみ合う歯面間の遊び。潤滑、熱膨張、誤差吸収に必要だが、大きすぎると位置決め誤差・衝撃・騒音が増える。</div></details></div>
+<div class="q"><div class="q-title">語句10　トライボロジー</div><details><summary>答え</summary><div class="answer">相対運動する表面の摩擦・摩耗・潤滑を扱う学問。軸受、歯車、シール、送りねじなどの寿命と損失を支配する。</div></details></div>
+</div></section>
+
+<section id="screw" class="chapter"><h2>2　ねじの効率とセルフロッキング</h2>
+<span class="tag assignment">配布資料直結</span><span class="tag hot">予想計算</span>
+<p>ねじ山を一周分だけ平面に展開すると「傾斜角 \(\beta\) の坂」とみなせる。リード \(l\)、有効径 \(d_2\) なら、</p>
+<div class="formula">$$\tan\beta=\frac{l}{\pi d_2},\qquad \tan\rho=\mu$$</div>
+<p>ここで \(\rho\) は摩擦角。荷重 \(Q\) を上げるとき、円周力とトルクは</p>
+<div class="formula">$$F=Q\tan(\beta+\rho),\qquad T=F\frac{d_2}{2}=Q\frac{d_2}{2}\tan(\beta+\rho)$$</div>
+<p>1回転の入力仕事は \(2\pi T\)、出力仕事は \(Ql\)。したがって正効率は</p>
+<div class="formula">$$\eta_{\mathrm{正}}=\frac{Ql}{2\pi T}=\frac{\tan\beta}{\tan(\beta+\rho)}$$</div>
+<p>荷重によってねじを逆回転させるときの逆効率は</p>
+<div class="formula">$$\eta_{\mathrm{逆}}=\frac{2\pi T}{Ql}=\frac{\tan(\beta-\rho)}{\tan\beta}$$</div>
+<div class="note"><strong>物理的意味：</strong> \(\rho\ge\beta\) なら \(\tan(\beta-\rho)\le0\) となり、荷重だけでは逆転しない。これがセルフロッキングで、ジャッキが手を離しても下がりにくい理由。</div>
+<div class="q"><div class="q-title">基本問題　\(l=5.0\,\mathrm{mm}\)、\(d_2=20\,\mathrm{mm}\)、\(\mu=0.10\)。正効率と自己保持性を判定せよ。</div><details><summary>解答を見る</summary><div class="answer">
+$$\beta=\tan^{-1}\!\left(\frac{5}{20\pi}\right)=4.55^\circ,\quad \rho=\tan^{-1}(0.10)=5.71^\circ$$
+$$\eta_{\mathrm{正}}=\frac{\tan4.55^\circ}{\tan(10.26^\circ)}=0.440$$
+よって正効率は約44.0%。また \(\rho>\beta\) なのでセルフロッキングする。
+</div></details></div>
+<div class="trap"><strong>間違いやすい：</strong> ピッチは隣接ねじ山の間隔、リードは1回転で進む距離。1条ねじは同じだが、\(n\) 条ねじでは \(l=np\)。</div>
+<div class="q"><div class="q-title">説明問題　ボールねじはなぜ高効率で、なぜ自己保持しにくいか。</div><details><summary>模範答案</summary><div class="answer">ねじ軸とナットの間に循環するボールを入れ、すべり摩擦を転がり摩擦に置き換えるため、摩擦角が小さく高効率・低発熱・高精度となる。一方、摩擦が小さいので逆駆動されやすく自己保持性に乏しい。鉛直軸ではブレーキ等が必要である。</div></details></div>
+</section>
+
+<section id="shaft" class="chapter"><h2>3　軸の設計：動力から直径まで</h2>
+<span class="tag assignment">授業演習そのもの</span><span class="tag hot">最重要計算</span>
+<h3>3.1 動力とトルクをつなぐ</h3>
+<div class="formula">$$P=\omega T=\frac{2\pi n}{60}T,\qquad T=\frac{60P}{2\pi n}$$</div>
+<p>よく使う換算は \(T[\mathrm{N\,m}]=9550P[\mathrm{kW}]/n[\mathrm{rpm}]\)。回転数が低いほど、同じ動力を伝えるトルクは大きい。</p>
+<div class="q"><div class="q-title">1分問題　10 kWを300 rpmで伝えるトルクは？</div><details><summary>解答</summary><div class="answer">$$T=\frac{9550\times10}{300}=318.3\,\mathrm{N\,m}=3.183\times10^5\,\mathrm{N\,mm}$$単位を \(\mathrm{N\,mm}\) に直すのは、応力を \(\mathrm{N/mm^2}=\mathrm{MPa}\) で計算するため。</div></details></div>
+<h3>3.2 中実軸・中空軸のねじり</h3>
+<table><tr><th></th><th>極断面二次モーメント \(J\)</th><th>極断面係数 \(Z_p=J/(d_o/2)\)</th></tr><tr><td>中実</td><td>\(\pi d^4/32\)</td><td>\(\pi d^3/16\)</td></tr><tr><td>中空 \(k=d_i/d_o\)</td><td>\(\pi d_o^4(1-k^4)/32\)</td><td>\(\pi d_o^3(1-k^4)/16\)</td></tr></table>
+<div class="formula">$$\tau_{\max}=\frac{T}{Z_p},\qquad d_{o,\min}=\left\{\frac{16T}{\pi\tau_a(1-k^4)}\right\}^{1/3}$$</div>
+<div class="q"><div class="q-title">配布演習　上の10 kW・300 rpmを、S20Cの中空軸 \(k=0.5\) で伝える。\(\tau_a=55.8\,\mathrm{MPa}\) のとき外径は？</div><details><summary>解答</summary><div class="answer">
+$$d_o\ge\left\{\frac{16(3.183\times10^5)}{\pi(55.8)(1-0.5^4)}\right\}^{1/3}=31.4\,\mathrm{mm}$$
+計算値を下回らない標準寸法を選び、配布資料と同様に軸受取付けも考慮して <strong>\(d_o=32\,\mathrm{mm}\)</strong> とする。
+</div></details></div>
+<h3>3.3 曲げとねじり</h3>
+<div class="formula">$$\sigma_b=\frac{32M}{\pi d^3},\qquad \tau_t=\frac{16T}{\pi d^3}$$</div>
+<p>延性材料の軸は、曲げの垂直応力とねじりのせん断応力を相当応力にまとめる。</p>
+<div class="formula">$$\sigma_{\mathrm{vM}}=\sqrt{\sigma_b^2+3\tau_t^2}\le\sigma_a$$</div>
+<p>最大せん断応力説で曲げ相当モーメントを使う表現なら、</p>
+<div class="formula">$$M_e=\frac12\left(M+\sqrt{M^2+T^2}\right),\qquad \sigma_{\max}=\frac{32M_e}{\pi d^3}$$</div>
+<div class="q"><div class="q-title">基本問題　\(d=30\,\mathrm{mm}\) の中実軸に \(M=300\,\mathrm{N\,m}\)、\(T=200\,\mathrm{N\,m}\)。von Mises相当応力は？</div><details><summary>解答</summary><div class="answer">
+単位を \(\mathrm{N\,mm}\) にそろえる。\(\sigma_b=113.2\,\mathrm{MPa}\)、\(\tau_t=37.7\,\mathrm{MPa}\)。
+$$\sigma_{\mathrm{vM}}=\sqrt{113.2^2+3(37.7)^2}=130.7\,\mathrm{MPa}$$
+最後に許容垂直応力と比較して安全性を判定する。
+</div></details></div>
+<h3>3.4 強度だけで終わらない：剛性と応力集中</h3>
+<div class="formula">$$\theta=\frac{TL}{GJ},\qquad \delta=\frac{WL^3}{48EI}\quad\text{（単純支持・中央集中荷重）}$$</div>
+<p>強度を満たしても、ねじれ角・たわみが大きいと歯車のかみ合い、軸受の姿勢、位置決め精度が悪化する。キー溝・段部は \(K_t\) を考慮し、段部に丸みをつける。</p>
+</section>
+
+<section id="coupling" class="chapter"><h2>4　軸継手と軸ずれ</h2>
+<table><tr><th>ずれ</th><th>意味</th><th>吸収しやすい例</th></tr><tr><td>偏心</td><td>軸線が平行だが中心がずれる</td><td>オルダム、たわみ継手</td></tr><tr><td>偏角</td><td>軸線が角度をもって交わる</td><td>自在、たわみ継手</td></tr><tr><td>エンドプレイ</td><td>軸方向の相対変位</td><td>スライド可能な継手</td></tr></table>
+<p><strong>固定軸継手</strong>は高剛性・大トルク向きだが、芯出しが必要。<strong>たわみ軸継手</strong>は弾性変形でずれ・振動・衝撃を吸収するが、ねじり剛性や寿命に注意する。</p>
+<div class="q"><div class="q-title">過去問型　フランジ形固定軸継手とオルダム軸継手を比較せよ。</div><details><summary>模範答案</summary><div class="answer">フランジ形は二つのフランジをボルトで結合し、高剛性で大トルクを伝達できるが、偏心・偏角をほぼ許容しない。オルダム形は直交する溝と中間円板のすべりにより平行偏心を吸収できるが、すべり部の摩耗・潤滑と高速時の振動に注意する。</div></details></div>
+</section>
+
+<section id="rolling" class="chapter"><h2>5　転がり軸受：種類・荷重・寿命</h2>
+<span class="tag hot">2021・2023連続出題</span><span class="tag assignment">配布資料2本</span>
+<h3>5.1 構造と選定</h3>
+<p>基本部品は <strong>内輪・外輪・転動体（玉/ころ）・保持器</strong>。ラジアル玉軸受は軸に垂直な荷重、スラスト玉軸受は軸方向荷重を主に受ける。</p>
+<table><tr><th>形式</th><th>強み</th><th>注意</th></tr><tr><td>深溝玉</td><td>汎用、高速、ラジアル＋ある程度の両方向アキシアル</td><td>大きなアキシアルには不向き</td></tr><tr><td>アンギュラ玉</td><td>ラジアルと一方向アキシアルの合成荷重、高速</td><td>組合せと予圧が重要</td></tr><tr><td>円筒ころ</td><td>線接触で大ラジアル荷重</td><td>形式によりアキシアル制限</td></tr><tr><td>円すいころ</td><td>大きな合成荷重</td><td>対向配置、予圧、発熱</td></tr><tr><td>自動調心ころ</td><td>軸のたわみ・取付誤差に追従、大荷重</td><td>高速性・摩擦</td></tr><tr><td>スラスト玉/ころ</td><td>アキシアル荷重</td><td>ラジアル荷重は基本的に受けない</td></tr></table>
+<h3>5.2 等価動荷重と寿命</h3>
+<p>ラジアル荷重 \(F_r\) とアキシアル荷重 \(F_a\) を、同じ寿命を与える単一荷重にまとめる。</p>
+<div class="formula">$$P=XF_r+YF_a$$</div>
+<p>\(X,Y\) は軸受形式と荷重比に依存し、問題で与えられる表を使う。寿命式は</p>
+<div class="formula">$$L_{10}=\left(\frac{C}{P}\right)^p\quad[10^6\text{回転}],\qquad p=3\ (\text{玉}),\quad p=\frac{10}{3}\ (\text{ころ})$$</div>
+<div class="formula">$$L_{10h}=\frac{10^6L_{10}}{60n}=\frac{10^6}{60n}\left(\frac{C}{P}\right)^p\quad[\mathrm{h}]$$</div>
+<div class="q"><div class="q-title">基本問題　玉軸受で \(C=20\,\mathrm{kN}\)、\(P=5.0\,\mathrm{kN}\)、\(n=600\,\mathrm{rpm}\)。寿命を求めよ。</div><details><summary>解答</summary><div class="answer">
+$$L_{10}=\left(\frac{20}{5}\right)^3=64\quad[10^6\text{回転}]$$
+$$L_{10h}=\frac{64\times10^6}{60\times600}=1.78\times10^3\,\mathrm{h}$$
+荷重が2倍なら寿命は玉軸受で \(1/2^3=1/8\)。寿命は荷重に非常に敏感。
+</div></details></div>
+<div class="q"><div class="q-title">逆算問題　玉軸受を1200 rpmで10,000 h使い、等価荷重が2.0 kN。必要な \(C\) は？</div><details><summary>解答</summary><div class="answer">
+必要回転寿命は \(L_{10}=60(1200)(10000)/10^6=720\)。
+$$C=P L_{10}^{1/3}=2.0\times720^{1/3}=17.9\,\mathrm{kN}$$
+カタログではこれ以上の基本動定格荷重をもつ軸受を選ぶ。
+</div></details></div>
+<h3>5.3 すきま・予圧・潤滑</h3>
+<p>運転すきまは、はめあいによる内外輪の膨張・収縮と温度差で変わる。適切な予圧は剛性・精度・振動特性を改善するが、過大予圧は摩擦・発熱を増やし寿命を短くする。</p>
+<table><tr><th>潤滑法</th><th>使い所</th></tr><tr><td>グリース</td><td>構造が簡単、保守容易。一般用途。攪拌抵抗と劣化に注意。</td></tr><tr><td>油浴・飛沫</td><td>中低速の減速機など。油面管理が重要。</td></tr><tr><td>循環給油</td><td>冷却・ろ過が必要な高速/高負荷。</td></tr><tr><td>オイルエア/ミスト</td><td>高速主軸。少量給油で攪拌損失が小さい。</td></tr><tr><td>ジェット</td><td>ガスタービン等の超高速・高発熱部。</td></tr></table>
+<h3>5.4 ヘルツ接触と転がり疲れ</h3>
+<p>玉と軌道輪は見かけ上「点接触」だが、弾性変形して小さなだ円/円形領域で接触する。この狭い領域に大荷重が集中するため、接触圧力は非常に高い。球同士の等価曲率半径と等価縦弾性係数は</p>
+<div class="formula">$$\frac1R=\frac1{R_1}+\frac1{R_2},\qquad \frac1{E'}=\frac{1-\nu_1^2}{E_1}+\frac{1-\nu_2^2}{E_2}$$</div>
+<p>接触円半径は概ね \(a\propto(WR/E')^{1/3}\)、最大圧力は \(p_0=3W/(2\pi a^2)\)。荷重を増すと接触面は広がるが、圧力も増す。繰返し通過により表面下のせん断応力が反復し、き裂が成長してフレーキング（はく離）に至る。これが寿命式の物理的背景。</p>
+<div class="note"><strong>つながり：</strong>基本動定格荷重 \(C\) と寿命 \(L_{10}\) は、単なる静的破壊ではなく、この繰返し接触による転がり疲れを統計的に扱う値。</div>
+<h3>5.5 直動案内とボールねじ</h3>
+<p>LMガイドはレールとブロック間でボールを循環させ、工作機械テーブルなどを低摩擦・高精度・高剛性に直線案内する。ボールねじは回転運動と直線運動を高効率で変換する。どちらも転動体を無限循環させる戻し経路、予圧、潤滑、異物侵入防止が性能を左右する。</p>
+</section>
+
+<section id="sliding" class="chapter"><h2>6　すべり軸受：油膜で支える仕組み</h2>
+<span class="tag hot">図示＋説明が頻出</span><span class="tag assignment">配布資料2本</span>
+<h3>6.1 潤滑の3状態</h3>
+<table><tr><th>状態</th><th>表面</th><th>特徴</th></tr><tr><td>境界潤滑</td><td>突起同士が多く接触</td><td>摩擦・摩耗・焼付き危険が大きい</td></tr><tr><td>混合潤滑</td><td>油膜支持と固体接触が混在</td><td>遷移域</td></tr><tr><td>流体潤滑</td><td>油膜が完全分離</td><td>低摩擦、高負荷容量、高減衰</td></tr></table>
+<p>ストライベック線図では横軸を概念的に \(\eta V/p\)（粘度×速度÷面圧）とする。小さい側から境界→混合→流体潤滑へ進む。ただし流体域で粘度や速度を上げすぎると粘性抵抗が増える。</p>
+<h3>6.2 くさび膜効果</h3>
+<svg class="diagram" viewBox="0 0 680 220" role="img" aria-label="収束する油膜で圧力が発生する模式図"><defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#176b87"/></marker></defs><rect x="40" y="45" width="600" height="25" rx="4" fill="#9fb3c1"/><path d="M60 175 L620 100 L620 195 L60 195 Z" fill="#d9e6ec"/><path d="M120 150 Q330 82 540 128" fill="none" stroke="#f08c46" stroke-width="6"/><line x1="100" y1="115" x2="230" y2="115" stroke="#176b87" stroke-width="5" marker-end="url(#arr)"/><text x="110" y="105" fill="#176b87" font-size="18">相対速度 U</text><text x="275" y="35" fill="#14213d" font-size="18">軸表面</text><text x="270" y="215" fill="#14213d" font-size="18">軸受面</text><text x="280" y="115" fill="#b45c22" font-size="18">油膜圧力</text><text x="65" y="160" fill="#334155">入口：広い</text><text x="535" y="175" fill="#334155">出口：狭い</text></svg>
+<p>粘性により移動面に引きずられた油が、入口の広い側から出口の狭い側へ運ばれる。流量保存を満たすため圧力流れが生じ、油膜圧力の積分が外荷重を支える。</p>
+<div class="formula">$$\frac{\partial}{\partial x}\!\left(h^3\frac{\partial p}{\partial x}\right)+\frac{\partial}{\partial z}\!\left(h^3\frac{\partial p}{\partial z}\right)=6\eta U\frac{\partial h}{\partial x}$$</div>
+<p class="small">定常・等粘度・一方の面が速度 \(U\) で動く場合の二次元レイノルズ方程式。試験では全導出より、「粘性」「相対運動」「収束すきま」の3条件と圧力発生を説明できることが重要。</p>
+<h3>6.3 真円ジャーナル軸受</h3>
+<div class="formula">$$h(\theta)=C(1+\varepsilon\cos\theta),\qquad \varepsilon=\frac{e}{C},\qquad h_{\min}=C(1-\varepsilon)$$</div>
+<p>荷重により軸心が軸受中心から \(e\) だけ偏心し、収束すきまができる。圧力はその収束側で発生する。流体は引張り圧力を維持しにくいため、発散側ではキャビテーションが生じ得る。</p>
+<div class="formula">$$S=\frac{\eta N}{p}\left(\frac{R}{C}\right)^2$$</div>
+<p>ゾンマーフェルト数 \(S\) は粘性・回転速度・荷重（面圧）・すきまをまとめた無次元設計指標。\(S\) が大きいほど一般に偏心率が小さく、最小油膜厚さが大きくなりやすい。</p>
+<div class="q"><div class="q-title">基本問題　半径すきま \(C=50\,\mu\mathrm{m}\)、偏心率 \(\varepsilon=0.70\)。最小油膜厚さは？</div><details><summary>解答</summary><div class="answer">$$h_{\min}=50(1-0.70)=15\,\mu\mathrm{m}$$表面粗さや異物寸法に対して十分かを確認し、固体接触を避ける。</div></details></div>
+<h3>6.4 動圧と静圧</h3>
+<table><tr><th></th><th>動圧</th><th>静圧</th></tr><tr><td>圧力源</td><td>相対運動＋くさび膜</td><td>外部ポンプ</td></tr><tr><td>停止時</td><td>支持能力が弱い</td><td>ポンプ稼働中は支持可能</td></tr><tr><td>長所</td><td>構造が比較的簡単、高速で低摩擦</td><td>低速・停止時も高剛性、高精度</td></tr><tr><td>短所</td><td>始動停止摩耗、最低速度が必要</td><td>装置・動力・保守が必要、停電対策</td></tr></table>
+</section>
+
+<section id="tribology" class="chapter"><h2>7　摩擦・潤滑剤：理由まで答える</h2>
+<h3>7.1 アモントン–クーロン則</h3><div class="formula">$$F=\mu W$$</div>
+<ul><li>摩擦力は法線荷重に比例する。</li><li>見かけの接触面積にはほぼ依存しない。</li><li>乾燥摩擦では動摩擦力は速度にほぼ依存しない。</li><li>最大静止摩擦は通常、動摩擦より大きい。</li></ul>
+<p>面積に依存しにくいのは、実際に接触するのが表面突起のごく一部（真実接触面積）だから。荷重が増えると突起が塑性変形し真実接触面積が増えるため、摩擦力も増える。</p>
+<h3>7.2 油・グリース・固体潤滑剤</h3>
+<table><tr><th>潤滑剤</th><th>長所</th><th>弱点・用途</th></tr><tr><td>油</td><td>狭いすきまへ入り、冷却・異物排出が可能</td><td>漏れ、供給・密封装置が必要</td></tr><tr><td>グリース</td><td>保持性、密封性、保守間隔</td><td>冷却性が低く、高速で攪拌損失・劣化</td></tr><tr><td>PTFE・黒鉛・MoS₂</td><td>真空・高温など油を使いにくい場所</td><td>放熱・寿命・負荷能力を個別確認</td></tr></table>
+<h3>7.3 粘度・動粘度・添加剤</h3>
+<div class="formula">$$\tau=\eta\frac{du}{dy},\qquad \nu=\frac{\eta}{\rho}$$</div>
+<p>粘度 \(\eta\,[\mathrm{Pa\,s}]\) は流体のせん断されにくさ、動粘度 \(\nu\,[\mathrm{m^2/s}]\) は粘度を密度で割った値。液体は一般に温度上昇で粘度が下がり、圧力上昇で粘度が上がる。粘度が低すぎると油膜切れ、高すぎると攪拌・粘性損失と発熱が問題になる。</p>
+<table><tr><th>添加剤</th><th>働き</th></tr><tr><td>酸化防止剤</td><td>酸化・スラッジ生成を抑え寿命を延ばす</td></tr><tr><td>摩耗防止・極圧添加剤</td><td>境界膜を形成し、重荷重時の焼付き・摩耗を抑える</td></tr><tr><td>粘度指数向上剤</td><td>温度による粘度変化を小さくする</td></tr><tr><td>清浄分散・防錆・消泡剤</td><td>汚れの分散、腐食防止、泡による油膜切れ防止</td></tr></table>
+<h3>7.4 摩耗の見分け</h3>
+<table><tr><th>摩耗</th><th>原因</th><th>対策</th></tr><tr><td>凝着摩耗</td><td>真実接触部が凝着し、すべりで引きちぎられる</td><td>潤滑、異材組合せ、硬化、面圧低減</td></tr><tr><td>アブレシブ摩耗</td><td>硬い突起・異物が相手面を削る</td><td>ろ過、シール、硬度向上、異物除去</td></tr><tr><td>疲労摩耗</td><td>繰返し接触応力でき裂・はく離</td><td>荷重低減、接触形状・材料・熱処理改善</td></tr><tr><td>腐食摩耗</td><td>反応膜の生成と除去の反復</td><td>材料・潤滑剤選定、防食、環境制御</td></tr></table>
+<div class="q"><div class="q-title">説明問題　温度が上がると油膜が薄くなりやすいのはなぜか。</div><details><summary>解答</summary><div class="answer">一般に液体の粘度は温度上昇で低下する。動圧は粘性による油の引込みから生じるため、同じ速度・荷重・すきまなら粘度低下により支持圧力が下がり、偏心率が増して最小油膜厚さが減りやすい。</div></details></div>
+</section>
+
+<section id="past" class="chapter"><h2>8　過去問で繰り返された機械要素</h2>
+<h3>8.1 歯車・ベルト・チェーン</h3>
+<table><tr><th>方式</th><th>長所</th><th>短所</th></tr><tr><td>歯車</td><td>すべりがなく正確な速度比、高効率、大動力、コンパクト</td><td>軸間距離が短い、加工・芯出し精度、騒音、潤滑</td></tr><tr><td>平ベルト</td><td>長い軸間距離、静粛、衝撃吸収、過負荷時にすべる</td><td>すべりで速度比不正確、初張力が軸受荷重に</td></tr><tr><td>Vベルト</td><td>くさび作用で小張力でも大伝動力、コンパクト</td><td>クリープ・すべり、曲げ損失、張力管理</td></tr><tr><td>歯付きベルト</td><td>かみ合いで同期、無給油、比較的静粛</td><td>張力・芯出し、歯飛び、温度・油への材質制限</td></tr><tr><td>チェーン</td><td>すべりなし、長い軸間、大荷重、環境に比較的強い</td><td>多角形運動、騒音・振動、潤滑・伸び</td></tr></table>
+<p><strong>平歯車：</strong>軸方向力なし・簡単だが高速で騒音。<strong>はすば歯車：</strong>重なりかみあいで静粛・高負荷だが軸方向力が出る。<strong>やまば歯車：</strong>左右のねじれで軸方向力を相殺できるが製作が複雑。</p>
+<h3>8.2 転位歯車</h3>
+<p>基準ラック工具を標準位置から移動して切削した歯車。正転位は歯元を厚くし、少歯数歯車の切下げ回避・歯元強度向上に使う。中心距離調整やかみ合い性能改善にも用いる。モジュール・歯数・基準ピッチ円は転位だけでは変わらない。</p>
+<h3>8.3 ボルト締結</h3>
+<p>通しボルトは両側に頭とナット、押さえボルトは一方のめねじへ直接ねじ込み、植込みボルトは本体側にスタッドを固定し反対側をナットで締める。頻繁な分解や母材めねじ保護には植込みボルトが向く。</p>
+<div class="formula">$$\Phi=\frac{k_b}{k_b+k_c},\qquad \Delta F_b=\Phi W,qquad \Delta F_c=(1-\Phi)W$$</div>
+<p>初期締付力 \(F_i\) がある締結体へ外力 \(W\) が作用すると、ボルト軸力は \(F_i+\Phi W\)、被締結体の圧縮力は \(F_i-(1-\Phi)W\)。後者が0になると接合面が分離する。</p>
+<div class="note"><strong>前の公式との接続：</strong>ボルトを細長くして \(k_b\) を下げ、被締結体を硬くして \(k_c\) を上げると \(\Phi\) が小さくなり、外力変動のうちボルトへ伝わる割合が減る。これは疲労に有利。</div>
+<h3>8.4 キー</h3>
+<div class="formula">$$F_t=\frac{2T}{d},\qquad \tau_k=\frac{F_t}{bl}=\frac{2T}{dbl},\qquad p_k=\frac{F_t}{(h/2)l}=\frac{4T}{dhl}$$</div>
+<p>必要長さは、せん断と面圧の両方から求めた大きい方以上にする。キー溝は軸の応力集中源になるため、軸径決定後の強度確認も必要。</p>
+<div class="q"><div class="q-title">基本問題　\(T=500\,\mathrm{N\,m}\)、\(d=40\,\mathrm{mm}\)、キー \(b=12\,\mathrm{mm},h=8\,\mathrm{mm}\)。\(\tau_a=60\,\mathrm{MPa},p_a=100\,\mathrm{MPa}\) の必要長さは？</div><details><summary>解答</summary><div class="answer">
+$$l_{\tau}\ge\frac{2T}{db\tau_a}=\frac{2(5.0\times10^5)}{40\cdot12\cdot60}=34.7\,\mathrm{mm}$$
+$$l_p\ge\frac{4T}{dhp_a}=\frac{4(5.0\times10^5)}{40\cdot8\cdot100}=62.5\,\mathrm{mm}$$
+面圧が支配するので、有効長さは62.5 mm以上。丸頭平行キーなら全長と有効長さの違いにも注意する。
+</div></details></div>
+</section>
+
+<section id="predict" class="chapter"><h2>9　過去問×今年資料からの予想問題</h2>
+<p class="exam"><span class="score">優先度A：</span>軸径計算、転がり軸受寿命、動圧原理、ねじ効率。<br><span class="score">優先度B：</span>軸受選定・予圧・潤滑、軸継手。<br><span class="score">優先度C：</span>歯車/ベルト/ボルトの短文比較。※出題を保証する順位ではない。</p>
+<div class="q"><div class="q-title">予想1　ねじ効率（15点）</div><p>\(Q=8.0\,\mathrm{kN}, d_2=24\,\mathrm{mm}, l=6.0\,\mathrm{mm}, \mu=0.12\) の角ねじについて、リード角、正効率、持上げトルク、自己保持性を求めよ。</p><details><summary>解答</summary><div class="answer">\(\beta=4.55^\circ,\rho=6.84^\circ\)。\(\eta=\tan4.55^\circ/\tan11.39^\circ=0.396\)。\(T=8000(0.024/2)\tan11.39^\circ=19.3\,\mathrm{N\,m}\)。\(\rho>\beta\) なので自己保持する。</div></details></div>
+<div class="q"><div class="q-title">予想2　軸設計（20点）</div><p>20 kWを600 rpmで伝える中実軸の必要径を、\(\tau_a=40\,\mathrm{MPa}\) として求め、標準径を選べ。</p><details><summary>解答</summary><div class="answer">\(T=9550(20)/600=318.3\,\mathrm{N\,m}\)。\(d\ge[16T/(\pi\tau_a)]^{1/3}=34.35\,\mathrm{mm}\)。35 mm以上の標準径とし、曲げ・キー溝・剛性があればさらに検討する。</div></details></div>
+<div class="q"><div class="q-title">予想3　軸受寿命（20点）</div><p>玉軸受の \(C=28\,\mathrm{kN}\)、\(F_r=6.0\,\mathrm{kN}\)、\(F_a=2.0\,\mathrm{kN}\)、\(X=0.56,Y=1.6\)、900 rpm。\(L_{10h}\) を求めよ。</p><details><summary>解答</summary><div class="answer">\(P=0.56(6.0)+1.6(2.0)=6.56\,\mathrm{kN}\)。\(L_{10}=(28/6.56)^3=77.8\)百万回転。\(L_{10h}=77.8\times10^6/(60\times900)=1.44\times10^3\,\mathrm{h}\)。</div></details></div>
+<div class="q"><div class="q-title">予想4　動圧支持（15点）</div><p>真円ジャーナル軸受が非接触で荷重を支えるまでを、静止時から順に説明し、必要条件を3つ挙げよ。</p><details><summary>模範答案</summary><div class="answer">静止時は軸が荷重方向へ偏心し、表面接触しやすい。回転すると粘性によって油が軸表面に引きずられ、偏心で形成された収束すきまへ流入する。流量保存により圧力流れと正圧が発生し、その積分が荷重と釣り合って軸を油膜支持する。必要条件は、粘性流体、相対運動、収束するすきま形状である。</div></details></div>
+<div class="q"><div class="q-title">予想5　設計判断（15点）</div><p>高速工作機械主軸でアンギュラ玉軸受に予圧を与え、オイルエア潤滑を用いる理由と注意点を述べよ。</p><details><summary>模範答案</summary><div class="answer">予圧により内部すきまを除き、主軸の剛性・回転精度を高め、転動体の滑りを抑える。オイルエアは微量の新油を連続供給でき、攪拌損失と発熱を抑えながら高速運転に対応する。ただし過大予圧や過少給油は発熱・焼付き・寿命低下を招くため、温度上昇と回転数に応じた設定が必要。</div></details></div>
+</section>
+
+<section id="mock" class="chapter"><h2>10　仕上げ模試（60分・100点）</h2>
+<p>先に解答を閉じたまま解き、式だけでなく「何を意味するか」を文章で書く。</p>
+<div class="q"><div class="q-title">問1　語句（20点）</div><p>基本動定格荷重、予圧、セルフロッキング、流体潤滑、応力集中を各2～3文で説明せよ。</p><details><summary>採点基準</summary><div class="answer">各4点。定義2点、原因/効果1点、設計上の注意1点。語句集の解答を参照。</div></details></div>
+<div class="q"><div class="q-title">問2　軸（25点）</div><p>15 kWを450 rpmで伝える中空軸 \(k=0.6\) を設計する。\(\tau_a=45\,\mathrm{MPa}\)。(1)トルク、(2)最小外径、(3)実際の設計で追加確認する3項目を答えよ。</p><details><summary>解答</summary><div class="answer">\(T=318.3\,\mathrm{N\,m}\)。\(d_o=[16(3.183\times10^5)/(\pi\cdot45(1-0.6^4))]^{1/3}=34.6\,\mathrm{mm}\) なので35 mm以上へ切上げる。追加確認は曲げとの組合せ、ねじれ角/たわみ、キー溝・段部の応力集中（ほか疲労、危険速度、規格・軸受取付寸法）。</div></details></div>
+<div class="q"><div class="q-title">問3　転がり軸受（25点）</div><p>ころ軸受で \(C=45\,\mathrm{kN}\)、\(P=12\,\mathrm{kN}\)、600 rpm。(1)基本定格寿命h、(2)荷重が1.5倍になったとき寿命比、(3)\(L_{10}\) の意味を答えよ。</p><details><summary>解答</summary><div class="answer">\(p=10/3\)。\(L_{10}=(45/12)^{10/3}=82.0\)百万回転、\(L_{10h}=82.0\times10^6/(36000)=2.28\times10^3\,h\)。寿命比は \((1/1.5)^{10/3}=0.259\)。意味は同一群の90%が転がり疲れ損傷を生じず回転できる寿命。</div></details></div>
+<div class="q"><div class="q-title">問4　すべり軸受（20点）</div><p>(1)ストライベック線図の3領域、(2)動圧と静圧の違い、(3)油温上昇が危険な理由を説明せよ。</p><details><summary>解答</summary><div class="answer">境界・混合・流体潤滑を、固体接触の割合と摩擦で説明する。動圧は相対運動とくさび膜で自生圧力、静圧は外部ポンプ圧力。油温上昇で粘度が低下し、動圧支持力と最小油膜厚さが減って接触・摩耗・発熱が増える悪循環が起こり得る。</div></details></div>
+<div class="q"><div class="q-title">問5　比較（10点）</div><p>歯車・Vベルト・チェーンから用途に応じて選ぶ判断軸を5つ挙げよ。</p><details><summary>解答</summary><div class="answer">速度比の正確さ、伝達動力、軸間距離、騒音/振動、潤滑保守、過負荷保護、環境、コスト、効率などから5つ。方式ごとの長短と結びつければ満点。</div></details></div>
+</section>
+
+<section id="sheet" class="chapter"><h2>11　試験直前の公式・判断シート</h2>
+<table><tr><th>テーマ</th><th>公式</th><th>最後の判断</th></tr>
+<tr><td>動力</td><td>\(T=60P/(2\pi n)=9550P_{\mathrm{kW}}/n\)</td><td>低速ほどトルク大</td></tr>
+<tr><td>中実軸ねじり</td><td>\(\tau=16T/(\pi d^3)\)</td><td>\(\tau\le\tau_a\)、径は切上げ</td></tr>
+<tr><td>中空軸</td><td>\(\tau=16T/[\pi d_o^3(1-k^4)]\)</td><td>軽量化と剛性・加工性</td></tr>
+<tr><td>曲げ＋ねじり</td><td>\(\sigma_{\rm vM}=\sqrt{\sigma_b^2+3\tau^2}\)</td><td>許容応力と比較</td></tr>
+<tr><td>ねじ</td><td>\(\eta=\tan\beta/\tan(\beta+\rho)\)</td><td>\(\rho\ge\beta\) なら自己保持</td></tr>
+<tr><td>軸受寿命</td><td>\(L_{10}=(C/P)^p\)</td><td>玉3、ころ10/3</td></tr>
+<tr><td>時間寿命</td><td>\(L_{10h}=10^6L_{10}/(60n)\)</td><td>rpm→1時間の回転数</td></tr>
+<tr><td>油膜</td><td>\(h_{\min}=C(1-\varepsilon)\)</td><td>粗さ・異物より十分厚く</td></tr>
+<tr><td>ボルト外力分担</td><td>\(\Phi=k_b/(k_b+k_c)\)</td><td>分離と疲労を確認</td></tr>
+<tr><td>キー</td><td>\(\tau_k=2T/(dbl),\ p_k=4T/(dhl)\)</td><td>必要長さの大きい方</td></tr></table>
+<ul class="check"><li>□ \(\mathrm{kW}\to\mathrm{W}\)、\(\mathrm{N\,m}\to\mathrm{N\,mm}\) をそろえた</li><li>□ 玉と「ころ」で寿命指数を変えた</li><li>□ 計算径を下回らない標準寸法へ切り上げた</li><li>□ 図には荷重、回転方向、油膜、圧力、部品名を入れた</li><li>□ 長所だけでなく代償・注意点まで書いた</li><li>□ 答えに単位と設計判断がある</li></ul>
+<p class="small">作成根拠：2026年度配布「ねじの効率」「軸1・2」「転がり軸受1・2」「すべり軸受1・2」、設計工学1 2021・2023年度過去問まとめ。予想問題は両者の重なりから作成したもので、実際の出題を保証するものではない。</p>
+</section>
+</main></div>
+</body></html>

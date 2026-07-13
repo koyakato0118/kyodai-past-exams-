@@ -1,0 +1,9 @@
+content/
+reference-assets/
+scripts/
+source-pdfs/
+spec/
+templates/
+*.md
+server.mjs
+server.log

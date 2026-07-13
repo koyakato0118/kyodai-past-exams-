@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>工業数学F2 配布テキストp.59 問題6 Fourier変換</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+ renderMathInElement(document.body,{delimiters:[
+  {left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}
+ ],ignoredTags:["script","noscript","style","textarea"],throwOnError:false});
+});
+</script>
+<style>
+*{box-sizing:border-box}:root{--ink:#17212b;--deep:#17324d;--accent:#147d79;--warm:#c96b27;--line:#d4dde5;--soft:#f2f7f7;--answer:#f5fbfa}html{color:var(--ink);background:#f3f5f7;scroll-behavior:smooth}body{margin:0;font-family:"Yu Gothic","Meiryo",sans-serif;font-size:15px;line-height:1.8}.top{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;gap:16px;padding:10px clamp(16px,4vw,42px);border-bottom:1px solid #c8d2dc;background:#fff}.top a{color:var(--accent);font-weight:700}.top span{color:#536474;font-size:13px}.hero{background:var(--deep);color:#fff}.hero>div,.shell{width:min(1120px,calc(100% - 32px));margin:auto}.hero>div{padding:36px 0}.hero p{margin:0 0 7px;color:#ffd08a}.hero h1{margin:0 0 12px;color:#fff;font-size:clamp(27px,4vw,40px);line-height:1.28}.meta{color:#d9e2ec;font-size:13px}.shell{display:grid;grid-template-columns:235px minmax(0,820px);gap:48px;align-items:start;padding:34px 0 80px}.toc{position:sticky;top:78px;max-height:calc(100vh - 96px);overflow:auto;padding-right:18px;border-right:1px solid var(--line)}.toc strong{display:block;margin-bottom:8px}.toc a{display:block;padding:5px 7px;color:#536474;font-size:13px;text-decoration:none}.toc a:hover{background:#eaf5f4;color:var(--accent)}main{min-width:0}h1,h2,h3{color:var(--deep)}h1.chapter{margin:54px 0 20px;padding-bottom:9px;border-bottom:2px solid var(--accent);font-size:27px;scroll-margin-top:74px}main>h1:first-of-type{margin-top:0}h2{margin:34px 0 13px;padding-left:11px;border-left:4px solid var(--warm);font-size:21px}h3{margin:26px 0 9px;color:#35506a;font-size:17px}p{margin:0 0 13px}ol,ul{margin:5px 0 17px;padding-left:25px}li{margin:5px 0}blockquote{margin:0 0 24px;padding:13px 15px;border-left:4px solid var(--warm);background:#fff7e8;color:#5e4428}table{width:100%;margin:12px 0 22px;border-collapse:collapse;font-size:14px}th,td{padding:9px 11px;border:1px solid #b9c7d3;text-align:left;vertical-align:top}th{background:#e7f0f1}.answer{margin:-3px 0 22px;border:1px solid #abd2ce;border-radius:6px;background:var(--answer)}.answer summary{cursor:pointer;list-style:none;padding:10px 13px;color:var(--accent);font-weight:700}.answer summary::after{content:"＋";float:right}.answer[open] summary::after{content:"−"}.answer>div{padding:12px 14px 3px;border-top:1px solid #cce4e1}.tag{display:inline-block;margin-right:6px;padding:1px 7px;border-radius:999px;background:#e8f1f2;color:var(--accent);font-size:12px;font-weight:700}.flow{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:14px 0 21px}.flow span{padding:7px 9px;border:1px solid #bfd0d9;border-radius:5px;background:#fff}.flow b{color:var(--warm)}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden;padding:7px 2px}.katex{font-size:1.08em}.key{padding:12px 14px;border-left:3px solid var(--accent);background:var(--soft)}.check{display:flex;gap:8px;list-style:none}.check span{color:var(--accent)}@media(max-width:780px){.shell{grid-template-columns:1fr;gap:22px}.toc{position:static;max-height:280px;padding:14px;border:1px solid var(--line);background:#fff}.top span{display:none}table{display:block;overflow:auto;white-space:nowrap}.katex-display>.katex{font-size:.96em}}@media print{@page{size:A4;margin:16mm}.top,.toc{display:none}.hero{background:#fff;color:var(--ink)}.hero h1{color:var(--deep)}.hero p,.meta{color:#536474}.hero>div,.shell{width:auto;margin:0;padding:0}.shell{display:block}h1.chapter{page-break-before:always}}
+</style>
+</head>
+<body>
+<header class="top"><a href="../">← 過去問解説へ戻る</a><span>工業数学F2 / 配布テキスト p.59 問題6</span></header>
+<section class="hero"><div><p>INDUSTRIAL MATHEMATICS F2 / FOURIER TRANSFORM</p><h1>配布テキスト p.59 問題6<br>Fourier変換 完全解答</h1><div class="meta">設問画像確認済み / KaTeX数式表示 / デルタ関数を含む8問</div></div></section>
+<div class="shell">
+<nav class="toc"><strong>目次</strong><a href="#problem">1. 問題文</a><a href="#preparation">2. 前提と規約</a><a href="#tools">3. 使う公式</a><a href="#warmup">4. 小問で準備</a><a href="#solutions">5. (a)〜(h) 解答</a><a href="#summary">6. 答え一覧</a><a href="#mistakes">7. 間違いチェック</a><a href="#practice">8. 類題</a></nav>
+<main>
+<blockquote>配布テキストの印刷ページ59を画像で確認した。問題6は「Fourier変換と逆変換の定義式を示し、その定義に従って(a)〜(h)を計算する」問題である。以下では配布テキストと同じ \(2\pi\) を指数に含む規約を使う。</blockquote>
+
+<h1 id="problem" class="chapter">1. 問題文</h1>
+<h2>(1) 定義</h2>
+<p>Fourier変換と逆変換の定義式を示せ。</p>
+<h2>(2) 次の関数を変換</h2>
+<table><tbody>
+<tr><th>(a)</th><td>\(f(x)=\delta(x)\)</td><th>(b)</th><td>\(f(x)=e^{i2\pi px}\)</td></tr>
+<tr><th>(c)</th><td>\(f(x)=x e^{-|x|}\)</td><th>(d)</th><td>\(\displaystyle f(x)=\begin{cases}\frac1{2d}&(|x|\le d)\\0&(|x|>d)\end{cases}\)</td></tr>
+<tr><th>(e)</th><td>\(f(x)=e^{c|x|}\quad(c<0)\)</td><th>(f)</th><td>\(f(x)=1\)</td></tr>
+<tr><th>(g)</th><td>\(\displaystyle f(x)=\frac{5+i}{2\pi}\delta(x)\)</td><th>(h)</th><td>\(f(x)=x\)</td></tr>
+</tbody></table>
+<p>ここで \(\delta(x)\) はDiracのデルタ関数、\(p\) は実数。</p>
+
+<h1 id="preparation" class="chapter">2. 前提と変換規約</h1>
+<h2>この問題で使う定義</h2>
+\[
+\boxed{\widehat f(k)=\mathcal F\{f\}(k)
+=\int_{-\infty}^{\infty}f(x)e^{-i2\pi kx}\,dx}
+\]
+\[
+\boxed{f(x)=\mathcal F^{-1}\{\widehat f\}(x)
+=\int_{-\infty}^{\infty}\widehat f(k)e^{i2\pi kx}\,dk}
+\]
+<p class="key">教科書によっては指数が \(e^{-ikx}\) で逆変換に \(1/(2\pi)\) が付く。この問題では上の規約を使うため、別規約の答えをそのまま写さない。</p>
+
+<h2>記号の意味</h2>
+<table><thead><tr><th>記号</th><th>意味</th></tr></thead><tbody>
+<tr><td>\(x\)</td><td>元の変数</td></tr><tr><td>\(k\)</td><td>Fourier空間の変数。指数は \(2\pi kx\)</td></tr>
+<tr><td>\(p\)</td><td>問題(b)で与えられた実定数</td></tr><tr><td>\(\delta\)</td><td>積分の中で値を1点から取り出す超関数</td></tr>
+<tr><td>\(\delta'\)</td><td>デルタ関数の分布微分</td></tr>
+</tbody></table>
+
+<h1 id="tools" class="chapter">3. 使う公式</h1>
+<h2>デルタ関数</h2>
+\[
+\int_{-\infty}^{\infty}\delta(x-a)\phi(x)\,dx=\phi(a)
+\]
+\[
+\int_{-\infty}^{\infty}e^{-i2\pi qx}\,dx=\delta(q)
+\]
+<h2>線形性・平行移動・\(x\) の掛け算</h2>
+\[
+\mathcal F\{af+bg\}=a\widehat f+b\widehat g
+\]
+\[
+\mathcal F\{e^{i2\pi px}f(x)\}(k)=\widehat f(k-p)
+\]
+\[
+\boxed{\mathcal F\{x f(x)\}(k)
+=\frac{i}{2\pi}\frac{d\widehat f}{dk}}
+\]
+<details class="answer"><summary>最後の公式の導出を見る</summary><div>
+\[
+\frac{d\widehat f}{dk}
+=\int f(x)(-i2\pi x)e^{-i2\pi kx}\,dx
+=-i2\pi\,\mathcal F\{xf\}(k)
+\]
+<p>両辺を \(-i2\pi\) で割ると、\(1/i=-i\) より \(\mathcal F\{xf\}=i\widehat f'/(2\pi)\)。</p>
+</div></details>
+<h2>偶関数・奇関数</h2>
+\[
+f\text{ が実偶関数}\Rightarrow\widehat f\text{ は実偶関数}
+\]
+\[
+f\text{ が実奇関数}\Rightarrow\widehat f\text{ は純虚奇関数}
+\]
+<p>この性質は(c)の符号チェックに使える。</p>
+
+<h1 id="warmup" class="chapter">4. 小問で準備</h1>
+<h3><span class="tag">準備1</span>\(e^{-|x|}\) の変換</h3>
+<p>まず \(g(x)=e^{-|x|}\) のFourier変換を求めよ。</p>
+<details class="answer"><summary>解答を見る</summary><div>
+<p>偶関数なので余弦だけを残す。</p>
+\[
+\widehat g(k)=2\int_0^\infty e^{-x}\cos(2\pi kx)\,dx
+=\frac{2}{1+4\pi^2k^2}.
+\]
+<p>これを微分すれば(c)が求まる。</p>
+</div></details>
+<h3><span class="tag">準備2</span>\(e^{c|x|}\) の収束</h3>
+<p>なぜ問題(e)で \(c<0\) が必要か。</p>
+<details class="answer"><summary>解答を見る</summary><div><p>\(|x|\to\infty\) で \(e^{c|x|}\to0\) とならなければ積分が収束しないため。\(a=-c>0\) と置けば \(e^{c|x|}=e^{-a|x|}\)。</p></div></details>
+<h3><span class="tag">準備3</span>定数関数</h3>
+<p>\(\mathcal F\{1\}\) は通常の関数として積分できるか。</p>
+<details class="answer"><summary>解答を見る</summary><div><p>絶対収束しない。Fourier変換は超関数の意味で \(\delta(k)\) と解釈する。(b)、(f)、(h)はこの考え方が必要。</p></div></details>
+
+<h1 id="solutions" class="chapter">5. (a)〜(h) 完全解答</h1>
+<h2>(a) \(f(x)=\delta(x)\)</h2>
+\[
+\widehat f(k)
+=\int_{-\infty}^{\infty}\delta(x)e^{-i2\pi kx}\,dx
+=e^0=1.
+\]
+\[
+\boxed{\mathcal F\{\delta(x)\}=1}
+\]
+<p>デルタ関数が積分の中の指数関数を \(x=0\) で評価する。</p>
+
+<h2>(b) \(f(x)=e^{i2\pi px}\)</h2>
+\[
+\widehat f(k)
+=\int_{-\infty}^{\infty}e^{i2\pi px}e^{-i2\pi kx}\,dx
+=\int_{-\infty}^{\infty}e^{-i2\pi(k-p)x}\,dx.
+\]
+<p>デルタ関数の表示より</p>
+\[
+\boxed{\mathcal F\{e^{i2\pi px}\}(k)=\delta(k-p)}.
+\]
+<p>周波数 \(p\) の単一波は、Fourier空間では \(k=p\) の1点に集中する。</p>
+
+<h2>(c) \(f(x)=x e^{-|x|}\)</h2>
+<p>準備1の結果</p>
+\[
+G(k)=\mathcal F\{e^{-|x|}\}
+=\frac{2}{1+4\pi^2k^2}
+\]
+<p>に、\(x\) を掛ける公式を使う。</p>
+\[
+\widehat f(k)=\frac{i}{2\pi}\frac{dG}{dk}.
+\]
+\[
+\frac{dG}{dk}
+=-\frac{16\pi^2k}{(1+4\pi^2k^2)^2}.
+\]
+\[
+\boxed{\widehat f(k)
+=-\frac{8\pi i\,k}{(1+4\pi^2k^2)^2}}.
+\]
+<p>元の関数は実奇関数なので、答えが純虚数かつ奇関数になっており整合する。</p>
+
+<h2>(d) 正規化された矩形関数</h2>
+\[
+\widehat f(k)=\frac1{2d}\int_{-d}^{d}e^{-i2\pi kx}\,dx.
+\]
+\[
+=\frac1{2d}\left[\frac{e^{-i2\pi kx}}{-i2\pi k}\right]_{-d}^{d}
+=\frac{\sin(2\pi kd)}{2\pi kd}.
+\]
+\[
+\boxed{\widehat f(k)=\frac{\sin(2\pi kd)}{2\pi kd}}.
+\]
+<p>\(k=0\) では極限を取り \(\widehat f(0)=1\)。これは元の関数の面積が1であることと一致する。</p>
+
+<h2>(e) \(f(x)=e^{c|x|}\), \(c<0\)</h2>
+<p>偶関数なので</p>
+\[
+\widehat f(k)=2\int_0^\infty e^{cx}\cos(2\pi kx)\,dx.
+\]
+<p>\(a=-c>0\) と置いて準備1の一般形を使う。</p>
+\[
+2\int_0^\infty e^{-ax}\cos(2\pi kx)\,dx
+=\frac{2a}{a^2+4\pi^2k^2}.
+\]
+<p>\(a=-c\) を戻すと</p>
+\[
+\boxed{\widehat f(k)=\frac{-2c}{c^2+4\pi^2k^2}}
+\qquad(c<0).
+\]
+<p>\(-2c>0\) なので、\(k=0\) の値も正になる。</p>
+
+<h2>(f) \(f(x)=1\)</h2>
+\[
+\widehat f(k)=\int_{-\infty}^{\infty}e^{-i2\pi kx}\,dx.
+\]
+<p>通常の積分としては収束しないが、超関数の意味で</p>
+\[
+\boxed{\mathcal F\{1\}(k)=\delta(k)}.
+\]
+<p>(a)の変換対を逆向きに見ても確認できる。</p>
+
+<h2>(g) \(\displaystyle f(x)=\frac{5+i}{2\pi}\delta(x)\)</h2>
+<p>線形性と(a)を使う。</p>
+\[
+\widehat f(k)
+=\frac{5+i}{2\pi}\mathcal F\{\delta(x)\}
+\]
+\[
+\boxed{\widehat f(k)=\frac{5+i}{2\pi}}.
+\]
+
+<h2>(h) \(f(x)=x\)</h2>
+<p>\(x=x\cdot1\) と考え、\(\mathcal F\{1\}=\delta(k)\) に \(x\) を掛ける公式を使う。</p>
+\[
+\mathcal F\{x\}
+=\frac{i}{2\pi}\frac{d}{dk}\mathcal F\{1\}
+\]
+\[
+\boxed{\mathcal F\{x\}(k)=\frac{i}{2\pi}\delta'(k)}.
+\]
+<p>これも通常の関数ではなく超関数としての答え。</p>
+
+<h1 id="summary" class="chapter">6. 最終答案一覧</h1>
+<table><thead><tr><th>問</th><th>\(f(x)\)</th><th>\(\widehat f(k)\)</th></tr></thead><tbody>
+<tr><td>(a)</td><td>\(\delta(x)\)</td><td>\(1\)</td></tr>
+<tr><td>(b)</td><td>\(e^{i2\pi px}\)</td><td>\(\delta(k-p)\)</td></tr>
+<tr><td>(c)</td><td>\(xe^{-|x|}\)</td><td>\(\displaystyle-\frac{8\pi ik}{(1+4\pi^2k^2)^2}\)</td></tr>
+<tr><td>(d)</td><td>矩形関数</td><td>\(\displaystyle\frac{\sin(2\pi kd)}{2\pi kd}\)</td></tr>
+<tr><td>(e)</td><td>\(e^{c|x|}\)</td><td>\(\displaystyle\frac{-2c}{c^2+4\pi^2k^2}\)</td></tr>
+<tr><td>(f)</td><td>\(1\)</td><td>\(\delta(k)\)</td></tr>
+<tr><td>(g)</td><td>\(\displaystyle\frac{5+i}{2\pi}\delta(x)\)</td><td>\(\displaystyle\frac{5+i}{2\pi}\)</td></tr>
+<tr><td>(h)</td><td>\(x\)</td><td>\(\displaystyle\frac{i}{2\pi}\delta'(k)\)</td></tr>
+</tbody></table>
+
+<h1 id="mistakes" class="chapter">7. 間違いチェック</h1>
+<ul>
+<li class="check"><span>□</span>指数が \(e^{-i2\pi kx}\) の規約を使った</li>
+<li class="check"><span>□</span>(b) は \(\delta(k-p)\) であり \(\delta(k+p)\) ではない</li>
+<li class="check"><span>□</span>\(\mathcal F\{xf\}=i\widehat f'/(2\pi)\) の符号</li>
+<li class="check"><span>□</span>(c) は純虚奇関数になっている</li>
+<li class="check"><span>□</span>(d) の \(k=0\) は極限で1</li>
+<li class="check"><span>□</span>(e) で \(c<0\) を使った</li>
+<li class="check"><span>□</span>(f)、(h) は超関数として解釈した</li>
+<li class="check"><span>□</span>(g) の定数 \((5+i)/(2\pi)\) を落としていない</li>
+</ul>
+
+<h1 id="practice" class="chapter">8. 類題</h1>
+<h3><span class="tag">類題1</span>平行移動したデルタ</h3>
+<p>\(\mathcal F\{\delta(x-a)\}\) を求めよ。</p>
+<details class="answer"><summary>解答</summary><div>\[
+\mathcal F\{\delta(x-a)\}=e^{-i2\pi ka}.
+\]</div></details>
+<h3><span class="tag">類題2</span>減衰率を一般化</h3>
+<p>\(a>0\) として \(\mathcal F\{e^{-a|x|}\}\) を求めよ。</p>
+<details class="answer"><summary>解答</summary><div>\[
+\frac{2a}{a^2+4\pi^2k^2}.
+\]</div></details>
+<h3><span class="tag">類題3</span>矩形関数の幅</h3>
+<p>(d)で \(d\) を大きくすると、Fourier変換の最初の零点はどう動くか。</p>
+<details class="answer"><summary>解答</summary><div><p>零点は \(2\pi kd=\pi\) より \(k=1/(2d)\)。\(d\) を大きくすると原点へ近づく。実空間で広い関数はFourier空間で狭い。</p></div></details>
+<h3><span class="tag">類題4</span>\(x^2f\) の公式</h3>
+<p>\(\mathcal F\{x^2f(x)\}\) を \(\widehat f\) の微分で表せ。</p>
+<details class="answer"><summary>解答</summary><div>\[
+\mathcal F\{x^2f(x)\}
+=-\frac1{4\pi^2}\frac{d^2\widehat f}{dk^2}.
+\]</div></details>
+</main>
+</div>
+</body>
+</html>

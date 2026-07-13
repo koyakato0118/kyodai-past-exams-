@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1450" height="760" viewBox="0 0 1450 760">
+<style>
+text{font-family:"Noto Sans CJK JP","Yu Gothic",sans-serif;fill:#172033}
+.title{font-size:31px;font-weight:700}.label{font-size:23px}.small{font-size:19px}
+.pulley{fill:#e9eef7;stroke:#26364a;stroke-width:4}.belt{fill:none;stroke:#2563eb;stroke-width:18}
+.tooth{fill:#2563eb}.cross{stroke:#dc2626;stroke-width:5;fill:none}
+</style>
+<rect width="1450" height="760" fill="white"/>
+<text x="55" y="55" class="title">平ベルト・Vベルト・歯付きベルト</text>
+
+<g transform="translate(30,100)">
+<text x="135" y="30" class="title">平ベルト</text>
+<circle cx="125" cy="245" r="92" class="pulley"/><circle cx="355" cy="245" r="92" class="pulley"/>
+<path d="M125 153 L355 153 A92 92 0 0 1 355 337 L125 337 A92 92 0 0 1 125 153" class="belt"/>
+<rect x="90" y="435" width="300" height="42" rx="8" fill="#2563eb"/>
+<text x="130" y="465" class="label" fill="white">長方形断面</text>
+<text x="40" y="535" class="small">・高速・長い軸間距離・静粛</text>
+<text x="40" y="570" class="small">・滑りとクリープで速度比は不正確</text>
+<text x="40" y="605" class="small">・適切な初張力とプーリ芯出しが必要</text>
+</g>
+
+<g transform="translate(500,100)">
+<text x="135" y="30" class="title">Vベルト</text>
+<circle cx="125" cy="245" r="92" class="pulley"/><circle cx="355" cy="245" r="92" class="pulley"/>
+<path d="M125 153 L355 153 A92 92 0 0 1 355 337 L125 337 A92 92 0 0 1 125 153" class="belt"/>
+<path d="M160 430 L320 430 L285 500 L195 500 Z" fill="#2563eb"/>
+<path d="M130 415 L350 415 L300 520 L180 520 Z" fill="none" stroke="#26364a" stroke-width="4"/>
+<text x="155" y="555" class="label">くさび作用</text>
+<text x="30" y="595" class="small">・小型で比較的大きな動力を伝達</text>
+<text x="30" y="630" class="small">・滑りあり。複数本は同一セットで交換</text>
+<text x="30" y="665" class="small">・張り過ぎは軸受荷重・発熱を増やす</text>
+</g>
+
+<g transform="translate(970,100)">
+<text x="85" y="30" class="title">歯付きベルト</text>
+<circle cx="125" cy="245" r="92" class="pulley"/><circle cx="355" cy="245" r="92" class="pulley"/>
+<path d="M125 153 L355 153 A92 92 0 0 1 355 337 L125 337 A92 92 0 0 1 125 153" class="belt"/>
+<g class="tooth">
+<rect x="128" y="144" width="20" height="22"/><rect x="165" y="144" width="20" height="22"/>
+<rect x="202" y="144" width="20" height="22"/><rect x="239" y="144" width="20" height="22"/>
+<rect x="276" y="144" width="20" height="22"/><rect x="313" y="144" width="20" height="22"/>
+</g>
+<path d="M130 435 L350 435 L350 490 L130 490 Z" fill="#2563eb"/>
+<g fill="white">
+<rect x="145" y="468" width="22" height="30"/><rect x="185" y="468" width="22" height="30"/>
+<rect x="225" y="468" width="22" height="30"/><rect x="265" y="468" width="22" height="30"/>
+<rect x="305" y="468" width="22" height="30"/>
+</g>
+<text x="90" y="545" class="label">歯で同期伝動</text>
+<text x="20" y="595" class="small">・滑りなし、正確な速度比・位置決め</text>
+<text x="20" y="630" class="small">・芯ずれ、張力、かみ合い不足に注意</text>
+<text x="20" y="665" class="small">・衝撃荷重で歯飛び・歯欠けのおそれ</text>
+</g>
+</svg>

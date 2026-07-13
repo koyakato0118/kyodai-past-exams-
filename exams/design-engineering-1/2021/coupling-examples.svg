@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720">
+<style>
+text{font-family:"Noto Sans CJK JP","Yu Gothic",sans-serif;fill:#172033}
+.title{font-size:31px;font-weight:700}.label{font-size:23px}.small{font-size:19px}
+.shaft{stroke:#334155;stroke-width:28;stroke-linecap:round}.flange{fill:#dbeafe;stroke:#2563eb;stroke-width:4}
+.flex{fill:#dcfce7;stroke:#059669;stroke-width:4}.bolt{fill:#fef3c7;stroke:#b45309;stroke-width:3}
+</style>
+<rect width="1400" height="720" fill="white"/>
+<text x="55" y="55" class="title">軸継手の例</text>
+
+<g transform="translate(45,95)">
+<text x="165" y="35" class="title">フランジ形固定軸継手</text>
+<line x1="50" y1="280" x2="300" y2="280" class="shaft"/>
+<line x1="520" y1="280" x2="770" y2="280" class="shaft"/>
+<rect x="285" y="130" width="115" height="300" rx="22" class="flange"/>
+<rect x="400" y="130" width="115" height="300" rx="22" class="flange"/>
+<circle cx="400" cy="175" r="18" class="bolt"/><circle cx="400" cy="385" r="18" class="bolt"/>
+<circle cx="400" cy="245" r="18" class="bolt"/><circle cx="400" cy="315" r="18" class="bolt"/>
+<text x="90" y="500" class="label">高いねじり剛性で確実にトルクを伝達</text>
+<text x="90" y="540" class="small">長所：構造が簡単、大トルク、分解可能</text>
+<text x="90" y="575" class="small">短所：芯ずれをほとんど許容せず、正確な芯出しが必要</text>
+</g>
+
+<g transform="translate(820,95)">
+<text x="95" y="35" class="title">オルダム軸継手</text>
+<line x1="10" y1="280" x2="180" y2="280" class="shaft"/>
+<line x1="460" y1="240" x2="630" y2="240" class="shaft"/>
+<rect x="165" y="170" width="110" height="220" rx="22" class="flange"/>
+<rect x="365" y="130" width="110" height="220" rx="22" class="flange"/>
+<rect x="260" y="175" width="120" height="180" rx="20" class="flex"/>
+<rect x="295" y="150" width="50" height="230" fill="#bbf7d0" stroke="#059669" stroke-width="3"/>
+<rect x="235" y="240" width="170" height="50" fill="#bbf7d0" stroke="#059669" stroke-width="3"/>
+<path d="M210 90 L430 90" stroke="#dc2626" stroke-width="4" stroke-dasharray="8 8"/>
+<path d="M210 125 L430 125" stroke="#94a3b8" stroke-width="3" stroke-dasharray="8 8"/>
+<text x="245" y="75" class="small" fill="#dc2626">偏心を中間円板の滑りで吸収</text>
+<text x="15" y="500" class="label">2枚のハブと直交溝を持つ中間円板</text>
+<text x="15" y="540" class="small">長所：平行偏心を許容し、等速で伝達</text>
+<text x="15" y="575" class="small">短所：溝部に滑り・摩耗があり、潤滑や樹脂部品を用いる</text>
+</g>
+</svg>

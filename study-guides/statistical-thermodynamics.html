@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>統計熱力学 問題演習型テスト対策</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  renderMathInElement(document.body,{delimiters:[
+    {left:"\\[",right:"\\]",display:true},
+    {left:"\\(",right:"\\)",display:false}
+  ],ignoredTags:["script","noscript","style","textarea","pre","code"],throwOnError:false});
+});
+</script>
+<style>
+*{box-sizing:border-box}:root{--ink:#17212b;--deep:#17324d;--accent:#147d79;--warm:#c96b27;--line:#d4dde5;--soft:#f2f7f7;--answer:#f5fbfa}html{color:var(--ink);background:#f3f5f7;scroll-behavior:smooth}body{margin:0;font-family:"Yu Gothic","Meiryo",sans-serif;font-size:15px;line-height:1.78}.top{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;gap:16px;padding:10px clamp(16px,4vw,42px);border-bottom:1px solid #c8d2dc;background:#fff}.top a{color:var(--accent);font-weight:700}.hero{background:var(--deep);color:#fff}.hero>div,.shell{width:min(1120px,calc(100% - 32px));margin:auto}.hero>div{padding:36px 0}.hero p{margin:0 0 7px;color:#ffd08a}.hero h1{margin:0 0 12px;color:#fff;font-size:clamp(28px,4vw,42px)}.meta{color:#d9e2ec;font-size:13px}.shell{display:grid;grid-template-columns:240px minmax(0,820px);gap:48px;align-items:start;padding:34px 0 80px}.toc{position:sticky;top:78px;max-height:calc(100vh - 96px);overflow:auto;padding-right:18px;border-right:1px solid var(--line)}.toc strong{display:block;margin-bottom:8px}.toc a{display:block;padding:5px 7px;color:#536474;font-size:13px;text-decoration:none}.toc a:hover{background:#eaf5f4;color:var(--accent)}main{min-width:0}h1,h2,h3{color:var(--deep)}h1.chapter{margin:54px 0 20px;padding-bottom:9px;border-bottom:2px solid var(--accent);font-size:27px;scroll-margin-top:74px}main>h1:first-of-type{margin-top:0}h2{margin:34px 0 13px;padding-left:11px;border-left:4px solid var(--warm);font-size:21px}h3{margin:26px 0 9px;color:#35506a;font-size:17px}p{margin:0 0 13px}ol,ul{margin:5px 0 17px;padding-left:25px}li{margin:5px 0}code{padding:2px 5px;border-radius:3px;background:#eaf1f4;color:#213c54;font-family:Consolas,"Yu Gothic",monospace}pre{overflow:auto;margin:12px 0 18px;padding:13px 15px;border-left:4px solid var(--accent);background:var(--soft);font-family:Consolas,"Yu Gothic",monospace;line-height:1.6}blockquote{margin:0 0 24px;padding:13px 15px;border-left:4px solid var(--warm);background:#fff7e8;color:#5e4428}table{width:100%;margin:12px 0 22px;border-collapse:collapse;font-size:14px}th,td{padding:9px 11px;border:1px solid #b9c7d3;text-align:left;vertical-align:top}th{background:#e7f0f1}.answer{margin:-3px 0 22px;border:1px solid #abd2ce;border-radius:6px;background:var(--answer)}.answer summary{cursor:pointer;list-style:none;padding:10px 13px;color:var(--accent);font-weight:700}.answer summary::after{content:"＋";float:right}.answer[open] summary::after{content:"−"}.answer>div{padding:12px 13px 2px;border-top:1px solid #cce4e1}.tag{display:inline-block;margin-right:6px;padding:1px 7px;border-radius:999px;background:#e8f1f2;color:var(--accent);font-size:12px;font-weight:700}.flow{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:14px 0 21px}.flow span{padding:7px 9px;border:1px solid #bfd0d9;border-radius:5px;background:#fff}.flow b{color:var(--warm)}.check{display:flex;gap:8px;list-style:none}.check span{color:var(--accent)}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden;padding:7px 2px}.katex{font-size:1.08em}@media(max-width:780px){.shell{grid-template-columns:1fr;gap:22px}.toc{position:static;max-height:280px;padding:14px;border:1px solid var(--line);background:#fff}.top span{display:none}table{display:block;overflow:auto;white-space:nowrap}.katex-display>.katex{font-size:.98em}}@media print{@page{size:A4;margin:16mm}.top,.toc{display:none}.hero{background:#fff;color:var(--ink)}.hero h1{color:var(--deep)}.hero p,.meta{color:#536474}.hero>div,.shell{width:auto;margin:0;padding:0}.shell{display:block}h1.chapter{page-break-before:always}}
+</style>
+</head>
+<body>
+<header class="top"><a href="../">← 過去問解説へ戻る</a><span>統計熱力学 / 問題を解きながら理解する</span></header>
+<section class="hero"><div><p>STATISTICAL THERMODYNAMICS / ACTIVE STUDY</p><h1>統計熱力学 問題演習型テスト対策</h1><div class="meta">数式整形版 2026-07-12 / 2026年度講義・レポート対応 / 2011・2023年度過去問を参考</div></div></section>
+<div class="shell">
+<nav class="toc"><strong>目次</strong>
+<a href="#use">1. 使い方と過去問</a><a href="#coverage">2. 全資料の出題範囲</a><a href="#words">3. 30秒の語句問題</a><a href="#formulas">4. 公式を小問で覚える</a><a href="#connections">5. 公式同士のつながり</a><a href="#reports">6. 2026レポート型</a><a href="#chapters">7. 第1〜10章の総合演習</a><a href="#past-extra">8. 過去問固有テーマ</a><a href="#prediction">9. 過去問ベース予想問題</a><a href="#mock">10. 本番形式ミニ模試</a><a href="#mistakes">11. 間違いチェック</a>
+</nav>
+<main>
+<blockquote>説明を先に暗記しない。まず問題を30秒〜3分考える。分からなければ解答を開き、「具体例」と「前に出た公式とのつながり」を確認してから、もう一度解く。</blockquote>
+
+<h1 id="use" class="chapter">1. 使い方と過去問</h1>
+<ol><li>語句問題は、式ではなく自分の言葉で答える。</li><li>計算問題は「固定条件 → 使う統計集団 → 分配関数」の順に書く。</li><li>解答を見た問題には印を付け、翌日に解き直す。</li><li>最後に予想問題を時間を測って解く。</li></ol>
+<table><thead><tr><th>資料</th><th>確認できた内容</th><th>重点</th></tr></thead><tbody>
+<tr><td>2011過去問</td><td>古典・量子調和振動子、等分配、Maxwell分布、半導体、拡散・情報エントロピー</td><td>平均値、極限、理由説明</td></tr>
+<tr><td>2023過去問</td><td>分配関数、自由エネルギー、Fermi温度、Seebeck係数、Bayes、Gaussian鎖</td><td>途中式、数値計算、複数分野の接続</td></tr>
+<tr><td>2026資料</td><td>4統計集団、FD・BE統計、フォトン・フォノン、半導体、古典統計レポート</td><td>道具の選択、適用条件、物理的意味</td></tr>
+</tbody></table>
+<p>過去問は2年分なので傾向を断定はできない。ただし、調和振動子・等分配・半導体は両年度に関係し、2026レポートとも重なるため優先する。</p>
+
+<h1 id="coverage" class="chapter">2. 全資料の出題範囲チェック</h1>
+<blockquote>「絶対に出ない」と資料から断定できる範囲は確認できなかったため、第1〜10章の本文・章末まとめ・演習を対象にした。歴史的逸話や参考文献紹介は問題化せず、物理内容と計算へ集中する。</blockquote>
+<table><thead><tr><th>章</th><th>必ず確認する内容</th><th>対応する演習</th></tr></thead><tbody>
+<tr><td>1</td><td>二項分布、平均・分散、正規近似、Stirling公式、相対揺らぎ</td><td>粒子の左右分布、密度揺らぎ</td></tr>
+<tr><td>2</td><td>巨視的・微視的状態、自由粒子の状態密度、スピン多重度</td><td>連結棒模型の多重度</td></tr>
+<tr><td>3</td><td>多重度最大、温度、Boltzmann関係、エントロピー増大、熱流</td><td>接触スピン系、接続した鎖</td></tr>
+<tr><td>4</td><td>Boltzmann分布、分配関数、平均・揺らぎ、自由電子・孤立スピン</td><td>量子調和振動子、2原子分子回転</td></tr>
+<tr><td>5</td><td>Legendre変換、F・G、T-P分配関数、自然変数</td><td>量子振動子のF・Sとグラフ</td></tr>
+<tr><td>6</td><td>化学ポテンシャル、大正準集団、4統計集団、Langmuir吸着</td><td>共役変数、吸着等温線、BET模型</td></tr>
+<tr><td>7</td><td>粒子交換対称性、Pauli排他律、FD分布、Fermi気体</td><td>Fermi温度、電子熱容量、状態方程式</td></tr>
+<tr><td>8</td><td>BE分布、BEC、古典極限、熱的波長、Sackur–Tetrode、古典Z</td><td>混合エントロピー、重力気体、ビリアル展開</td></tr>
+<tr><td>9</td><td>フォトン状態密度、Planck則、放射圧、Einstein・Debye模型</td><td>光子気体、Einstein低温、Debye温度</td></tr>
+<tr><td>10</td><td>バンド、真性半導体、質量作用則、ドーピング、p-n接合、各種変換</td><td>キャリア積、光学測定、LED波長</td></tr>
+</tbody></table>
+
+<h1 id="words" class="chapter">3. 30秒の語句問題</h1>
+<h3><span class="tag">語句1</span>巨視的状態と微視的状態</h3>
+<p>箱の中の気体を例に、2つの違いを答えよ。</p>
+<details class="answer"><summary>解答・具体例</summary><div><p>巨視的状態は温度・圧力・体積・粒子数など少数の量で指定する。微視的状態は全粒子の位置・運動量や量子状態まで指定する。</p><p><b>例：</b>「300 K、1 L、1 mol」は巨視的状態。同じ条件でも分子の位置と速度の組合せは無数にある。</p><p><b>次へ：</b>同じ巨視的状態を作る微視的状態数が多重度 \(g\)。</p></div></details>
+
+<h3><span class="tag">語句2</span>多重度</h3>
+<p>多重度 \(g(E)\) とは何か。なぜ大きい状態が現れやすいか。</p>
+<details class="answer"><summary>解答・具体例</summary><div><p>同じ巨視的エネルギーを実現する微視的状態の数。各微視的状態が同程度に起こるなら、場合の数が多い巨視的状態ほど現れやすい。</p><p><b>例：</b>コイン10枚で表5枚は252通り、表10枚は1通り。中央付近が出やすい。</p></div></details>
+
+<h3><span class="tag">語句3</span>相対揺らぎ</h3>
+<p>粒子数が多いと密度が安定して見える理由を \(N^{-1/2}\) で説明せよ。</p>
+<details class="answer"><summary>解答</summary><div><p>絶対揺らぎは約 \(\sqrt N\)、平均は \(N\) に比例するため、相対揺らぎは \(\sqrt N/N=N^{-1/2}\)。巨視的な \(N\) では非常に小さい。</p></div></details>
+
+<h3><span class="tag">語句4</span>エントロピー</h3>
+<p>\(S=k_{\mathrm B}\ln g\) の意味と、対数を使う理由を答えよ。</p>
+<details class="answer"><summary>解答・前との接続</summary><div><p>多重度を熱力学量へ変換したもの。独立な2系では \(g=g_1g_2\) だが、対数により \(S=S_1+S_2\) と加算できる。</p><p><b>次へ：温度の定義</b></p>
+\[
+\boxed{
+\frac{1}{T}
+=\left(\frac{\partial S}{\partial E}\right)_{N,V}
+=k_{\mathrm B}
+\left(\frac{\partial\ln g}{\partial E}\right)_{N,V}
+}
+\]
+<p>右下の \(N,V\) は「粒子数と体積を固定して、エネルギーだけを変えて微分する」という意味。</p></div></details>
+
+<h3><span class="tag">語句5</span>Boltzmann因子</h3>
+<p>Boltzmann因子 \(\exp[-E/(k_{\mathrm B}T)]\) は何を表すか。温度を上げるとどうなるか。</p>
+<details class="answer"><summary>解答・具体例</summary><div><p>熱浴と接した系で、エネルギー \(E\) の状態に与える確率の重み。高温では高エネルギー状態への罰則が弱くなる。</p><p><b>例：</b>低温では建物の1階に人が集中し、高温では上階にも分散するイメージ。</p></div></details>
+
+<h3><span class="tag">語句6</span>分配関数</h3>
+<p>分配関数 \(Z\) を一言で説明し、何を計算できるか答えよ。</p>
+<details class="answer"><summary>解答・公式の接続</summary><div><p>許される全状態のBoltzmann重みの和。確率を規格化し、平均エネルギーや自由エネルギーを求める。</p>
+\[
+Z=\sum_i e^{-\beta E_i},\qquad
+p_i=\frac{e^{-\beta E_i}}{Z}
+\]
+\[
+\boxed{U=-\left(\frac{\partial\ln Z}{\partial\beta}\right)_{V,N}},
+\qquad
+\boxed{F=-k_{\mathrm B}T\ln Z}
+\]
+</div></details>
+
+<h3><span class="tag">語句7</span>4つの統計集団</h3>
+<p>\((N,V,E)\)、\((N,V,T)\)、\((N,P,T)\)、\((\mu,V,T)\) に対応する集団名を答えよ。</p>
+<details class="answer"><summary>解答</summary><div><table><tbody><tr><th>N,V,E</th><td>小正準：g、S</td></tr><tr><th>N,V,T</th><td>正準：Z、F</td></tr><tr><th>N,P,T</th><td>T-P：Y、G</td></tr><tr><th>μ,V,T</th><td>大正準：Ξ、J</td></tr></tbody></table></div></details>
+
+<h3><span class="tag">語句8</span>Fermi粒子とBose粒子</h3>
+<p>1状態の占有数の違いと例を答えよ。</p>
+<details class="answer"><summary>解答</summary><div><p>Fermi粒子は0個または1個で、例は電子。Bose粒子は同じ状態に何個でも入り、例はフォトン・フォノン。</p></div></details>
+
+<h3><span class="tag">語句9</span>Fermi温度</h3>
+<p>\(T_{\mathrm F}=\epsilon_{\mathrm F}/k_{\mathrm B}\) は何を表すか。実際の電子温度との違いは何か。</p>
+<details class="answer"><summary>解答</summary><div><p>Fermiエネルギーを温度単位へ換算した量子統計の尺度。実際の温度ではない。室温が \(T_{\mathrm F}\) より十分低い金属では、Fermi準位近くの少数電子だけが熱励起される。</p></div></details>
+
+<h3><span class="tag">語句10</span>バンドギャップとホール</h3>
+<p>バンドギャップ \(E_g\) とホールを説明せよ。</p>
+<details class="answer"><summary>解答・具体例</summary><div><p>\(E_g\) は価電子帯と伝導帯のエネルギー差。ホールは価電子帯の電子の空席を正電荷粒子として扱ったもの。</p><p><b>例：</b>満席の列の空席が、人の移動と逆向きに動いて見えるのがホール。</p></div></details>
+
+<h1 id="formulas" class="chapter">4. 公式を小問で覚える</h1>
+<div class="flow"><span>エネルギー準位</span><b>→</b><span>Z</span><b>→</b><span>確率</span><b>→</b><span>U</span><b>→</b><span>F</span></div>
+
+<h3><span class="tag">計算1</span>2準位系</h3>
+<p>\(E_0=0\)、\(E_1=\epsilon\) の系について、分配関数 \(Z\)、励起状態の確率 \(p_1\)、平均エネルギー \(U\) を求めよ。</p>
+<details class="answer"><summary>解答・使う理由</summary><div><p>温度一定なので正準集団を使う。</p>
+\[
+Z=e^{-\beta E_0}+e^{-\beta E_1}
+=1+e^{-\beta\epsilon}
+\]
+\[
+p_1=\frac{e^{-\beta\epsilon}}{Z}
+=\frac{e^{-\beta\epsilon}}{1+e^{-\beta\epsilon}}
+=\frac{1}{e^{\beta\epsilon}+1}
+\]
+\[
+U=E_0p_0+E_1p_1
+=\epsilon p_1
+=\frac{\epsilon}{e^{\beta\epsilon}+1}
+\]
+<p>低温では \(p_1\to0\)、高温では \(p_1\to1/2\)。同じ \(Z\) から確率と平均エネルギーを順に求められる。</p></div></details>
+
+<h3><span class="tag">計算2</span>自由エネルギー</h3>
+<p>\(T=300\,\mathrm K\)、\(Z=4\)、\(k_{\mathrm B}=1.38\times10^{-23}\,\mathrm{J/K}\) のとき、1粒子の \(F\) を求めよ。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+F=-k_{\mathrm B}T\ln Z
+=-(1.38\times10^{-23})(300)\ln4
+=-5.74\times10^{-21}\ \mathrm J
+\]
+<p>負号と自然対数を忘れない。</p></div></details>
+
+<h3><span class="tag">計算3</span>2次項を数える</h3>
+<p>1次元調和振動子 \(H=p^2/(2m)+cx^2/2\) の平均エネルギーを求めよ。</p>
+<details class="answer"><summary>解答・具体的な数え方</summary><div><p>独立な2次項が2個。1項につき \(k_{\mathrm B}T/2\) なので \(U=k_{\mathrm B}T\)。3次元なら運動量3項＋座標3項で \(U=3k_{\mathrm B}T\)。</p></div></details>
+
+<h3><span class="tag">計算4</span>重力場の密度</h3>
+<p>高さ差 \(\Delta z\) の密度比を求めよ。\(mg\Delta z=k_{\mathrm B}T\) なら数値はいくらか。</p>
+<details class="answer"><summary>解答・Boltzmann因子との接続</summary><div>
+\[
+\frac{n(z+\Delta z)}{n(z)}
+=\exp\left(-\frac{mg\Delta z}{k_{\mathrm B}T}\right)
+=e^{-1}=0.368
+\]
+<p>高い場所ほどポテンシャルが高いので、Boltzmann重みが小さい。</p></div></details>
+
+<h3><span class="tag">計算5</span>Fermi準位の占有数</h3>
+<p>\(f_{\mathrm{FD}}(\epsilon)=\left[e^{(\epsilon-\mu)/(k_{\mathrm B}T)}+1\right]^{-1}\) で \(\epsilon=\mu\) の値を求めよ。</p>
+<details class="answer"><summary>解答</summary><div>\[f_{\mathrm{FD}}(\mu)=\frac{1}{e^0+1}=\frac12\]<p>温度によらない。</p></div></details>
+
+<h3><span class="tag">計算6</span>古典極限</h3>
+<p>\(\exp[(\epsilon-\mu)/(k_{\mathrm B}T)]=100\) のとき、FD・BE分布の占有数を見積もれ。</p>
+<details class="answer"><summary>解答</summary><div><p>100に対して分母の \(\pm1\) は小さいので、両方とも約 \(0.01\)。平均占有数が1より十分小さいと量子統計の違いが消える。</p></div></details>
+
+<h3><span class="tag">計算7</span>Fermi温度</h3>
+<p>\(\epsilon_{\mathrm F}=7.0\,\mathrm{eV}\)、\(1\,\mathrm{eV}=1.602\times10^{-19}\,\mathrm J\) として \(T_{\mathrm F}\) を求めよ。</p>
+<details class="answer"><summary>解答・意味</summary><div>\[T_{\mathrm F}=\frac{\epsilon_{\mathrm F}}{k_{\mathrm B}}=8.13\times10^4\ \mathrm K\]<p>室温300 Kよりはるかに高く、金属電子は量子縮退している。</p></div></details>
+
+<h3><span class="tag">計算8</span>Debye低温則</h3>
+<p>低温で温度を \(T\) から \(2T\) にすると格子熱容量は何倍か。</p>
+<details class="answer"><summary>解答・比較</summary><div><p>\(C_{\mathrm{ph}}\propto T^3\) なので8倍。電子熱容量は \(C_e\propto T\) なので2倍。温度依存性で両者を区別できる。</p></div></details>
+
+<h1 id="connections" class="chapter">5. 公式同士のつながり</h1>
+<h2>多重度 → エントロピー → 自由エネルギー</h2>
+<p>Gaussian鎖を伸ばすと元へ戻ろうとする。エネルギーではなくエントロピーから説明せよ。</p>
+<details class="answer"><summary>解答・2023過去問との接続</summary><div><p>伸ばすと可能な形が減り多重度 \(g\) が下がる。\(S=k_{\mathrm B}\ln g\) が下がり、内部エネルギー変化が小さければ \(F=U-TS\) が増える。系は \(F\) を下げるため縮む。</p></div></details>
+
+<h2>状態密度 × 分布関数</h2>
+<p>自由電子の粒子数とエネルギーを積分で表し、各因子の意味を答えよ。</p>
+<details class="answer"><summary>解答・他分野との接続</summary><div>
+\[
+N=\int_0^\infty g(\epsilon)f_{\mathrm{FD}}(\epsilon)\,d\epsilon
+\]
+\[
+U=\int_0^\infty \epsilon\,g(\epsilon)f_{\mathrm{FD}}(\epsilon)\,d\epsilon
+\]
+<p>\(g\) は席数、\(f\) は各席の平均占有、\(\epsilon\) は1席のエネルギー。フォトン・フォノンでも「状態密度×BE占有数×1量子の物理量」を積分する。</p></div></details>
+
+<h2>量子調和振動子 → 古典極限</h2>
+<p>\(E_n=(n+1/2)\hbar\omega\) の分配関数を求め、高温で等分配則へ戻る理由を説明せよ。</p>
+<details class="answer"><summary>解答・2011/2023過去問との接続</summary><div>
+\[
+Z=\frac{e^{-\beta\hbar\omega/2}}{1-e^{-\beta\hbar\omega}}
+\]
+\[
+U=\frac{\hbar\omega}{2}
++\frac{\hbar\omega}{e^{\beta\hbar\omega}-1}
+\]
+<p>\(k_{\mathrm B}T\gg\hbar\omega\) なら準位間隔が細かく見え、\(e^x-1\simeq x\) により温度依存部分が \(k_{\mathrm B}T\) へ近づく。</p></div></details>
+
+<h1 id="reports" class="chapter">6. 2026年度レポート型</h1>
+<blockquote>この2題は2026年度に実際に課され、略解も配布された。期末ではそのまま、数値変更、次元変更、途中式穴埋め、理由説明へ変形される可能性を考え、最重要Aとして扱う。</blockquote>
+<h2>レポート1 3次元調和振動子</h2>
+<p>\(H=p^2/(2m)+cr^2/2\)。各方向の平均運動エネルギーと平均ポテンシャルエネルギーを、Boltzmann分布から示せ。</p>
+<details class="answer"><summary>完全解答・Gaussian積分を見る</summary><div>
+<p>位相空間での確率密度は</p>
+\[
+P(\boldsymbol r,\boldsymbol p)
+\propto
+\exp\left[-\beta\left(
+\frac{p_x^2+p_y^2+p_z^2}{2m}
++\frac c2(x^2+y^2+z^2)
+\right)\right].
+\]
+<p>指数が各変数の和なので、確率は各変数の積へ分離できる。例えば \(x\) 方向の平均運動エネルギーでは、\(p_x\) 以外の積分は分子・分母で相殺される。</p>
+\[
+\left\langle\frac{p_x^2}{2m}\right\rangle
+=
+\frac{
+\displaystyle\int_{-\infty}^{\infty}
+\frac{p_x^2}{2m}
+e^{-p_x^2/(2mk_{\mathrm B}T)}\,dp_x
+}{
+\displaystyle\int_{-\infty}^{\infty}
+e^{-p_x^2/(2mk_{\mathrm B}T)}\,dp_x
+}.
+\]
+<p>Gaussian積分</p>
+\[
+\int_{-\infty}^{\infty}e^{-a q^2}\,dq
+=\sqrt{\frac\pi a},
+\qquad
+\int_{-\infty}^{\infty}q^2e^{-a q^2}\,dq
+=\frac{\sqrt\pi}{2a^{3/2}}
+\]
+<p>に \(a=1/(2mk_{\mathrm B}T)\) を代入すると</p>
+\[
+\boxed{
+\left\langle\frac{p_i^2}{2m}\right\rangle
+=\frac12k_{\mathrm B}T
+}
+\qquad(i=x,y,z).
+\]
+<p>位置についても \(a=c/(2k_{\mathrm B}T)\) とすれば</p>
+\[
+\boxed{
+\left\langle\frac{c x_i^2}{2}\right\rangle
+=\frac12k_{\mathrm B}T
+}.
+\]
+<p>3方向を足して</p>
+\[
+\langle K\rangle=\frac32k_{\mathrm B}T,
+\qquad
+\langle U\rangle=\frac32k_{\mathrm B}T
+\]
+\[
+\langle H\rangle=3k_{\mathrm B}T,
+\qquad C_V=3k_{\mathrm B}
+\]
+<p><b>採点要素：</b>Boltzmann重み、積分の分子・分母、他変数が相殺される説明、Gaussian積分、1自由度あたり \(k_{\mathrm B}T/2\)、3方向の和。</p></div></details>
+
+<h3><span class="tag">課題変形1</span>次元と係数を変える</h3>
+<p>\(d\) 次元の調和振動子なら、平均運動・ポテンシャル・全エネルギーはいくらか。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+\langle K\rangle=\frac d2k_{\mathrm B}T,
+\qquad
+\langle U\rangle=\frac d2k_{\mathrm B}T,
+\qquad
+\langle H\rangle=dk_{\mathrm B}T.
+\]
+<p>ばね定数や質量はGaussian分布の幅を変えるが、2次項の平均エネルギーは変えない。</p></div></details>
+
+<h2>レポート2 重力場中の理想気体</h2>
+<p>断面積 \(A\)、高さ \(H\)、外場 \(mgz\) の古典理想気体について、分配関数、自由エネルギー、内部エネルギー、熱容量、弱重力極限を求めよ。</p>
+<details class="answer"><summary>完全解答・極限の注意を見る</summary><div>
+<p>Hamiltonianは</p>
+\[
+\mathcal H=\sum_{i=1}^{N}
+\left(\frac{\boldsymbol p_i^2}{2m}+mgz_i\right).
+\]
+<p>同種古典粒子なので \(1/(N!h^{3N})\) を付け、運動量・水平位置・高さの積分へ分ける。</p>
+\[
+Z=\frac{(2\pi mk_{\mathrm B}T)^{3N/2}A^N}{N!h^{3N}}
+\left[
+\frac{k_{\mathrm B}T}{mg}
+\left(1-e^{-mgH/(k_{\mathrm B}T)}\right)
+\right]^N
+\]
+<p>ここで使った高さ積分は</p>
+\[
+\int_0^H e^{-mgz/(k_{\mathrm B}T)}\,dz
+=\frac{k_{\mathrm B}T}{mg}
+\left(1-e^{-mgH/(k_{\mathrm B}T)}\right).
+\]
+<p>\(H\to\infty\) では</p>
+\[
+Z_\infty=\frac{(2\pi mk_{\mathrm B}T)^{3N/2}A^N}{N!h^{3N}}
+\left(\frac{k_{\mathrm B}T}{mg}\right)^N.
+\]
+<p>Stirling公式 \(\ln N!\simeq N\ln N-N\) を使うと</p>
+\[
+F=-k_{\mathrm B}T\ln Z_\infty
+=Nk_{\mathrm B}T
+\left[
+\ln\frac{Nh^3}{(2\pi mk_{\mathrm B}T)^{3/2}}
+-\ln\frac{k_{\mathrm B}TA}{mg}-1
+\right].
+\]
+<p>運動量積分は \(T^{3N/2}\)、高さ積分は \(T^N\) を与えるので</p>
+\[
+U=k_{\mathrm B}T^2
+\left(\frac{\partial\ln Z}{\partial T}\right)_{V,N}
+=\frac52Nk_{\mathrm B}T
+\]
+\[
+\boxed{C_V=\frac52Nk_{\mathrm B}}.
+\]
+<p>内訳は並進運動 \(3Nk_{\mathrm B}T/2\) と平均重力ポテンシャル \(Nk_{\mathrm B}T\)。1粒子の高さ分布は</p>
+\[
+n(z)\propto e^{-mgz/(k_{\mathrm B}T)},
+\qquad
+\langle z\rangle=\frac{k_{\mathrm B}T}{mg}quad(H\to\infty).
+\]
+<h3>なぜ \(g\to0\) で普通の理想気体へ戻らないように見えるか</h3>
+<p>\(H\to\infty\) を先に取った後では、高さ積分は \(k_{\mathrm B}T/(mg)\) であり、\(g\to0\) で発散する。この式から通常の有限体積気体へ戻すことはできない。</p>
+<p>有限の \(H\) を保ったまま先に \(g\to0\) とすると</p>
+\[
+1-e^{-mgH/(k_{\mathrm B}T)}
+\simeq\frac{mgH}{k_{\mathrm B}T},
+\]
+\[
+\frac{k_{\mathrm B}T}{mg}
+\left(1-e^{-mgH/(k_{\mathrm B}T)}\right)
+\longrightarrow H.
+\]
+<p>したがって体積は \(AH\) となり、通常の理想気体 \(U=3Nk_{\mathrm B}T/2\) へ戻る。結論は</p>
+\[
+\boxed{
+\lim_{g\to0}\lim_{H\to\infty}
+\ne
+\lim_{H\to\infty}\lim_{g\to0}
+}.
+\]
+<p><b>採点要素：</b>有限 \(H\) の分配関数、\(1/N!h^{3N}\)、Stirling公式、\(F\)、\(U\)、\(C_V\)、エネルギーの内訳、極限を交換できない理由。</p></div></details>
+
+<h3><span class="tag">課題変形2</span>有限高さでの極限</h3>
+<p>有限の \(H\) で、低温または強重力 \(mgH\gg k_{\mathrm B}T\) と、高温または弱重力 \(mgH\ll k_{\mathrm B}T\) の高さ積分を比較せよ。</p>
+<details class="answer"><summary>解答</summary><div>
+<p>\(mgH\gg k_{\mathrm B}T\) では上端の影響が小さく、有効高さは \(k_{\mathrm B}T/(mg)\)。\(mgH\ll k_{\mathrm B}T\) では密度はほぼ一様で、高さ積分は \(H\)。</p>
+</div></details>
+
+<h3><span class="tag">課題直前チェック</span>30秒で答える</h3>
+<ul>
+<li class="check"><span>□</span>調和振動子の2次項1個あたり \(k_{\mathrm B}T/2\)</li>
+<li class="check"><span>□</span>3次元調和振動子は運動3項＋位置3項</li>
+<li class="check"><span>□</span>重力気体の高さ積分を有限 \(H\) で書ける</li>
+<li class="check"><span>□</span>\(H\to\infty\) では \(U=5Nk_{\mathrm B}T/2\)</li>
+<li class="check"><span>□</span>有限 \(H\) で先に \(g\to0\) なら通常の理想気体へ戻る</li>
+</ul>
+
+
+<h1 id="chapters" class="chapter">7. 第1〜10章の総合演習</h1>
+
+<h2>第1章 統計学の応用</h2>
+<h3><span class="tag">1-1</span>二項分布を正規分布へつなぐ</h3>
+<p>独立な粒子 \(N\) 個が確率 \(p\) で左半分に入る。左側粒子数 \(n\) の確率、平均、分散を書き、\(N\) が大きいときの近似を答えよ。</p>
+<details class="answer"><summary>解答・公式のつながり</summary><div>
+\[
+P(n)=\binom{N}{n}p^n(1-p)^{N-n},\quad
+\langle n\rangle=Np,\quad
+\mathrm{Var}(n)=Np(1-p).
+\]
+<p>Stirling公式で階乗を近似すると、平均 \(Np\)、分散 \(Np(1-p)\) の正規分布になる。相対揺らぎは \(N^{-1/2}\) で小さくなる。</p>
+</div></details>
+<h3><span class="tag">1-2</span>Stirling公式</h3>
+<p>\(\ln N!\) の近似を書き、統計力学で有用な理由を答えよ。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+\ln N!\simeq N\ln N-N+\frac12\ln(2\pi N).
+\]
+<p>粒子数がAvogadro数程度だと階乗を直接扱えない。対数を取れば積が和になり、多重度の最大化やエントロピー計算ができる。</p>
+</div></details>
+
+<h2>第2章 巨視的状態と微視的状態</h2>
+<h3><span class="tag">2-1</span>自由粒子の状態密度</h3>
+<p>3次元自由粒子でエネルギーが \(\epsilon\) 以下の状態数が運動量空間の球体積に比例することから、状態密度のエネルギー依存を答えよ。</p>
+<details class="answer"><summary>解答・導出の要点</summary><div>
+<p>\(\epsilon=p^2/(2m)\) なので \(p\propto\sqrt{\epsilon}\)。球体積は \(p^3\propto\epsilon^{3/2}\)。エネルギーで微分すると</p>
+\[
+g(\epsilon)\propto V\sqrt{\epsilon}.
+\]
+<p>この形は自由電子、Fermi気体、古典気体の積分に再登場する。</p>
+</div></details>
+<h3><span class="tag">2-2</span>スピン系の多重度</h3>
+<p>上向き \(N_\uparrow\)、下向き \(N_\downarrow\) の孤立スピン \(N\) 個の多重度を書け。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+g=\frac{N!}{N_\uparrow!N_\downarrow!},\qquad N=N_\uparrow+N_\downarrow.
+\]
+<p>磁場中のエネルギーは \(E=-(N_\uparrow-N_\downarrow)\mu B\)。これを使えば \(g(E)\) に直せる。</p>
+</div></details>
+<h3><span class="tag">2-3</span>連結棒模型</h3>
+<p>長さ \(l\) の棒が \(N\) 本あり、右・左の2方向だけを向く。全長 \(L\) の多重度を求めよ。</p>
+<details class="answer"><summary>解答・2023過去問への接続</summary><div>
+\[
+L=(n_r-n_l)l,\quad n_r+n_l=N,
+\]
+\[
+n_r=\frac12\left(N+\frac{L}{l}\right),\quad
+g(L)=\frac{N!}{n_r!n_l!}.
+\]
+<p>鎖を伸ばすと多重度が減る。この結果がGaussian鎖のエントロピー弾性につながる。</p>
+</div></details>
+
+<h2>第3章 エントロピーと温度</h2>
+<h3><span class="tag">3-1</span>熱平衡条件の導出</h3>
+<p>全エネルギー一定の2系について、全多重度を最大にして熱平衡条件を導け。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+g_{\rm tot}=g_1(E_1)g_2(E-E_1).
+\]
+<p>\(\ln g_{\rm tot}\) を \(E_1\) で微分して0と置くと</p>
+\[
+\frac{\partial\ln g_1}{\partial E_1}
+=\frac{\partial\ln g_2}{\partial E_2}.
+\]
+<p>\(1/T=k_{\rm B}\partial_E\ln g\) より \(T_1=T_2\)。</p>
+</div></details>
+<h3><span class="tag">3-2</span>高温から低温へ流れる理由</h3>
+<p>系1から系2へ \(\Delta E>0\) が移ったときの全エントロピー変化を書け。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+\Delta S_{\rm tot}\simeq
+\left(\frac1{T_2}-\frac1{T_1}\right)\Delta E.
+\]
+<p>\(T_1>T_2\) なら正。自発変化は全多重度・全エントロピーが増える向きに起こる。</p>
+</div></details>
+
+<h2>第4章 熱浴と分配関数</h2>
+<h3><span class="tag">4-1</span>縮退がある場合の確率</h3>
+<p>エネルギー \(E\) の多重度が \(g(E)\) のとき、エネルギーが \(E\) である確率を書け。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+P(E)=\frac{g(E)e^{-\beta E}}{Z},\qquad
+Z=\sum_E g(E)e^{-\beta E}.
+\]
+<p>1つの微視的状態の確率 \(e^{-\beta E}/Z\) と、エネルギー値の確率を混同しない。</p>
+</div></details>
+<h3><span class="tag">4-2</span>エネルギー揺らぎ</h3>
+<p>正準集団で熱容量とエネルギー分散の関係を書け。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+C_V=\frac{\langle E^2\rangle-\langle E\rangle^2}
+{k_{\rm B}T^2}.
+\]
+<p>熱浴と接した小系ではエネルギーは一定ではなく揺らぐ。熱容量はその揺らぎの大きさを測る。</p>
+</div></details>
+<h3><span class="tag">4-3</span>2原子分子の回転</h3>
+<p>\(E_j=j(j+1)\epsilon_0\)、縮退度 \(2j+1\) の分配関数を書き、高温・低温で何を残すか答えよ。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+Z_{\rm rot}=\sum_{j=0}^{\infty}(2j+1)
+e^{-\beta j(j+1)\epsilon_0}.
+\]
+<p>高温 \(k_{\rm B}T\gg\epsilon_0\) では和を積分で近似。低温では \(j=0,1\) を残す。近似条件を答案に書く。</p>
+</div></details>
+
+<h2>第5章 自由エネルギー</h2>
+<h3><span class="tag">5-1</span>自然変数を選ぶ</h3>
+<p>\(F,G\) の定義と微分形を書き、どの外部条件で使うか答えよ。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+F=E-TS,\quad dF=-S\,dT-P\,dV+\mu\,dN,
+\]
+\[
+G=F+PV,\quad dG=-S\,dT+V\,dP+\mu\,dN.
+\]
+<p>\(F\) は \(T,V,N\) 一定、\(G\) は \(T,P,N\) 一定の平衡に便利。</p>
+</div></details>
+<h3><span class="tag">5-2</span>T-P分配関数の符号</h3>
+<p>温度・圧力一定の重みと、Gibbs自由エネルギーとの関係を書け。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+P(E,V)\propto g(E,V)e^{-\beta(E+PV)},
+\]
+\[
+Y=\sum_E\int dV\,g(E,V)e^{-\beta(E+PV)},\qquad
+G=-k_{\rm B}T\ln Y.
+\]
+<p>指数は \(E+PV\)。大正準集団の \(E-\mu N\) と混同しない。</p>
+</div></details>
+
+<h2>第6章 化学ポテンシャルと大正準集団</h2>
+<h3><span class="tag">6-1</span>大分配関数</h3>
+<p>大正準集団の重み、\(\Xi\)、平均粒子数を答えよ。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+P(N,i)=\frac{e^{-\beta(E_{N,i}-\mu N)}}{\Xi},
+\quad
+\Xi=\sum_N e^{\beta\mu N}Z_N,
+\]
+\[
+\langle N\rangle=
+k_{\rm B}T\frac{\partial\ln\Xi}{\partial\mu}.
+\]
+</div></details>
+<h3><span class="tag">6-2</span>Langmuir吸着</h3>
+<p>独立な吸着サイト \(M\) 個、1サイト最大1分子、吸着エネルギー \(-\epsilon\) の被覆率を求めよ。</p>
+<details class="answer"><summary>解答・具体例</summary><div>
+\[
+\Xi=\left[1+e^{\beta(\mu+\epsilon)}\right]^M,
+\quad
+\theta=\frac{\langle N\rangle}{M}
+=\frac{e^{\beta(\mu+\epsilon)}}
+{1+e^{\beta(\mu+\epsilon)}}.
+\]
+<p>低圧で \(\theta\propto P\)、高圧で \(\theta\to1\)。駐車場の各区画が空き・満車の2状態を取るイメージ。</p>
+</div></details>
+
+<h2>第7章 Fermi気体</h2>
+<h3><span class="tag">7-1</span>交換対称性とPauli排他律</h3>
+<p>Fermi粒子の波動関数を2粒子交換するとどうなるか。それが占有数をどう制限するか。</p>
+<details class="answer"><summary>解答</summary><div>
+<p>交換で波動関数の符号が反転する。2粒子が全く同じ1粒子状態なら、交換後も同じである一方、反対称性により符号が反転するため波動関数は0。したがって同一状態に2個入れない。</p>
+</div></details>
+<h3><span class="tag">7-2</span>FD分布の導出</h3>
+<p>1状態の占有数が \(n=0,1\) のとき、1状態の大分配関数と平均占有数を求めよ。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+\Xi_\epsilon=1+e^{-\beta(\epsilon-\mu)},
+\]
+\[
+\langle n\rangle=
+\frac{e^{-\beta(\epsilon-\mu)}}
+{1+e^{-\beta(\epsilon-\mu)}}
+=\frac1{e^{\beta(\epsilon-\mu)}+1}.
+\]
+</div></details>
+<h3><span class="tag">7-3</span>自由電子のFermiエネルギー</h3>
+<p>電子数密度 \(n\) から \(\epsilon_F\) を求める式を書き、低温熱容量が小さい理由を答えよ。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+\epsilon_F=\frac{\hbar^2}{2m}(3\pi^2n)^{2/3},
+\qquad T_F=\frac{\epsilon_F}{k_{\rm B}}.
+\]
+<p>\(T\ll T_F\) ではFermi準位付近の幅 \(k_{\rm B}T\) にある電子しか空状態へ励起できず、\(C_{V,e}\propto T\) となる。</p>
+</div></details>
+
+<h2>第8章 Bose気体と古典極限</h2>
+<h3><span class="tag">8-1</span>BE分布の導出</h3>
+<p>1状態の占有数が \(n=0,1,2,\ldots\) のとき平均占有数を求めよ。</p>
+<details class="answer"><summary>解答</summary><div>
+<p>等比級数を用いる。</p>
+\[
+\Xi_\epsilon=\sum_{n=0}^{\infty}
+e^{-\beta(\epsilon-\mu)n}
+=\frac1{1-e^{-\beta(\epsilon-\mu)}},
+\]
+\[
+\langle n\rangle=\frac1{e^{\beta(\epsilon-\mu)}-1}.
+\]
+</div></details>
+<h3><span class="tag">8-2</span>古典極限と熱的波長</h3>
+<p>FD・BE分布が同じ古典分布になる条件と、熱的de Broglie波長を答えよ。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+e^{\beta(\epsilon-\mu)}\gg1
+\quad\Rightarrow\quad
+f\simeq e^{-\beta(\epsilon-\mu)},
+\]
+\[
+\lambda_T=\frac{h}{\sqrt{2\pi mk_{\rm B}T}},
+\qquad n\lambda_T^3\ll1.
+\]
+<p>粒子間隔に比べ波長が短く、波束の重なりを無視できる条件。</p>
+</div></details>
+<h3><span class="tag">8-3</span>Sackur–Tetrodeと混合</h3>
+<p>同種気体を仕切りの両側から混ぜる場合と、異種気体を混ぜる場合のエントロピー変化を比較せよ。</p>
+<details class="answer"><summary>解答・Gibbsのパラドックス</summary><div>
+<p>同種粒子では仕切り除去の前後を区別できず、正しく \(1/N!\) を含めると混合エントロピーは0。異種粒子では各成分の利用可能体積が \(V\to2V\) となり、各 \(N k_{\rm B}\ln2\)、合計 \(2Nk_{\rm B}\ln2\)。</p>
+</div></details>
+<h3><span class="tag">8-4</span>弱い相互作用とビリアル</h3>
+<p>Mayer関数と、斥力・引力が圧力へ与える定性的影響を答えよ。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+f(r)=e^{-\beta\phi(r)}-1.
+\]
+<p>クラスター展開により圧力を密度の級数で表す。斥力優勢では同密度の理想気体より圧力が高く、引力優勢では低くなる。Lennard–Jonesポテンシャルは短距離斥力・長距離引力の代表例。</p>
+</div></details>
+
+<h2>第9章 フォトンとフォノン</h2>
+<h3><span class="tag">9-1</span>Planck放射則の構造</h3>
+<p>角振動数 \(\omega\) の放射エネルギー密度を作る3因子を答えよ。</p>
+<details class="answer"><summary>解答</summary><div>
+<p>1フォトンのエネルギー \(\hbar\omega\)、光の状態密度 \(g(\omega)\propto V\omega^2/c^3\)、BE占有数 \(1/(e^{\beta\hbar\omega}-1)\) を掛ける。</p>
+\[
+u(\omega)\propto
+\frac{\hbar\omega^3}{c^3}
+\frac1{e^{\beta\hbar\omega}-1}.
+\]
+<p>全周波数積分で \(U\propto VT^4\)。</p>
+</div></details>
+<h3><span class="tag">9-2</span>光子気体の圧力</h3>
+<p>\(U\propto VT^4\) から \(F\) と \(PV\) を \(U\) で表せ。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+F=-\frac13U,\qquad PV=\frac13U.
+\]
+<p>普通の非相対論的自由粒子の \(PV=2U/3\) と異なる。</p>
+</div></details>
+<h3><span class="tag">9-3</span>Einstein模型とDebye模型</h3>
+<p>仮定と低温熱容量を比較せよ。</p>
+<details class="answer"><summary>解答</summary><div>
+<p>Einstein模型は全振動子が同一振動数で、低温熱容量は指数関数的に小さくなる。Debye模型は音響分散 \(\omega=ck\)、状態密度 \(g_D(\omega)\propto\omega^2\) を使い、</p>
+\[
+C_V\simeq\frac{12\pi^4}{5}Nk_{\rm B}
+\left(\frac{T}{\Theta_D}\right)^3
+\quad(T\ll\Theta_D).
+\]
+<p>高温では両方とも \(3Nk_{\rm B}\)。</p>
+</div></details>
+<h3><span class="tag">9-4</span>Debye温度</h3>
+<p>数密度 \(N/V\) と音速 \(c\) からDebye温度の依存性を答えよ。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+\omega_D=c\left(6\pi^2\frac NV\right)^{1/3},
+\qquad
+\Theta_D=\frac{\hbar\omega_D}{k_{\rm B}}.
+\]
+<p>音速・数密度が大きい固体ほど \(\Theta_D\) が高い。</p>
+</div></details>
+
+<h2>第10章 半導体</h2>
+<h3><span class="tag">10-1</span>金属・絶縁体・半導体</h3>
+<p>バンド占有で3者を比較せよ。</p>
+<details class="answer"><summary>解答</summary><div>
+<p>金属は許容帯が部分占有。絶縁体は価電子帯が満杯で伝導帯が空、ギャップが大きい。半導体は同じ基本構造だがギャップが比較的小さく、熱・光・不純物でキャリアを作れる。</p>
+</div></details>
+<h3><span class="tag">10-2</span>質量作用則と真性Fermi準位</h3>
+<p>電子密度 \(n_e\) とホール密度 \(n_h\) の積、真性条件から \(\mu\) を答えよ。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+n_en_h=n_cn_v e^{-E_g/(k_{\rm B}T)}=n_i^2.
+\]
+<p>真性半導体では \(n_e=n_h\)。有効質量が等しければ \(\mu\simeq(E_c+E_v)/2\)、すなわちギャップ中央。したがって \(n_i\propto T^{3/2}e^{-E_g/(2k_{\rm B}T)}\)。</p>
+</div></details>
+<h3><span class="tag">10-3</span>ドーピング</h3>
+<p>ドナー密度 \(n_d\gg n_i\) のn型で電子密度を見積もれ。p型も答えよ。</p>
+<details class="answer"><summary>解答</summary><div>
+<p>電気的中性と \(n_en_h=n_i^2\) より、n型では \(n_e\simeq n_d\)、p型では \(n_h\simeq n_a\)。n型のFermi準位は伝導帯下端、p型は価電子帯上端へ近づく。</p>
+</div></details>
+<h3><span class="tag">10-4</span>光・電気・熱の変換</h3>
+<p>太陽電池、LED、Seebeck効果、Peltier効果を入力と出力で整理せよ。</p>
+<details class="answer"><summary>解答</summary><div>
+<table><thead><tr><th>現象</th><th>入力</th><th>出力</th></tr></thead><tbody>
+<tr><td>太陽電池</td><td>光</td><td>電力</td></tr>
+<tr><td>LED</td><td>電力</td><td>光</td></tr>
+<tr><td>Seebeck</td><td>温度差</td><td>電圧・電力</td></tr>
+<tr><td>Peltier</td><td>電流</td><td>吸熱・発熱</td></tr>
+</tbody></table>
+<p>LEDの代表波長は \(\lambda\simeq hc/E_g\)。光子エネルギーとバンドギャップを結ぶ。</p>
+</div></details>
+
+<h1 id="past-extra" class="chapter">8. 過去問固有テーマの補強</h1>
+<h2>Maxwell速度分布</h2>
+<p>3次元古典気体の速さ分布、最頻速さ、二乗平均平方根速さを答えよ。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+P(v)=4\pi\left(\frac{m}{2\pi k_{\rm B}T}\right)^{3/2}
+v^2e^{-mv^2/(2k_{\rm B}T)},
+\]
+\[
+v_{\rm mp}=\sqrt{\frac{2k_{\rm B}T}{m}},\qquad
+v_{\rm rms}=\sqrt{\frac{3k_{\rm B}T}{m}}.
+\]
+<p>速度ベクトル各成分はGaussianだが、速さ分布には球殻体積 \(4\pi v^2\) が掛かる。</p>
+</div></details>
+
+<h2>Bayesの定理と情報量</h2>
+<p>ラインAの生産比率 \(P(A)\)、不良率 \(P(D|A)\) が与えられたとき、不良品がA製である確率を書け。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+P(A|D)=\frac{P(D|A)P(A)}
+{\sum_iP(D|i)P(i)}.
+\]
+<p>情報量は \(I=-\log_2p\)、平均情報量は \(H=-\sum p_i\log_2p_i\)。熱力学の \(S=k_{\rm B}\ln g\) と同じく対数による加算性を持つが、確率と単位は区別する。</p>
+</div></details>
+
+<h2>拡散と情報エントロピー</h2>
+<p>1次元拡散方程式と、点状初期分布からのGaussian解を書け。</p>
+<details class="answer"><summary>解答</summary><div>
+\[
+\frac{\partial P}{\partial t}
+=D\frac{\partial^2P}{\partial x^2},
+\qquad
+P(x,t)=\frac1{\sqrt{4\pi Dt}}
+e^{-x^2/(4Dt)}.
+\]
+<p>分散は \(2Dt\)。時間とともに分布が広がり、位置に関する情報エントロピーが増える。</p>
+</div></details>
+
+<h2>Seebeck係数</h2>
+<p>金属で温度差が電圧を生む理由を、Fermi準位付近の電子と平均エネルギーの差から説明せよ。</p>
+<details class="answer"><summary>解答・注意</summary><div>
+<p>高温側ではFermi準位付近の分布がより広がり、拡散する電子の平均エネルギーに差が生じる。電荷分離による電場が拡散を打ち消すまで電圧が生じる。</p>
+<p>係数の厳密式は輸送模型と近似に依存するため、2023過去問で採用された式・符号規約に合わせる。</p>
+</div></details>
+
+<h1 id="prediction" class="chapter">9. 過去問ベース予想問題</h1>
+<blockquote>以下は2011・2023過去問の共通テーマ、2026レポート、章末演習から作った予想であり、実際の出題を断定するものではない。</blockquote>
+
+<h2>予想1 2準位系と分配関数</h2>
+<p>独立な \(N\) 個の粒子がエネルギー0と \(\epsilon\) の状態を持つ。</p>
+<ol><li>1粒子分配関数を求めよ。</li><li>全分配関数を求めよ。</li><li>平均エネルギーを求めよ。</li><li>低温・高温極限を説明せよ。</li></ol>
+<details class="answer"><summary>解答方針</summary><div>
+\[
+z=1+e^{-\beta\epsilon},\qquad Z=z^N
+\]
+\[
+U=-\frac{\partial\ln Z}{\partial\beta}
+=\frac{N\epsilon}{e^{\beta\epsilon}+1}
+\]
+<p>低温で0、高温で \(N\epsilon/2\)。</p></div></details>
+
+<h2>予想2 4統計集団</h2>
+<p>孤立気体、熱浴中の固体、定温定圧反応、気体と分子交換する吸着表面について、統計集団・重み・分配関数・熱力学関数を答えよ。</p>
+<details class="answer"><summary>解答</summary><div><table><thead><tr><th>外部条件</th><th>統計集団</th><th>重み</th><th>分配関数</th><th>熱力学関数</th></tr></thead><tbody><tr><td>孤立</td><td>小正準</td><td>等確率</td><td>\(g\)</td><td>\(S\)</td></tr><tr><td>熱浴</td><td>正準</td><td>\(e^{-\beta E}\)</td><td>\(Z\)</td><td>\(F\)</td></tr><tr><td>定温定圧</td><td>T-P</td><td>\(e^{-\beta(E+PV)}\)</td><td>\(Y\)</td><td>\(G\)</td></tr><tr><td>粒子交換</td><td>大正準</td><td>\(e^{-\beta(E-\mu N)}\)</td><td>\(\Xi\)</td><td>\(J\)</td></tr></tbody></table></div></details>
+
+<h2>予想3 Fermi気体</h2>
+<ol><li>FD分布を書け。</li><li>\(T=0\) の形とFermiエネルギーを説明せよ。</li><li>低温電子熱容量が小さい理由を説明せよ。</li><li>古典極限の条件を示せ。</li></ol>
+<details class="answer"><summary>解答要点</summary><div>
+\[
+f_{\mathrm{FD}}(\epsilon)
+=\frac1{e^{(\epsilon-\mu)/(k_{\mathrm B}T)}+1}
+\]
+<p>絶対零度では \(\epsilon_{\mathrm F}\) まで1、その上は0。Pauli排他律のためFermi面近くしか励起できず \(C_e\propto T\)。指数項が1より十分大きいと古典極限。</p></div></details>
+
+<h2>予想4 フォノンと半導体</h2>
+<ol><li>フォノンで \(\mu=0\) の理由を答えよ。</li><li>Debye模型の高温・低温熱容量を答えよ。</li><li>真性半導体のキャリア密度が温度で急増する理由を答えよ。</li><li>n型・p型の多数キャリアを答えよ。</li></ol>
+<details class="answer"><summary>解答要点</summary><div><p>フォノン数は保存されない。高温で \(3Nk_{\mathrm B}\)、低温で \(T^3\)。真性半導体は概ね</p>
+\[
+n_i\propto T^{3/2}e^{-E_g/(2k_{\mathrm B}T)}.
+\]
+<p>n型は電子、p型はホール。</p></div></details>
+
+<h1 id="mock" class="chapter">10. 本番形式ミニ模試（4問から3問・60分）</h1>
+<h2>Q1 多重度と熱平衡</h2>
+<ol><li>\(S=k_{\mathrm B}\ln g\) の対数の意味を説明せよ。</li><li>接触した2系の全多重度を最大化し \(T_1=T_2\) を示せ。</li><li>熱が高温から低温へ流れることをエントロピー変化で示せ。</li></ol>
+<details class="answer"><summary>採点要点</summary><div><p>\(g=g_1g_2\) が \(S=S_1+S_2\) になることに加え、次の2式を書く。</p>
+\[
+\frac1T=\left(\frac{\partial S}{\partial E}\right)_{N,V},
+\qquad
+\Delta S_{\mathrm{tot}}
+=\left(\frac1{T_2}-\frac1{T_1}\right)\Delta E
+\]
+</div></details>
+
+<h2>Q2 古典分配関数</h2>
+<p>重力場中の理想気体について有限高さの \(Z\)、密度分布、\(H\to\infty\) の \(U,C_V\) を求めよ。</p>
+<details class="answer"><summary>採点要点</summary><div><p>古典分配関数の係数 \(1/(N!h^{3N})\)、運動量積分、有限高さの指数因子に加え、次の結果を書く。</p>
+\[
+n(z)\propto e^{-mgz/(k_{\mathrm B}T)},\qquad
+U=\frac52Nk_{\mathrm B}T,\qquad
+C_V=\frac52Nk_{\mathrm B}.
+\]
+</div></details>
+
+<h2>Q3 量子統計</h2>
+<p>FD・BE分布を比較し古典極限を示せ。さらに自由電子とフォノンの低温熱容量を比較せよ。</p>
+<details class="answer"><summary>採点要点</summary><div><p>分母の \(+1/-1\) だけでなく占有制限を書く。古典条件を書く。電子熱容量は \(T\)、フォノン熱容量は \(T^3\) に比例する。</p></div></details>
+
+<h2>Q4 半導体</h2>
+<p>金属・絶縁体・半導体をバンドで比較し、真性キャリア、ドーピング、p-n接合の整流を説明せよ。</p>
+<details class="answer"><summary>採点要点</summary><div><p>バンド占有と \(E_g\)、\(n_i\) の指数依存、n型電子・p型ホール、順方向で障壁低下・逆方向で障壁上昇を書く。</p></div></details>
+
+<h1 id="mistakes" class="chapter">11. 間違いチェック</h1>
+<ul>
+<li class="check"><span>□</span>多重度と確率を区別する</li>
+<li class="check"><span>□</span>\(F=-k_{\mathrm B}T\ln Z\) の負号</li>
+<li class="check"><span>□</span>\(U=-\left(\partial\ln Z/\partial\beta\right)_{V,N}\) は \(\ln Z\) を微分</li>
+<li class="check"><span>□</span>T-Pは \(E+PV\)、大正準は \(E-\mu N\)</li>
+<li class="check"><span>□</span>FDは +1、BEは -1</li>
+<li class="check"><span>□</span>古典分配関数の \(1/(N!h^{3N})\)</li>
+<li class="check"><span>□</span>等分配則は古典・2次形式</li>
+<li class="check"><span>□</span>フォトン・フォノンは粒子数非保存で \(\mu=0\)</li>
+<li class="check"><span>□</span>Debyeの \(T^3\) 則は低温</li>
+<li class="check"><span>□</span>答案の最初に固定条件と統計集団を書く</li>
+</ul>
+</main>
+</div>
+</body>
+</html>

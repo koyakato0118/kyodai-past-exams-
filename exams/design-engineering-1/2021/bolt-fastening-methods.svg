@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="770" viewBox="0 0 1500 770">
+<style>
+text{font-family:"Noto Sans CJK JP","Yu Gothic",sans-serif;fill:#172033}
+.title{font-size:31px;font-weight:700}.label{font-size:23px}.small{font-size:19px}
+.part{fill:#e8edf4;stroke:#334155;stroke-width:3}.bolt{fill:#dbeafe;stroke:#2563eb;stroke-width:4}
+.thread{stroke:#dc2626;stroke-width:3}.nut{fill:#fef3c7;stroke:#b45309;stroke-width:4}
+</style>
+<rect width="1500" height="770" fill="white"/>
+<text x="55" y="55" class="title">通しボルト・押さえボルト・植え込みボルト</text>
+
+<g transform="translate(30,90)">
+<text x="120" y="35" class="title">通しボルト</text>
+<rect x="75" y="155" width="320" height="95" class="part"/>
+<rect x="75" y="270" width="320" height="95" class="part"/>
+<rect x="205" y="100" width="55" height="335" class="bolt"/>
+<rect x="170" y="80" width="125" height="45" rx="8" class="bolt"/>
+<polygon points="170,430 295,430 280,490 185,490" class="nut"/>
+<g class="thread"><line x1="205" y1="370" x2="260" y2="390"/><line x1="205" y1="390" x2="260" y2="410"/><line x1="205" y1="410" x2="260" y2="430"/></g>
+<text x="40" y="540" class="label">両部材は通し穴、反対側をナット締結</text>
+<text x="40" y="580" class="small">・両側へ手が届く場所に適する</text>
+<text x="40" y="615" class="small">・母材にめねじ加工が不要</text>
+</g>
+
+<g transform="translate(520,90)">
+<text x="100" y="35" class="title">押さえボルト</text>
+<rect x="75" y="155" width="320" height="95" class="part"/>
+<rect x="75" y="270" width="320" height="170" class="part"/>
+<rect x="205" y="100" width="55" height="275" class="bolt"/>
+<rect x="170" y="80" width="125" height="45" rx="8" class="bolt"/>
+<g class="thread">
+<line x1="205" y1="285" x2="260" y2="305"/><line x1="205" y1="305" x2="260" y2="325"/>
+<line x1="205" y1="325" x2="260" y2="345"/><line x1="205" y1="345" x2="260" y2="365"/>
+</g>
+<text x="40" y="500" class="label">上側は通し穴、下側のめねじへ締め込む</text>
+<text x="40" y="540" class="small">・裏側にナットを置けない場合に適する</text>
+<text x="40" y="575" class="small">・母材ねじを損傷すると修理が必要</text>
+</g>
+
+<g transform="translate(1010,90)">
+<text x="85" y="35" class="title">植え込みボルト</text>
+<rect x="75" y="155" width="320" height="95" class="part"/>
+<rect x="75" y="270" width="320" height="170" class="part"/>
+<rect x="205" y="115" width="55" height="300" class="bolt"/>
+<g class="thread">
+<line x1="205" y1="135" x2="260" y2="155"/><line x1="205" y1="155" x2="260" y2="175"/>
+<line x1="205" y1="335" x2="260" y2="355"/><line x1="205" y1="355" x2="260" y2="375"/>
+<line x1="205" y1="375" x2="260" y2="395"/><line x1="205" y1="395" x2="260" y2="415"/>
+</g>
+<polygon points="170,95 295,95 280,145 185,145" class="nut"/>
+<text x="35" y="500" class="label">一端を母材へ固定し、他端をナット締結</text>
+<text x="35" y="540" class="small">・繰返し分解しても母材ねじを傷めにくい</text>
+<text x="35" y="575" class="small">・シリンダヘッド、フランジなどに使用</text>
+</g>
+</svg>

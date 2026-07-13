@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <style>
+    text { font-family:"Noto Sans CJK JP","Yu Gothic",sans-serif; fill:#172033; }
+    .title { font-size:30px; font-weight:700; }
+    .label { font-size:21px; }
+    .ring { fill:#e9eef5; stroke:#253247; stroke-width:4; }
+    .ball { fill:#ffffff; stroke:#2563eb; stroke-width:5; }
+    .cage { fill:none; stroke:#d97706; stroke-width:5; stroke-dasharray:10 8; }
+    .lead { stroke:#596579; stroke-width:2.5; }
+  </style>
+  <rect width="1200" height="720" fill="white"/>
+  <text x="70" y="55" class="title">典型的な玉軸受の断面模式図</text>
+
+  <!-- radial bearing -->
+  <text x="125" y="115" class="title">ラジアル玉軸受</text>
+  <circle cx="340" cy="365" r="210" class="ring"/>
+  <circle cx="340" cy="365" r="150" fill="white" stroke="#253247" stroke-width="4"/>
+  <circle cx="340" cy="365" r="96" class="ring"/>
+  <circle cx="340" cy="365" r="48" fill="white" stroke="#253247" stroke-width="4"/>
+  <circle cx="340" cy="215" r="28" class="ball"/>
+  <circle cx="446" cy="259" r="28" class="ball"/>
+  <circle cx="490" cy="365" r="28" class="ball"/>
+  <circle cx="446" cy="471" r="28" class="ball"/>
+  <circle cx="340" cy="515" r="28" class="ball"/>
+  <circle cx="234" cy="471" r="28" class="ball"/>
+  <circle cx="190" cy="365" r="28" class="ball"/>
+  <circle cx="234" cy="259" r="28" class="ball"/>
+  <circle cx="340" cy="365" r="150" class="cage"/>
+
+  <line x1="530" y1="210" x2="458" y2="245" class="lead"/>
+  <text x="540" y="205" class="label">玉（転動体）</text>
+  <line x1="520" y1="300" x2="475" y2="320" class="lead"/>
+  <text x="530" y="298" class="label">保持器（リテーナ）</text>
+  <line x1="510" y1="395" x2="445" y2="395" class="lead"/>
+  <text x="520" y="402" class="label">内輪</text>
+  <line x1="510" y1="485" x2="482" y2="492" class="lead"/>
+  <text x="520" y="492" class="label">外輪</text>
+  <line x1="510" y1="565" x2="430" y2="505" class="lead"/>
+  <text x="520" y="572" class="label">軌道溝</text>
+
+  <!-- thrust bearing -->
+  <text x="745" y="115" class="title">スラスト玉軸受</text>
+  <rect x="725" y="215" width="355" height="55" rx="12" class="ring"/>
+  <rect x="725" y="455" width="355" height="55" rx="12" class="ring"/>
+  <circle cx="785" cy="365" r="37" class="ball"/>
+  <circle cx="885" cy="365" r="37" class="ball"/>
+  <circle cx="985" cy="365" r="37" class="ball"/>
+  <rect x="750" y="325" width="270" height="80" rx="28" class="cage"/>
+  <path d="M760 270 Q785 315 810 270" fill="none" stroke="#253247" stroke-width="4"/>
+  <path d="M860 270 Q885 315 910 270" fill="none" stroke="#253247" stroke-width="4"/>
+  <path d="M960 270 Q985 315 1010 270" fill="none" stroke="#253247" stroke-width="4"/>
+  <path d="M760 455 Q785 410 810 455" fill="none" stroke="#253247" stroke-width="4"/>
+  <path d="M860 455 Q885 410 910 455" fill="none" stroke="#253247" stroke-width="4"/>
+  <path d="M960 455 Q985 410 1010 455" fill="none" stroke="#253247" stroke-width="4"/>
+
+  <line x1="1090" y1="240" x2="1035" y2="240" class="lead"/>
+  <text x="865" y="185" class="label">軸軌道盤（軸座金）</text>
+  <line x1="1090" y1="480" x2="1035" y2="480" class="lead"/>
+  <text x="850" y="550" class="label">ハウジング軌道盤（ハウジング座金）</text>
+  <line x1="1090" y1="365" x2="1025" y2="365" class="lead"/>
+  <text x="1040" y="355" class="label">玉</text>
+  <text x="1040" y="390" class="label">＋保持器</text>
+
+  <text x="115" y="650" class="label">主に軸に垂直なラジアル荷重を支持</text>
+  <text x="735" y="650" class="label">主に軸方向のスラスト荷重を支持</text>
+</svg>
